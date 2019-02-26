@@ -1,10 +1,10 @@
 {
   "name": "enapso-graphdb-cli",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Enapso GraphDB Command Line Interface",
-  "main": "enapsoGDB.js",
+  "main": "index.js",
   "bin": {
-    "enapsoGDB": "./enapsoGDB.js"
+    "enapsogdb": "./index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

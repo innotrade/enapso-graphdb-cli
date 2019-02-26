@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Backup",
-            "program": "${workspaceFolder}/enapsoGDB.js",
+            "program": "${workspaceFolder}/index.js",
             "args": [
                 "export",
                 "--baseuri", "http://localhost:7200",
