@@ -2,7 +2,10 @@
   "name": "enapso-graphdb-cli",
   "version": "0.1.0",
   "description": "Enapso GraphDB Command Line Interface",
-  "main": "app.js",
+  "main": "enapsoGDB.js",
+  "bin": {
+    "enapsoGDB": "./enapsoGDB.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,10 +17,14 @@
     "enapso",
     "ontotext",
     "graphdb",
+    "graphdatabase",
     "owl",
     "rdf",
     "sparql",
-    "knowledgegraph"
+    "ontology",
+    "knowledgegraph",
+    "command line interface",
+    "cli"
   ],
   "author": "Alexander Schulze",
   "license": "Apache-2.0",
