@@ -1,0 +1,33 @@
+{
+  "name": "enapso-graphdb-cli",
+  "version": "0.1.0",
+  "description": "Enapso GraphDB Command Line Interface",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/innotrade/enapso-graphdb-cli.git"
+  },
+  "keywords": [
+    "enapso",
+    "ontotext",
+    "graphdb",
+    "owl",
+    "rdf",
+    "sparql",
+    "knowledgegraph"
+  ],
+  "author": "Alexander Schulze",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/innotrade/enapso-graphdb-cli/issues"
+  },
+  "homepage": "https://github.com/innotrade/enapso-graphdb-cli#readme",
+  "dependencies": {
+    "command-line-args": "^5.0.2",
+    "enapso-graphdb-admin": "^0.1.11",
+    "enapso-graphdb-client": "^1.1.12"
+  }
+}
