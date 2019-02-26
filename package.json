@@ -1,6 +1,6 @@
 {
   "name": "enapso-graphdb-cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Enapso GraphDB Command Line Interface",
   "main": "enapsoGDB.js",
   "bin": {
