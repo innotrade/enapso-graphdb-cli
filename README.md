@@ -1,26 +1,40 @@
 # enapso-graphdb-cli
 Enapso Ontotext GraphDB 8.x Command Line Interface (CLI) for JavaScript
+Enapso CLI for GraphDB to easily perform numerous operations or GraphDB repositories and named graphs.
+This tool will be continously extended by further scriptable convenience operations.
+
+**The following demos require a running GraphDB 8.x instance on localhost at port 7200. The demos as well as the automated tests require a fully working Ontotext GraphDB repository "Test" and a user "Test" with the password "Test" being set up, which has read/write access to the "Test" Repository.** For certain operations the user needs to have the Repository Manager or Administrator role in GraphDB.
+Get GraphDB for free at https://www.ontotext.com/free-graphdb-download-copy/.
+
+To discuss questions and suggestions with the Enapso and GraphDB community, we'll be happy to meet you in our forum at https://www.innotrade.com/forum/.
 
 ## Commands
 ```
-export  Exports a repository or context from GraphDB to a file
+export   exports (download) a repository or context from GraphDB to a file
+import   imports (upload) a repository or context from a file to a GraphDB repository or named graph
 ```
 ## Parameters
 ```
---repository   -r
+--dburl        -d   base url of GraphDB instance, e.g. http://localhost:7200
+--repository   -r   repository to use for the command
 --context      -c   context to be used for the command, of not passed usually the entire repository is used
---username     -u
---password     -p
---dburl        -d
---baseuri      -b
---verbose      -v
---targetfile   -t   file name for exports, if not given output ist send to the console
+--username     -u   the user to be authenticated
+--password     -p   the password to be used for authentication
+                    (should not be stored in scripts, better use env variables)
+--baseiri      -i   base iri of graph e.g. http://ont.enapso.com/
+--verbose      -v   log detailed output to the console
+--targetfile   -t   file name for exports to file
+--sourcefile   -s   file name for import from file
 --format       -f   please refer to the below format specification
 ```
+
 # Examples
+
+## Export (download) a repository or named graph
+Download from GraphDB to a file:
 ```
 enapsogdb export \
-  -b "http://localhost:7200" \
+  -d "http://localhost:7200" \
   -r "Test" \
   -c "http://ont.enapso.com/test" \
   -t "backups/backup.ttl" \
@@ -28,6 +42,21 @@ enapsogdb export \
   -p "Test" \
   -f "text/turtle"
 ```
+
+## Import (upload) a repository or named graph
+Upload from a file to GraphDB:
+```
+enapsogdb import \
+  --dburl "http://localhost:7200" \
+  --repository "Test" \
+  --context "http://ont.enapso.com/test" \
+  --baseiri "http://ont.enapso.com/test#" \
+  --sourcefile "imports/test.owl" \
+  --username "Test" \
+  --password "Test" \
+  --format "application/rdf+xml"
+```
+
 ## File Types and Data Formats
 
 The following file types are supported:

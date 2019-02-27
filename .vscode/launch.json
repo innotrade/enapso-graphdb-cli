@@ -7,17 +7,34 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Backup",
+            "name": "Export",
             "program": "${workspaceFolder}/index.js",
             "args": [
                 "export",
-                "--baseuri", "http://localhost:7200",
+                "--dburl", "http://localhost:7200",
                 "--repository", "Test",
                 "--context", "http://ont.enapso.com/test",
-                "--targetfile", "backups/backup.ttl",
+                "--targetfile", "exports/export.ttl",
                 "--username", "Test",
                 "--password", "Test",
-                "--format", "text/turtle", // "application/rdf+xml"        
+                "--format", "text/turtle",     
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Import",
+            "program": "${workspaceFolder}/index.js",
+            "args": [
+                "import",
+                "--dburl", "http://localhost:7200",
+                "--repository", "Test",
+                "--context", "http://ont.enapso.com/test",
+                "--baseiri", "http://ont.enapso.com/test#",
+                "--sourcefile", "imports/test.owl",
+                "--username", "Test",
+                "--password", "Test",
+                "--format", "application/rdf+xml",        
             ]
         }
     ]

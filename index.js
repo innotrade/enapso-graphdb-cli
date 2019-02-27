@@ -27,9 +27,10 @@ const EnapsoGraphDBCLI = {
         { name: "username", alias: 'u', type: String },
         { name: "password", alias: 'p', type: String },
         { name: "dburl", alias: 'd', type: String },
-        { name: "baseuri", alias: 'b', type: String },
+        { name: "baseiri", alias: 'i', type: String },
         { name: "verbose", alias: 'v', type: Boolean },
         { name: "targetfile", alias: 't', type: String },
+        { name: "sourcefile", alias: 's', type: String },
         { name: "format", alias: 'f', type: String }
     ],
 
@@ -45,15 +46,27 @@ const EnapsoGraphDBCLI = {
         console.log("Export file has been created.");
     },
 
+    import: async function (aOptions) {
+        var lRes = await this.endpoint.uploadFromFile({
+            filename: aOptions.sourcefile,
+            format: aOptions.format,
+            baseIRI: aOptions.baseiri,
+            context: aOptions.context,
+            username: aOptions.username,
+            password: aOptions.password
+        });
+        console.log("Import file has been uploaded.");
+    },
+
     exec: async function () {
         console.log("Enapso Ontotext GraphDB Command Line Interface");
-        console.log("(C) 2019 Innotrade GmbH, Herzogenrath, NRW, Germany");
+        console.log("(C) 2019 Innotrade GmbH, Herzogenrath, NRW, Germany, https://www.innotrade.com");
 
         let lOptions = commandLineArgs(this.mOptionDefinitions);
         // console.log(JSON.stringify(lOptions, null, 2));
 
         this.endpoint = new EnapsoGraphDBClient.Endpoint({
-            baseURL: lOptions.baseuri,
+            baseURL: lOptions.dburl,
             repository: lOptions.repository,
             prefixes: GRAPHDB_DEFAULT_PREFIXES
         });
@@ -68,6 +81,8 @@ const EnapsoGraphDBCLI = {
 
         if ('export' === lOptions.command) {
             this.export(lOptions);
+        } else if ('import' === lOptions.command) {
+            this.import(lOptions);
         } else {
             console.log("No valid command passed");
         }
