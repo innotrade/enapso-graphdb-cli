@@ -1,11 +1,12 @@
 # enapso-graphdb-cli
-Enapso Ontotext GraphDB 8.x Command Line Interface (CLI) for JavaScript
-Enapso CLI for GraphDB to easily perform numerous operations or GraphDB repositories and named graphs.
-This tool will be continously extended by further scriptable convenience operations.
+Enapso Ontotext GraphDB 8.x Command Line Interface (CLI) for Node.js
+
+Enapso Command Line Interface for GraphDB to easily perform numerous operations on GraphDB repositories and named graphs. This tool will be continously extended by further scriptable convenience operations.
 
 **The following demos require a running GraphDB 8.x instance on localhost at port 7200. The demos as well as the automated tests require a fully working Ontotext GraphDB repository "Test" and a user "Test" with the password "Test" being set up, which has read/write access to the "Test" Repository.** For certain operations the user needs to have the Repository Manager or Administrator role in GraphDB.
-Get GraphDB for free at https://www.ontotext.com/free-graphdb-download-copy/.
+Get the latest version of GraphDB for free at https://www.ontotext.com/free-graphdb-download-copy/.
 
+**This project is actively developed and maintained.**
 To discuss questions and suggestions with the Enapso and GraphDB community, we'll be happy to meet you in our forum at https://www.innotrade.com/forum/.
 
 ## Commands
