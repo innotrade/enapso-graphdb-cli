@@ -1,0 +1,16 @@
+{
+  "total": 2,
+  "success": true,
+  "records": [
+    {
+      "iri": "http://ont.enapso.com/test#Person_AlexanderSchulze",
+      "firstName": "Alexander",
+      "lastName": "Schulze"
+    },
+    {
+      "iri": "http://ont.enapso.com/test#Person_OsvaldoAguilarLauzurique",
+      "firstName": "Osvaldo",
+      "lastName": "Aguilar Lauzurique"
+    }
+  ]
+}

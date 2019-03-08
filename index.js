@@ -7,6 +7,7 @@
 // https://github.com/75lb/command-line-args/blob/master/doc/API.md
 // https://github.com/75lb/command-line-args/blob/master/doc/option-definition.md
 
+const fs = require('fs');
 const commandLineArgs = require('command-line-args');
 const EnapsoGraphDBClient = require('enapso-graphdb-client');
 const EnapsoGraphDBAdmin = require('enapso-graphdb-admin');
@@ -31,7 +32,8 @@ const EnapsoGraphDBCLI = {
         { name: "verbose", alias: 'v', type: Boolean },
         { name: "targetfile", alias: 't', type: String },
         { name: "sourcefile", alias: 's', type: String },
-        { name: "format", alias: 'f', type: String }
+        { name: "format", alias: 'f', type: String },
+        { name: "queryfile", alias: 'q', type: String }
     ],
 
     export: async function (aOptions) {
@@ -58,6 +60,23 @@ const EnapsoGraphDBCLI = {
         console.log("Import file has been uploaded.");
     },
 
+    query: async function (aOptions) {
+        var lQuery = fs.readFileSync(aOptions.queryfile);
+
+        var lRes = await this.endpoint.query(lQuery, {
+        });
+        
+    },
+
+    transform: async function (aOptions) {
+        var lSourceData = fs.readFileSync(aOptions.sourcefile);
+        var lBindings = JSON.parse(lSourceData);
+        var lDestData = EnapsoGraphDBClient.transformBindingsToResultSet(lBindings, {
+            dropPrefixes: false
+        });
+        fs.writeFileSync(aOptions.targetfile, JSON.stringify(lDestData, null, 2));
+    },
+
     exec: async function () {
         console.log("Enapso Ontotext GraphDB Command Line Interface");
         console.log("(C) 2019 Innotrade GmbH, Herzogenrath, NRW, Germany, https://www.innotrade.com");
@@ -70,19 +89,26 @@ const EnapsoGraphDBCLI = {
             repository: lOptions.repository,
             prefixes: GRAPHDB_DEFAULT_PREFIXES
         });
-        this.authentication = await this.endpoint.login(
-            lOptions.username,
-            lOptions.password
-        );
-        if (!this.authentication.success) {
-            console.log("Login failed");
-            process.exit(-1);
+
+        if (lOptions.command !== "transform") {
+            this.authentication = await this.endpoint.login(
+                lOptions.username,
+                lOptions.password
+            );
+            if (!this.authentication.success) {
+                console.log("Login failed");
+                process.exit(-1);
+            }
         }
 
         if ('export' === lOptions.command) {
             this.export(lOptions);
         } else if ('import' === lOptions.command) {
             this.import(lOptions);
+        } else if ('transform' === lOptions.command) {
+            this.transform(lOptions);
+        } else if ('query' === lOptions.command) {
+            this.transform(lOptions);
         } else {
             console.log("No valid command passed");
         }

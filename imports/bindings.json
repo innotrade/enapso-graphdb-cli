@@ -1,0 +1,41 @@
+{
+    "head" : {
+      "vars" : [
+        "iri",
+        "firstName",
+        "lastName"
+      ]
+    },
+    "results" : {
+      "bindings" : [
+        {
+          "iri" : {
+            "type" : "uri",
+            "value" : "http://ont.enapso.com/test#Person_AlexanderSchulze"
+          },
+          "firstName" : {
+            "type" : "literal",
+            "value" : "Alexander"
+          },
+          "lastName" : {
+            "type" : "literal",
+            "value" : "Schulze"
+          }
+        },
+        {
+          "iri" : {
+            "type" : "uri",
+            "value" : "http://ont.enapso.com/test#Person_OsvaldoAguilarLauzurique"
+          },
+          "firstName" : {
+            "type" : "literal",
+            "value" : "Osvaldo"
+          },
+          "lastName" : {
+            "type" : "literal",
+            "value" : "Aguilar Lauzurique"
+          }
+        }
+      ]
+    }
+  }
