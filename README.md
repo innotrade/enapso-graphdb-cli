@@ -26,6 +26,7 @@ import   imports (upload) a repository or context from a file to a GraphDB repos
 --verbose      -v   log detailed output to the console
 --targetfile   -t   file name for exports to file
 --sourcefile   -s   file name for import from file
+--queryfile    -q   file name for the query file (SPARQL)
 --format       -f   please refer to the below format specification
 ```
 

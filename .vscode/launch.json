@@ -7,7 +7,7 @@
 		{
 			"type": "node",
 			"request": "launch",
-			"name": "Export",
+			"name": "Export (Download from GraphDB)",
 			"program": "${workspaceFolder}/index.js",
 			"args": [
 				"export",
@@ -23,7 +23,7 @@
 		{
 			"type": "node",
 			"request": "launch",
-			"name": "Import",
+			"name": "Import (Upload fto GraphDB)",
 			"program": "${workspaceFolder}/index.js",
 			"args": [
 				"import",
@@ -47,6 +47,23 @@
 				"--sourcefile",	"imports/bindings.json",
 				"--targetfile",	"exports/resultset.json",
 				"--format", "json",
+			]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Query (SPARQL File)",
+			"program": "${workspaceFolder}/index.js",
+			"args": [
+				"query",
+				"--dburl", "http://localhost:7200",
+				"--repository", "Dev",
+				// "--context", "http://ont.enapso.com/dev",
+				// "--baseiri", "http://ont.enapso.com/dev#",				
+				"--queryfile", "queries/countries.sparql",
+				"--targetfile",	"results/countries.csv",
+				"--prefixfile", "queries/prefixes.prf",
+				"--format", "csv",
 			]
 		}
 	]
