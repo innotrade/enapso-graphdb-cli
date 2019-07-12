@@ -71,10 +71,11 @@ const EnapsoGraphDBCLI = {
 		}
 
 		var lRes = await this.endpoint.query(lQuery, {
-
 		});
 		let lData = this.endpoint.transformBindingsToCSV(lRes, {
-			delimiter: '"'
+			delimiter: '"',
+			delimiterOptional: true,
+			separatorEscape: ','
 		});
 		let lineBreak = '\n';
 		lData = lData.headers.join(lineBreak) + lineBreak + lData.records.join(lineBreak);

@@ -35,6 +35,6 @@
   "dependencies": {
     "command-line-args": "^5.1.1",
     "enapso-graphdb-admin": "^0.1.15",
-    "enapso-graphdb-client": "^1.4.0"
+    "enapso-graphdb-client": "^1.4.2"
   }
 }
