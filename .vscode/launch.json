@@ -23,7 +23,7 @@
 		{
 			"type": "node",
 			"request": "launch",
-			"name": "Import (Upload fto GraphDB)",
+			"name": "Import (Upload to GraphDB)",
 			"program": "${workspaceFolder}/index.js",
 			"args": [
 				"import",
@@ -64,6 +64,19 @@
 				"--targetfile",	"results/countries.csv",
 				"--prefixfile", "queries/prefixes.prf",
 				"--format", "csv",
+			]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Clear Repository (LocalDB Test)",
+			"program": "${workspaceFolder}/index.js",
+			"args": [
+				"clearRepository",
+				"--dburl", "http://localhost:7200",
+				"--repository", "Test",
+				"--username", "Test",
+				"--password", "Test"
 			]
 		}
 	]

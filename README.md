@@ -59,6 +59,16 @@ enapsogdb import \
   --format "application/rdf+xml"
 ```
 
+## Clearing entire repository
+Clear entire repository. Caution! This command cannot be undone!
+```
+enapsogdb clearRepository \
+  --dburl "http://localhost:7200" \
+  --repository "Test" \
+  --username "Test" \
+  --password "Test" \
+```
+
 ## File Types and Data Formats
 
 The following file types are supported:

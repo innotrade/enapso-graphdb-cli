@@ -74,6 +74,7 @@ const EnapsoGraphDBCLI = {
 		});
 		let lData = this.endpoint.transformBindingsToCSV(lRes, {
 			delimiter: '"',
+			delimiterEscape: '\\"',
 			delimiterOptional: true,
 			separatorEscape: ','
 		});
@@ -88,6 +89,22 @@ const EnapsoGraphDBCLI = {
 			return;
 		}
 
+	},
+
+	// clearing the entire repository
+	clearRepository: async function (aOptions) {
+		let lRepository = aOptions.repository;
+		if(!lRepository) {
+			console.log("No or invalid repository passed");
+			return;
+		}
+		var lRes = await this.endpoint.clearRepository(lRepository, {
+		});
+		if(lRes && lRes.statusCode === 200) {
+			console.log('Repository "' + lRepository + '" successfully cleared.');
+		} else {
+			console.log('Error clearing repository "' + lRepository + '": ' + lRes.message);
+		}
 	},
 
 	transform: async function (aOptions) {
@@ -142,7 +159,9 @@ const EnapsoGraphDBCLI = {
 			this.transform(lOptions);
 		} else if ('query' === lOptions.command) {
 			this.query(lOptions);
-		} else {
+		} else if ('clearRepository' === lOptions.command) {
+			this.clearRepository(lOptions);
+		}else {
 			console.log("No valid command passed");
 		}
 	}
