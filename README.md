@@ -35,7 +35,7 @@ import   imports (upload) a repository or context from a file to a GraphDB repos
 ## Export (download) a repository or named graph
 Download from GraphDB to a file:
 ```
-enapsogdb export \
+enapsogdb export | download \
   -d "http://localhost:7200" \
   -r "Test" \
   -c "http://ont.enapso.com/test" \
@@ -48,7 +48,7 @@ enapsogdb export \
 ## Import (upload) a repository or named graph
 Upload from a file to GraphDB:
 ```
-enapsogdb import \
+enapsogdb import | upload \
   --dburl "http://localhost:7200" \
   --repository "Test" \
   --context "http://ont.enapso.com/test" \
@@ -60,11 +60,20 @@ enapsogdb import \
 ```
 
 ## Clearing entire repository
-Clear entire repository. Caution! This command cannot be undone!
+Clear entire repository. Caution! Use this command with care! The operation cannot be undone!
 ```
 enapsogdb clearRepository \
   --dburl "http://localhost:7200" \
   --repository "Test" \
+  --username "Test" \
+  --password "Test" \
+```
+
+## Perform Garbage Collection
+Perform the garbage collection of the Ontotext GraphDB.
+```
+enapsogdb gc \
+  --dburl "http://localhost:7200" \
   --username "Test" \
   --password "Test" \
 ```

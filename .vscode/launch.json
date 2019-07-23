@@ -78,6 +78,18 @@
 				"--username", "Test",
 				"--password", "Test"
 			]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Garbage Collection",
+			"program": "${workspaceFolder}/index.js",
+			"args": [
+				"gc",
+				"--dburl", "http://localhost:7200",
+				"--username", "Test",
+				"--password", "Test"
+			]
 		}
 	]
 }

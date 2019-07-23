@@ -19,6 +19,36 @@ const GRAPHDB_DEFAULT_PREFIXES = [
 	EnapsoGraphDBClient.PREFIX_RDFS
 ];
 
+const
+	PROGRAM_TITLE = 'Enapso Ontotext GraphDB Command Line Interface (CLI)',
+	COPYRIGHT = '(C) 2019 Innotrade GmbH, Herzogenrath, NRW, Germany, https://www.innotrade.com'
+	;
+
+const
+	ERROR_NO_OR_INVALID_COMMAND = 1,
+	ERROR_NO_DB_URL = 2,
+	ERROR_AUTHENTICATION_FAILED = 4,
+	ERROR_NOREPOSITORY = 10
+	;
+
+function getErrorMsg(code, args) {
+	let msg = 'Unknown error, please contact vendor.';
+	switch (code) {
+		case ERROR_NO_OR_INVALID_COMMAND: { msg = 'No or invalid command passed, please use enapsogdb cmd [args].'; break; }
+		case ERROR_NO_DB_URL: { msg = 'No URL to database passed, please check argument --dburl [url].'; break; }
+		case ERROR_AUTHENTICATION_FAILED: { msg = 'Authentication failed, please check credentials.'; break; }
+		case ERROR_NOREPOSITORY: { msg = 'No repository passed. Please check argument --repository [repo].'; break; }
+	}
+	return msg;
+}
+
+function logErrorMsg(code, args) {
+	if (code !== 0) {
+		console.log(getErrorMsg(code, args));
+	}
+	return code;
+}
+
 const EnapsoGraphDBCLI = {
 
 	mOptionDefinitions: [
@@ -42,23 +72,25 @@ const EnapsoGraphDBCLI = {
 			repository: aOptions.repository,
 			format: aOptions.format,
 			context: aOptions.context,
-			filename: aOptions.targetfile,
-			username: aOptions.username,
-			password: aOptions.password
+			filename: aOptions.targetfile
 		});
-		console.log("Export file has been created.");
+		console.log("Export file has successfully been downloaded.");
 	},
 
 	import: async function (aOptions) {
-		var lRes = await this.endpoint.uploadFromFile({
+		var res = await this.endpoint.uploadFromFile({
 			filename: aOptions.sourcefile,
 			format: aOptions.format,
 			baseIRI: aOptions.baseiri,
-			context: aOptions.context,
-			username: aOptions.username,
-			password: aOptions.password
+			context: aOptions.context
 		});
-		console.log("Import file has been uploaded.");
+		if (res.success) {
+			console.log('Import file ' + aOptions.sourcefile + ' has successfully been uploaded.');
+			return 0;
+		} else {
+			console.log(res.statusMessage);
+			return -1;
+		}
 	},
 
 	query: async function (aOptions) {
@@ -67,7 +99,7 @@ const EnapsoGraphDBCLI = {
 			lQuery = fs.readFileSync(aOptions.queryfile);
 		} catch (err) {
 			console.log("File " + aOptions.queryfile + " cannot be read");
-			return;
+			return -1;
 		}
 
 		var lRes = await this.endpoint.query(lQuery, {
@@ -84,26 +116,40 @@ const EnapsoGraphDBCLI = {
 		try {
 			fs.writeFileSync(aOptions.targetfile, lData);
 			console.log("File " + aOptions.targetfile + " successfully created");
+			return 0;
 		} catch (err) {
 			console.log("File " + aOptions.targetfile + " cannot be written");
-			return;
+			return -1;
 		}
-
 	},
 
 	// clearing the entire repository
 	clearRepository: async function (aOptions) {
+		// the repository is mandatory
 		let lRepository = aOptions.repository;
-		if(!lRepository) {
-			console.log("No or invalid repository passed");
-			return;
+		if (!lRepository) {
+			return logErrorMsg(ERROR_NOREPOSITORY);
 		}
 		var lRes = await this.endpoint.clearRepository(lRepository, {
 		});
-		if(lRes && lRes.statusCode === 200) {
+		if (lRes && lRes.statusCode === 200) {
 			console.log('Repository "' + lRepository + '" successfully cleared.');
+			return 0;
 		} else {
 			console.log('Error clearing repository "' + lRepository + '": ' + lRes.message);
+			return -1;
+		}
+	},
+
+	// perfom garbage collection
+	performGarbageCollection: async function () {
+		var lRes = await this.endpoint.performGarbageCollection();
+		if (lRes && lRes.statusCode === 200) {
+			console.log('Garbage successfully collected.');
+			return 0;
+		} else {
+			console.log('Error on garbage collection: ' + lRes.message);
+			return -1;
 		}
 	},
 
@@ -123,17 +169,21 @@ const EnapsoGraphDBCLI = {
 	},
 
 	exec: async function () {
-		console.log("Enapso Ontotext GraphDB Command Line Interface");
-		console.log("(C) 2019 Innotrade GmbH, Herzogenrath, NRW, Germany, https://www.innotrade.com");
+		console.log(PROGRAM_TITLE);
+		console.log(COPYRIGHT);
 
 		let lOptions = commandLineArgs(this.mOptionDefinitions);
 		// console.log(JSON.stringify(lOptions, null, 2));
 
-		let prefixes = GRAPHDB_DEFAULT_PREFIXES
+		let prefixes = GRAPHDB_DEFAULT_PREFIXES;
 		if (lOptions.prefixfile) {
 			prefixes = await this.readPrefixes(lOptions.prefixfile);
 		}
 
+		// check if a database URL is passed
+		if (!lOptions.dburl) {
+			process.exit(logErrorMsg(ERROR_NO_DB_URL));
+		}
 		this.endpoint = new EnapsoGraphDBClient.Endpoint({
 			baseURL: lOptions.dburl,
 			repository: lOptions.repository,
@@ -146,24 +196,28 @@ const EnapsoGraphDBCLI = {
 				lOptions.password
 			);
 			if (!this.authentication.success) {
-				console.log("Login failed");
-				process.exit(-1);
+				process.exit(logErrorMsg(ERROR_AUTHENTICATION_FAILED));
 			}
 		}
 
-		if ('export' === lOptions.command) {
-			this.export(lOptions);
-		} else if ('import' === lOptions.command) {
-			this.import(lOptions);
+		let retCode = -1;
+		if ('export' === lOptions.command || 'download' === lOptions.command) {
+			retCode = await this.export(lOptions);
+		} else if ('import' === lOptions.command || 'upload' === lOptions.command) {
+			retCode = await this.import(lOptions);
 		} else if ('transform' === lOptions.command) {
-			this.transform(lOptions);
+			retCode = await this.transform(lOptions);
 		} else if ('query' === lOptions.command) {
-			this.query(lOptions);
+			retCode = await this.query(lOptions);
 		} else if ('clearRepository' === lOptions.command) {
-			this.clearRepository(lOptions);
-		}else {
-			console.log("No valid command passed");
+			retCode = await this.clearRepository(lOptions);
+		} else if ('gc' === lOptions.command || 'garbageCollection' === lOptions.command) {
+			retCode = await this.performGarbageCollection(lOptions);
+		} else {
+			retCode = logErrorMsg(ERROR_NO_OR_INVALID_COMMAND);
 		}
+
+		process.exit(retCode);
 	}
 
 }
