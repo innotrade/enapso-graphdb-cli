@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 // Innotrade Enapso GraphDB Command Line Interface (CLI)
-// (C) Copyright 2019 Innotrade GmbH, Herzogenrath, NRW, Germany
+// (C) Copyright 2019-2020 Innotrade GmbH, Herzogenrath, NRW, Germany
 
 // for details regarding the options see:
 // https://github.com/75lb/command-line-args/blob/master/doc/API.md
@@ -9,8 +9,8 @@
 
 const fs = require('fs');
 const commandLineArgs = require('command-line-args');
-const { EnapsoGraphDBClient } = require('enapso-graphdb-client');
-const { EnapsoGraphDBAdmin } = require('enapso-graphdb-admin');
+const { EnapsoGraphDBClient } = require('@innotrade/enapso-graphdb-client');
+const { EnapsoGraphDBAdmin } = require('@innotrade/enapso-graphdb-admin');
 
 // the default prefixes for all SPARQL queries
 const GRAPHDB_DEFAULT_PREFIXES = [
@@ -21,7 +21,7 @@ const GRAPHDB_DEFAULT_PREFIXES = [
 
 const
 	PROGRAM_TITLE = 'Enapso Ontotext GraphDB Command Line Interface (CLI)',
-	COPYRIGHT = '(C) 2019 Innotrade GmbH, Herzogenrath, NRW, Germany, https://www.innotrade.com'
+	COPYRIGHT = '(C) 2019-2020 Innotrade GmbH, Herzogenrath, NRW, Germany, https://www.innotrade.com'
 	;
 
 const
