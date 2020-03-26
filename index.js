@@ -64,14 +64,12 @@ const EnapsoGraphDBCLI = {
 		{ name: "sourcefile", alias: 's', type: String },
 		{ name: "format", alias: 'f', type: String },
 		{ name: "queryfile", alias: 'q', type: String },
-		{ name: "prefixfile", alias: 'x',multiple:true, type: String },
+		{ name: "prefixfile", alias: 'x', multiple: true, type: String },
 		{ name: "reponame", alias: 'n', type: String },
 		{ name: "repotitle", alias: 'l', type: String },
-		{ name: "adminname", alias: 'm', type: String },
-		{ name: "adminpassword", alias: 'w', type: String },
-		{ name: "authorities", alias: 'a', type: String },
-		{ name: "newusername", alias: 'e', type: String },
-		{ name: "newuserpassword", alias: 'b', type: String }
+		{ name: "authorities", alias: 'a', type: String, multiple: true },
+		{ name: "newusername", type: String },
+		{ name: "newpassword", type: String }
 	],
 
 	export: async function (aOptions) {
@@ -107,34 +105,41 @@ const EnapsoGraphDBCLI = {
 			"location": aOptions.location !== undefined ? aOptions.location : ""
 		});
 		if (res.success) {
-			console.log('Repository'+ aOptions.reponame + ' has been created successfully.');
+			console.log('Repository' + aOptions.reponame + ' has been created successfully.');
 			return 0;
 		} else {
 			console.log(res.statusMessage);
 			return -1;
 		}
 	},
-		createUser: async function (aOptions) {
 
-			let lRes = await this.endpoint.login(
-				aOptions.adminname,
-				aOptions.adminpassword
-			);
-			// todo: interpret lRes here, it does not makes sense to continue if login does not work!
-			let res = await this.endpoint.createUser({
-
-				authorities: aOptions.authorities,//["WRITE_REPO_Test","READ_REPO_Test","READ_REPO_EnapsoDotNetProDemo", "ROLE_USER"],
-				"username": aOptions.newusername,	// Username 
-				"password": aOptions.newuserpassword	// Password for the user
-			});
+	createUser: async function (aOptions) {
+		let lRes = await this.endpoint.login(
+			aOptions.username,
+			aOptions.password
+		);
+		// todo: interpret lRes here, it does not makes sense to continue if login does not work!
+		let optAuth =
+			aOptions.authorities ? (Array.isArray(aOptions.authorities) ? aOptions.authorities.join(' ') : aOptions.authorities) : "ROLE_USER";
+		optAuth = optAuth.split(' ');
+		let authorities = [];
+		for (let auth of optAuth) {
+			authorities.push(auth.trim());
+		}
+		let res = await this.endpoint.createUser({
+			authorities: authorities,			// e.g. [ "WRITE_REPO_Test", "READ_REPO_Test", "READ_REPO_EnapsoDotNetProDemo", "ROLE_USER" ],
+			"username": aOptions.newusername,	// Username for the new user
+			"password": aOptions.newpassword	// Password for the new user
+		});
 		if (res.success) {
-			console.log( aOptions.newusername + ' has been created successfully.');
+			console.log(aOptions.newusername + ' has been created successfully.');
 			return 0;
 		} else {
 			console.log(res.statusMessage);
-			return -1;
+			return 400;
 		}
 	},
+
 	deleteRepository: async function (aOptions) {
 		var res = await this.endpoint.deleteRepository({
 			"id": aOptions.reponame
@@ -147,6 +152,7 @@ const EnapsoGraphDBCLI = {
 			return -1;
 		}
 	},
+
 	query: async function (aOptions) {
 		var lQuery;
 		try {
@@ -265,13 +271,13 @@ const EnapsoGraphDBCLI = {
 			retCode = await this.query(lOptions);
 		} else if ('clearRepository' === lOptions.command) {
 			retCode = await this.clearRepository(lOptions);
-		}else if ('createRepository' === lOptions.command) {
+		} else if ('createRepository' === lOptions.command) {
 			retCode = await this.createRepository(lOptions);
-		}else if ('deleteRepository' === lOptions.command) {
+		} else if ('deleteRepository' === lOptions.command) {
 			retCode = await this.deleteRepository(lOptions);
-		}else if ('createUser' === lOptions.command) {
+		} else if ('createUser' === lOptions.command) {
 			retCode = await this.createUser(lOptions);
-		}else if ('gc' === lOptions.command || 'garbageCollection' === lOptions.command) {
+		} else if ('gc' === lOptions.command || 'garbageCollection' === lOptions.command) {
 			retCode = await this.performGarbageCollection(lOptions);
 		} else {
 			retCode = logErrorMsg(ERROR_NO_OR_INVALID_COMMAND);
