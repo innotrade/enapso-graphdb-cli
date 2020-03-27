@@ -147,7 +147,6 @@
 				"-u", "admin",
 				"-p", "root",
 				"--newusername", "MyTestUser",
-				"--newpassword", "MyTestUser",
 				"-a", "ROLE_USER READ_REPO_Test READ_REPO_EnapsoDotNetProDemo"
 			]
 		},
