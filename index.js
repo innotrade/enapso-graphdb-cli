@@ -2,7 +2,7 @@
 
 // Innotrade Enapso GraphDB Command Line Interface (CLI)
 // (C) Copyright 2019-2020 Innotrade GmbH, Herzogenrath, NRW, Germany
-
+// Author(s): Alexander Schulze and Muhammad Yasir
 // for details regarding the options see:
 // https://github.com/75lb/command-line-args/blob/master/doc/API.md
 // https://github.com/75lb/command-line-args/blob/master/doc/option-definition.md
@@ -65,8 +65,8 @@ const EnapsoGraphDBCLI = {
 		{ name: "format", alias: 'f', type: String },
 		{ name: "queryfile", alias: 'q', type: String },
 		{ name: "prefixfile", alias: 'x', multiple: true, type: String },
-		{ name: "reponame", alias: 'n', type: String },
-		{ name: "repotitle", alias: 'l', type: String },
+		{ name: "reponame",  type: String },
+		{ name: "repotitle", type: String },
 		{ name: "authorities", alias: 'a', type: String, multiple: true },
 		{ name: "newusername", type: String },
 		{ name: "newpassword", type: String }
@@ -105,7 +105,7 @@ const EnapsoGraphDBCLI = {
 			"location": aOptions.location !== undefined ? aOptions.location : ""
 		});
 		if (res.success) {
-			console.log('Repository' + aOptions.reponame + ' has been created successfully.');
+			console.log('Repository ' + aOptions.reponame + ' has been created successfully.');
 			return 0;
 		} else {
 			console.log(res.statusMessage);
@@ -114,11 +114,6 @@ const EnapsoGraphDBCLI = {
 	},
 
 	createUser: async function (aOptions) {
-		let lRes = await this.endpoint.login(
-			aOptions.username,
-			aOptions.password
-		);
-		// todo: interpret lRes here, it does not makes sense to continue if login does not work!
 		let optAuth =
 			aOptions.authorities ? (Array.isArray(aOptions.authorities) ? aOptions.authorities.join(' ') : aOptions.authorities) : "ROLE_USER";
 		optAuth = optAuth.split(' ');
@@ -139,7 +134,43 @@ const EnapsoGraphDBCLI = {
 			return 400;
 		}
 	},
-
+	updateUser: async function (aOptions) {
+		let optAuth =
+			aOptions.authorities ? (Array.isArray(aOptions.authorities) ? aOptions.authorities.join(' ') : aOptions.authorities) : "ROLE_USER";
+		optAuth = optAuth.split(' ');
+		let authorities = [];
+		for (let auth of optAuth) {
+			authorities.push(auth.trim());
+		}
+		let res = await this.endpoint.updateUser({
+			authorities: authorities,			// e.g. [ "WRITE_REPO_Test", "READ_REPO_Test", "READ_REPO_EnapsoDotNetProDemo", "ROLE_USER" ],
+			"username": aOptions.newusername,	// Username for the new user which you wanna update
+			"password": aOptions.newpassword	// Password for the new user
+		});
+		if (res.success) {
+			console.log(aOptions.newusername + ' details has been updated successfully.');
+			return 0;
+		} else {
+			console.log(res.statusMessage);
+			return 400;
+		}
+	},
+	deleteUser: async function (aOptions) {
+		let lRes = await this.endpoint.login(
+			aOptions.username,
+			aOptions.password
+		);
+		let res = await this.endpoint.deleteUser({
+			"user": aOptions.newusername		// username which you want to delete
+		});
+		if (res.success) {
+			console.log(aOptions.newusername + ' has been deleted successfully.');
+			return 0;
+		} else {
+			console.log(res.statusMessage);
+			return 400;
+		}
+	},
 	deleteRepository: async function (aOptions) {
 		var res = await this.endpoint.deleteRepository({
 			"id": aOptions.reponame
@@ -277,6 +308,10 @@ const EnapsoGraphDBCLI = {
 			retCode = await this.deleteRepository(lOptions);
 		} else if ('createUser' === lOptions.command) {
 			retCode = await this.createUser(lOptions);
+		} else if ('updateUser' === lOptions.command) {
+			retCode = await this.updateUser(lOptions);
+		}else if ('deleteUser' === lOptions.command) {
+			retCode = await this.deleteUser(lOptions);
 		} else if ('gc' === lOptions.command || 'garbageCollection' === lOptions.command) {
 			retCode = await this.performGarbageCollection(lOptions);
 		} else {

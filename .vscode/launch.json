@@ -1,4 +1,8 @@
 {
+	
+	// Innotrade Enapso GraphDB Command Line Interface (CLI)
+	// (C) Copyright 2019-2020 Innotrade GmbH, Herzogenrath, NRW, Germany
+	// Author(s): Alexander Schulze and Muhammad Yasir
 	// Use IntelliSense to learn about possible attributes.
 	// Hover to view descriptions of existing attributes.
 	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
@@ -94,7 +98,33 @@
 		{
 			"type": "node",
 			"request": "launch",
-			"name": "Create User",
+			"name": "Create Repository",
+			"program": "${workspaceFolder}/index.js",
+			"args": [
+				"createRepository",
+				"-d", "http://localhost:7200",
+				"-u", "admin",
+				"-p", "root",
+				"--reponame", "MyTestUser",
+				"--repotitle", "MyTestUser"
+			]
+		},{
+			"type": "node",
+			"request": "launch",
+			"name": "Delete Newly Created Repository",
+			"program": "${workspaceFolder}/index.js",
+			"args": [
+				"deleteRepository",
+				"-d", "http://localhost:7200",
+				"-u", "admin",
+				"-p", "root",
+				"--reponame", "MyTestUser"
+			]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Create New User",
 			"program": "${workspaceFolder}/index.js",
 			"args": [
 				"createUser",
@@ -104,6 +134,34 @@
 				"--newusername", "MyTestUser",
 				"--newpassword", "MyTestUser",
 				"-a", "ROLE_USER WRITE_REPO_Test READ_REPO_Test READ_REPO_EnapsoDotNetProDemo"
+			]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Updated Newly Created User",
+			"program": "${workspaceFolder}/index.js",
+			"args": [
+				"updateUser",
+				"-d", "http://localhost:7200",
+				"-u", "admin",
+				"-p", "root",
+				"--newusername", "MyTestUser",
+				"--newpassword", "MyTestUser",
+				"-a", "ROLE_USER READ_REPO_Test READ_REPO_EnapsoDotNetProDemo"
+			]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Delete Updated and Newly Created User",
+			"program": "${workspaceFolder}/index.js",
+			"args": [
+				"deleteUser",
+				"-d", "http://localhost:7200",
+				"-u", "admin",
+				"-p", "root",
+				"--newusername", "MyTestUser"
 			]
 		}
 	]

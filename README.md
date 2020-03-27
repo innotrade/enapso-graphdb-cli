@@ -28,6 +28,7 @@ import   imports (upload) a repository or context from a file to a GraphDB repos
 --sourcefile   -s   file name for import from file
 --queryfile    -q   file name for the query file (SPARQL)
 --format       -f   please refer to the below format specification
+--authorities -a    rights of GraphDB which we are providing to newly created user
 ```
 
 # Examples
@@ -43,6 +44,7 @@ enapsogdb export | download \
   -u "Test" \
   -p "Test" \
   -f "text/turtle"
+
 ```
 
 ## Import (upload) a repository or named graph
@@ -78,6 +80,56 @@ enapsogdb gc \
   --password "Test" \
 ```
 
+## Create Repository
+Create New Repository in the Ontotext GraphDB.
+```
+enapsogdb createRepository \
+  --dburl "http://localhost:7200" \
+  --username "Test" \
+  --password "Test" \
+  --reponame "MyTestUser"\
+	--repotitle "MyTestUser"\
+```
+## Delete Repository
+Delete Repository of Ontotext GraphDB.
+```
+enapsogdb deleteRepository \
+  --dburl "http://localhost:7200" \
+  --username "Test" \
+  --password "Test" \
+  --reponame "MyTestUser"\
+```
+## Create User
+Create new user in Ontotext GraphDB.
+```
+enapsogdb createUser \
+  --dburl "http://localhost:7200" \
+  --username "Test" \
+  --password "Test" \
+  --newusername "MyTestUser"\
+  --newpassword "MyTestUser"\ 
+  -a "ROLE_USER WRITE_REPO_Test READ_REPO_Test READ_REPO_EnapsoDotNetProDemo"\
+```
+## Update User
+Update exisiting user of Ontotext GraphDB.
+```
+enapsogdb updateUser \
+  --dburl "http://localhost:7200" \
+  --username "Test" \
+  --password "Test" \
+  --newusername "MyTestUser"\
+  --newpassword "MyTestUser"\ 
+  -a "ROLE_USER READ_REPO_Test READ_REPO_EnapsoDotNetProDemo"\
+```
+## Delete User
+Delete exisiting user of Ontotext GraphDB.
+```
+enapsogdb deleteUser \
+  --dburl "http://localhost:7200" \
+  --username "Test" \
+  --password "Test" \
+  --newusername "MyTestUser"\
+```
 ## File Types and Data Formats
 
 The following file types are supported:
