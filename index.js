@@ -173,7 +173,8 @@ const EnapsoGraphDBCLI = {
 		}
 	},
 
-	deleteRepository: async function (aOptions) {
+	deleteRepo: async function (aOptions) {
+		console.log('In delete repo...');
 		var res = await this.endpoint.deleteRepository({
 			"id": aOptions.repository
 		});
@@ -277,7 +278,7 @@ const EnapsoGraphDBCLI = {
 		if (!lOptions.dburl) {
 			process.exit(logErrorMsg(ERROR_NO_DB_URL));
 		}
-		
+
 		this.endpoint = new EnapsoGraphDBClient.Endpoint({
 			baseURL: lOptions.dburl,
 			repository: lOptions.repository,
@@ -308,7 +309,7 @@ const EnapsoGraphDBCLI = {
 		} else if ('createRepository' === lOptions.command) {
 			retCode = await this.createRepository(lOptions);
 		} else if ('deleteRepository' === lOptions.command) {
-			retCode = await this.deleteRepository(lOptions);
+			retCode = await this.deleteRepo(lOptions);
 		} else if ('createUser' === lOptions.command) {
 			retCode = await this.createUser(lOptions);
 		} else if ('updateUser' === lOptions.command) {

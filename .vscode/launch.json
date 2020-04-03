@@ -105,8 +105,8 @@
 				"-d", "http://localhost:7200",
 				"-u", "admin",
 				"-p", "root",
-				"--reponame", "MyTestUser",
-				"--repotitle", "MyTestUser"
+				"-r", "Test",
+				"--repotitle", "Enapso Automated Test Repo"
 			]
 		},{
 			"type": "node",
