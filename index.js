@@ -174,7 +174,6 @@ const EnapsoGraphDBCLI = {
 	},
 
 	deleteRepo: async function (aOptions) {
-		console.log('In delete repo...');
 		var res = await this.endpoint.deleteRepository({
 			"id": aOptions.repository
 		});
