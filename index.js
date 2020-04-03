@@ -65,7 +65,6 @@ const EnapsoGraphDBCLI = {
 		{ name: "format", alias: 'f', type: String },
 		{ name: "queryfile", alias: 'q', type: String },
 		{ name: "prefixfile", alias: 'x', multiple: true, type: String },
-		{ name: "reponame",  type: String },
 		{ name: "repotitle", type: String },
 		{ name: "authorities", alias: 'a', type: String, multiple: true },
 		{ name: "newusername", type: String },
@@ -100,12 +99,12 @@ const EnapsoGraphDBCLI = {
 
 	createRepository: async function (aOptions) {
 		var res = await this.endpoint.createRepository({
-			"id": aOptions.reponame,
+			"id": aOptions.repository,
 			"title": aOptions.repotitle,
 			"location": aOptions.location !== undefined ? aOptions.location : ""
 		});
 		if (res.success) {
-			console.log('Repository ' + aOptions.reponame + ' has been created successfully.');
+			console.log('Repository ' + aOptions.repository + ' has been created successfully.');
 			return 0;
 		} else {
 			console.log(res.statusMessage);
@@ -134,6 +133,7 @@ const EnapsoGraphDBCLI = {
 			return 400;
 		}
 	},
+
 	updateUser: async function (aOptions) {
 		let optAuth =
 			aOptions.authorities ? (Array.isArray(aOptions.authorities) ? aOptions.authorities.join(' ') : aOptions.authorities) : "ROLE_USER";
@@ -155,6 +155,7 @@ const EnapsoGraphDBCLI = {
 			return 400;
 		}
 	},
+
 	deleteUser: async function (aOptions) {
 		let lRes = await this.endpoint.login(
 			aOptions.username,
@@ -171,12 +172,13 @@ const EnapsoGraphDBCLI = {
 			return 400;
 		}
 	},
+
 	deleteRepository: async function (aOptions) {
 		var res = await this.endpoint.deleteRepository({
-			"id": aOptions.reponame
+			"id": aOptions.repository
 		});
 		if (res.success) {
-			console.log('Repository Name ' + aOptions.reponame + ' has successfully deleted.');
+			console.log('Repository Name ' + aOptions.repository + ' was successfully deleted.');
 			return 0;
 		} else {
 			console.log(res.statusMessage);
@@ -275,6 +277,7 @@ const EnapsoGraphDBCLI = {
 		if (!lOptions.dburl) {
 			process.exit(logErrorMsg(ERROR_NO_DB_URL));
 		}
+		
 		this.endpoint = new EnapsoGraphDBClient.Endpoint({
 			baseURL: lOptions.dburl,
 			repository: lOptions.repository,
@@ -310,7 +313,7 @@ const EnapsoGraphDBCLI = {
 			retCode = await this.createUser(lOptions);
 		} else if ('updateUser' === lOptions.command) {
 			retCode = await this.updateUser(lOptions);
-		}else if ('deleteUser' === lOptions.command) {
+		} else if ('deleteUser' === lOptions.command) {
 			retCode = await this.deleteUser(lOptions);
 		} else if ('gc' === lOptions.command || 'garbageCollection' === lOptions.command) {
 			retCode = await this.performGarbageCollection(lOptions);
