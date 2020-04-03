@@ -78,7 +78,7 @@ const EnapsoGraphDBCLI = {
 			context: aOptions.context,
 			filename: aOptions.targetfile
 		});
-		console.log("Export file has successfully been downloaded.");
+		console.log("Export file successfully downloaded.");
 	},
 
 	import: async function (aOptions) {
@@ -89,7 +89,7 @@ const EnapsoGraphDBCLI = {
 			context: aOptions.context
 		});
 		if (res.success) {
-			console.log('Import file ' + aOptions.sourcefile + ' has successfully been uploaded.');
+			console.log('Import file ' + aOptions.sourcefile + ' successfully uploaded.');
 			return 0;
 		} else {
 			console.log(res.statusMessage);
@@ -104,7 +104,7 @@ const EnapsoGraphDBCLI = {
 			"location": aOptions.location !== undefined ? aOptions.location : ""
 		});
 		if (res.success) {
-			console.log('Repository ' + aOptions.repository + ' has been created successfully.');
+			console.log('Repository ' + aOptions.repository + ' created successfully.');
 			return 0;
 		} else {
 			console.log(res.statusMessage);
@@ -126,7 +126,7 @@ const EnapsoGraphDBCLI = {
 			"password": aOptions.newpassword	// Password for the new user
 		});
 		if (res.success) {
-			console.log(aOptions.newusername + ' has been created successfully.');
+			console.log('User ' + aOptions.newusername + ' created successfully.');
 			return 0;
 		} else {
 			console.log(res.statusMessage);
@@ -148,7 +148,7 @@ const EnapsoGraphDBCLI = {
 			"password": aOptions.newpassword	// Password for the new user
 		});
 		if (res.success) {
-			console.log(aOptions.newusername + ' details has been updated successfully.');
+			console.log('User ' + aOptions.newusername + ' updated successfully.');
 			return 0;
 		} else {
 			console.log(res.statusMessage);
@@ -165,7 +165,7 @@ const EnapsoGraphDBCLI = {
 			"user": aOptions.newusername		// username which you want to delete
 		});
 		if (res.success) {
-			console.log(aOptions.newusername + ' has been deleted successfully.');
+			console.log('User ' + aOptions.newusername + ' deleted successfully.');
 			return 0;
 		} else {
 			console.log(res.statusMessage);
@@ -178,7 +178,7 @@ const EnapsoGraphDBCLI = {
 			"id": aOptions.repository
 		});
 		if (res.success) {
-			console.log('Repository Name ' + aOptions.repository + ' was successfully deleted.');
+			console.log('Repository ' + aOptions.repository + ' deleted successfully.');
 			return 0;
 		} else {
 			console.log(res.statusMessage);
@@ -208,7 +208,7 @@ const EnapsoGraphDBCLI = {
 
 		try {
 			fs.writeFileSync(aOptions.targetfile, lData);
-			console.log("File " + aOptions.targetfile + " successfully created");
+			console.log("File " + aOptions.targetfile + " created successfully.");
 			return 0;
 		} catch (err) {
 			console.log("File " + aOptions.targetfile + " cannot be written");
@@ -226,7 +226,7 @@ const EnapsoGraphDBCLI = {
 		var lRes = await this.endpoint.clearRepository(lRepository, {
 		});
 		if (lRes && lRes.statusCode === 200) {
-			console.log('Repository "' + lRepository + '" successfully cleared.');
+			console.log('Repository "' + lRepository + '" cleared successfully.');
 			return 0;
 		} else {
 			console.log('Error clearing repository "' + lRepository + '": ' + lRes.message);
@@ -238,7 +238,7 @@ const EnapsoGraphDBCLI = {
 	performGarbageCollection: async function () {
 		var lRes = await this.endpoint.performGarbageCollection();
 		if (lRes && lRes.statusCode === 200) {
-			console.log('Garbage successfully collected.');
+			console.log('Garbage collected successfully.');
 			return 0;
 		} else {
 			console.log('Error on garbage collection: ' + lRes.message);
