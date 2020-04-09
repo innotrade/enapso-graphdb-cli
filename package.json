@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/innotrade/enapso-graphdb-cli#readme",
   "dependencies": {
-    "@innotrade/enapso-graphdb-admin": "^1.1.4",
+    "@innotrade/enapso-graphdb-admin": "^1.1.5",
     "@innotrade/enapso-graphdb-client": "^1.7.1",
     "command-line-args": "^5.1.1"
   }
