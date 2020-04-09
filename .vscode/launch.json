@@ -106,7 +106,8 @@
 				"-u", "admin",
 				"-p", "root",
 				"-r", "Test",
-				"--repotitle", "Enapso Automated Test Repo"
+				"--repotitle", "Enapso Automated Test Repo",
+				"--isShacl"
 			]
 		},{
 			"type": "node",

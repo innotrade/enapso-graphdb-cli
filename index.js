@@ -69,7 +69,10 @@ const EnapsoGraphDBCLI = {
 		{ name: "repotitle", type: String },
 		{ name: "authorities", alias: 'a', type: String, multiple: true },
 		{ name: "newusername", type: String },
-		{ name: "newpassword", type: String }
+		{ name: "newpassword", type: String },
+
+		{ name: "isShacl", type: Boolean }
+
 	],
 
 	export: async function (aOptions) {
@@ -103,7 +106,8 @@ const EnapsoGraphDBCLI = {
 			"id": aOptions.repository,
 			"title": aOptions.repotitle,
 			"location": aOptions.location !== undefined ? aOptions.location : "",
-			"baseURL": aOptions.baseurl
+			"baseURL": aOptions.baseurl,
+			"isShacl": aOptions.isShacl !== undefined ? aOptions.isShacl : false
 		});
 		if (res.success) {
 			console.log('Repository ' + aOptions.repository + ' created successfully.');
