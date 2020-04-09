@@ -59,6 +59,7 @@ const EnapsoGraphDBCLI = {
 		{ name: "password", alias: 'p', type: String },
 		{ name: "dburl", alias: 'd', type: String },
 		{ name: "baseiri", alias: 'i', type: String },
+		{ name: "baseurl", alias: 'b', type: String },
 		{ name: "verbose", alias: 'v', type: Boolean },
 		{ name: "targetfile", alias: 't', type: String },
 		{ name: "sourcefile", alias: 's', type: String },
@@ -101,7 +102,8 @@ const EnapsoGraphDBCLI = {
 		var res = await this.endpoint.createRepository({
 			"id": aOptions.repository,
 			"title": aOptions.repotitle,
-			"location": aOptions.location !== undefined ? aOptions.location : ""
+			"location": aOptions.location !== undefined ? aOptions.location : "",
+			"baseURL": aOptions.baseurl
 		});
 		if (res.success) {
 			console.log('Repository ' + aOptions.repository + ' created successfully.');
