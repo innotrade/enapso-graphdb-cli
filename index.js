@@ -192,6 +192,19 @@ const EnapsoGraphDBCLI = {
 		}
 	},
 
+	clearContext: async function (aOptions) {
+		var res = await this.endpoint.clearContext({
+			"context": aOptions.context
+		});
+		if (res.success) {
+			console.log('Context ' + aOptions.context + ' cleared successfully.');
+			return 0;
+		} else {
+			console.log(res.statusMessage);
+			return -1;
+		}
+	},
+
 	query: async function (aOptions) {
 		var lQuery;
 		try {
@@ -315,6 +328,8 @@ const EnapsoGraphDBCLI = {
 			retCode = await this.createRepository(lOptions);
 		} else if ('deleteRepository' === lOptions.command) {
 			retCode = await this.deleteRepo(lOptions);
+		} else if ('clearContext' === lOptions.command || 'clearGraph' === lOptions.command) {
+			retCode = await this.clearContext(lOptions);
 		} else if ('createUser' === lOptions.command) {
 			retCode = await this.createUser(lOptions);
 		} else if ('updateUser' === lOptions.command) {
