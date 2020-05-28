@@ -72,13 +72,13 @@ enapsogdb gc --dburl "http://localhost:7200" --username "Test" --password "Test"
 ## Create Repository
 Create New Repository in the Ontotext GraphDB.
 ```
-enapsogdb createRepository --dburl "http://localhost:7200" --repository "Test" --repotitle "Test Repository" --username "Test" --password "Test"    
+enapsogdb createRepository --dburl "http://localhost:7200" --repository "TestRepository" --repotitle "Test Repository" --username "Test" --password "Test"    
 
 ```
 ## Delete Repository
 Delete Repository of Ontotext GraphDB.
 ```
-enapsogdb deleteRepository --dburl "http://localhost:7200" --repository "Test" --username "Test" --password "Test" 
+enapsogdb deleteRepository --dburl "http://localhost:7200" --repository "TestRepository" --username "Test" --password "Test" 
 ```
 ## Create User
 Create new user in Ontotext GraphDB.
