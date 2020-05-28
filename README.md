@@ -11,8 +11,15 @@ To discuss questions and suggestions with the Enapso and GraphDB community, we'l
 
 ## Commands
 ```
-export   exports (download) a repository or context from GraphDB to a file
-import   imports (upload) a repository or context from a file to a GraphDB repository or named graph
+export           exports (download) a repository or context from GraphDB to a file
+import            imports (upload) a repository or context from a file to a GraphDB repository or named graph
+clearRepository    clearRepository clear the repository of GraphDB.
+createRepository   createRepository create a new repository in GraphDB.
+deleteRepository   deleteRepository delete the repository of GraphDB.
+createUser         createUser create a new user and assign authorities to that user.
+updateUser         updateUser update the already exist user of GraphDB.
+deleteUser         deleteUser delete the user of GraphDB.
+gc                 Garbage Collection of a repository in GraphDB.
 ```
 ## Parameters
 ```
@@ -36,99 +43,56 @@ import   imports (upload) a repository or context from a file to a GraphDB repos
 ## Export (download) a repository or named graph
 Download from GraphDB to a file:
 ```
-enapsogdb export | download \
-  -d "http://localhost:7200" \
-  -r "Test" \
-  -c "http://ont.enapso.com/test" \
-  -t "backups/backup.ttl" \
-  -u "Test" \
-  -p "Test" \
-  -f "text/turtle"
+enapsogdb export --dburl "http://localhost:7200" --repository "Test" --context "http://ont.enapso.com/test" --targetfile "exports/export.ttl"  --username "Test" --password "Test" --format "text/turtle"
 
 ```
 
 ## Import (upload) a repository or named graph
 Upload from a file to GraphDB:
 ```
-enapsogdb import | upload \
-  --dburl "http://localhost:7200" \
-  --repository "Test" \
-  --context "http://ont.enapso.com/test" \
-  --baseiri "http://ont.enapso.com/test#" \
-  --sourcefile "imports/test.owl" \
-  --username "Test" \
-  --password "Test" \
-  --format "application/rdf+xml"
+enapsogdb import --dburl "http://localhost:7200" --repository "Test" --context "http://ont.enapso.com/test" --baseiri "http://ont.enapso.com/test#" --sourcefile "imports/dotnetpro_demo_ontology_2.owl" --username "Test" --password "Test" --format "application/rdf+xml"
 ```
 
 ## Clearing entire repository
 Clear entire repository. Caution! Use this command with care! The operation cannot be undone!
 ```
-enapsogdb clearRepository \
-  --dburl "http://localhost:7200" \
-  --repository "Test" \
-  --username "Test" \
-  --password "Test" \
+enapsogdb clearRepository --dburl "http://localhost:7200" --repository "Test" --username "Test" --password "Test"
 ```
 
 ## Perform Garbage Collection
 Perform the garbage collection of the Ontotext GraphDB.
 ```
-enapsogdb gc \
-  --dburl "http://localhost:7200" \
-  --username "Test" \
-  --password "Test" \
+enapsogdb gc --dburl "http://localhost:7200" --username "Test" --password "Test"
 ```
 
 ## Create Repository
 Create New Repository in the Ontotext GraphDB.
 ```
-enapsogdb createRepository \
-  --dburl "http://localhost:7200" \
-  --username "Test" \
-  --password "Test" \
-  --reponame "MyTestUser"\
-	--repotitle "MyTestUser"\
+enapsogdb createRepository --dburl "http://localhost:7200" --repository "Test" --repotitle "Test Repository" --username "Test" --password "Test"    
+
 ```
 ## Delete Repository
 Delete Repository of Ontotext GraphDB.
 ```
-enapsogdb deleteRepository \
-  --dburl "http://localhost:7200" \
-  --username "Test" \
-  --password "Test" \
-  --reponame "MyTestUser"\
+enapsogdb deleteRepository --dburl "http://localhost:7200" --repository "Test" --username "Test" --password "Test" 
 ```
 ## Create User
 Create new user in Ontotext GraphDB.
 ```
-enapsogdb createUser \
-  --dburl "http://localhost:7200" \
-  --username "Test" \
-  --password "Test" \
-  --newusername "MyTestUser"\
-  --newpassword "MyTestUser"\ 
-  -a "ROLE_USER WRITE_REPO_Test READ_REPO_Test READ_REPO_EnapsoDotNetProDemo"\
+enapsogdb createUser --dburl "http://localhost:7200" --repository "Test" --username "Test" --password "Test" --newusername "TestUser" --newpassword "TestUser" -a "ROLE_USER WRITE_REPO_Test READ_REPO_Test READ_REPO_EnapsoDotNetProDemo"
+
 ```
 ## Update User
 Update exisiting user of Ontotext GraphDB.
 ```
-enapsogdb updateUser \
-  --dburl "http://localhost:7200" \
-  --username "Test" \
-  --password "Test" \
-  --newusername "MyTestUser"\
-  --newpassword "MyTestUser"\ 
-  -a "ROLE_USER READ_REPO_Test READ_REPO_EnapsoDotNetProDemo"\
+enapsogdb updateUser --dburl "http://localhost:7200" --repository "Test" --username "Test" --password "Test" --newusername "TestUser" --newpassword "TestUser" -a "ROLE_USER WRITE_REPO_Test READ_REPO_Test WRITE_REPO_EnapsoDotNetProDemo READ_REPO_EnapsoDotNetProDemo"
+
 ```
 ## Delete User
 Delete exisiting user of Ontotext GraphDB.
 ```
-enapsogdb deleteUser \
-  --dburl "http://localhost:7200" \
-  --username "Test" \
-  --password "Test" \
-  --newusername "MyTestUser"\
+enapsogdb deleteUser --dburl "http://localhost:7200" --repository "Test" --username "Test" --password "Test" --newusername "TestUser" 
+
 ```
 ## File Types and Data Formats
 
