@@ -13,6 +13,7 @@ To discuss questions and suggestions with the Enapso and GraphDB community, we'l
 ```
 npm i -g @innotrade/enapso-graphdb-cli
 ```
+-g to install the enapso-graphdb-cli package globally
 ## Commands
 ```
 export           exports (download) a repository or context from GraphDB to a file
