@@ -65,7 +65,7 @@ const EnapsoGraphDBCLI = {
 		{ name: "sourcefile", alias: 's', type: String },
 		{ name: "format", alias: 'f', type: String },
 		{ name: "queryfile", alias: 'q', type: String },
-		{ name: "prefixfile", alias: 'x', multiple: true, type: String },
+		{ name: "prefixfile", alias: 'x',type: String},
 		{ name: "repotitle", type: String },
 		{ name: "authorities", alias: 'a', type: String, multiple: true },
 		{ name: "newusername", type: String },

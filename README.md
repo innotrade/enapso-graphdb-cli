@@ -99,6 +99,12 @@ Delete exisiting user of Ontotext GraphDB.
 enapsogdb deleteUser --dburl "http://localhost:7200" --repository "Test" --username "Test" --password "Test" --newusername "TestUser" 
 
 ```
+## Query Method of GraphDB 
+Read the data from GraphDB
+```
+enapsogdb query --dburl "http://localhost:7200" --repository "Test" --queryfile "queries/all.sparql" --prefixfile "queries/prefixes.prf" --targetfile "results/countries.csv"
+
+```
 ## File Types and Data Formats
 
 The following file types are supported:

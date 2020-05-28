@@ -63,6 +63,7 @@
 				"--dburl", "http://localhost:7200",
 				"--repository", "Test",			
 				"--queryfile", "queries/all.sparql",
+				"--targetfile",	"results/countries.csv",
 				"--prefixfile", "queries/prefixes.prf",
 				"--format", "csv",
 			]
