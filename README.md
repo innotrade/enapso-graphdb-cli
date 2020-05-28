@@ -9,6 +9,10 @@ Get the latest version of GraphDB for free at https://www.ontotext.com/products/
 **This project is actively developed and maintained.**
 To discuss questions and suggestions with the Enapso and GraphDB community, we'll be happy to meet you in our forum at https://www.innotrade.com/forum/.
 
+## Installation
+```
+npm i @innotrade/enapso-graphdb-client
+```
 ## Commands
 ```
 export           exports (download) a repository or context from GraphDB to a file

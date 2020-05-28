@@ -9,7 +9,7 @@
 
 const fs = require('fs');
 const commandLineArgs = require('command-line-args');
-const { EnapsoGraphDBClient } = require('../../enapso-graphdb-client/index');
+const { EnapsoGraphDBClient } = require('@innotrade/enapso-graphdb-client');
 const { EnapsoGraphDBAdmin } = require('@innotrade/enapso-graphdb-admin');
 
 // the default prefixes for all SPARQL queries
