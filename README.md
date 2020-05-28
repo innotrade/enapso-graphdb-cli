@@ -11,7 +11,7 @@ To discuss questions and suggestions with the Enapso and GraphDB community, we'l
 
 ## Installation
 ```
-npm i @innotrade/enapso-graphdb-client
+npm i @innotrade/enapso-graphdb-cli
 ```
 ## Commands
 ```
