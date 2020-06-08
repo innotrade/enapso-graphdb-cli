@@ -1,4 +1,5 @@
 # enapso-graphdb-cli
+
 Enapso Ontotext GraphDB 8.x/9.x Command Line Interface (CLI) for Node.js
 
 Enapso Command Line Interface for GraphDB to easily perform numerous operations on GraphDB repositories and named graphs. This tool will be continously extended by further scriptable convenience operations.
@@ -10,11 +11,15 @@ Get the latest version of GraphDB for free at https://www.ontotext.com/products/
 To discuss questions and suggestions with the Enapso and GraphDB community, we'll be happy to meet you in our forum at https://www.innotrade.com/forum/.
 
 ## Installation
+
 ```
 npm i -g @innotrade/enapso-graphdb-cli
 ```
+
 -g to install the enapso-graphdb-cli package globally
+
 ## Commands
+
 ```
 export           exports (download) a repository or context from GraphDB to a file
 import            imports (upload) a repository or context from a file to a GraphDB repository or named graph
@@ -26,7 +31,9 @@ updateUser         updateUser update the already exist user of GraphDB.
 deleteUser         deleteUser delete the user of GraphDB.
 gc                 Garbage Collection of a repository in GraphDB.
 ```
+
 ## Parameters
+
 ```
 --dburl        -d   base url of GraphDB instance, e.g. http://localhost:7200
 --repository   -r   repository to use for the command
@@ -46,68 +53,95 @@ gc                 Garbage Collection of a repository in GraphDB.
 # Examples
 
 ## Export (download) a repository or named graph
+
 Download from GraphDB to a file:
+
 ```
 enapsogdb export --dburl "http://localhost:7200" --repository "Test" --context "http://ont.enapso.com/test" --targetfile "exports/export.ttl"  --username "admin" --password "root" --format "text/turtle"
 
 ```
 
 ## Import (upload) a repository or named graph
+
 Upload from a file to GraphDB:
+
 ```
 enapsogdb import --dburl "http://localhost:7200" --repository "Test" --context "http://ont.enapso.com/test" --baseiri "http://ont.enapso.com/test#" --sourcefile "imports/dotnetpro_demo_ontology_2.owl" --username "admin" --password "root" --format "application/rdf+xml"
 ```
 
 ## Clearing entire repository
+
 Clear entire repository. Caution! Use this command with care! The operation cannot be undone!
+
 ```
 enapsogdb clearRepository --dburl "http://localhost:7200" --repository "Test" --username "admin" --password "root"
 ```
 
 ## Perform Garbage Collection
+
 Perform the garbage collection of the Ontotext GraphDB.
+
 ```
 enapsogdb gc --dburl "http://localhost:7200" --username "admin" --password "root"
 ```
 
 ## Create Repository
+
 Create New Repository in the Ontotext GraphDB.
-```
-enapsogdb createRepository --dburl "http://localhost:7200" --repository "TestRepository" --repotitle "Test Repository" --username "admin" --password "root"    
 
 ```
+enapsogdb createRepository --dburl "http://localhost:7200" --repository "TestRepository" --repotitle "Test Repository" --username "admin" --password "root"
+
+```
+
 ## Delete Repository
+
 Delete Repository of Ontotext GraphDB.
+
 ```
-enapsogdb deleteRepository --dburl "http://localhost:7200" --repository "TestRepository" --username "admin" --password "root" 
+enapsogdb deleteRepository --dburl "http://localhost:7200" --repository "TestRepository" --username "admin" --password "root"
 ```
+
 ## Create User
+
 Create new user in Ontotext GraphDB.
+
 ```
 enapsogdb createUser --dburl "http://localhost:7200" --repository "Test" --username "admin" --password "root" --newusername "TestUser" --newpassword "TestUser" -a "ROLE_USER WRITE_REPO_Test READ_REPO_Test READ_REPO_EnapsoDotNetProDemo"
 
 ```
+
 ## Update User
+
 Update exisiting user of Ontotext GraphDB.
+
 ```
 enapsogdb updateUser --dburl "http://localhost:7200" --repository "Test" --username "admin" --password "root" --newusername "TestUser" --newpassword "TestUser" -a "ROLE_USER WRITE_REPO_Test READ_REPO_Test WRITE_REPO_EnapsoDotNetProDemo READ_REPO_EnapsoDotNetProDemo"
 
 ```
+
 ## Delete User
+
 Delete exisiting user of Ontotext GraphDB.
-```
-enapsogdb deleteUser --dburl "http://localhost:7200" --repository "Test" --username "admin" --password "root" --newusername "TestUser" 
 
 ```
-## Query Method of GraphDB 
+enapsogdb deleteUser --dburl "http://localhost:7200" --repository "Test" --username "admin" --password "root" --newusername "TestUser"
+
+```
+
+## Query Method of GraphDB
+
 Read the data from GraphDB
+
 ```
 enapsogdb query --dburl "http://localhost:7200" --repository "Test" --username "admin" --password "root" --queryfile "queries/all.sparql" --prefixfile "queries/prefixes.prf" --targetfile "results/countries.csv"
 
 ```
+
 ## File Types and Data Formats
 
 The following file types are supported:
+
 ```
 name: "JSON",
 type: "application/rdf+json",
