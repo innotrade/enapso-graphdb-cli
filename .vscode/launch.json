@@ -61,10 +61,8 @@
 			"args": [
 				"query",
 				"--dburl", "http://localhost:7200",
-				"--repository", "Dev",
-				// "--context", "http://ont.enapso.com/dev",
-				// "--baseiri", "http://ont.enapso.com/dev#",				
-				"--queryfile", "queries/countries.sparql",
+				"--repository", "Test",			
+				"--queryfile", "queries/all.sparql",
 				"--targetfile",	"results/countries.csv",
 				"--prefixfile", "queries/prefixes.prf",
 				"--format", "csv",
