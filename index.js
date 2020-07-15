@@ -8,6 +8,7 @@
 // https://github.com/75lb/command-line-args/blob/master/doc/option-definition.md
 
 const fs = require('fs');
+const packageJson = require('./package.json');
 const commandLineArgs = require('command-line-args');
 const { EnapsoGraphDBClient } = require('@innotrade/enapso-graphdb-client');
 const { EnapsoGraphDBAdmin } = require('@innotrade/enapso-graphdb-admin');
@@ -19,9 +20,11 @@ const GRAPHDB_DEFAULT_PREFIXES = [
     EnapsoGraphDBClient.PREFIX_RDFS
 ];
 
-const PROGRAM_TITLE = 'Enapso Ontotext GraphDB Command Line Interface (CLI)',
-    COPYRIGHT =
-        '(C) 2019-2020 Innotrade GmbH, Herzogenrath, NRW, Germany, https://www.innotrade.com';
+const PROGRAM_TITLE =
+    'enapso Ontotext GraphDB Command Line Interface (CLI) v' +
+    packageJson.version;
+const COPYRIGHT =
+    '(C) 2019-2020 Innotrade GmbH, Herzogenrath, NRW, Germany, https://www.innotrade.com';
 
 const ERROR_NO_OR_INVALID_COMMAND = 1,
     ERROR_NO_DB_URL = 2,
