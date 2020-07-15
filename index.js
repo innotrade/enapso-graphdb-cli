@@ -358,7 +358,8 @@ const EnapsoGraphDBCLI = {
 
         let prefixes = GRAPHDB_DEFAULT_PREFIXES;
         if (lOptions.prefixfile) {
-            prefixes = await this.readPrefixes(lOptions.prefixfile);
+            // this is an array
+            prefixes = await this.readPrefixes(lOptions.prefixfile[0]);
         }
 
         // check if a database URL is passed
