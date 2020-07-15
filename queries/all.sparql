@@ -1,4 +1,6 @@
-select *  from <http://ont.enapso.com/dotnetpro>
-  where {
-    ?class rdf:type owl:Class
-  }
+select *
+# from <http://ont.enapso.com/dotnetpro>
+where {
+  ?class rdf:type owl:Class . 
+  bind( "info" as ?info )
+}

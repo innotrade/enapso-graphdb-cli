@@ -238,24 +238,44 @@ const EnapsoGraphDBCLI = {
     query: async function (aOptions) {
         var lQuery;
         try {
-            lQuery = fs.readFileSync(aOptions.queryfile);
+            lQuery = fs.readFileSync(aOptions.queryfile, 'utf8');
         } catch (err) {
             console.log('File ' + aOptions.queryfile + ' cannot be read');
             return -1;
         }
 
         var lRes = await this.endpoint.query(lQuery, {});
-        let lData = this.endpoint.transformBindingsToCSV(lRes, {
-            delimiter: '"',
-            delimiterEscape: '\\"',
-            delimiterOptional: true,
-            separatorEscape: ','
-        });
-        let lineBreak = '\n';
-        lData =
-            lData.headers.join(lineBreak) +
-            lineBreak +
-            lData.records.join(lineBreak);
+        let lData;
+        if ('json' === aOptions.format) {
+            lData = this.endpoint.transformBindingsToResultSet(lRes, {});
+            lData = JSON.stringify(lData, null, 2);
+        } else if ('csv' === aOptions.format) {
+            lData = this.endpoint.transformBindingsToCSV(lRes, {
+                delimiter: '"',
+                delimiterEscape: '\\"',
+                delimiterOptional: true,
+                separatorEscape: ','
+            });
+            let lineBreak = '\n';
+            lData =
+                lData.headers.join(lineBreak) +
+                lineBreak +
+                lData.records.join(lineBreak);
+        } else if ('tsv' === aOptions.format) {
+            lData = this.endpoint.transformBindingsToTSV(lRes, {
+                delimiter: '"',
+                delimiterEscape: '\\"',
+                delimiterOptional: true,
+                separatorEscape: '\\t'
+            });
+            let lineBreak = '\n';
+            lData =
+                lData.headers.join(lineBreak) +
+                lineBreak +
+                lData.records.join(lineBreak);
+        } else {
+            lData = JSON.stringify(lRes, null, 2);
+        }
 
         try {
             fs.writeFileSync(aOptions.targetfile, lData);

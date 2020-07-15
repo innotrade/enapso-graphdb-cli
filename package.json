@@ -1,51 +1,51 @@
 {
-  "name": "@innotrade/enapso-graphdb-cli",
-  "version": "1.2.1",
-  "description": "Enapso GraphDB Command Line Interface",
-  "main": "index.js",
-  "bin": {
-    "enapsogdb": "./index.js"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/innotrade/enapso-graphdb-cli.git"
-  },
-  "keywords": [
-    "enapso",
-    "ontotext",
-    "graphdb",
-    "graphdatabase",
-    "owl",
-    "rdf",
-    "sparql",
-    "ontology",
-    "knowledgegraph",
-    "command line interface",
-    "cli"
-  ],
-  "author": "Alexander Schulze",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/innotrade/enapso-graphdb-cli/issues"
-  },
-  "homepage": "https://github.com/innotrade/enapso-graphdb-cli#readme",
-  "dependencies": {
-    "@innotrade/enapso-graphdb-admin": "^1.1.7",
-    "@innotrade/enapso-graphdb-client": "^1.7.3",
-    "command-line-args": "^5.1.1"
-  },
-  "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-import": "^2.21.1",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-react-hooks": "^2.5.0",
-    "prettier": "^2.0.5"
-  }
+    "name": "@innotrade/enapso-graphdb-cli",
+    "version": "1.2.2",
+    "description": "Enapso GraphDB Command Line Interface",
+    "main": "index.js",
+    "bin": {
+        "enapsogdb": "./index.js"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/innotrade/enapso-graphdb-cli.git"
+    },
+    "keywords": [
+        "enapso",
+        "ontotext",
+        "graphdb",
+        "graphdatabase",
+        "owl",
+        "rdf",
+        "sparql",
+        "ontology",
+        "knowledgegraph",
+        "command line interface",
+        "cli"
+    ],
+    "author": "Alexander Schulze",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/innotrade/enapso-graphdb-cli/issues"
+    },
+    "homepage": "https://github.com/innotrade/enapso-graphdb-cli#readme",
+    "dependencies": {
+        "@innotrade/enapso-graphdb-admin": "^1.1.7",
+        "@innotrade/enapso-graphdb-client": "^1.8.0",
+        "command-line-args": "^5.1.1"
+    },
+    "devDependencies": {
+        "eslint": "^7.4.0",
+        "eslint-config-airbnb": "^18.2.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-import": "^2.22.0",
+        "eslint-plugin-jsx-a11y": "^6.3.1",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-react": "^7.20.3",
+        "eslint-plugin-react-hooks": "^4.0.8",
+        "prettier": "^2.0.5"
+    }
 }
