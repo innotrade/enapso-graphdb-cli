@@ -11,7 +11,7 @@ const fs = require('fs');
 const commandLineArgs = require('command-line-args');
 const { EnapsoGraphDBClient } = require('@innotrade/enapso-graphdb-client');
 const { EnapsoGraphDBAdmin } = require('@innotrade/enapso-graphdb-admin');
-
+const { EnapsoOntologyUploader } = require("enapso-ontology-uploader");
 // the default prefixes for all SPARQL queries
 const GRAPHDB_DEFAULT_PREFIXES = [
 	EnapsoGraphDBClient.PREFIX_OWL,
@@ -65,7 +65,8 @@ const EnapsoGraphDBCLI = {
 		{ name: "sourcefile", alias: 's', type: String },
 		{ name: "format", alias: 'f', type: String },
 		{ name: "queryfile", alias: 'q', type: String },
-		{ name: "prefixfile", alias: 'x',type: String},
+        { name: "prefixfile", alias: 'x',type: String},
+        { name: "configfile",type: String},
 		{ name: "repotitle", type: String },
 		{ name: "authorities", alias: 'a', type: String, multiple: true },
 		{ name: "newusername", type: String },
@@ -253,6 +254,25 @@ const EnapsoGraphDBCLI = {
 		}
 	},
 
+    autoUpload: async function (aOptions) {
+        let rawData = fs.readFileSync(aOptions.configfile);
+        let jsonData = JSON.parse(rawData);
+        try{
+           let res= await EnapsoOntologyUploader.add(jsonData)
+           console.log(res);
+        }
+        catch(e)
+        {
+            console.log(e);
+        }
+        EnapsoOntologyUploader.watch(function (error, result) {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log(result);
+            }
+        });
+	},
 	// perfom garbage collection
 	performGarbageCollection: async function () {
 		var lRes = await this.endpoint.performGarbageCollection();
@@ -288,14 +308,14 @@ const EnapsoGraphDBCLI = {
 		// console.log(JSON.stringify(lOptions, null, 2));
 
 		let prefixes = GRAPHDB_DEFAULT_PREFIXES;
-		if (lOptions.prefixfile) {
-			prefixes = await this.readPrefixes(lOptions.prefixfile);
-		}
+	//	if (lOptions.prefixfile) {
+	//		prefixes = await this.readPrefixes(lOptions.prefixfile);
+	//	}
 
 		// check if a database URL is passed
-		if (!lOptions.dburl) {
-			process.exit(logErrorMsg(ERROR_NO_DB_URL));
-		}
+	//	if (!lOptions.dburl) {
+	//		process.exit(logErrorMsg(ERROR_NO_DB_URL));
+	//	}
 
 		this.endpoint = new EnapsoGraphDBClient.Endpoint({
 			baseURL: lOptions.dburl,
@@ -338,11 +358,13 @@ const EnapsoGraphDBCLI = {
 			retCode = await this.deleteUser(lOptions);
 		} else if ('gc' === lOptions.command || 'garbageCollection' === lOptions.command) {
 			retCode = await this.performGarbageCollection(lOptions);
-		} else {
+		}else if ('au' === lOptions.command ||'autoUpload' === lOptions.command) {
+			retCode = await this.autoUpload(lOptions);
+		}  else {
 			retCode = logErrorMsg(ERROR_NO_OR_INVALID_COMMAND);
 		}
 
-		process.exit(retCode);
+		//process.exit(retCode);
 	}
 
 }

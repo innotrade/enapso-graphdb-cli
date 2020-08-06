@@ -138,6 +138,14 @@ enapsogdb query --dburl "http://localhost:7200" --repository "Test" --username "
 
 ```
 
+## Auto Upload
+
+Add the Ontology files getting the path of these files from json file and if any change occur it will automatically upload the updated ontology file to GraphDB
+
+```
+enapsogdb autoUpload --configfile "configfile/configfile.json"
+```
+
 ## File Types and Data Formats
 
 The following file types are supported:

@@ -1,166 +1,228 @@
 {
-	
-	// Innotrade Enapso GraphDB Command Line Interface (CLI)
-	// (C) Copyright 2019-2020 Innotrade GmbH, Herzogenrath, NRW, Germany
-	// Author(s): Alexander Schulze and Muhammad Yasir
-	// Use IntelliSense to learn about possible attributes.
-	// Hover to view descriptions of existing attributes.
-	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-	"version": "0.2.0",
-	"configurations": [
-		{
-			"type": "node",
-			"request": "launch",
-			"name": "Export (Download from GraphDB)",
-			"program": "${workspaceFolder}/index.js",
-			"args": [
-				"export",
-				"--dburl", "http://localhost:7200",
-				"--repository", "Test",
-				"--context", "http://ont.enapso.com/test",
-				"--targetfile", "exports/export.ttl",
-				"--username", "Test",
-				"--password", "Test",
-				"--format", "text/turtle",
-			]
-		},
-		{
-			"type": "node",
-			"request": "launch",
-			"name": "Import (Upload to GraphDB)",
-			"program": "${workspaceFolder}/index.js",
-			"args": [
-				"import",
-				"--dburl", "http://localhost:7200",
-				"--repository", "Test",
-				"--context", "http://ont.enapso.com/test",
-				"--baseiri", "http://ont.enapso.com/test#",
-				"--sourcefile", "imports/test.owl",
-				"--username", "Test",
-				"--password", "Test",
-				"--format",	"application/rdf+xml",
-			]
-		},
-		{
-			"type": "node",
-			"request": "launch",
-			"name": "Transform",
-			"program": "${workspaceFolder}/index.js",
-			"args": [
-				"transform",
-				"--sourcefile",	"imports/bindings.json",
-				"--targetfile",	"exports/resultset.json",
-				"--format", "json",
-			]
-		},
-		{
-			"type": "node",
-			"request": "launch",
-			"name": "Query (SPARQL File)",
-			"program": "${workspaceFolder}/index.js",
-			"args": [
-				"query",
-				"--dburl", "http://localhost:7200",
-				"--repository", "Test",			
-				"--queryfile", "queries/all.sparql",
-				"--targetfile",	"results/countries.csv",
-				"--prefixfile", "queries/prefixes.prf",
-				"--format", "csv",
-			]
-		},
-		{
-			"type": "node",
-			"request": "launch",
-			"name": "Clear Repository (LocalDB Test)",
-			"program": "${workspaceFolder}/index.js",
-			"args": [
-				"clearRepository",
-				"--dburl", "http://localhost:7200",
-				"--repository", "Test",
-				"--username", "Test",
-				"--password", "Test"
-			]
-		},
-		{
-			"type": "node",
-			"request": "launch",
-			"name": "Garbage Collection",
-			"program": "${workspaceFolder}/index.js",
-			"args": [
-				"gc",
-				"--dburl", "http://localhost:7200",
-				"--username", "Test",
-				"--password", "Test"
-			]
-		},
-		{
-			"type": "node",
-			"request": "launch",
-			"name": "Create Repository",
-			"program": "${workspaceFolder}/index.js",
-			"args": [
-				"createRepository",
-				"-d", "http://localhost:7200",
-				"-u", "admin",
-				"-p", "root",
-				"-r", "Test",
-				"--repotitle", "Enapso Automated Test Repo",
-				"--isShacl"
-			]
-		},{
-			"type": "node",
-			"request": "launch",
-			"name": "Delete Repository",
-			"program": "${workspaceFolder}/index.js",
-			"args": [
-				"deleteRepository",
-				"-d", "http://localhost:7200",
-				"-u", "admin",
-				"-p", "root",
-				"-r", "Test"
-			]
-		},
-		{
-			"type": "node",
-			"request": "launch",
-			"name": "Create New User",
-			"program": "${workspaceFolder}/index.js",
-			"args": [
-				"createUser",
-				"-d", "http://localhost:7200",
-				"-u", "admin",
-				"-p", "root",
-				"--newusername", "MyTestUser",
-				"--newpassword", "MyTestUser",
-				"-a", "ROLE_USER WRITE_REPO_Test READ_REPO_Test READ_REPO_EnapsoDotNetProDemo"
-			]
-		},
-		{
-			"type": "node",
-			"request": "launch",
-			"name": "Updated Newly Created User",
-			"program": "${workspaceFolder}/index.js",
-			"args": [
-				"updateUser",
-				"-d", "http://localhost:7200",
-				"-u", "admin",
-				"-p", "root",
-				"--newusername", "MyTestUser",
-				"-a", "ROLE_USER READ_REPO_Test READ_REPO_EnapsoDotNetProDemo"
-			]
-		},
-		{
-			"type": "node",
-			"request": "launch",
-			"name": "Delete Updated and Newly Created User",
-			"program": "${workspaceFolder}/index.js",
-			"args": [
-				"deleteUser",
-				"-d", "http://localhost:7200",
-				"-u", "admin",
-				"-p", "root",
-				"--newusername", "MyTestUser"
-			]
-		}
-	]
+  // Innotrade Enapso GraphDB Command Line Interface (CLI)
+  // (C) Copyright 2019-2020 Innotrade GmbH, Herzogenrath, NRW, Germany
+  // Author(s): Alexander Schulze and Muhammad Yasir
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Export (Download from GraphDB)",
+      "program": "${workspaceFolder}/index.js",
+      "args": [
+        "export",
+        "--dburl",
+        "http://localhost:7200",
+        "--repository",
+        "Test",
+        "--context",
+        "http://ont.enapso.com/test",
+        "--targetfile",
+        "exports/export.ttl",
+        "--username",
+        "Test",
+        "--password",
+        "Test",
+        "--format",
+        "text/turtle"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Import (Upload to GraphDB)",
+      "program": "${workspaceFolder}/index.js",
+      "args": [
+        "import",
+        "--dburl",
+        "http://localhost:7200",
+        "--repository",
+        "Test",
+        "--context",
+        "http://ont.enapso.com/test",
+        "--baseiri",
+        "http://ont.enapso.com/test#",
+        "--sourcefile",
+        "imports/test.owl",
+        "--username",
+        "Test",
+        "--password",
+        "Test",
+        "--format",
+        "application/rdf+xml"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Transform",
+      "program": "${workspaceFolder}/index.js",
+      "args": [
+        "transform",
+        "--sourcefile",
+        "imports/bindings.json",
+        "--targetfile",
+        "exports/resultset.json",
+        "--format",
+        "json"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Query (SPARQL File)",
+      "program": "${workspaceFolder}/index.js",
+      "args": [
+        "query",
+        "--dburl",
+        "http://localhost:7200",
+        "--repository",
+        "Test",
+        "--queryfile",
+        "queries/all.sparql",
+        "--targetfile",
+        "results/countries.csv",
+        "--prefixfile",
+        "queries/prefixes.prf",
+        "--format",
+        "csv"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Clear Repository (LocalDB Test)",
+      "program": "${workspaceFolder}/index.js",
+      "args": [
+        "clearRepository",
+        "--dburl",
+        "http://localhost:7200",
+        "--repository",
+        "Test",
+        "--username",
+        "Test",
+        "--password",
+        "Test"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Garbage Collection",
+      "program": "${workspaceFolder}/index.js",
+      "args": [
+        "gc",
+        "--dburl",
+        "http://localhost:7200",
+        "--username",
+        "Test",
+        "--password",
+        "Test"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Create Repository",
+      "program": "${workspaceFolder}/index.js",
+      "args": [
+        "createRepository",
+        "-d",
+        "http://localhost:7200",
+        "-u",
+        "admin",
+        "-p",
+        "root",
+        "-r",
+        "Test",
+        "--repotitle",
+        "Enapso Automated Test Repo",
+        "--isShacl"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Delete Repository",
+      "program": "${workspaceFolder}/index.js",
+      "args": [
+        "deleteRepository",
+        "-d",
+        "http://localhost:7200",
+        "-u",
+        "admin",
+        "-p",
+        "root",
+        "-r",
+        "Test"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Create New User",
+      "program": "${workspaceFolder}/index.js",
+      "args": [
+        "createUser",
+        "-d",
+        "http://localhost:7200",
+        "-u",
+        "admin",
+        "-p",
+        "root",
+        "--newusername",
+        "MyTestUser",
+        "--newpassword",
+        "MyTestUser",
+        "-a",
+        "ROLE_USER WRITE_REPO_Test READ_REPO_Test READ_REPO_EnapsoDotNetProDemo"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Updated Newly Created User",
+      "program": "${workspaceFolder}/index.js",
+      "args": [
+        "updateUser",
+        "-d",
+        "http://localhost:7200",
+        "-u",
+        "admin",
+        "-p",
+        "root",
+        "--newusername",
+        "MyTestUser",
+        "-a",
+        "ROLE_USER READ_REPO_Test READ_REPO_EnapsoDotNetProDemo"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Delete Updated and Newly Created User",
+      "program": "${workspaceFolder}/index.js",
+      "args": [
+        "deleteUser",
+        "-d",
+        "http://localhost:7200",
+        "-u",
+        "admin",
+        "-p",
+        "root",
+        "--newusername",
+        "MyTestUser"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Auto Upload Ontology",
+      "program": "${workspaceFolder}/index.js",
+      "args": ["autoUpload", "--configfile", "configfile/configfile.json"]
+    }
+  ]
 }
