@@ -306,16 +306,19 @@ const EnapsoGraphDBCLI = {
 
 		let lOptions = commandLineArgs(this.mOptionDefinitions);
 		// console.log(JSON.stringify(lOptions, null, 2));
-
+if(lOptions.command!=`autoUpload`)
+{
+    if (!lOptions.dburl) {
+        process.exit(logErrorMsg(ERROR_NO_DB_URL));
+    } 
+}
 		let prefixes = GRAPHDB_DEFAULT_PREFIXES;
-	//	if (lOptions.prefixfile) {
-	//		prefixes = await this.readPrefixes(lOptions.prefixfile);
-	//	}
+		if (lOptions.prefixfile) {
+			prefixes = await this.readPrefixes(lOptions.prefixfile);
+		}
 
-		// check if a database URL is passed
-	//	if (!lOptions.dburl) {
-	//		process.exit(logErrorMsg(ERROR_NO_DB_URL));
-	//	}
+	//	check if a database URL is passed
+		
 
 		this.endpoint = new EnapsoGraphDBClient.Endpoint({
 			baseURL: lOptions.dburl,
@@ -362,9 +365,11 @@ const EnapsoGraphDBCLI = {
 			retCode = await this.autoUpload(lOptions);
 		}  else {
 			retCode = logErrorMsg(ERROR_NO_OR_INVALID_COMMAND);
-		}
-
-		//process.exit(retCode);
+        }
+        if(lOptions.command!=`autoUpload`)
+{
+    process.exit(retCode);
+}
 	}
 
 }

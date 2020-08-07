@@ -18,7 +18,8 @@
       "format": "application/rdf+xml",
 
       "baseIRI": "http://ont.enapso.com/repo#",
-      "context": "http://ont.enapso.com/repo"
+      "context": "http://ont.enapso.com/repo",
+      "prefix": "enrepo"
     },
 
     {
@@ -40,7 +41,8 @@
 
       "baseIRI": "http://ont.enapso.com/auth#",
 
-      "context": "http://ont.enapso.com/auth"
+      "context": "http://ont.enapso.com/auth",
+      "prefix": "enauth"
     }
   ]
 }
