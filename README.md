@@ -30,6 +30,7 @@ createUser         createUser create a new user and assign authorities to that u
 updateUser         updateUser update the already exist user of GraphDB.
 deleteUser         deleteUser delete the user of GraphDB.
 gc                 Garbage Collection of a repository in GraphDB.
+autoUpload         Auto Upload the Ontology file in GraphDB if any change occur in Ontology file if it is in watcher.
 ```
 
 ## Parameters
@@ -48,6 +49,7 @@ gc                 Garbage Collection of a repository in GraphDB.
 --queryfile    -q   file name for the query file (SPARQL)
 --format       -f   please refer to the below format specification
 --authorities -a    rights of GraphDB which we are providing to newly created user
+--configfile        JSON format array file in which we pass the ontology file path, id and other related information required for uploading Ontology
 ```
 
 # Examples
@@ -140,7 +142,7 @@ enapsogdb query --dburl "http://localhost:7200" --repository "Test" --username "
 
 ## Auto Upload
 
-Add the Ontology files getting the path of these files from json file and if any change occur it will automatically upload the updated ontology file to GraphDB
+Add the Ontology files in watcher getting the path of these files from json file and if any change occur it will automatically upload the updated ontology file to GraphDB by getting upload information from json file.
 
 ```
 enapsogdb autoUpload --configfile "configfile/configfile.json"
