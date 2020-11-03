@@ -1,0 +1,1848 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://ont.enapso.com/repo#"
+     xml:base="http://ont.enapso.com/repo"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:enrepo="http://ont.enapso.com/repo#">
+    <owl:Ontology rdf:about="http://ont.enapso.com/repo">
+        <owl:versionIRI rdf:resource="http://ont.enapso.com/repo/1.0.0"/>
+        <rdfs:comment xml:lang="en">(C) Copyright 2019-2020 Innotrade GmbH, Herzogenrath, NRW, Germany</rdfs:comment>
+        <rdfs:comment xml:lang="en">Enapso Ontology Repository Management Ontology</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ont.enapso.com/repo#hasDatabaseInstance -->
+
+    <owl:ObjectProperty rdf:about="http://ont.enapso.com/repo#hasDatabaseInstance">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Each Database Instance has at least one repository</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Database Instance</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#hasDatabaseSystem -->
+
+    <owl:ObjectProperty rdf:about="http://ont.enapso.com/repo#hasDatabaseSystem">
+        <rdfs:range rdf:resource="http://ont.enapso.com/repo#DatabaseSystem"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Each host has a Database System</rdfs:comment>
+        <rdfs:label xml:lang="en">Database System</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#hasEnvironment -->
+
+    <owl:ObjectProperty rdf:about="http://ont.enapso.com/repo#hasEnvironment">
+        <rdfs:range rdf:resource="http://ont.enapso.com/repo#Environment"/>
+        <rdfs:comment xml:lang="en">Each tenant can operate one or more enviroments.</rdfs:comment>
+        <rdfs:label xml:lang="en">Environment</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#hasGraph -->
+
+    <owl:ObjectProperty rdf:about="http://ont.enapso.com/repo#hasGraph">
+        <rdfs:range rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <rdfs:comment xml:lang="en">Each repository can have one or multiple graphs.</rdfs:comment>
+        <rdfs:label xml:lang="en">Graph</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#hasHost -->
+
+    <owl:ObjectProperty rdf:about="http://ont.enapso.com/repo#hasHost">
+        <rdfs:range rdf:resource="http://ont.enapso.com/repo#Host"/>
+        <rdfs:comment xml:lang="en">Each host can operate one or more database instances.</rdfs:comment>
+        <rdfs:label xml:lang="en">Host</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#hasOperatingSystem -->
+
+    <owl:ObjectProperty rdf:about="http://ont.enapso.com/repo#hasOperatingSystem">
+        <rdfs:range rdf:resource="http://ont.enapso.com/repo#OperatingSystem"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Each host has a Operating System</rdfs:comment>
+        <rdfs:label xml:lang="en">Operating System</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#hasRepository -->
+
+    <owl:ObjectProperty rdf:about="http://ont.enapso.com/repo#hasRepository">
+        <rdfs:range rdf:resource="http://ont.enapso.com/repo#Repository"/>
+        <rdfs:comment xml:lang="en">Each database instance can have one or more repositories.</rdfs:comment>
+        <rdfs:label xml:lang="en">Repository</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#hasTenant -->
+
+    <owl:ObjectProperty rdf:about="http://ont.enapso.com/repo#hasTenant">
+        <rdfs:range rdf:resource="http://ont.enapso.com/repo#Tenant"/>
+        <rdfs:comment xml:lang="en">Each environment has one parent tenant.</rdfs:comment>
+        <rdfs:label xml:lang="en">Tenant</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#importedBy -->
+
+    <owl:ObjectProperty rdf:about="http://ont.enapso.com/repo#importedBy">
+        <owl:inverseOf rdf:resource="http://ont.enapso.com/repo#imports"/>
+        <rdfs:comment xml:lang="en">Specifies for a certain ontology by which other ontologies it is used.</rdfs:comment>
+        <rdfs:label xml:lang="en">imported by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#imports -->
+
+    <owl:ObjectProperty rdf:about="http://ont.enapso.com/repo#imports">
+        <rdfs:comment xml:lang="en">Specifies which other ontologies are imported by a certain ontology.</rdfs:comment>
+        <rdfs:label xml:lang="en">imports</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ont.enapso.com/repo#databaseSystem -->
+
+    <owl:DatatypeProperty rdf:about="http://ont.enapso.com/repo#databaseSystem">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Detail of Database System </rdfs:comment>
+        <rdfs:label xml:lang="en">Database System</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#dbVersion -->
+
+    <owl:DatatypeProperty rdf:about="http://ont.enapso.com/repo#dbVersion">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The version of the Database</rdfs:comment>
+        <rdfs:label xml:lang="en">Database Version</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#filename -->
+
+    <owl:DatatypeProperty rdf:about="http://ont.enapso.com/repo#filename">
+        <rdfs:label xml:lang="de">Dateiname</rdfs:label>
+        <rdfs:label xml:lang="en">Filename</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#graph -->
+
+    <owl:DatatypeProperty rdf:about="http://ont.enapso.com/repo#graph">
+        <rdfs:comment xml:lang="en">The name of a graph inside a repository.</rdfs:comment>
+        <rdfs:label xml:lang="en">Graph</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#hostname -->
+
+    <owl:DatatypeProperty rdf:about="http://ont.enapso.com/repo#hostname">
+        <rdfs:comment xml:lang="en">The host name.</rdfs:comment>
+        <rdfs:label xml:lang="en">Hostname</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#id -->
+
+    <owl:DatatypeProperty rdf:about="http://ont.enapso.com/repo#id">
+        <rdfs:comment xml:lang="en">Unique identifier. For instance to be used as unique name for a certain repository inside one graph db instance.</rdfs:comment>
+        <rdfs:label xml:lang="en">Id</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#ip -->
+
+    <owl:DatatypeProperty rdf:about="http://ont.enapso.com/repo#ip">
+        <rdfs:comment xml:lang="en">The IP number, e.g. of a host.</rdfs:comment>
+        <rdfs:label xml:lang="en">IP No</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#iri -->
+
+    <owl:DatatypeProperty rdf:about="http://ont.enapso.com/repo#iri">
+        <rdfs:label xml:lang="de">IRI</rdfs:label>
+        <rdfs:label xml:lang="en">IRI</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#name -->
+
+    <owl:DatatypeProperty rdf:about="http://ont.enapso.com/repo#name">
+        <rdfs:label xml:lang="de">Name</rdfs:label>
+        <rdfs:label xml:lang="en">Name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#namespace -->
+
+    <owl:DatatypeProperty rdf:about="http://ont.enapso.com/repo#namespace">
+        <rdfs:label xml:lang="de">Namensraum</rdfs:label>
+        <rdfs:label xml:lang="en">Namespace</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#operatingSystem -->
+
+    <owl:DatatypeProperty rdf:about="http://ont.enapso.com/repo#operatingSystem">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Name of Operating System </rdfs:comment>
+        <rdfs:label xml:lang="en">Operating System</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#osVersion -->
+
+    <owl:DatatypeProperty rdf:about="http://ont.enapso.com/repo#osVersion">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Version of Operating System</rdfs:comment>
+        <rdfs:label xml:lang="en">Operating System Version</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#prefix -->
+
+    <owl:DatatypeProperty rdf:about="http://ont.enapso.com/repo#prefix">
+        <rdfs:label xml:lang="en">Prefix</rdfs:label>
+        <rdfs:label xml:lang="de">Präfix</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#title -->
+
+    <owl:DatatypeProperty rdf:about="http://ont.enapso.com/repo#title">
+        <rdfs:comment xml:lang="en">Title of a certain entity. For instance, to be used for a repository in graph db.</rdfs:comment>
+        <rdfs:label xml:lang="en">Title</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#url -->
+
+    <owl:DatatypeProperty rdf:about="http://ont.enapso.com/repo#url">
+        <rdfs:label xml:lang="de">URL</rdfs:label>
+        <rdfs:label xml:lang="en">URL</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ont.enapso.com/repo#version -->
+
+    <owl:DatatypeProperty rdf:about="http://ont.enapso.com/repo#version">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Version Details</rdfs:comment>
+        <rdfs:label xml:lang="en">Version</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ont.enapso.com/repo#DatabaseInstance -->
+
+    <owl:Class rdf:about="http://ont.enapso.com/repo#DatabaseInstance">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#hasHost"/>
+                <owl:someValuesFrom rdf:resource="http://ont.enapso.com/repo#Host"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#name"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#version"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Describes a concrete database instance. Operated at a certain host.</rdfs:comment>
+        <rdfs:label xml:lang="en">Database Instance</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ont.enapso.com/repo#DatabaseSystem -->
+
+    <owl:Class rdf:about="http://ont.enapso.com/repo#DatabaseSystem">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ont.enapso.com/repo#name"/>
+                        <owl:hasValue>Apache Jena/Fuseki</owl:hasValue>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ont.enapso.com/repo#name"/>
+                        <owl:hasValue>GraphDB</owl:hasValue>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ont.enapso.com/repo#name"/>
+                        <owl:hasValue>Stardog</owl:hasValue>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#version"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Describe a Database System</rdfs:comment>
+        <rdfs:label xml:lang="en">Database System</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Environment -->
+
+    <owl:Class rdf:about="http://ont.enapso.com/repo#Environment">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#hasTenant"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ont.enapso.com/repo#Tenant"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#name"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An enviroment consists of one or more hosts. A tenant can have one or more environments.</rdfs:comment>
+        <rdfs:label xml:lang="en">Environment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph -->
+
+    <owl:Class rdf:about="http://ont.enapso.com/repo#Graph">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#hasRepository"/>
+                <owl:someValuesFrom rdf:resource="http://ont.enapso.com/repo#Repository"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#graph"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#name"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Describes a sub graph within a graph database repository.</rdfs:comment>
+        <rdfs:label xml:lang="en">Graph</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Host -->
+
+    <owl:Class rdf:about="http://ont.enapso.com/repo#Host">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#hasDatabaseSystem"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ont.enapso.com/repo#DatabaseSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#hasEnvironment"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ont.enapso.com/repo#Environment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#hasOperatingSystem"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ont.enapso.com/repo#OperatingSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#dbVersion"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#name"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#osVersion"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Describes one physical graph database host. Each host can contain multiple repositories. Each repository can contain multiple graphs.</rdfs:comment>
+        <rdfs:label xml:lang="en">Host</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Ontology -->
+
+    <owl:Class rdf:about="http://ont.enapso.com/repo#Ontology">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#name"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#url"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Definition of an ontology in the Enapso ontology repository. Usually, each ontology is associated with a certain graph in a certain repository of a certain host.</rdfs:comment>
+        <rdfs:label xml:lang="en">Ontology</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ont.enapso.com/repo#OperatingSystem -->
+
+    <owl:Class rdf:about="http://ont.enapso.com/repo#OperatingSystem">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ont.enapso.com/repo#name"/>
+                        <owl:hasValue>Linux</owl:hasValue>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ont.enapso.com/repo#name"/>
+                        <owl:hasValue>MacOS</owl:hasValue>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ont.enapso.com/repo#name"/>
+                        <owl:hasValue>Windows</owl:hasValue>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#version"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Describes an operating system on a certain host.</rdfs:comment>
+        <rdfs:label xml:lang="en">Operating System</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Platform -->
+
+    <owl:Class rdf:about="http://ont.enapso.com/repo#Platform">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#name"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Definiition of the platform where a certain host is operated. This can be e.g. AWS, Azure or On-Premise.</rdfs:comment>
+        <rdfs:label xml:lang="en">Platform</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Prefix -->
+
+    <owl:Class rdf:about="http://ont.enapso.com/repo#Prefix">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#name"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#namespace"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#prefix"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Definition of prefix and associated namespace.</rdfs:comment>
+        <rdfs:label xml:lang="en">Prefix</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Repository -->
+
+    <owl:Class rdf:about="http://ont.enapso.com/repo#Repository">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#hasDatabaseInstance"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://ont.enapso.com/repo#DatabaseInstance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#id"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#name"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Describes one repository within one graph database host. Each repository can contain multiple graphs.</rdfs:comment>
+        <rdfs:label xml:lang="en">Repository</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Tenant -->
+
+    <owl:Class rdf:about="http://ont.enapso.com/repo#Tenant">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ont.enapso.com/repo#name"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A tenant is a paying customer of the Enapso platform. Each tenant can have one or multiple environments.</rdfs:comment>
+        <rdfs:label xml:lang="en">Tenant</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ont.enapso.com/repo#DatabaseInstance_086a69ed_f3e1_4555_bdb5_2535ac9baea7 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#DatabaseInstance_086a69ed_f3e1_4555_bdb5_2535ac9baea7">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#DatabaseInstance"/>
+        <hasHost rdf:resource="http://ont.enapso.com/repo#Host_1fbdddee_d864_4868_9f65_c6b1be32de92"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GraphDB on Alexander Schulze&apos;s Macbook Pro I</name>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7</version>
+        <rdfs:comment xml:lang="en">GraphDB on Alexander Schulze&apos;s Macbook Pro I</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#DatabaseInstance_0cd52b9e_888c_4a33_acde_89effe38ddee -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#DatabaseInstance_0cd52b9e_888c_4a33_acde_89effe38ddee">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#DatabaseInstance"/>
+        <hasHost rdf:resource="http://ont.enapso.com/repo#Host_28180341_d1bc_4dbb_aa63_e079001d2513"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GraphDB on Martin Künzle&apos;s laptop</name>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9.2</version>
+        <rdfs:comment xml:lang="en">GraphDB on Martin Künzle&apos;s laptop</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#DatabaseInstance_1a8b2422_9b1c_48bd_88a1_4794fd09df6e -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#DatabaseInstance_1a8b2422_9b1c_48bd_88a1_4794fd09df6e">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#DatabaseInstance"/>
+        <hasHost rdf:resource="http://ont.enapso.com/repo#Host_6c307a8d_be16_4550_8794_33492e758f22"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GraphDB on Fida&apos;s laptop</name>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9.1</version>
+        <rdfs:comment xml:lang="en">GraphDB on Fida&apos;s laptop</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#DatabaseInstance_41710204_2620_4483_a31d_963e2075767f -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#DatabaseInstance_41710204_2620_4483_a31d_963e2075767f">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#DatabaseInstance"/>
+        <hasHost rdf:resource="http://ont.enapso.com/repo#Host_79d4c2c0_857c_4666_beb9_e0c8b2617c6e"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GraphDB on Alexander Schulze&apos;s Macbook Pro II</name>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9.1</version>
+        <rdfs:comment xml:lang="en">GraphDB on Alexander Schulze&apos;s Macbook Pro II</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#DatabaseInstance_665295fd_6ba1_4e2e_bc2e_452168a848e6 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#DatabaseInstance_665295fd_6ba1_4e2e_bc2e_452168a848e6">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#DatabaseInstance"/>
+        <hasHost rdf:resource="http://ont.enapso.com/repo#Host_d7ff76c6_cfd5_479f_9c36_d40825259a8d"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GraphDB on Siva&apos;s laptop</name>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9.0</version>
+        <rdfs:comment xml:lang="en">GraphDB on Siva&apos;s laptop</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#DatabaseInstance_789c7c2b_9928_42cf_b1ec_f079385c23ca -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#DatabaseInstance_789c7c2b_9928_42cf_b1ec_f079385c23ca">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#DatabaseInstance"/>
+        <hasHost rdf:resource="http://ont.enapso.com/repo#Host_3bc75791_9b65_4b0a_887d_aaabc253c78e"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GraphDB on Ashesh Goplani hp i7</name>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9.1</version>
+        <rdfs:comment xml:lang="en">GraphDB on Ashesh Goplani hp i7</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#DatabaseInstance_8a41da22_e9d8_4396_8440_a3941faeac49 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#DatabaseInstance_8a41da22_e9d8_4396_8440_a3941faeac49">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#DatabaseInstance"/>
+        <hasHost rdf:resource="http://ont.enapso.com/repo#Host_01141633_0716_4ae3_b38b_aa12b2197c4a"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GraphDB on Muhammad Yasir Dell i5</name>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9.1</version>
+        <rdfs:comment xml:lang="en">GraphDB on Muhammad Yasir Dell i5</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#DatabaseInstance_aef8e43d_a563_4834_bbe1_dbf7e8bb786b -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#DatabaseInstance_aef8e43d_a563_4834_bbe1_dbf7e8bb786b">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#DatabaseInstance"/>
+        <hasHost rdf:resource="http://ont.enapso.com/repo#Host_0134bc8c_e40c_4394_b4c7_310a206e10da"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GraphDB on Alexander Schulze&apos;s iMac</name>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4</version>
+        <rdfs:comment xml:lang="en">GraphDB on Alexander Schulze&apos;s iMac</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#DatabaseSystem_3e35cc32_378a_40fa_ad11_74ac431b7aa9 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#DatabaseSystem_3e35cc32_378a_40fa_ad11_74ac431b7aa9">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#DatabaseSystem"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apache Jena/Fuseki</name>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9.1</version>
+        <rdfs:comment xml:lang="en">Apache Jena/Fuseki</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#DatabaseSystem"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GraphDB (Ontotext)</name>
+        <rdfs:comment xml:lang="en">GraphDB (Ontotext)</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#DatabaseSystem_94bad780_3cdd_4942_abc2_a60ca6788745 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#DatabaseSystem_94bad780_3cdd_4942_abc2_a60ca6788745">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#DatabaseSystem"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Stardog</name>
+        <rdfs:comment xml:lang="en">Stardog</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Environment_14eaf5b6_1704_4f8d_b315_8a8728640b66 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Environment_14eaf5b6_1704_4f8d_b315_8a8728640b66">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Environment"/>
+        <hasTenant rdf:resource="http://ont.enapso.com/repo#Tenant_e7e124a2_3a7b_4333_8f51_5f70d48f0bfe"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Martin Künzle&apos;s local Environment</name>
+        <rdfs:comment xml:lang="en">Martin Künzle&apos;s local Environment</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Environment_31cf4adb_b552_45f5_9997_98acb07263c4 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Environment_31cf4adb_b552_45f5_9997_98acb07263c4">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Environment"/>
+        <hasTenant rdf:resource="http://ont.enapso.com/repo#Tenant_f5a52c9d_1c3e_4fa8_bfb2_587958d4e8c3"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Siva&apos;s local Environment</name>
+        <rdfs:comment xml:lang="en">Siva&apos;s local Environment</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Environment_7308c29c_9c98_4d14_80ad_546c498d91ef -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Environment_7308c29c_9c98_4d14_80ad_546c498d91ef">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Environment"/>
+        <hasTenant rdf:resource="http://ont.enapso.com/repo#Tenant_0143e7ee_fbdd_45b3_879f_fedc78e42ab4"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alexander Schulze&apos;s local environment</name>
+        <rdfs:comment xml:lang="en">Alexander Schulze&apos;s local environment</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Environment_833a44cc_ec58_4202_b44d_27460ae94e2d -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Environment_833a44cc_ec58_4202_b44d_27460ae94e2d">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Environment"/>
+        <hasTenant rdf:resource="http://ont.enapso.com/repo#Tenant_0143e7ee_fbdd_45b3_879f_fedc78e42ab4"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Muhammad Yasir&apos;s local environment</name>
+        <rdfs:comment xml:lang="en">Muhammad Yasir&apos;s local environment</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Environment_ca8d3c76_0766_47dd_9b87_2e93bf976082 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Environment_ca8d3c76_0766_47dd_9b87_2e93bf976082">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Environment"/>
+        <hasTenant rdf:resource="http://ont.enapso.com/repo#Tenant_0143e7ee_fbdd_45b3_879f_fedc78e42ab4"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ashesh Goplani&apos;s local environment</name>
+        <rdfs:comment xml:lang="en">Ashesh Goplani&apos;s local environment</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Environment_fcf6327c_58fa_4b18_8fbe_bb3e959a126c -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Environment_fcf6327c_58fa_4b18_8fbe_bb3e959a126c">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Environment"/>
+        <hasTenant rdf:resource="http://ont.enapso.com/repo#Tenant_f5a52c9d_1c3e_4fa8_bfb2_587958d4e8c3"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fida&apos;s local Environment</name>
+        <rdfs:comment xml:lang="en">Fida&apos;s local Environment</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_0ea87735_977d_461b_88c5_749d1a5bf909 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_0ea87735_977d_461b_88c5_749d1a5bf909">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_63423a53_29c2_43ae_b35a_7be883b4bd40"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/repo</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Alexander Schulze&apos;s MacBookPro II in the EnapsoTest repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Alexander Schulze&apos;s MacBookPro II in the EnapsoTest repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_1242ac41_1811_4625_8664_6a260bfe6d3b -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_1242ac41_1811_4625_8664_6a260bfe6d3b">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_6159c98a_6c46_4cc3_9efd_6320775ac4ed"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/terms</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Muhammad Yasir Dell i5 in the EnapsoTest repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Muhammad Yasir Dell i5 in the EnapsoTest repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_128100a6_8c71_4fd8_a86a_22f2bb88782f -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_128100a6_8c71_4fd8_a86a_22f2bb88782f">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_299e12b7_024a_4ffe_a099_b408fe8858a6"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/repo</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Ashesh Goplani hp i7 in the EnapsoTest repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Ashesh Goplani hp i7 in the EnapsoTest repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_144eb313_94bd_4506_86cc_2f959412b61d -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_144eb313_94bd_4506_86cc_2f959412b61d">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_03b94545_b227_427d_bd7a_3676e61adb9c"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/dotnetpro</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Muhammad Yasir Dell i5 in the EnapsoChecking repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Muhammad Yasir Dell i5 in the EnapsoChecking repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_1620132d_9bbc_4bad_846c_349eab25d224 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_1620132d_9bbc_4bad_846c_349eab25d224">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_63423a53_29c2_43ae_b35a_7be883b4bd40"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/extjs</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Alexander Schulze&apos;s MacBookPro II in the EnapsoChecking repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Alexander Schulze&apos;s MacBookPro II in the EnapsoChecking repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_174ff230_d7b9_4993_bb35_a2da61215475 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_174ff230_d7b9_4993_bb35_a2da61215475">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_27ebbed9_fd22_4e5c_9227_956cf475a4e5"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/foundation</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Alexander Schulze&apos;s MacBookPro II in the EnapsoDotNetProDemo repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Alexander Schulze&apos;s MacBookPro II in the EnapsoDotNetProDemo repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_1d9a32b1_fd00_4565_8d1b_4b9e1bb0f264 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_1d9a32b1_fd00_4565_8d1b_4b9e1bb0f264">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_49260c94_b3ac_4dd0_baf7_df762e92179e"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/gse</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Alexander Schulze&apos;s MacBookPro II in the EnapsoDotNetProDemo repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Alexander Schulze&apos;s MacBookPro II in the EnapsoDotNetProDemo repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_2129eed4_1867_4c09_a75c_f7c9434766e6 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_2129eed4_1867_4c09_a75c_f7c9434766e6">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_be8010df_5906_43ea_a1b3_fe926eb29fe7"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/dotnetpro</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Siva&apos;s laptop in the EnapsoChecking repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Siva&apos;s laptop in the EnapsoChecking repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_24a1d382_025d_43f0_a54e_ddbefc1037a7 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_24a1d382_025d_43f0_a54e_ddbefc1037a7">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_af8ed397_c907_4353_86c4_56009c84dc29"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/jsast</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Muhammad Yasir Dell i5 in the EnapsoDotNetPrDemo repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Muhammad Yasir Dell i5 in the EnapsoDotNetPrDemo repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_43c82926_a072_4057_bb2c_c6c5b22cd156 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_43c82926_a072_4057_bb2c_c6c5b22cd156">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_6159c98a_6c46_4cc3_9efd_6320775ac4ed"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/repo</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Muhammad Yasir Dell i5 in the EnapsoTest repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Muhammad Yasir Dell i5 in the EnapsoTest repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_462af229_a60e_4c80_9ffc_aef39d940653 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_462af229_a60e_4c80_9ffc_aef39d940653">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_a4c96d2c_b982_4231_930b_4bc961d8352a"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/dotnetpro</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Ashesh Goplani hp i7 in the EnapsoChecking repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Ashesh Goplani hp i7 in the EnapsoChecking repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_47ceb7c2_09c5_4b6d_a400_4a74ec945e3a -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_47ceb7c2_09c5_4b6d_a400_4a74ec945e3a">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_63423a53_29c2_43ae_b35a_7be883b4bd40"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/test</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Alexander Schulze&apos;s MacBookPro II in the EnapsoTest repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Alexander Schulze&apos;s MacBookPro II in the EnapsoTest repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_485aac31_fa8d_4463_86fd_a6845c75ad48 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_485aac31_fa8d_4463_86fd_a6845c75ad48">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_299e12b7_024a_4ffe_a099_b408fe8858a6"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/terms</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Alexander Schulze&apos;s MacBookPro II in the EnapsoTest repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Ashesh Goplani hp i7 in the EnapsoTest repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_4bf163c4_b330_402d_994c_230bcf3714fa -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_4bf163c4_b330_402d_994c_230bcf3714fa">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_a4c96d2c_b982_4231_930b_4bc961d8352a"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/extjs</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The  Graph in Ashesh Goplani hp i7 in the EnapsoChecking repository..</name>
+        <rdfs:comment xml:lang="en">The  Graph in Ashesh Goplani hp i7 in the EnapsoChecking repository..</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_53a1f29f_48c6_4b9a_83c2_85a9d216ecd4 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_53a1f29f_48c6_4b9a_83c2_85a9d216ecd4">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_03b94545_b227_427d_bd7a_3676e61adb9c"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/extjs</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Muhammad Yasir Dell i5 in the EnapsoChecking repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Muhammad Yasir Dell i5 in the EnapsoChecking repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_5e3504ce_9441_4f25_a5ee_c8c65fbb9132 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_5e3504ce_9441_4f25_a5ee_c8c65fbb9132">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_0a2c8421_036d_46ef_8a48_e0fca429ccdc"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/dotnetpro</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Fida&apos;s laptop in the EnapsoChecking repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Fida&apos;s laptop in the EnapsoChecking repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_629b7ea1_5a2b_4ce5_860e_c5ad5996f45f -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_629b7ea1_5a2b_4ce5_860e_c5ad5996f45f">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_49260c94_b3ac_4dd0_baf7_df762e92179e"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/ontapi</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Alexander Schulze&apos;s MacBookPro II in the EnapsoDotNetProDemo repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Alexander Schulze&apos;s MacBookPro II in the EnapsoDotNetProDemo repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_679ba549_2894_44e8_a98b_98054e128b53 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_679ba549_2894_44e8_a98b_98054e128b53">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_af8ed397_c907_4353_86c4_56009c84dc29"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/ontapi</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Muhammad Yasir Dell i5 in the EnapsoDotNetProDemo repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Muhammad Yasir Dell i5 in the EnapsoDotNetProDemo repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_727832e2_a8da_4402_a99c_7a9259ad6046 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_727832e2_a8da_4402_a99c_7a9259ad6046">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_b49357e0_33bc_4163_8fef_2cad56ac72a5"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/dotnetpro</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Martin Künzle&apos;s laptop in the EnapsoChecking repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Martin Künzle&apos;s laptop in the EnapsoChecking repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_8ac9f951_b8b8_4f97_b2e2_da2aa344ced6 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_8ac9f951_b8b8_4f97_b2e2_da2aa344ced6">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_03b94545_b227_427d_bd7a_3676e61adb9c"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/foundation</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Muhammad Yasir Dell i5 in the EnapsoChecking repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Muhammad Yasir Dell i5 in the EnapsoChecking repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_8dc370d6_4173_4676_bf39_eea210247594 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_8dc370d6_4173_4676_bf39_eea210247594">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_a4c96d2c_b982_4231_930b_4bc961d8352a"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/foundation</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Ashesh Goplani hp i7 in the EnapsoChecking repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Ashesh Goplani hp i7 in the EnapsoChecking repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_94a4cf76_f7f2_4b60_b4d6_2763dce8f263 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_94a4cf76_f7f2_4b60_b4d6_2763dce8f263">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_27ebbed9_fd22_4e5c_9227_956cf475a4e5"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/dotnetpro</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Alexander Schulze&apos;s MacBookPro II in the EnapsoChecking repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Alexander Schulze&apos;s MacBookPro II in the EnapsoChecking repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_b4fb1107_ed80_4b12_b365_2eaaf219dca0 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_b4fb1107_ed80_4b12_b365_2eaaf219dca0">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_63423a53_29c2_43ae_b35a_7be883b4bd40"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/terms</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Alexander Schulze&apos;s MacBookPro II in the EnapsoTest repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Alexander Schulze&apos;s MacBookPro II in the EnapsoTest repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_b62e1d40_7e61_4363_bb45_6e035fa8d694 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_b62e1d40_7e61_4363_bb45_6e035fa8d694">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_2a8d3e7c_a584_4623_98f8_901996dabac1"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/ontapi</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Ashesh Goplani hp i7 in the EnapsoDotNetProDemo repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Ashesh Goplani hp i7 in the EnapsoDotNetProDemo repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_b957cf06_b02c_48e6_a6f3_52b53d5b740c -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_b957cf06_b02c_48e6_a6f3_52b53d5b740c">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_af8ed397_c907_4353_86c4_56009c84dc29"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/gse</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Muhammad Yasir Dell i5 in the EnapsoDotNetPrDemo repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Muhammad Yasir Dell i5 in the EnapsoDotNetPrDemo repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_bad12375_698e_4016_84dd_7e49fe5cfbfb -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_bad12375_698e_4016_84dd_7e49fe5cfbfb">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_299e12b7_024a_4ffe_a099_b408fe8858a6"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/test</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Ashesh Goplani hp i7 in the EnapsoTest repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Ashesh Goplani hp i7 in the EnapsoTest repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_bc252a61_42d2_455e_b720_cb276a4f6b4f -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_bc252a61_42d2_455e_b720_cb276a4f6b4f">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_2a8d3e7c_a584_4623_98f8_901996dabac1"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/jsast</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Ashesh Goplani hp i7 in the EnapsoDotNetProDemo repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Ashesh Goplani hp i7 in the EnapsoDotNetProDemo repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_e1d78937_146e_45dc_adeb_faf30b651d76 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_e1d78937_146e_45dc_adeb_faf30b651d76">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_2a8d3e7c_a584_4623_98f8_901996dabac1"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/gse</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Ashesh Goplani hp i7 in the EnapsoDotNetProDemo repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Ashesh Goplani hp i7 in the EnapsoDotNetProDemo repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_e41c32cd_9e73_432d_b269_3df775d2a74c -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_e41c32cd_9e73_432d_b269_3df775d2a74c">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_49260c94_b3ac_4dd0_baf7_df762e92179e"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/jsast</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Alexander Schulze&apos;s MacBookPro II in the EnapsoDotNetProDemo repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Alexander Schulze&apos;s MacBookPro II in the EnapsoDotNetProDemo repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Graph_eb7985dc_c13d_476d_b8ef_ea5dd6f72f77 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Graph_eb7985dc_c13d_476d_b8ef_ea5dd6f72f77">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Graph"/>
+        <hasRepository rdf:resource="http://ont.enapso.com/repo#Repository_6159c98a_6c46_4cc3_9efd_6320775ac4ed"/>
+        <graph rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/test</graph>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Graph in Muhammad Yasir Dell i5 in the EnapsoTest repository.</name>
+        <rdfs:comment xml:lang="en">The Graph in Muhammad Yasir Dell i5 in the EnapsoTest repository.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Host_01141633_0716_4ae3_b38b_aa12b2197c4a -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Host_01141633_0716_4ae3_b38b_aa12b2197c4a">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Host"/>
+        <hasDatabaseSystem rdf:resource="http://ont.enapso.com/repo#DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f"/>
+        <hasEnvironment rdf:resource="http://ont.enapso.com/repo#Environment_833a44cc_ec58_4202_b44d_27460ae94e2d"/>
+        <hasOperatingSystem rdf:resource="http://ont.enapso.com/repo#OperatingSystem_e4966c72_e7f2_484c_adb6_cbc2fd531d36"/>
+        <dbVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9.1</dbVersion>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Muhammad Yasir&apos;s laptop</name>
+        <osVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10</osVersion>
+        <rdfs:comment xml:lang="en">Muhammad Yasir&apos;s laptop</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Host_0134bc8c_e40c_4394_b4c7_310a206e10da -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Host_0134bc8c_e40c_4394_b4c7_310a206e10da">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Host"/>
+        <hasDatabaseSystem rdf:resource="http://ont.enapso.com/repo#DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f"/>
+        <hasEnvironment rdf:resource="http://ont.enapso.com/repo#Environment_7308c29c_9c98_4d14_80ad_546c498d91ef"/>
+        <hasOperatingSystem rdf:resource="http://ont.enapso.com/repo#OperatingSystem_b736e30c_4a61_4721_bfcd_57e196b321fe"/>
+        <dbVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8.9</dbVersion>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alexander Schulze&apos;s iMac I</name>
+        <osVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7</osVersion>
+        <rdfs:comment xml:lang="en">Alexander Schulze&apos;s iMac I</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Host_1fbdddee_d864_4868_9f65_c6b1be32de92 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Host_1fbdddee_d864_4868_9f65_c6b1be32de92">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Host"/>
+        <hasDatabaseSystem rdf:resource="http://ont.enapso.com/repo#DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f"/>
+        <hasEnvironment rdf:resource="http://ont.enapso.com/repo#Environment_7308c29c_9c98_4d14_80ad_546c498d91ef"/>
+        <hasOperatingSystem rdf:resource="http://ont.enapso.com/repo#OperatingSystem_b736e30c_4a61_4721_bfcd_57e196b321fe"/>
+        <dbVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9.0</dbVersion>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alexander Schulze&apos;s MacBook Pro I</name>
+        <osVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10.15.3</osVersion>
+        <rdfs:comment xml:lang="en">Alexander Schulze&apos;s MacBook Pro I</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Host_28180341_d1bc_4dbb_aa63_e079001d2513 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Host_28180341_d1bc_4dbb_aa63_e079001d2513">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Host"/>
+        <hasDatabaseSystem rdf:resource="http://ont.enapso.com/repo#DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f"/>
+        <hasEnvironment rdf:resource="http://ont.enapso.com/repo#Environment_14eaf5b6_1704_4f8d_b315_8a8728640b66"/>
+        <hasOperatingSystem rdf:resource="http://ont.enapso.com/repo#OperatingSystem_e4966c72_e7f2_484c_adb6_cbc2fd531d36"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Martin Künzle&apos;s laptop</name>
+        <osVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8.1</osVersion>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9.2</version>
+        <rdfs:comment xml:lang="en">Martin Künzle&apos;s laptop</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Host_3bc75791_9b65_4b0a_887d_aaabc253c78e -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Host_3bc75791_9b65_4b0a_887d_aaabc253c78e">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Host"/>
+        <hasDatabaseSystem rdf:resource="http://ont.enapso.com/repo#DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f"/>
+        <hasEnvironment rdf:resource="http://ont.enapso.com/repo#Environment_ca8d3c76_0766_47dd_9b87_2e93bf976082"/>
+        <hasOperatingSystem rdf:resource="http://ont.enapso.com/repo#OperatingSystem_e4966c72_e7f2_484c_adb6_cbc2fd531d36"/>
+        <dbVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9.1</dbVersion>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ashesh Goplani&apos;s laptop</name>
+        <osVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10</osVersion>
+        <rdfs:comment xml:lang="en">Ashesh Goplani&apos;s laptop</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Host_6c307a8d_be16_4550_8794_33492e758f22 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Host_6c307a8d_be16_4550_8794_33492e758f22">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Host"/>
+        <hasDatabaseSystem rdf:resource="http://ont.enapso.com/repo#DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f"/>
+        <hasEnvironment rdf:resource="http://ont.enapso.com/repo#Environment_fcf6327c_58fa_4b18_8fbe_bb3e959a126c"/>
+        <hasOperatingSystem rdf:resource="http://ont.enapso.com/repo#OperatingSystem_e4966c72_e7f2_484c_adb6_cbc2fd531d36"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fida&apos;s laptop</name>
+        <osVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10</osVersion>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9.0</version>
+        <rdfs:comment xml:lang="en">Fida&apos;s laptop</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Host_79d4c2c0_857c_4666_beb9_e0c8b2617c6e -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Host_79d4c2c0_857c_4666_beb9_e0c8b2617c6e">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Host"/>
+        <hasDatabaseSystem rdf:resource="http://ont.enapso.com/repo#DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f"/>
+        <hasEnvironment rdf:resource="http://ont.enapso.com/repo#Environment_7308c29c_9c98_4d14_80ad_546c498d91ef"/>
+        <hasOperatingSystem rdf:resource="http://ont.enapso.com/repo#OperatingSystem_b736e30c_4a61_4721_bfcd_57e196b321fe"/>
+        <dbVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9.1</dbVersion>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alexander Schulze&apos;s MacBook Pro II</name>
+        <osVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10.15.3</osVersion>
+        <rdfs:comment xml:lang="en">Alexander Schulze&apos;s MacBook Pro II</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Host_d7ff76c6_cfd5_479f_9c36_d40825259a8d -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Host_d7ff76c6_cfd5_479f_9c36_d40825259a8d">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Host"/>
+        <hasDatabaseSystem rdf:resource="http://ont.enapso.com/repo#DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f"/>
+        <hasEnvironment rdf:resource="http://ont.enapso.com/repo#Environment_31cf4adb_b552_45f5_9997_98acb07263c4"/>
+        <hasOperatingSystem rdf:resource="http://ont.enapso.com/repo#OperatingSystem_e4966c72_e7f2_484c_adb6_cbc2fd531d36"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Siva&apos;s laptop</name>
+        <osVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7</osVersion>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9.1</version>
+        <rdfs:comment xml:lang="en">Siva&apos;s laptop</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Ontology_03249d09_8038_421e_8376_467b4a430e56 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Ontology_03249d09_8038_421e_8376_467b4a430e56">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Ontology"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enapso JavaScript Abstract Syntax Tree Ontology</name>
+        <url rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoJSAST.owl</url>
+        <rdfs:comment xml:lang="en">Enapso JavaScript Abstract Syntax Tree Ontology</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Ontology_1efd927f_3b18_4581_8a95_d11af361993c -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Ontology_1efd927f_3b18_4581_8a95_d11af361993c">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Ontology"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enapso Test Ontology</name>
+        <url rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoTest.owl</url>
+        <rdfs:comment xml:lang="en">Enapso Test Ontology</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Ontology_3a8e056d_76c7_437b_8718_78a84cae0a31 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Ontology_3a8e056d_76c7_437b_8718_78a84cae0a31">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Ontology"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enapso Generic Software Engineering Ontology</name>
+        <url rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoGenericSoftwareEngineering.owl</url>
+        <rdfs:comment xml:lang="en">Enapso Generic Software Engineering Ontology</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Ontology_7886ca3f_93cf_45c4_bac6_41dc832af2b2 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Ontology_7886ca3f_93cf_45c4_bac6_41dc832af2b2">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Ontology"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enapso Sencha ExtJS Ontology</name>
+        <url rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoExtJS.owl</url>
+        <rdfs:comment xml:lang="en">Enapso Sencha ExtJS Ontology</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Ontology_a6ca7dfb_7ffa_4c1e_97b9_e7b91d191c63 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Ontology_a6ca7dfb_7ffa_4c1e_97b9_e7b91d191c63">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Ontology"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enapso DotNetPro Demo Ontology</name>
+        <url rdf:datatype="http://www.w3.org/2001/XMLSchema#string">/demo/dotnetpro_demo_ontology_2.owl</url>
+        <rdfs:comment xml:lang="en">Enapso DotNetPro Demo Ontology</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Ontology_be07652f_b314_4227_8b6b_9d32d238e571 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Ontology_be07652f_b314_4227_8b6b_9d32d238e571">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Ontology"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enapso Terms Ontology</name>
+        <url rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoTerms.owl</url>
+        <rdfs:comment xml:lang="en">Enapso Terms Ontology</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Ontology_c0ee28df_53dd_45b1_a961_2f134c72e12f -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Ontology_c0ee28df_53dd_45b1_a961_2f134c72e12f">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Ontology"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enapso Foundational Ontology</name>
+        <url rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoFoundation.owl</url>
+        <rdfs:comment xml:lang="en">Enapso Foundational Ontology</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Ontology_de3f9fb0_0b4c_4f7d_a77d_08d1adb6f089 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Ontology_de3f9fb0_0b4c_4f7d_a77d_08d1adb6f089">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Ontology"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enapso Ontology Repository Management Ontology</name>
+        <url rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoOntologyRepository.owl</url>
+        <rdfs:comment xml:lang="en">Enapso Ontology Repository Management Ontology</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Ontology_fafc443d_cd64_48f1_a09e_98e8725a4042 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Ontology_fafc443d_cd64_48f1_a09e_98e8725a4042">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Ontology"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enapso Ontology API Ontology</name>
+        <url rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoOntologyApi.owl</url>
+        <rdfs:comment xml:lang="en">Enapso Ontology API Ontology</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#OperatingSystem_736c6895_7ed9_4b00_a062_7d5eaa19135f -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#OperatingSystem_736c6895_7ed9_4b00_a062_7d5eaa19135f">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#OperatingSystem"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Linux (RedHat)</name>
+        <rdfs:comment xml:lang="en">Linux (RedHat)</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#OperatingSystem_8224f055_2d29_4034_98d9_037e175e9edf -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#OperatingSystem_8224f055_2d29_4034_98d9_037e175e9edf">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#OperatingSystem"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unix</name>
+        <rdfs:comment xml:lang="en">Unix</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#OperatingSystem_aef0d524_8308_4082_8a93_8171ee487af5 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#OperatingSystem_aef0d524_8308_4082_8a93_8171ee487af5">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#OperatingSystem"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ubuntu</name>
+        <rdfs:comment xml:lang="en">Linux (Ubuntu)</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#OperatingSystem_b736e30c_4a61_4721_bfcd_57e196b321fe -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#OperatingSystem_b736e30c_4a61_4721_bfcd_57e196b321fe">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#OperatingSystem"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MacOS</name>
+        <rdfs:comment xml:lang="en">MacOS</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#OperatingSystem_e4966c72_e7f2_484c_adb6_cbc2fd531d36 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#OperatingSystem_e4966c72_e7f2_484c_adb6_cbc2fd531d36">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#OperatingSystem"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Windows</name>
+        <rdfs:comment xml:lang="en">Windows</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Platform_6a028729_e0d3_4c0e_be4f_3660130bbf3c -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Platform_6a028729_e0d3_4c0e_be4f_3660130bbf3c">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Platform"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Stand alone desktop, laptop, pc, workstation.</name>
+        <rdfs:comment xml:lang="en">Stand alone desktop, laptop, pc, workstation.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Platform_6b4a3d16_e084_47fa_96ba_6dc7cc430077 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Platform_6b4a3d16_e084_47fa_96ba_6dc7cc430077">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Platform"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Private Cloud</name>
+        <rdfs:comment xml:lang="en">Private Cloud</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Platform_75eede97_cc40_4364_b19e_84d343afacc1 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Platform_75eede97_cc40_4364_b19e_84d343afacc1">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Platform"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Amazon Web Services</name>
+        <rdfs:comment xml:lang="en">Amazon Web Services</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Platform_8b46fda0_3671_42e1_a166_746befe9bb49 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Platform_8b46fda0_3671_42e1_a166_746befe9bb49">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Platform"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Microsoft Azure</name>
+        <rdfs:comment xml:lang="en">Microsoft Azure</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Platform_e611adf1_7ef3_493b_97a7_812d847f4ba2 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Platform_e611adf1_7ef3_493b_97a7_812d847f4ba2">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Platform"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dedicated Server</name>
+        <rdfs:comment xml:lang="en">Dedicated Server</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Prefix_06211c8c_4b66_4a9d_a483_a7161734a6f7 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Prefix_06211c8c_4b66_4a9d_a483_a7161734a6f7">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Prefix"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enapso JavaScript Abstract Syntax Tree Ontology</name>
+        <namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/jsast#</namespace>
+        <prefix rdf:datatype="http://www.w3.org/2001/XMLSchema#string">enjsast</prefix>
+        <rdfs:comment xml:lang="en">Enapso JavaScript Abstract Syntax Tree Ontology</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Prefix_26a400d2_76d8_4522_ab78_eee13d5aa2ad -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Prefix_26a400d2_76d8_4522_ab78_eee13d5aa2ad">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Prefix"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Resource Description Framework Schema</name>
+        <namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2000/01/rdf-schema#</namespace>
+        <prefix rdf:datatype="http://www.w3.org/2001/XMLSchema#string">rdfs</prefix>
+        <rdfs:comment xml:lang="en">Resource Description Framework Schema</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Prefix_45603a34_4569_4914_9ac9_eac8e264a2d7 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Prefix_45603a34_4569_4914_9ac9_eac8e264a2d7">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Prefix"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enapso Test Ontology</name>
+        <namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/test#</namespace>
+        <prefix rdf:datatype="http://www.w3.org/2001/XMLSchema#string">entest</prefix>
+        <rdfs:comment xml:lang="en">Enapso Test Ontology</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Prefix_55c5b6d4_9c2e_45f4_aa30_98a15c8ad5b2 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Prefix_55c5b6d4_9c2e_45f4_aa30_98a15c8ad5b2">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Prefix"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XML Schema Definition</name>
+        <namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#</namespace>
+        <prefix rdf:datatype="http://www.w3.org/2001/XMLSchema#string">xsd</prefix>
+        <rdfs:comment xml:lang="en">XML Schema Definition</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Prefix_59477cde_2c3a_4b00_83b7_2a377f810849 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Prefix_59477cde_2c3a_4b00_83b7_2a377f810849">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Prefix"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Shapes Constraint Language</name>
+        <namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/ns/shacl#</namespace>
+        <prefix rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sh</prefix>
+        <rdfs:comment xml:lang="en">Shapes Constraint Language</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Prefix_65a0558a_6c57_469f_9629_e1a3ce94bd7a -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Prefix_65a0558a_6c57_469f_9629_e1a3ce94bd7a">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Prefix"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Resource Description Framework</name>
+        <namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/1999/02/22-rdf-syntax-ns#</namespace>
+        <prefix rdf:datatype="http://www.w3.org/2001/XMLSchema#string">rdf</prefix>
+        <rdfs:comment xml:lang="en">Resource Description Framework</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Prefix_780bf0c4_39cf_470e_b97f_65238963626e -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Prefix_780bf0c4_39cf_470e_b97f_65238963626e">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Prefix"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Extensible Markup Language</name>
+        <namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/XML/1998/namespace/</namespace>
+        <prefix rdf:datatype="http://www.w3.org/2001/XMLSchema#string">xml</prefix>
+        <rdfs:comment xml:lang="en">Extensible Markup Language</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Prefix_7fe3a9a5_8e7c_40f9_8d26_5697db774da0 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Prefix_7fe3a9a5_8e7c_40f9_8d26_5697db774da0">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Prefix"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enapso Terms Ontology</name>
+        <namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/terms#</namespace>
+        <prefix rdf:datatype="http://www.w3.org/2001/XMLSchema#string">enterms</prefix>
+        <rdfs:comment xml:lang="en">Enapso Terms Ontology</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Prefix_8cf7a1e0_09a4_461b_ae81_039418e69ce0 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Prefix_8cf7a1e0_09a4_461b_ae81_039418e69ce0">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Prefix"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Generic Enapso Software Engineering Ontology</name>
+        <namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/gse#</namespace>
+        <prefix rdf:datatype="http://www.w3.org/2001/XMLSchema#string">engse</prefix>
+        <rdfs:comment xml:lang="en">Generic Enapso Software Engineering Ontology</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Prefix_91941413_4174_4cb0_a0a5_7f7a5c964286 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Prefix_91941413_4174_4cb0_a0a5_7f7a5c964286">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Prefix"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enapso Ontology API Ontology</name>
+        <namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/ontapi#</namespace>
+        <prefix rdf:datatype="http://www.w3.org/2001/XMLSchema#string">enontapi</prefix>
+        <rdfs:comment xml:lang="en">Enapso Ontology API Ontology</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Prefix_9cc12701_6636_4469_99d2_b9ee3fcc713a -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Prefix_9cc12701_6636_4469_99d2_b9ee3fcc713a">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Prefix"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enapso Sencha ExtJS Ontology</name>
+        <namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/extjs#</namespace>
+        <prefix rdf:datatype="http://www.w3.org/2001/XMLSchema#string">enextjs</prefix>
+        <rdfs:comment xml:lang="en">Enapso Sencha ExtJS Ontology</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Prefix_c02c7276_e901_4514_aa3c_fa8aef1663b9 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Prefix_c02c7276_e901_4514_aa3c_fa8aef1663b9">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Prefix"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Working Ontology Language</name>
+        <namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2002/07/owl#</namespace>
+        <prefix rdf:datatype="http://www.w3.org/2001/XMLSchema#string">owl</prefix>
+        <rdfs:comment xml:lang="en">Working Ontology Language</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Prefix_ce6df350_20ed_43c2_bc62_2c0a06f7b078 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Prefix_ce6df350_20ed_43c2_bc62_2c0a06f7b078">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Prefix"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enapso DotNetPro Ontology</name>
+        <namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/dotnetpro#</namespace>
+        <prefix rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dnp</prefix>
+        <rdfs:comment xml:lang="en">Enapso DotNetPro Ontology</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Prefix_d0bbb0bd_cc12_4501_9647_05bceb5f06c9 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Prefix_d0bbb0bd_cc12_4501_9647_05bceb5f06c9">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Prefix"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enapso Ontology Repository Management Ontology</name>
+        <prefix rdf:datatype="http://www.w3.org/2001/XMLSchema#string">enrepo</prefix>
+        <url rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/repo#</url>
+        <rdfs:comment xml:lang="en">Enapso Ontology Repository Management Ontology</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Prefix_d59211cf_09ae_4cdb_a8f9_82d5e85fc450 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Prefix_d59211cf_09ae_4cdb_a8f9_82d5e85fc450">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Prefix"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enapso Foundational Ontology</name>
+        <namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://ont.enapso.com/foundation#</namespace>
+        <prefix rdf:datatype="http://www.w3.org/2001/XMLSchema#string">enf</prefix>
+        <rdfs:comment xml:lang="en">Enapso Foundational Ontology</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Repository_03b94545_b227_427d_bd7a_3676e61adb9c -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Repository_03b94545_b227_427d_bd7a_3676e61adb9c">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Repository"/>
+        <hasDatabaseInstance rdf:resource="http://ont.enapso.com/repo#DatabaseInstance_8a41da22_e9d8_4396_8440_a3941faeac49"/>
+        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoChecking</id>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoChecking Repository located in Muhammad Yasir Dell i5</name>
+        <rdfs:comment xml:lang="en">EnapsoChecking Repository located in Muhammad Yasir Dell i5</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Repository_0a2c8421_036d_46ef_8a48_e0fca429ccdc -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Repository_0a2c8421_036d_46ef_8a48_e0fca429ccdc">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Repository"/>
+        <hasDatabaseInstance rdf:resource="http://ont.enapso.com/repo#DatabaseInstance_1a8b2422_9b1c_48bd_88a1_4794fd09df6e"/>
+        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoChecking</id>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoChecking Repository located in Fida laptop</name>
+        <rdfs:comment xml:lang="en">EnapsoChecking Repository located in Fida laptop</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Repository_27ebbed9_fd22_4e5c_9227_956cf475a4e5 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Repository_27ebbed9_fd22_4e5c_9227_956cf475a4e5">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Repository"/>
+        <hasDatabaseInstance rdf:resource="http://ont.enapso.com/repo#DatabaseInstance_41710204_2620_4483_a31d_963e2075767f"/>
+        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoChecking</id>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoChecking Repository located in Alexander Schulze MacBook Pro II</name>
+        <rdfs:comment xml:lang="en">EnapsoChecking Repository located in Alexander Schulze MacBook Pro II</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Repository_299e12b7_024a_4ffe_a099_b408fe8858a6 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Repository_299e12b7_024a_4ffe_a099_b408fe8858a6">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Repository"/>
+        <hasDatabaseInstance rdf:resource="http://ont.enapso.com/repo#DatabaseInstance_789c7c2b_9928_42cf_b1ec_f079385c23ca"/>
+        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoTest</id>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoTest Repository located in Ashesh Goplani hp i7</name>
+        <rdfs:comment xml:lang="en">EnapsoTest Repository located in Ashesh Goplani hp i7</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Repository_2a8d3e7c_a584_4623_98f8_901996dabac1 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Repository_2a8d3e7c_a584_4623_98f8_901996dabac1">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Repository"/>
+        <hasDatabaseInstance rdf:resource="http://ont.enapso.com/repo#DatabaseInstance_789c7c2b_9928_42cf_b1ec_f079385c23ca"/>
+        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoDotNetProDemo</id>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoDotNetProDemo repository is located a Ashesh Goplani hp i7</name>
+        <rdfs:comment xml:lang="en">EnapsoDotNetProDemo repository is located a Ashesh Goplani hp i7</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Repository_49260c94_b3ac_4dd0_baf7_df762e92179e -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Repository_49260c94_b3ac_4dd0_baf7_df762e92179e">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Repository"/>
+        <hasDatabaseInstance rdf:resource="http://ont.enapso.com/repo#DatabaseInstance_41710204_2620_4483_a31d_963e2075767f"/>
+        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoDotNetProDemo</id>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoDotNetProDemo repository is located a Alexander Schulze&apos;s MacBookPro II.</name>
+        <rdfs:comment xml:lang="en">EnapsoDotNetProDemo repository is located a Alexander Schulze&apos;s MacBookPro II.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Repository_6159c98a_6c46_4cc3_9efd_6320775ac4ed -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Repository_6159c98a_6c46_4cc3_9efd_6320775ac4ed">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Repository"/>
+        <hasDatabaseInstance rdf:resource="http://ont.enapso.com/repo#DatabaseInstance_8a41da22_e9d8_4396_8440_a3941faeac49"/>
+        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoTest</id>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Repository in Muhammad Yasir Laptop</name>
+        <rdfs:comment xml:lang="en">Repository in Muhammad Yasir Laptop</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Repository_63423a53_29c2_43ae_b35a_7be883b4bd40 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Repository_63423a53_29c2_43ae_b35a_7be883b4bd40">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Repository"/>
+        <hasDatabaseInstance rdf:resource="http://ont.enapso.com/repo#DatabaseInstance_41710204_2620_4483_a31d_963e2075767f"/>
+        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoTest</id>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoTest Repository located in Alexander Schulze MacBook Pro II</name>
+        <rdfs:comment xml:lang="en">EnapsoTest Repository located in Alexander Schulze MacBook Pro II</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Repository_a4c96d2c_b982_4231_930b_4bc961d8352a -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Repository_a4c96d2c_b982_4231_930b_4bc961d8352a">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Repository"/>
+        <hasDatabaseInstance rdf:resource="http://ont.enapso.com/repo#DatabaseInstance_aef8e43d_a563_4834_bbe1_dbf7e8bb786b"/>
+        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoChecking</id>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoChecking repository is located a Ashesh Goplani hp i7</name>
+        <rdfs:comment xml:lang="en">EnapsoChecking repository is located a Ashesh Goplani hp i7</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Repository_af8ed397_c907_4353_86c4_56009c84dc29 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Repository_af8ed397_c907_4353_86c4_56009c84dc29">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Repository"/>
+        <hasDatabaseInstance rdf:resource="http://ont.enapso.com/repo#DatabaseInstance_8a41da22_e9d8_4396_8440_a3941faeac49"/>
+        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoDotNetProDemo</id>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoDotNetProDemo Repository located in Muhammad Yasir Dell i5</name>
+        <rdfs:comment xml:lang="en">EnapsoDotNetProDemo Repository located in Muhammad Yasir Dell i5</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Repository_b49357e0_33bc_4163_8fef_2cad56ac72a5 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Repository_b49357e0_33bc_4163_8fef_2cad56ac72a5">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Repository"/>
+        <hasDatabaseInstance rdf:resource="http://ont.enapso.com/repo#DatabaseInstance_0cd52b9e_888c_4a33_acde_89effe38ddee"/>
+        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoChecking</id>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoChecking Repository located in Martin Künzle laptop</name>
+        <rdfs:comment xml:lang="en">EnapsoChecking Repository located in Martin Künzle laptop</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Repository_be8010df_5906_43ea_a1b3_fe926eb29fe7 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Repository_be8010df_5906_43ea_a1b3_fe926eb29fe7">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Repository"/>
+        <hasDatabaseInstance rdf:resource="http://ont.enapso.com/repo#DatabaseInstance_665295fd_6ba1_4e2e_bc2e_452168a848e6"/>
+        <id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoChecking</id>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EnapsoChecking Repository located in Siva laptop</name>
+        <rdfs:comment xml:lang="en">EnapsoChecking Repository located in Siva laptop</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Tenant_0143e7ee_fbdd_45b3_879f_fedc78e42ab4 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Tenant_0143e7ee_fbdd_45b3_879f_fedc78e42ab4">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Tenant"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Innotrade GmbH</name>
+        <rdfs:comment xml:lang="en">Innotrade GmbH</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Tenant_e7e124a2_3a7b_4333_8f51_5f70d48f0bfe -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Tenant_e7e124a2_3a7b_4333_8f51_5f70d48f0bfe">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Tenant"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CMS</name>
+        <rdfs:comment xml:lang="en">CMS</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ont.enapso.com/repo#Tenant_f5a52c9d_1c3e_4fa8_bfb2_587958d4e8c3 -->
+
+    <owl:NamedIndividual rdf:about="http://ont.enapso.com/repo#Tenant_f5a52c9d_1c3e_4fa8_bfb2_587958d4e8c3">
+        <rdf:type rdf:resource="http://ont.enapso.com/repo#Tenant"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Iplex</name>
+        <rdfs:comment xml:lang="en">Iplex</rdfs:comment>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
