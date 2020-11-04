@@ -93,296 +93,304 @@ const EnapsoGraphDBCLI = {
     ],
 
     export: async function (aOptions) {
-        try{
-        var res = await this.endpoint.downloadToFile({
-            repository: aOptions.repository,
-            format: aOptions.format,
-            context: aOptions.context,
-            filename: aOptions.targetfile
-        });
-        if (res.success) {
-            console.log(
-                'Export file successfully downloaded.'
-            );
-            return 0;
-        } else {
-            console.log(res.statusMessage);
-            return -1;
+        try {
+            var res = await this.endpoint.downloadToFile({
+                repository: aOptions.repository,
+                format: aOptions.format,
+                context: aOptions.context,
+                filename: aOptions.targetfile
+            });
+            if (res.success) {
+                console.log('Export file successfully downloaded.');
+                return 0;
+            } else {
+                console.log(res.statusMessage);
+                return -1;
+            }
+        } catch (err) {
+            console.log(err);
         }
-    }catch(err){
-        console.log(err);
-    }
     },
 
     import: async function (aOptions) {
-        try{
-        var res = await this.endpoint.uploadFromFile({
-            filename: aOptions.sourcefile,
-            format: aOptions.format,
-            baseIRI: aOptions.baseiri,
-            context: aOptions.context
-        });
-        if (res.success) {
-            console.log(
-                'Import file ' + aOptions.sourcefile + ' successfully uploaded.'
-            );
-            return 0;
-        } else {
-            console.log(res.statusMessage);
-            return -1;
+        try {
+            var res = await this.endpoint.uploadFromFile({
+                filename: aOptions.sourcefile,
+                format: aOptions.format,
+                baseIRI: aOptions.baseiri,
+                context: aOptions.context
+            });
+            if (res.success) {
+                console.log(
+                    'Import file ' +
+                        aOptions.sourcefile +
+                        ' successfully uploaded.'
+                );
+                return 0;
+            } else {
+                console.log(res.statusMessage);
+                return -1;
+            }
+        } catch (err) {
+            console.log(err);
         }
-    }catch(err){
-        console.log(err);
-    }
     },
 
     createRepository: async function (aOptions) {
-        try{
-        var res = await this.endpoint.createRepository({
-            id: aOptions.repository,
-            title: aOptions.repotitle,
-            location: aOptions.location !== undefined ? aOptions.location : '',
-            baseURL: aOptions.baseurl,
-            isShacl: aOptions.isShacl !== undefined ? aOptions.isShacl : false
-        });
-        if (res.success) {
-            console.log(
-                'Repository ' + aOptions.repository + ' created successfully.'
-            );
-            return 0;
-        } else {
-            console.log(res.statusMessage);
-            return -1;
+        try {
+            var res = await this.endpoint.createRepository({
+                id: aOptions.repository,
+                title: aOptions.repotitle,
+                location:
+                    aOptions.location !== undefined ? aOptions.location : '',
+                baseURL: aOptions.baseurl,
+                isShacl:
+                    aOptions.isShacl !== undefined ? aOptions.isShacl : false
+            });
+            if (res.success) {
+                console.log(
+                    'Repository ' +
+                        aOptions.repository +
+                        ' created successfully.'
+                );
+                return 0;
+            } else {
+                console.log(res.statusMessage);
+                return -1;
+            }
+        } catch (err) {
+            console.log(err);
         }
-     }catch(err){
-         console.log(err);
-     }
     },
 
     createUser: async function (aOptions) {
-        try{
-        let optAuth = aOptions.authorities
-            ? Array.isArray(aOptions.authorities)
-                ? aOptions.authorities.join(' ')
-                : aOptions.authorities
-            : 'ROLE_USER';
-        optAuth = optAuth.split(' ');
-        let authorities = [];
-        for (let auth of optAuth) {
-            authorities.push(auth.trim());
+        try {
+            let optAuth = aOptions.authorities
+                ? Array.isArray(aOptions.authorities)
+                    ? aOptions.authorities.join(' ')
+                    : aOptions.authorities
+                : 'ROLE_USER';
+            optAuth = optAuth.split(' ');
+            let authorities = [];
+            for (let auth of optAuth) {
+                authorities.push(auth.trim());
+            }
+            let res = await this.endpoint.createUser({
+                authorities: authorities, // e.g. [ "WRITE_REPO_Test", "READ_REPO_Test", "READ_REPO_EnapsoDotNetProDemo", "ROLE_USER" ],
+                username: aOptions.newusername, // Username for the new user
+                password: aOptions.newpassword // Password for the new user
+            });
+            if (res.success) {
+                console.log(
+                    'User ' + aOptions.newusername + ' created successfully.'
+                );
+                return 0;
+            } else {
+                console.log(res.statusMessage);
+                return 400;
+            }
+        } catch (err) {
+            console.log(err);
         }
-        let res = await this.endpoint.createUser({
-            authorities: authorities, // e.g. [ "WRITE_REPO_Test", "READ_REPO_Test", "READ_REPO_EnapsoDotNetProDemo", "ROLE_USER" ],
-            username: aOptions.newusername, // Username for the new user
-            password: aOptions.newpassword // Password for the new user
-        });
-        if (res.success) {
-            console.log(
-                'User ' + aOptions.newusername + ' created successfully.'
-            );
-            return 0;
-        } else {
-            console.log(res.statusMessage);
-            return 400;
-        }
-    }catch(err){
-        console.log(err);
-    }
     },
 
     updateUser: async function (aOptions) {
-        try{
-        let optAuth = aOptions.authorities
-            ? Array.isArray(aOptions.authorities)
-                ? aOptions.authorities.join(' ')
-                : aOptions.authorities
-            : 'ROLE_USER';
-        optAuth = optAuth.split(' ');
-        let authorities = [];
-        for (let auth of optAuth) {
-            authorities.push(auth.trim());
+        try {
+            let optAuth = aOptions.authorities
+                ? Array.isArray(aOptions.authorities)
+                    ? aOptions.authorities.join(' ')
+                    : aOptions.authorities
+                : 'ROLE_USER';
+            optAuth = optAuth.split(' ');
+            let authorities = [];
+            for (let auth of optAuth) {
+                authorities.push(auth.trim());
+            }
+            let res = await this.endpoint.updateUser({
+                authorities: authorities, // e.g. [ "WRITE_REPO_Test", "READ_REPO_Test", "READ_REPO_EnapsoDotNetProDemo", "ROLE_USER" ],
+                username: aOptions.newusername, // Username for the new user which you wanna update
+                password: aOptions.newpassword // Password for the new user
+            });
+            if (res.success) {
+                console.log(
+                    'User ' + aOptions.newusername + ' updated successfully.'
+                );
+                return 0;
+            } else {
+                console.log(res.statusMessage);
+                return 400;
+            }
+        } catch (err) {
+            console.log(err);
         }
-        let res = await this.endpoint.updateUser({
-            authorities: authorities, // e.g. [ "WRITE_REPO_Test", "READ_REPO_Test", "READ_REPO_EnapsoDotNetProDemo", "ROLE_USER" ],
-            username: aOptions.newusername, // Username for the new user which you wanna update
-            password: aOptions.newpassword // Password for the new user
-        });
-        if (res.success) {
-            console.log(
-                'User ' + aOptions.newusername + ' updated successfully.'
-            );
-            return 0;
-        } else {
-            console.log(res.statusMessage);
-            return 400;
-        }
-    }catch(err){
-        console.log(err);
-    }
     },
 
     deleteUser: async function (aOptions) {
-        try{
-        let lRes = await this.endpoint.login(
-            aOptions.username,
-            aOptions.password
-        );
-        let res = await this.endpoint.deleteUser({
-            user: aOptions.newusername // username which you want to delete
-        });
-        if (res.success) {
-            console.log(
-                'User ' + aOptions.newusername + ' deleted successfully.'
+        try {
+            let lRes = await this.endpoint.login(
+                aOptions.username,
+                aOptions.password
             );
-            return 0;
-        } else {
-            console.log(res.statusMessage);
-            return 400;
+            let res = await this.endpoint.deleteUser({
+                user: aOptions.newusername // username which you want to delete
+            });
+            if (res.success) {
+                console.log(
+                    'User ' + aOptions.newusername + ' deleted successfully.'
+                );
+                return 0;
+            } else {
+                console.log(res.statusMessage);
+                return 400;
+            }
+        } catch (err) {
+            console.log(err);
         }
-    }catch(err){
-        console.log(err);
-    }
     },
 
     deleteRepo: async function (aOptions) {
-        try{
-        var res = await this.endpoint.deleteRepository({
-            id: aOptions.repository
-        });
-        if (res.success) {
-            console.log(
-                'Repository ' + aOptions.repository + ' deleted successfully.'
-            );
-            return 0;
-        } else {
-            console.log(res.statusMessage);
-            return -1;
+        try {
+            var res = await this.endpoint.deleteRepository({
+                id: aOptions.repository
+            });
+            if (res.success) {
+                console.log(
+                    'Repository ' +
+                        aOptions.repository +
+                        ' deleted successfully.'
+                );
+                return 0;
+            } else {
+                console.log(res.statusMessage);
+                return -1;
+            }
+        } catch (err) {
+            console.log(err);
         }
-    }catch(err){
-        console.log(err);
-    }
     },
 
     clearContext: async function (aOptions) {
-        try{
-        var res = await this.endpoint.clearContext({
-            context: aOptions.context
-        });
-        if (res.success) {
-            console.log(
-                'Context ' + aOptions.context + ' cleared successfully.'
-            );
-            return 0;
-        } else {
-            console.log(res.statusMessage);
-            return -1;
+        try {
+            var res = await this.endpoint.clearContext({
+                context: aOptions.context
+            });
+            if (res.success) {
+                console.log(
+                    'Context ' + aOptions.context + ' cleared successfully.'
+                );
+                return 0;
+            } else {
+                console.log(res.statusMessage);
+                return -1;
+            }
+        } catch (err) {
+            console.log(err);
         }
-    }catch(err){
-        console.log(err);
-    }
     },
 
     query: async function (aOptions) {
-        try{
-        var lQuery;
         try {
-            lQuery = fs.readFileSync(aOptions.queryfile);
-        } catch (err) {
-            console.log('File ' + aOptions.queryfile + ' cannot be read');
-            return -1;
-        }
+            var lQuery;
+            try {
+                lQuery = fs.readFileSync(aOptions.queryfile);
+            } catch (err) {
+                console.log('File ' + aOptions.queryfile + ' cannot be read');
+                return -1;
+            }
 
-        var lRes = await this.endpoint.query(lQuery, {});
-        let lData = this.endpoint.transformBindingsToCSV(lRes, {
-            delimiter: '"',
-            delimiterEscape: '\\"',
-            delimiterOptional: true,
-            separatorEscape: ','
-        });
-        let lineBreak = '\n';
-        lData =
-            lData.headers.join(lineBreak) +
-            lineBreak +
-            lData.records.join(lineBreak);
+            var lRes = await this.endpoint.query(lQuery, {});
+            let lData = this.endpoint.transformBindingsToCSV(lRes, {
+                delimiter: '"',
+                delimiterEscape: '\\"',
+                delimiterOptional: true,
+                separatorEscape: ','
+            });
+            let lineBreak = '\n';
+            lData =
+                lData.headers.join(lineBreak) +
+                lineBreak +
+                lData.records.join(lineBreak);
 
-        try {
-            fs.writeFileSync(aOptions.targetfile, lData);
-            console.log(
-                'File ' + aOptions.targetfile + ' created successfully.'
-            );
-            return 0;
+            try {
+                fs.writeFileSync(aOptions.targetfile, lData);
+                console.log(
+                    'File ' + aOptions.targetfile + ' created successfully.'
+                );
+                return 0;
+            } catch (err) {
+                console.log(
+                    'File ' + aOptions.targetfile + ' cannot be written'
+                );
+                return -1;
+            }
         } catch (err) {
-            console.log('File ' + aOptions.targetfile + ' cannot be written');
-            return -1;
+            console.log(err);
         }
-    }catch(err){
-        console.log(err);
-    }
     },
 
     // clearing the entire repository
     clearRepository: async function (aOptions) {
-        try{
-        // the repository is mandatory
-        let lRepository = aOptions.repository;
-        if (!lRepository) {
-            return logErrorMsg(ERROR_NOREPOSITORY);
+        try {
+            // the repository is mandatory
+            let lRepository = aOptions.repository;
+            if (!lRepository) {
+                return logErrorMsg(ERROR_NOREPOSITORY);
+            }
+            var lRes = await this.endpoint.clearRepository(lRepository, {});
+            if (lRes && lRes.statusCode === 200) {
+                console.log(
+                    'Repository "' + lRepository + '" cleared successfully.'
+                );
+                return 0;
+            } else {
+                console.log(
+                    'Error clearing repository "' +
+                        lRepository +
+                        '": ' +
+                        lRes.message
+                );
+                return -1;
+            }
+        } catch (err) {
+            console.log(err);
         }
-        var lRes = await this.endpoint.clearRepository(lRepository, {});
-        if (lRes && lRes.statusCode === 200) {
-            console.log(
-                'Repository "' + lRepository + '" cleared successfully.'
-            );
-            return 0;
-        } else {
-            console.log(
-                'Error clearing repository "' +
-                    lRepository +
-                    '": ' +
-                    lRes.message
-            );
-            return -1;
-        }
-    }catch(err){
-        console.log(err);
-    }
     },
 
     autoUpload: async function (aOptions) {
-        try{
-        let rawData = fs.readFileSync(aOptions.configfile);
-        let jsonData = JSON.parse(rawData);
         try {
-            let res = await EnapsoOntologyUploader.add(jsonData);
-            console.log(res);
-        } catch (e) {
-            console.log(e);
-        }
-        EnapsoOntologyUploader.watch(function (error, result) {
-            if (error) {
-                console.log(error);
-            } else {
-                console.log(result);
+            let rawData = fs.readFileSync(aOptions.configfile);
+            let jsonData = JSON.parse(rawData);
+            try {
+                let res = await EnapsoOntologyUploader.add(jsonData);
+                console.log(res);
+            } catch (e) {
+                console.log(e);
             }
-        });
-    }catch(err){
-        console.log(err);
-    }
+            EnapsoOntologyUploader.watch(function (error, result) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log(result);
+                }
+            });
+        } catch (err) {
+            console.log(err);
+        }
     },
     // perfom garbage collection
     performGarbageCollection: async function () {
-        try{
-        var lRes = await this.endpoint.performGarbageCollection();
-        if (lRes && lRes.statusCode === 200) {
-            console.log('Garbage collected successfully.');
-            return 0;
-        } else {
-            console.log('Error on garbage collection: ' + lRes.message);
-            return -1;
+        try {
+            var lRes = await this.endpoint.performGarbageCollection();
+            if (lRes && lRes.statusCode === 200) {
+                console.log('Garbage collected successfully.');
+                return 0;
+            } else {
+                console.log('Error on garbage collection: ' + lRes.message);
+                return -1;
+            }
+        } catch (err) {
+            console.log(err);
         }
-    }catch(err){
-        console.log(err);
-    }
     },
 
     transform: async function (aOptions) {
