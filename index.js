@@ -93,16 +93,29 @@ const EnapsoGraphDBCLI = {
     ],
 
     export: async function (aOptions) {
-        var lRes = await this.endpoint.downloadToFile({
+        try{
+        var res = await this.endpoint.downloadToFile({
             repository: aOptions.repository,
             format: aOptions.format,
             context: aOptions.context,
             filename: aOptions.targetfile
         });
-        console.log('Export file successfully downloaded.');
+        if (res.success) {
+            console.log(
+                'Export file successfully downloaded.'
+            );
+            return 0;
+        } else {
+            console.log(res.statusMessage);
+            return -1;
+        }
+    }catch(err){
+        console.log(err);
+    }
     },
 
     import: async function (aOptions) {
+        try{
         var res = await this.endpoint.uploadFromFile({
             filename: aOptions.sourcefile,
             format: aOptions.format,
@@ -118,9 +131,13 @@ const EnapsoGraphDBCLI = {
             console.log(res.statusMessage);
             return -1;
         }
+    }catch(err){
+        console.log(err);
+    }
     },
 
     createRepository: async function (aOptions) {
+        try{
         var res = await this.endpoint.createRepository({
             id: aOptions.repository,
             title: aOptions.repotitle,
@@ -137,9 +154,13 @@ const EnapsoGraphDBCLI = {
             console.log(res.statusMessage);
             return -1;
         }
+     }catch(err){
+         console.log(err);
+     }
     },
 
     createUser: async function (aOptions) {
+        try{
         let optAuth = aOptions.authorities
             ? Array.isArray(aOptions.authorities)
                 ? aOptions.authorities.join(' ')
@@ -164,9 +185,13 @@ const EnapsoGraphDBCLI = {
             console.log(res.statusMessage);
             return 400;
         }
+    }catch(err){
+        console.log(err);
+    }
     },
 
     updateUser: async function (aOptions) {
+        try{
         let optAuth = aOptions.authorities
             ? Array.isArray(aOptions.authorities)
                 ? aOptions.authorities.join(' ')
@@ -191,9 +216,13 @@ const EnapsoGraphDBCLI = {
             console.log(res.statusMessage);
             return 400;
         }
+    }catch(err){
+        console.log(err);
+    }
     },
 
     deleteUser: async function (aOptions) {
+        try{
         let lRes = await this.endpoint.login(
             aOptions.username,
             aOptions.password
@@ -210,9 +239,13 @@ const EnapsoGraphDBCLI = {
             console.log(res.statusMessage);
             return 400;
         }
+    }catch(err){
+        console.log(err);
+    }
     },
 
     deleteRepo: async function (aOptions) {
+        try{
         var res = await this.endpoint.deleteRepository({
             id: aOptions.repository
         });
@@ -225,9 +258,13 @@ const EnapsoGraphDBCLI = {
             console.log(res.statusMessage);
             return -1;
         }
+    }catch(err){
+        console.log(err);
+    }
     },
 
     clearContext: async function (aOptions) {
+        try{
         var res = await this.endpoint.clearContext({
             context: aOptions.context
         });
@@ -240,9 +277,13 @@ const EnapsoGraphDBCLI = {
             console.log(res.statusMessage);
             return -1;
         }
+    }catch(err){
+        console.log(err);
+    }
     },
 
     query: async function (aOptions) {
+        try{
         var lQuery;
         try {
             lQuery = fs.readFileSync(aOptions.queryfile);
@@ -274,10 +315,14 @@ const EnapsoGraphDBCLI = {
             console.log('File ' + aOptions.targetfile + ' cannot be written');
             return -1;
         }
+    }catch(err){
+        console.log(err);
+    }
     },
 
     // clearing the entire repository
     clearRepository: async function (aOptions) {
+        try{
         // the repository is mandatory
         let lRepository = aOptions.repository;
         if (!lRepository) {
@@ -298,9 +343,13 @@ const EnapsoGraphDBCLI = {
             );
             return -1;
         }
+    }catch(err){
+        console.log(err);
+    }
     },
 
     autoUpload: async function (aOptions) {
+        try{
         let rawData = fs.readFileSync(aOptions.configfile);
         let jsonData = JSON.parse(rawData);
         try {
@@ -316,9 +365,13 @@ const EnapsoGraphDBCLI = {
                 console.log(result);
             }
         });
+    }catch(err){
+        console.log(err);
+    }
     },
     // perfom garbage collection
     performGarbageCollection: async function () {
+        try{
         var lRes = await this.endpoint.performGarbageCollection();
         if (lRes && lRes.statusCode === 200) {
             console.log('Garbage collected successfully.');
@@ -327,6 +380,9 @@ const EnapsoGraphDBCLI = {
             console.log('Error on garbage collection: ' + lRes.message);
             return -1;
         }
+    }catch(err){
+        console.log(err);
+    }
     },
 
     transform: async function (aOptions) {
