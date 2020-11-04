@@ -1,5 +1,6 @@
-@prefix : <http://ont.enapso.com/repo#> .
+@prefix : <http://ont.enapso.com/solver#> .
 @prefix dnp: <http://ont.enapso.com/dotnetpro#> .
+@prefix enrepo: <http://ont.enapso.com/repo#> .
 @prefix entest: <http://ont.enapso.com/test#> .
 @prefix fn: <http://www.w3.org/2005/xpath-functions#> .
 @prefix gn: <http://www.geonames.org/ontology#> .
@@ -13,1360 +14,1467 @@
 
 <http://ont.enapso.com/repo> a owl:Ontology .
 
-:hasDatabaseInstance a owl:ObjectProperty .
+enrepo:hasDatabaseInstance a owl:ObjectProperty .
 
-:hasDatabaseSystem a owl:ObjectProperty .
+enrepo:hasDatabaseSystem a owl:ObjectProperty .
 
-:DatabaseSystem a owl:Class .
+enrepo:DatabaseSystem a owl:Class .
 
-:hasEnvironment a owl:ObjectProperty .
+enrepo:hasEnvironment a owl:ObjectProperty .
 
-:Environment a owl:Class .
+enrepo:Environment a owl:Class .
 
-:hasGraph a owl:ObjectProperty .
+enrepo:hasGraph a owl:ObjectProperty .
 
-:Graph a owl:Class .
+enrepo:Graph a owl:Class .
 
-:hasHost a owl:ObjectProperty .
+enrepo:hasHost a owl:ObjectProperty .
 
-:Host a owl:Class .
+enrepo:Host a owl:Class .
 
-:hasOperatingSystem a owl:ObjectProperty .
+enrepo:hasOperatingSystem a owl:ObjectProperty .
 
-:OperatingSystem a owl:Class .
+enrepo:OperatingSystem a owl:Class .
 
-:hasRepository a owl:ObjectProperty .
+enrepo:hasRepository a owl:ObjectProperty .
 
-:Repository a owl:Class .
+enrepo:Repository a owl:Class .
 
-:hasTenant a owl:ObjectProperty .
+enrepo:hasTenant a owl:ObjectProperty .
 
-:Tenant a owl:Class .
+enrepo:Tenant a owl:Class .
 
-:importedBy a owl:ObjectProperty .
+enrepo:importedBy a owl:ObjectProperty .
 
-:imports a owl:ObjectProperty .
+enrepo:imports a owl:ObjectProperty .
 
-:databaseSystem a owl:DatatypeProperty .
+enrepo:databaseSystem a owl:DatatypeProperty .
 
-:dbVersion a owl:DatatypeProperty .
+enrepo:dbVersion a owl:DatatypeProperty .
 
-:filename a owl:DatatypeProperty .
+enrepo:filename a owl:DatatypeProperty .
 
-:graph a owl:DatatypeProperty .
+enrepo:graph a owl:DatatypeProperty .
 
-:hostname a owl:DatatypeProperty .
+enrepo:hostname a owl:DatatypeProperty .
 
-:id a owl:DatatypeProperty .
+enrepo:id a owl:DatatypeProperty .
 
-:ip a owl:DatatypeProperty .
+enrepo:ip a owl:DatatypeProperty .
 
-:iri a owl:DatatypeProperty .
+enrepo:iri a owl:DatatypeProperty .
 
-:name a owl:DatatypeProperty .
+enrepo:name a owl:DatatypeProperty .
 
-:namespace a owl:DatatypeProperty .
+enrepo:namespace a owl:DatatypeProperty .
 
-:operatingSystem a owl:DatatypeProperty .
+enrepo:operatingSystem a owl:DatatypeProperty .
 
-:osVersion a owl:DatatypeProperty .
+enrepo:osVersion a owl:DatatypeProperty .
 
-:prefix a owl:DatatypeProperty .
+enrepo:prefix a owl:DatatypeProperty .
 
-:title a owl:DatatypeProperty .
+enrepo:title a owl:DatatypeProperty .
 
-:url a owl:DatatypeProperty .
+enrepo:url a owl:DatatypeProperty .
 
-:version a owl:DatatypeProperty .
+enrepo:version a owl:DatatypeProperty .
 
-:DatabaseInstance a owl:Class .
+enrepo:DatabaseInstance a owl:Class .
 
-:Ontology a owl:Class .
+enrepo:Ontology a owl:Class .
 
-:Platform a owl:Class .
+enrepo:Platform a owl:Class .
 
-:Prefix a owl:Class .
+enrepo:Prefix a owl:Class .
 
-:DatabaseInstance_086a69ed_f3e1_4555_bdb5_2535ac9baea7 a :DatabaseInstance, owl:NamedIndividual .
+enrepo:DatabaseInstance_086a69ed_f3e1_4555_bdb5_2535ac9baea7 a enrepo:DatabaseInstance,
+    owl:NamedIndividual .
 
-:Host_1fbdddee_d864_4868_9f65_c6b1be32de92 a :Host, owl:NamedIndividual .
+enrepo:Host_1fbdddee_d864_4868_9f65_c6b1be32de92 a enrepo:Host, owl:NamedIndividual .
 
-:DatabaseInstance_0cd52b9e_888c_4a33_acde_89effe38ddee a :DatabaseInstance, owl:NamedIndividual .
+enrepo:DatabaseInstance_0cd52b9e_888c_4a33_acde_89effe38ddee a enrepo:DatabaseInstance,
+    owl:NamedIndividual .
 
-:Host_28180341_d1bc_4dbb_aa63_e079001d2513 a :Host, owl:NamedIndividual .
+enrepo:Host_28180341_d1bc_4dbb_aa63_e079001d2513 a enrepo:Host, owl:NamedIndividual .
 
-:DatabaseInstance_1a8b2422_9b1c_48bd_88a1_4794fd09df6e a :DatabaseInstance, owl:NamedIndividual .
+enrepo:DatabaseInstance_1a8b2422_9b1c_48bd_88a1_4794fd09df6e a enrepo:DatabaseInstance,
+    owl:NamedIndividual .
 
-:Host_6c307a8d_be16_4550_8794_33492e758f22 a :Host, owl:NamedIndividual .
+enrepo:Host_6c307a8d_be16_4550_8794_33492e758f22 a enrepo:Host, owl:NamedIndividual .
 
-:DatabaseInstance_41710204_2620_4483_a31d_963e2075767f a :DatabaseInstance, owl:NamedIndividual .
+enrepo:DatabaseInstance_41710204_2620_4483_a31d_963e2075767f a enrepo:DatabaseInstance,
+    owl:NamedIndividual .
 
-:Host_79d4c2c0_857c_4666_beb9_e0c8b2617c6e a :Host, owl:NamedIndividual .
+enrepo:Host_79d4c2c0_857c_4666_beb9_e0c8b2617c6e a enrepo:Host, owl:NamedIndividual .
 
-:DatabaseInstance_665295fd_6ba1_4e2e_bc2e_452168a848e6 a :DatabaseInstance, owl:NamedIndividual .
+enrepo:DatabaseInstance_665295fd_6ba1_4e2e_bc2e_452168a848e6 a enrepo:DatabaseInstance,
+    owl:NamedIndividual .
 
-:Host_d7ff76c6_cfd5_479f_9c36_d40825259a8d a :Host, owl:NamedIndividual .
+enrepo:Host_d7ff76c6_cfd5_479f_9c36_d40825259a8d a enrepo:Host, owl:NamedIndividual .
 
-:DatabaseInstance_789c7c2b_9928_42cf_b1ec_f079385c23ca a :DatabaseInstance, owl:NamedIndividual .
+enrepo:DatabaseInstance_789c7c2b_9928_42cf_b1ec_f079385c23ca a enrepo:DatabaseInstance,
+    owl:NamedIndividual .
 
-:Host_3bc75791_9b65_4b0a_887d_aaabc253c78e a :Host, owl:NamedIndividual .
+enrepo:Host_3bc75791_9b65_4b0a_887d_aaabc253c78e a enrepo:Host, owl:NamedIndividual .
 
-:DatabaseInstance_8a41da22_e9d8_4396_8440_a3941faeac49 a :DatabaseInstance, owl:NamedIndividual .
+enrepo:DatabaseInstance_8a41da22_e9d8_4396_8440_a3941faeac49 a enrepo:DatabaseInstance,
+    owl:NamedIndividual .
 
-:Host_01141633_0716_4ae3_b38b_aa12b2197c4a a :Host, owl:NamedIndividual .
+enrepo:Host_01141633_0716_4ae3_b38b_aa12b2197c4a a enrepo:Host, owl:NamedIndividual .
 
-:DatabaseInstance_aef8e43d_a563_4834_bbe1_dbf7e8bb786b a :DatabaseInstance, owl:NamedIndividual .
+enrepo:DatabaseInstance_aef8e43d_a563_4834_bbe1_dbf7e8bb786b a enrepo:DatabaseInstance,
+    owl:NamedIndividual .
 
-:Host_0134bc8c_e40c_4394_b4c7_310a206e10da a :Host, owl:NamedIndividual .
+enrepo:Host_0134bc8c_e40c_4394_b4c7_310a206e10da a enrepo:Host, owl:NamedIndividual .
 
-:DatabaseSystem_3e35cc32_378a_40fa_ad11_74ac431b7aa9 a :DatabaseSystem, owl:NamedIndividual .
+enrepo:DatabaseSystem_3e35cc32_378a_40fa_ad11_74ac431b7aa9 a enrepo:DatabaseSystem,
+    owl:NamedIndividual .
 
-:DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f a :DatabaseSystem, owl:NamedIndividual .
+enrepo:DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f a enrepo:DatabaseSystem,
+    owl:NamedIndividual .
 
-:DatabaseSystem_94bad780_3cdd_4942_abc2_a60ca6788745 a :DatabaseSystem, owl:NamedIndividual .
+enrepo:DatabaseSystem_94bad780_3cdd_4942_abc2_a60ca6788745 a enrepo:DatabaseSystem,
+    owl:NamedIndividual .
 
-:Environment_14eaf5b6_1704_4f8d_b315_8a8728640b66 a :Environment, owl:NamedIndividual .
+enrepo:Environment_14eaf5b6_1704_4f8d_b315_8a8728640b66 a enrepo:Environment, owl:NamedIndividual .
 
-:Tenant_e7e124a2_3a7b_4333_8f51_5f70d48f0bfe a :Tenant, owl:NamedIndividual .
+enrepo:Tenant_e7e124a2_3a7b_4333_8f51_5f70d48f0bfe a enrepo:Tenant, owl:NamedIndividual .
 
-:Environment_31cf4adb_b552_45f5_9997_98acb07263c4 a :Environment, owl:NamedIndividual .
+enrepo:Environment_31cf4adb_b552_45f5_9997_98acb07263c4 a enrepo:Environment, owl:NamedIndividual .
 
-:Tenant_f5a52c9d_1c3e_4fa8_bfb2_587958d4e8c3 a :Tenant, owl:NamedIndividual .
+enrepo:Tenant_f5a52c9d_1c3e_4fa8_bfb2_587958d4e8c3 a enrepo:Tenant, owl:NamedIndividual .
 
-:Environment_7308c29c_9c98_4d14_80ad_546c498d91ef a :Environment, owl:NamedIndividual .
+enrepo:Environment_7308c29c_9c98_4d14_80ad_546c498d91ef a enrepo:Environment, owl:NamedIndividual .
 
-:Tenant_0143e7ee_fbdd_45b3_879f_fedc78e42ab4 a :Tenant, owl:NamedIndividual .
+enrepo:Tenant_0143e7ee_fbdd_45b3_879f_fedc78e42ab4 a enrepo:Tenant, owl:NamedIndividual .
 
-:Environment_833a44cc_ec58_4202_b44d_27460ae94e2d a :Environment, owl:NamedIndividual .
+enrepo:Environment_833a44cc_ec58_4202_b44d_27460ae94e2d a enrepo:Environment, owl:NamedIndividual .
 
-:Environment_ca8d3c76_0766_47dd_9b87_2e93bf976082 a :Environment, owl:NamedIndividual .
+enrepo:Environment_ca8d3c76_0766_47dd_9b87_2e93bf976082 a enrepo:Environment, owl:NamedIndividual .
 
-:Environment_fcf6327c_58fa_4b18_8fbe_bb3e959a126c a :Environment, owl:NamedIndividual .
+enrepo:Environment_fcf6327c_58fa_4b18_8fbe_bb3e959a126c a enrepo:Environment, owl:NamedIndividual .
 
-:Graph_0ea87735_977d_461b_88c5_749d1a5bf909 a :Graph, owl:NamedIndividual .
+enrepo:Graph_0ea87735_977d_461b_88c5_749d1a5bf909 a enrepo:Graph, owl:NamedIndividual .
 
-:Repository_63423a53_29c2_43ae_b35a_7be883b4bd40 a :Repository, owl:NamedIndividual .
+enrepo:Repository_63423a53_29c2_43ae_b35a_7be883b4bd40 a enrepo:Repository, owl:NamedIndividual .
 
-:Graph_1242ac41_1811_4625_8664_6a260bfe6d3b a :Graph, owl:NamedIndividual .
+enrepo:Graph_1242ac41_1811_4625_8664_6a260bfe6d3b a enrepo:Graph, owl:NamedIndividual .
 
-:Repository_6159c98a_6c46_4cc3_9efd_6320775ac4ed a :Repository, owl:NamedIndividual .
+enrepo:Repository_6159c98a_6c46_4cc3_9efd_6320775ac4ed a enrepo:Repository, owl:NamedIndividual .
 
-:Graph_128100a6_8c71_4fd8_a86a_22f2bb88782f a :Graph, owl:NamedIndividual .
+enrepo:Graph_128100a6_8c71_4fd8_a86a_22f2bb88782f a enrepo:Graph, owl:NamedIndividual .
 
-:Repository_299e12b7_024a_4ffe_a099_b408fe8858a6 a :Repository, owl:NamedIndividual .
+enrepo:Repository_299e12b7_024a_4ffe_a099_b408fe8858a6 a enrepo:Repository, owl:NamedIndividual .
 
-:Graph_144eb313_94bd_4506_86cc_2f959412b61d a :Graph, owl:NamedIndividual .
+enrepo:Graph_144eb313_94bd_4506_86cc_2f959412b61d a enrepo:Graph, owl:NamedIndividual .
 
-:Repository_03b94545_b227_427d_bd7a_3676e61adb9c a :Repository, owl:NamedIndividual .
+enrepo:Repository_03b94545_b227_427d_bd7a_3676e61adb9c a enrepo:Repository, owl:NamedIndividual .
 
-:Graph_1620132d_9bbc_4bad_846c_349eab25d224 a :Graph, owl:NamedIndividual .
+enrepo:Graph_1620132d_9bbc_4bad_846c_349eab25d224 a enrepo:Graph, owl:NamedIndividual .
 
-:Graph_174ff230_d7b9_4993_bb35_a2da61215475 a :Graph, owl:NamedIndividual .
+enrepo:Graph_174ff230_d7b9_4993_bb35_a2da61215475 a enrepo:Graph, owl:NamedIndividual .
 
-:Repository_27ebbed9_fd22_4e5c_9227_956cf475a4e5 a :Repository, owl:NamedIndividual .
+enrepo:Repository_27ebbed9_fd22_4e5c_9227_956cf475a4e5 a enrepo:Repository, owl:NamedIndividual .
 
-:Graph_1d9a32b1_fd00_4565_8d1b_4b9e1bb0f264 a :Graph, owl:NamedIndividual .
+enrepo:Graph_1d9a32b1_fd00_4565_8d1b_4b9e1bb0f264 a enrepo:Graph, owl:NamedIndividual .
 
-:Repository_49260c94_b3ac_4dd0_baf7_df762e92179e a :Repository, owl:NamedIndividual .
+enrepo:Repository_49260c94_b3ac_4dd0_baf7_df762e92179e a enrepo:Repository, owl:NamedIndividual .
 
-:Graph_2129eed4_1867_4c09_a75c_f7c9434766e6 a :Graph, owl:NamedIndividual .
+enrepo:Graph_2129eed4_1867_4c09_a75c_f7c9434766e6 a enrepo:Graph, owl:NamedIndividual .
 
-:Repository_be8010df_5906_43ea_a1b3_fe926eb29fe7 a :Repository, owl:NamedIndividual .
+enrepo:Repository_be8010df_5906_43ea_a1b3_fe926eb29fe7 a enrepo:Repository, owl:NamedIndividual .
 
-:Graph_24a1d382_025d_43f0_a54e_ddbefc1037a7 a :Graph, owl:NamedIndividual .
+enrepo:Graph_24a1d382_025d_43f0_a54e_ddbefc1037a7 a enrepo:Graph, owl:NamedIndividual .
 
-:Repository_af8ed397_c907_4353_86c4_56009c84dc29 a :Repository, owl:NamedIndividual .
+enrepo:Repository_af8ed397_c907_4353_86c4_56009c84dc29 a enrepo:Repository, owl:NamedIndividual .
 
-:Graph_43c82926_a072_4057_bb2c_c6c5b22cd156 a :Graph, owl:NamedIndividual .
+enrepo:Graph_43c82926_a072_4057_bb2c_c6c5b22cd156 a enrepo:Graph, owl:NamedIndividual .
 
-:Graph_462af229_a60e_4c80_9ffc_aef39d940653 a :Graph, owl:NamedIndividual .
+enrepo:Graph_462af229_a60e_4c80_9ffc_aef39d940653 a enrepo:Graph, owl:NamedIndividual .
 
-:Repository_a4c96d2c_b982_4231_930b_4bc961d8352a a :Repository, owl:NamedIndividual .
+enrepo:Repository_a4c96d2c_b982_4231_930b_4bc961d8352a a enrepo:Repository, owl:NamedIndividual .
 
-:Graph_47ceb7c2_09c5_4b6d_a400_4a74ec945e3a a :Graph, owl:NamedIndividual .
+enrepo:Graph_47ceb7c2_09c5_4b6d_a400_4a74ec945e3a a enrepo:Graph, owl:NamedIndividual .
 
-:Graph_485aac31_fa8d_4463_86fd_a6845c75ad48 a :Graph, owl:NamedIndividual .
+enrepo:Graph_485aac31_fa8d_4463_86fd_a6845c75ad48 a enrepo:Graph, owl:NamedIndividual .
 
-:Graph_4bf163c4_b330_402d_994c_230bcf3714fa a :Graph, owl:NamedIndividual .
+enrepo:Graph_4bf163c4_b330_402d_994c_230bcf3714fa a enrepo:Graph, owl:NamedIndividual .
 
-:Graph_53a1f29f_48c6_4b9a_83c2_85a9d216ecd4 a :Graph, owl:NamedIndividual .
+enrepo:Graph_53a1f29f_48c6_4b9a_83c2_85a9d216ecd4 a enrepo:Graph, owl:NamedIndividual .
 
-:Graph_5e3504ce_9441_4f25_a5ee_c8c65fbb9132 a :Graph, owl:NamedIndividual .
+enrepo:Graph_5e3504ce_9441_4f25_a5ee_c8c65fbb9132 a enrepo:Graph, owl:NamedIndividual .
 
-:Repository_0a2c8421_036d_46ef_8a48_e0fca429ccdc a :Repository, owl:NamedIndividual .
+enrepo:Repository_0a2c8421_036d_46ef_8a48_e0fca429ccdc a enrepo:Repository, owl:NamedIndividual .
 
-:Graph_629b7ea1_5a2b_4ce5_860e_c5ad5996f45f a :Graph, owl:NamedIndividual .
+enrepo:Graph_629b7ea1_5a2b_4ce5_860e_c5ad5996f45f a enrepo:Graph, owl:NamedIndividual .
 
-:Graph_679ba549_2894_44e8_a98b_98054e128b53 a :Graph, owl:NamedIndividual .
+enrepo:Graph_679ba549_2894_44e8_a98b_98054e128b53 a enrepo:Graph, owl:NamedIndividual .
 
-:Graph_727832e2_a8da_4402_a99c_7a9259ad6046 a :Graph, owl:NamedIndividual .
+enrepo:Graph_727832e2_a8da_4402_a99c_7a9259ad6046 a enrepo:Graph, owl:NamedIndividual .
 
-:Repository_b49357e0_33bc_4163_8fef_2cad56ac72a5 a :Repository, owl:NamedIndividual .
+enrepo:Repository_b49357e0_33bc_4163_8fef_2cad56ac72a5 a enrepo:Repository, owl:NamedIndividual .
 
-:Graph_8ac9f951_b8b8_4f97_b2e2_da2aa344ced6 a :Graph, owl:NamedIndividual .
+enrepo:Graph_8ac9f951_b8b8_4f97_b2e2_da2aa344ced6 a enrepo:Graph, owl:NamedIndividual .
 
-:Graph_8dc370d6_4173_4676_bf39_eea210247594 a :Graph, owl:NamedIndividual .
+enrepo:Graph_8dc370d6_4173_4676_bf39_eea210247594 a enrepo:Graph, owl:NamedIndividual .
 
-:Graph_94a4cf76_f7f2_4b60_b4d6_2763dce8f263 a :Graph, owl:NamedIndividual .
+enrepo:Graph_94a4cf76_f7f2_4b60_b4d6_2763dce8f263 a enrepo:Graph, owl:NamedIndividual .
 
-:Graph_b4fb1107_ed80_4b12_b365_2eaaf219dca0 a :Graph, owl:NamedIndividual .
+enrepo:Graph_b4fb1107_ed80_4b12_b365_2eaaf219dca0 a enrepo:Graph, owl:NamedIndividual .
 
-:Graph_b62e1d40_7e61_4363_bb45_6e035fa8d694 a :Graph, owl:NamedIndividual .
+enrepo:Graph_b62e1d40_7e61_4363_bb45_6e035fa8d694 a enrepo:Graph, owl:NamedIndividual .
 
-:Repository_2a8d3e7c_a584_4623_98f8_901996dabac1 a :Repository, owl:NamedIndividual .
+enrepo:Repository_2a8d3e7c_a584_4623_98f8_901996dabac1 a enrepo:Repository, owl:NamedIndividual .
 
-:Graph_b957cf06_b02c_48e6_a6f3_52b53d5b740c a :Graph, owl:NamedIndividual .
+enrepo:Graph_b957cf06_b02c_48e6_a6f3_52b53d5b740c a enrepo:Graph, owl:NamedIndividual .
 
-:Graph_bad12375_698e_4016_84dd_7e49fe5cfbfb a :Graph, owl:NamedIndividual .
+enrepo:Graph_bad12375_698e_4016_84dd_7e49fe5cfbfb a enrepo:Graph, owl:NamedIndividual .
 
-:Graph_bc252a61_42d2_455e_b720_cb276a4f6b4f a :Graph, owl:NamedIndividual .
+enrepo:Graph_bc252a61_42d2_455e_b720_cb276a4f6b4f a enrepo:Graph, owl:NamedIndividual .
 
-:Graph_e1d78937_146e_45dc_adeb_faf30b651d76 a :Graph, owl:NamedIndividual .
+enrepo:Graph_e1d78937_146e_45dc_adeb_faf30b651d76 a enrepo:Graph, owl:NamedIndividual .
 
-:Graph_e41c32cd_9e73_432d_b269_3df775d2a74c a :Graph, owl:NamedIndividual .
+enrepo:Graph_e41c32cd_9e73_432d_b269_3df775d2a74c a enrepo:Graph, owl:NamedIndividual .
 
-:Graph_eb7985dc_c13d_476d_b8ef_ea5dd6f72f77 a :Graph, owl:NamedIndividual .
+enrepo:Graph_eb7985dc_c13d_476d_b8ef_ea5dd6f72f77 a enrepo:Graph, owl:NamedIndividual .
 
-:OperatingSystem_e4966c72_e7f2_484c_adb6_cbc2fd531d36 a :OperatingSystem, owl:NamedIndividual .
+enrepo:OperatingSystem_e4966c72_e7f2_484c_adb6_cbc2fd531d36 a enrepo:OperatingSystem,
+    owl:NamedIndividual .
 
-:OperatingSystem_b736e30c_4a61_4721_bfcd_57e196b321fe a :OperatingSystem, owl:NamedIndividual .
+enrepo:OperatingSystem_b736e30c_4a61_4721_bfcd_57e196b321fe a enrepo:OperatingSystem,
+    owl:NamedIndividual .
 
-:Ontology_03249d09_8038_421e_8376_467b4a430e56 a :Ontology, owl:NamedIndividual .
+enrepo:Ontology_03249d09_8038_421e_8376_467b4a430e56 a enrepo:Ontology, owl:NamedIndividual .
 
-:Ontology_1efd927f_3b18_4581_8a95_d11af361993c a :Ontology, owl:NamedIndividual .
+enrepo:Ontology_1efd927f_3b18_4581_8a95_d11af361993c a enrepo:Ontology, owl:NamedIndividual .
 
-:Ontology_3a8e056d_76c7_437b_8718_78a84cae0a31 a :Ontology, owl:NamedIndividual .
+enrepo:Ontology_3a8e056d_76c7_437b_8718_78a84cae0a31 a enrepo:Ontology, owl:NamedIndividual .
 
-:Ontology_7886ca3f_93cf_45c4_bac6_41dc832af2b2 a :Ontology, owl:NamedIndividual .
+enrepo:Ontology_7886ca3f_93cf_45c4_bac6_41dc832af2b2 a enrepo:Ontology, owl:NamedIndividual .
 
-:Ontology_a6ca7dfb_7ffa_4c1e_97b9_e7b91d191c63 a :Ontology, owl:NamedIndividual .
+enrepo:Ontology_a6ca7dfb_7ffa_4c1e_97b9_e7b91d191c63 a enrepo:Ontology, owl:NamedIndividual .
 
-:Ontology_be07652f_b314_4227_8b6b_9d32d238e571 a :Ontology, owl:NamedIndividual .
+enrepo:Ontology_be07652f_b314_4227_8b6b_9d32d238e571 a enrepo:Ontology, owl:NamedIndividual .
 
-:Ontology_c0ee28df_53dd_45b1_a961_2f134c72e12f a :Ontology, owl:NamedIndividual .
+enrepo:Ontology_c0ee28df_53dd_45b1_a961_2f134c72e12f a enrepo:Ontology, owl:NamedIndividual .
 
-:Ontology_de3f9fb0_0b4c_4f7d_a77d_08d1adb6f089 a :Ontology, owl:NamedIndividual .
+enrepo:Ontology_de3f9fb0_0b4c_4f7d_a77d_08d1adb6f089 a enrepo:Ontology, owl:NamedIndividual .
 
-:Ontology_fafc443d_cd64_48f1_a09e_98e8725a4042 a :Ontology, owl:NamedIndividual .
+enrepo:Ontology_fafc443d_cd64_48f1_a09e_98e8725a4042 a enrepo:Ontology, owl:NamedIndividual .
 
-:OperatingSystem_736c6895_7ed9_4b00_a062_7d5eaa19135f a :OperatingSystem, owl:NamedIndividual .
+enrepo:OperatingSystem_736c6895_7ed9_4b00_a062_7d5eaa19135f a enrepo:OperatingSystem,
+    owl:NamedIndividual .
 
-:OperatingSystem_8224f055_2d29_4034_98d9_037e175e9edf a :OperatingSystem, owl:NamedIndividual .
+enrepo:OperatingSystem_8224f055_2d29_4034_98d9_037e175e9edf a enrepo:OperatingSystem,
+    owl:NamedIndividual .
 
-:OperatingSystem_aef0d524_8308_4082_8a93_8171ee487af5 a :OperatingSystem, owl:NamedIndividual .
+enrepo:OperatingSystem_aef0d524_8308_4082_8a93_8171ee487af5 a enrepo:OperatingSystem,
+    owl:NamedIndividual .
 
-:Platform_6a028729_e0d3_4c0e_be4f_3660130bbf3c a :Platform, owl:NamedIndividual .
+enrepo:Platform_6a028729_e0d3_4c0e_be4f_3660130bbf3c a enrepo:Platform, owl:NamedIndividual .
 
-:Platform_6b4a3d16_e084_47fa_96ba_6dc7cc430077 a :Platform, owl:NamedIndividual .
+enrepo:Platform_6b4a3d16_e084_47fa_96ba_6dc7cc430077 a enrepo:Platform, owl:NamedIndividual .
 
-:Platform_75eede97_cc40_4364_b19e_84d343afacc1 a :Platform, owl:NamedIndividual .
+enrepo:Platform_75eede97_cc40_4364_b19e_84d343afacc1 a enrepo:Platform, owl:NamedIndividual .
 
-:Platform_8b46fda0_3671_42e1_a166_746befe9bb49 a :Platform, owl:NamedIndividual .
+enrepo:Platform_8b46fda0_3671_42e1_a166_746befe9bb49 a enrepo:Platform, owl:NamedIndividual .
 
-:Platform_e611adf1_7ef3_493b_97a7_812d847f4ba2 a :Platform, owl:NamedIndividual .
+enrepo:Platform_e611adf1_7ef3_493b_97a7_812d847f4ba2 a enrepo:Platform, owl:NamedIndividual .
 
-:Prefix_06211c8c_4b66_4a9d_a483_a7161734a6f7 a :Prefix, owl:NamedIndividual .
+enrepo:Prefix_06211c8c_4b66_4a9d_a483_a7161734a6f7 a enrepo:Prefix, owl:NamedIndividual .
 
-:Prefix_26a400d2_76d8_4522_ab78_eee13d5aa2ad a :Prefix, owl:NamedIndividual .
+enrepo:Prefix_26a400d2_76d8_4522_ab78_eee13d5aa2ad a enrepo:Prefix, owl:NamedIndividual .
 
-:Prefix_45603a34_4569_4914_9ac9_eac8e264a2d7 a :Prefix, owl:NamedIndividual .
+enrepo:Prefix_45603a34_4569_4914_9ac9_eac8e264a2d7 a enrepo:Prefix, owl:NamedIndividual .
 
-:Prefix_55c5b6d4_9c2e_45f4_aa30_98a15c8ad5b2 a :Prefix, owl:NamedIndividual .
+enrepo:Prefix_55c5b6d4_9c2e_45f4_aa30_98a15c8ad5b2 a enrepo:Prefix, owl:NamedIndividual .
 
-:Prefix_59477cde_2c3a_4b00_83b7_2a377f810849 a :Prefix, owl:NamedIndividual .
+enrepo:Prefix_59477cde_2c3a_4b00_83b7_2a377f810849 a enrepo:Prefix, owl:NamedIndividual .
 
-:Prefix_65a0558a_6c57_469f_9629_e1a3ce94bd7a a :Prefix, owl:NamedIndividual .
+enrepo:Prefix_65a0558a_6c57_469f_9629_e1a3ce94bd7a a enrepo:Prefix, owl:NamedIndividual .
 
-:Prefix_780bf0c4_39cf_470e_b97f_65238963626e a :Prefix, owl:NamedIndividual .
+enrepo:Prefix_780bf0c4_39cf_470e_b97f_65238963626e a enrepo:Prefix, owl:NamedIndividual .
 
-:Prefix_7fe3a9a5_8e7c_40f9_8d26_5697db774da0 a :Prefix, owl:NamedIndividual .
+enrepo:Prefix_7fe3a9a5_8e7c_40f9_8d26_5697db774da0 a enrepo:Prefix, owl:NamedIndividual .
 
-:Prefix_8cf7a1e0_09a4_461b_ae81_039418e69ce0 a :Prefix, owl:NamedIndividual .
+enrepo:Prefix_8cf7a1e0_09a4_461b_ae81_039418e69ce0 a enrepo:Prefix, owl:NamedIndividual .
 
-:Prefix_91941413_4174_4cb0_a0a5_7f7a5c964286 a :Prefix, owl:NamedIndividual .
+enrepo:Prefix_91941413_4174_4cb0_a0a5_7f7a5c964286 a enrepo:Prefix, owl:NamedIndividual .
 
-:Prefix_9cc12701_6636_4469_99d2_b9ee3fcc713a a :Prefix, owl:NamedIndividual .
+enrepo:Prefix_9cc12701_6636_4469_99d2_b9ee3fcc713a a enrepo:Prefix, owl:NamedIndividual .
 
-:Prefix_c02c7276_e901_4514_aa3c_fa8aef1663b9 a :Prefix, owl:NamedIndividual .
+enrepo:Prefix_c02c7276_e901_4514_aa3c_fa8aef1663b9 a enrepo:Prefix, owl:NamedIndividual .
 
-:Prefix_ce6df350_20ed_43c2_bc62_2c0a06f7b078 a :Prefix, owl:NamedIndividual .
+enrepo:Prefix_ce6df350_20ed_43c2_bc62_2c0a06f7b078 a enrepo:Prefix, owl:NamedIndividual .
 
-:Prefix_d0bbb0bd_cc12_4501_9647_05bceb5f06c9 a :Prefix, owl:NamedIndividual .
+enrepo:Prefix_d0bbb0bd_cc12_4501_9647_05bceb5f06c9 a enrepo:Prefix, owl:NamedIndividual .
 
-:Prefix_d59211cf_09ae_4cdb_a8f9_82d5e85fc450 a :Prefix, owl:NamedIndividual .
+enrepo:Prefix_d59211cf_09ae_4cdb_a8f9_82d5e85fc450 a enrepo:Prefix, owl:NamedIndividual .
 
-:DatabaseSystem rdfs:subClassOf _:node1462 .
+enrepo:DatabaseSystem rdfs:subClassOf _:node103 .
 
-_:node1462 a owl:Class .
+_:node103 a owl:Class .
 
-:DatabaseSystem rdfs:subClassOf _:node1469 .
+enrepo:DatabaseSystem rdfs:subClassOf _:node110 .
 
-_:node1469 a owl:Restriction;
-  owl:onProperty :version .
+_:node110 a owl:Restriction;
+  owl:onProperty enrepo:version .
 
-:Environment rdfs:subClassOf _:node1470 .
+enrepo:Environment rdfs:subClassOf _:node111 .
 
-_:node1470 a owl:Restriction;
-  owl:onProperty :hasTenant .
+_:node111 a owl:Restriction;
+  owl:onProperty enrepo:hasTenant .
 
-:Environment rdfs:subClassOf _:node1471 .
+enrepo:Environment rdfs:subClassOf _:node112 .
 
-_:node1471 a owl:Restriction;
-  owl:onProperty :name .
+_:node112 a owl:Restriction;
+  owl:onProperty enrepo:name .
 
-:Graph rdfs:subClassOf _:node1472 .
+enrepo:Graph rdfs:subClassOf _:node113 .
 
-_:node1472 a owl:Restriction;
-  owl:onProperty :hasRepository;
-  owl:someValuesFrom :Repository .
+_:node113 a owl:Restriction;
+  owl:onProperty enrepo:hasRepository;
+  owl:someValuesFrom enrepo:Repository .
 
-:Graph rdfs:subClassOf _:node1473 .
+enrepo:Graph rdfs:subClassOf _:node114 .
 
-_:node1473 a owl:Restriction;
-  owl:onProperty :graph .
+_:node114 a owl:Restriction;
+  owl:onProperty enrepo:graph .
 
-:Graph rdfs:subClassOf _:node1474 .
+enrepo:Graph rdfs:subClassOf _:node115 .
 
-_:node1474 a owl:Restriction;
-  owl:onProperty :name .
+_:node115 a owl:Restriction;
+  owl:onProperty enrepo:name .
 
-:Host rdfs:subClassOf _:node1475 .
+enrepo:Host rdfs:subClassOf _:node116 .
 
-_:node1475 a owl:Restriction;
-  owl:onProperty :hasDatabaseSystem .
+_:node116 a owl:Restriction;
+  owl:onProperty enrepo:hasDatabaseSystem .
 
-:Host rdfs:subClassOf _:node1476 .
+enrepo:Host rdfs:subClassOf _:node117 .
 
-_:node1476 a owl:Restriction;
-  owl:onProperty :hasEnvironment .
+_:node117 a owl:Restriction;
+  owl:onProperty enrepo:hasEnvironment .
 
-:Host rdfs:subClassOf _:node1477 .
+enrepo:Host rdfs:subClassOf _:node118 .
 
-_:node1477 a owl:Restriction;
-  owl:onProperty :hasOperatingSystem .
+_:node118 a owl:Restriction;
+  owl:onProperty enrepo:hasOperatingSystem .
 
-:Host rdfs:subClassOf _:node1478 .
+enrepo:Host rdfs:subClassOf _:node119 .
 
-_:node1478 a owl:Restriction;
-  owl:onProperty :dbVersion .
+_:node119 a owl:Restriction;
+  owl:onProperty enrepo:dbVersion .
 
-:Host rdfs:comment "Describes one physical graph database host. Each host can contain multiple repositories. Each repository can contain multiple graphs."@en;
-  rdfs:subClassOf _:node1479 .
+enrepo:Host rdfs:comment "Describes one physical graph database host. Each host can contain multiple repositories. Each repository can contain multiple graphs."@en;
+  rdfs:subClassOf _:node120 .
 
-_:node1479 a owl:Restriction;
-  owl:onProperty :name .
+_:node120 a owl:Restriction;
+  owl:onProperty enrepo:name .
 
-:Host rdfs:subClassOf _:node1480 .
+enrepo:Host rdfs:subClassOf _:node121 .
 
-_:node1480 a owl:Restriction;
-  owl:onProperty :osVersion .
+_:node121 a owl:Restriction;
+  owl:onProperty enrepo:osVersion .
 
-:OperatingSystem rdfs:comment "Describes an operating system on a certain host."@en;
-  rdfs:subClassOf _:node1483 .
+enrepo:OperatingSystem rdfs:comment "Describes an operating system on a certain host."@en;
+  rdfs:subClassOf _:node124 .
 
-_:node1483 a owl:Class .
+_:node124 a owl:Class .
 
-:OperatingSystem rdfs:subClassOf _:node1490 .
+enrepo:OperatingSystem rdfs:subClassOf _:node131 .
 
-_:node1490 a owl:Restriction;
-  owl:onProperty :version .
+_:node131 a owl:Restriction;
+  owl:onProperty enrepo:version .
 
-:Repository rdfs:comment "Describes one repository within one graph database host. Each repository can contain multiple graphs."@en;
-  rdfs:subClassOf _:node1495 .
+enrepo:Repository rdfs:comment "Describes one repository within one graph database host. Each repository can contain multiple graphs."@en;
+  rdfs:subClassOf _:node136 .
 
-_:node1495 a owl:Restriction;
-  owl:onProperty :hasDatabaseInstance .
+_:node136 a owl:Restriction;
+  owl:onProperty enrepo:hasDatabaseInstance .
 
-:Repository rdfs:subClassOf _:node1496 .
+enrepo:Repository rdfs:subClassOf _:node137 .
 
-_:node1496 a owl:Restriction;
-  owl:onProperty :id .
+_:node137 a owl:Restriction;
+  owl:onProperty enrepo:id .
 
-:Repository rdfs:subClassOf _:node1497 .
+enrepo:Repository rdfs:subClassOf _:node138 .
 
-_:node1497 a owl:Restriction;
-  owl:onProperty :name .
+_:node138 a owl:Restriction;
+  owl:onProperty enrepo:name .
 
-:Tenant rdfs:comment "A tenant is a paying customer of the Enapso platform. Each tenant can have one or multiple environments."@en;
-  rdfs:subClassOf _:node1498 .
+enrepo:Tenant rdfs:comment "A tenant is a paying customer of the Enapso platform. Each tenant can have one or multiple environments."@en;
+  rdfs:subClassOf _:node139 .
 
-_:node1498 a owl:Restriction;
-  owl:onProperty :name .
+_:node139 a owl:Restriction;
+  owl:onProperty enrepo:name .
 
-:DatabaseInstance rdfs:comment "Describes a concrete database instance. Operated at a certain host."@en;
-  rdfs:subClassOf _:node1459 .
+enrepo:DatabaseInstance rdfs:comment "Describes a concrete database instance. Operated at a certain host."@en;
+  rdfs:subClassOf _:node100 .
 
-_:node1459 a owl:Restriction;
-  owl:onProperty :hasHost;
-  owl:someValuesFrom :Host .
+_:node100 a owl:Restriction;
+  owl:onProperty enrepo:hasHost;
+  owl:someValuesFrom enrepo:Host .
 
-:DatabaseInstance rdfs:subClassOf _:node1460 .
+enrepo:DatabaseInstance rdfs:subClassOf _:node101 .
 
-_:node1460 a owl:Restriction;
-  owl:onProperty :name .
+_:node101 a owl:Restriction;
+  owl:onProperty enrepo:name .
 
-:DatabaseInstance rdfs:subClassOf _:node1461 .
+enrepo:DatabaseInstance rdfs:subClassOf _:node102 .
 
-_:node1461 a owl:Restriction;
-  owl:onProperty :version .
+_:node102 a owl:Restriction;
+  owl:onProperty enrepo:version .
 
-:Ontology rdfs:comment "Definition of an ontology in the Enapso ontology repository. Usually, each ontology is associated with a certain graph in a certain repository of a certain host."@en;
-  rdfs:subClassOf _:node1481 .
+enrepo:Ontology rdfs:comment "Definition of an ontology in the Enapso ontology repository. Usually, each ontology is associated with a certain graph in a certain repository of a certain host."@en;
+  rdfs:subClassOf _:node122 .
 
-_:node1481 a owl:Restriction;
-  owl:onProperty :name .
+_:node122 a owl:Restriction;
+  owl:onProperty enrepo:name .
 
-:Ontology rdfs:subClassOf _:node1482 .
+enrepo:Ontology rdfs:subClassOf _:node123 .
 
-_:node1482 a owl:Restriction;
-  owl:onProperty :url .
+_:node123 a owl:Restriction;
+  owl:onProperty enrepo:url .
 
-:Platform rdfs:comment "Definiition of the platform where a certain host is operated. This can be e.g. AWS, Azure or On-Premise."@en;
-  rdfs:subClassOf _:node1491 .
+enrepo:Platform rdfs:comment "Definiition of the platform where a certain host is operated. This can be e.g. AWS, Azure or On-Premise."@en;
+  rdfs:subClassOf _:node132 .
 
-_:node1491 a owl:Restriction;
-  owl:onProperty :name .
+_:node132 a owl:Restriction;
+  owl:onProperty enrepo:name .
 
-:Prefix rdfs:comment "Definition of prefix and associated namespace."@en;
-  rdfs:subClassOf _:node1492 .
+enrepo:Prefix rdfs:comment "Definition of prefix and associated namespace."@en;
+  rdfs:subClassOf _:node133 .
 
-_:node1492 a owl:Restriction;
-  owl:onProperty :name .
+_:node133 a owl:Restriction;
+  owl:onProperty enrepo:name .
 
-:Prefix rdfs:subClassOf _:node1493 .
+enrepo:Prefix rdfs:subClassOf _:node134 .
 
-_:node1493 a owl:Restriction;
-  owl:onProperty :namespace .
+_:node134 a owl:Restriction;
+  owl:onProperty enrepo:namespace .
 
-:Prefix rdfs:subClassOf _:node1494 .
+enrepo:Prefix rdfs:subClassOf _:node135 .
 
-_:node1494 a owl:Restriction;
-  owl:onProperty :prefix .
+_:node135 a owl:Restriction;
+  owl:onProperty enrepo:prefix .
 
-:hasDatabaseSystem rdfs:comment "Each host has a Database System";
-  rdfs:range :DatabaseSystem .
+enrepo:hasDatabaseSystem rdfs:comment "Each host has a Database System";
+  rdfs:range enrepo:DatabaseSystem .
 
-:hasEnvironment rdfs:comment "Each tenant can operate one or more enviroments."@en;
-  rdfs:range :Environment .
+enrepo:hasEnvironment rdfs:comment "Each tenant can operate one or more enviroments."@en;
+  rdfs:range enrepo:Environment .
 
-:hasGraph rdfs:comment "Each repository can have one or multiple graphs."@en;
-  rdfs:range :Graph .
+enrepo:hasGraph rdfs:comment "Each repository can have one or multiple graphs."@en;
+  rdfs:range enrepo:Graph .
 
-:hasHost rdfs:comment "Each host can operate one or more database instances."@en;
-  rdfs:range :Host .
+enrepo:hasHost rdfs:comment "Each host can operate one or more database instances."@en;
+  rdfs:range enrepo:Host .
 
-:hasOperatingSystem rdfs:comment "Each host has a Operating System";
-  rdfs:range :OperatingSystem .
+enrepo:hasOperatingSystem rdfs:comment "Each host has a Operating System";
+  rdfs:range enrepo:OperatingSystem .
 
-:hasRepository rdfs:comment "Each database instance can have one or more repositories."@en;
-  rdfs:range :Repository .
+enrepo:hasRepository rdfs:comment "Each database instance can have one or more repositories."@en;
+  rdfs:range enrepo:Repository .
 
-:hasTenant rdfs:comment "Each environment has one parent tenant."@en;
-  rdfs:range :Tenant .
+enrepo:hasTenant rdfs:comment "Each environment has one parent tenant."@en;
+  rdfs:range enrepo:Tenant .
 
-:importedBy rdfs:comment "Specifies for a certain ontology by which other ontologies it is used."@en;
-  owl:inverseOf :imports .
+enrepo:importedBy rdfs:comment "Specifies for a certain ontology by which other ontologies it is used."@en;
+  owl:inverseOf enrepo:imports .
 
 <http://ont.enapso.com/repo> rdfs:comment "(C) Copyright 2019-2020 Innotrade GmbH, Herzogenrath, NRW, Germany"@en,
     "Enapso Ontology Repository Management Ontology"@en .
 
-:hasDatabaseInstance rdfs:comment "Each Database Instance has at least one repository" .
+enrepo:hasDatabaseInstance rdfs:comment "Each Database Instance has at least one repository" .
 
-:DatabaseSystem rdfs:comment "Describe a Database System"@en .
+enrepo:DatabaseSystem rdfs:comment "Describe a Database System"@en .
 
-:Environment rdfs:comment "An enviroment consists of one or more hosts. A tenant can have one or more environments."@en .
+enrepo:Environment rdfs:comment "An enviroment consists of one or more hosts. A tenant can have one or more environments."@en .
 
-:Graph rdfs:comment "Describes a sub graph within a graph database repository."@en .
+enrepo:Graph rdfs:comment "Describes a sub graph within a graph database repository."@en .
 
-:imports rdfs:comment "Specifies which other ontologies are imported by a certain ontology."@en .
+enrepo:imports rdfs:comment "Specifies which other ontologies are imported by a certain ontology."@en .
 
-:databaseSystem rdfs:comment "Detail of Database System " .
+enrepo:databaseSystem rdfs:comment "Detail of Database System " .
 
-:dbVersion rdfs:comment "The version of the Database" .
+enrepo:dbVersion rdfs:comment "The version of the Database" .
 
-:graph rdfs:comment "The name of a graph inside a repository."@en .
+enrepo:graph rdfs:comment "The name of a graph inside a repository."@en .
 
-:hostname rdfs:comment "The host name."@en .
+enrepo:hostname rdfs:comment "The host name."@en .
 
-:id rdfs:comment "Unique identifier. For instance to be used as unique name for a certain repository inside one graph db instance."@en .
+enrepo:id rdfs:comment "Unique identifier. For instance to be used as unique name for a certain repository inside one graph db instance."@en .
 
-:ip rdfs:comment "The IP number, e.g. of a host."@en .
+enrepo:ip rdfs:comment "The IP number, e.g. of a host."@en .
 
-:operatingSystem rdfs:comment "Name of Operating System " .
+enrepo:operatingSystem rdfs:comment "Name of Operating System " .
 
-:osVersion rdfs:comment "Version of Operating System" .
+enrepo:osVersion rdfs:comment "Version of Operating System" .
 
-:title rdfs:comment "Title of a certain entity. For instance, to be used for a repository in graph db."@en .
+enrepo:title rdfs:comment "Title of a certain entity. For instance, to be used for a repository in graph db."@en .
 
-:version rdfs:comment "Version Details" .
+enrepo:version rdfs:comment "Version Details" .
 
-:DatabaseInstance_086a69ed_f3e1_4555_bdb5_2535ac9baea7 rdfs:comment "GraphDB on Alexander Schulze's Macbook Pro I"@en .
+enrepo:DatabaseInstance_086a69ed_f3e1_4555_bdb5_2535ac9baea7 rdfs:comment "GraphDB on Alexander Schulze's Macbook Pro I"@en .
 
-:Host_1fbdddee_d864_4868_9f65_c6b1be32de92 rdfs:comment "Alexander Schulze's MacBook Pro I"@en .
+enrepo:Host_1fbdddee_d864_4868_9f65_c6b1be32de92 rdfs:comment "Alexander Schulze's MacBook Pro I"@en .
 
-:DatabaseInstance_0cd52b9e_888c_4a33_acde_89effe38ddee rdfs:comment "GraphDB on Martin Künzle's laptop"@en .
+enrepo:DatabaseInstance_0cd52b9e_888c_4a33_acde_89effe38ddee rdfs:comment "GraphDB on Martin Künzle's laptop"@en .
 
-:Host_28180341_d1bc_4dbb_aa63_e079001d2513 rdfs:comment "Martin Künzle's laptop"@en .
+enrepo:Host_28180341_d1bc_4dbb_aa63_e079001d2513 rdfs:comment "Martin Künzle's laptop"@en .
 
-:DatabaseInstance_1a8b2422_9b1c_48bd_88a1_4794fd09df6e rdfs:comment "GraphDB on Fida's laptop"@en .
+enrepo:DatabaseInstance_1a8b2422_9b1c_48bd_88a1_4794fd09df6e rdfs:comment "GraphDB on Fida's laptop"@en .
 
-:Host_6c307a8d_be16_4550_8794_33492e758f22 rdfs:comment "Fida's laptop"@en .
+enrepo:Host_6c307a8d_be16_4550_8794_33492e758f22 rdfs:comment "Fida's laptop"@en .
 
-:DatabaseInstance_41710204_2620_4483_a31d_963e2075767f rdfs:comment "GraphDB on Alexander Schulze's Macbook Pro II"@en .
+enrepo:DatabaseInstance_41710204_2620_4483_a31d_963e2075767f rdfs:comment "GraphDB on Alexander Schulze's Macbook Pro II"@en .
 
-:Host_79d4c2c0_857c_4666_beb9_e0c8b2617c6e rdfs:comment "Alexander Schulze's MacBook Pro II"@en .
+enrepo:Host_79d4c2c0_857c_4666_beb9_e0c8b2617c6e rdfs:comment "Alexander Schulze's MacBook Pro II"@en .
 
-:DatabaseInstance_665295fd_6ba1_4e2e_bc2e_452168a848e6 rdfs:comment "GraphDB on Siva's laptop"@en .
+enrepo:DatabaseInstance_665295fd_6ba1_4e2e_bc2e_452168a848e6 rdfs:comment "GraphDB on Siva's laptop"@en .
 
-:Host_d7ff76c6_cfd5_479f_9c36_d40825259a8d rdfs:comment "Siva's laptop"@en .
+enrepo:Host_d7ff76c6_cfd5_479f_9c36_d40825259a8d rdfs:comment "Siva's laptop"@en .
 
-:DatabaseInstance_789c7c2b_9928_42cf_b1ec_f079385c23ca rdfs:comment "GraphDB on Ashesh Goplani hp i7"@en .
+enrepo:DatabaseInstance_789c7c2b_9928_42cf_b1ec_f079385c23ca rdfs:comment "GraphDB on Ashesh Goplani hp i7"@en .
 
-:Host_3bc75791_9b65_4b0a_887d_aaabc253c78e rdfs:comment "Ashesh Goplani's laptop"@en .
+enrepo:Host_3bc75791_9b65_4b0a_887d_aaabc253c78e rdfs:comment "Ashesh Goplani's laptop"@en .
 
-:DatabaseInstance_8a41da22_e9d8_4396_8440_a3941faeac49 rdfs:comment "GraphDB on Muhammad Yasir Dell i5"@en .
+enrepo:DatabaseInstance_8a41da22_e9d8_4396_8440_a3941faeac49 rdfs:comment "GraphDB on Muhammad Yasir Dell i5"@en .
 
-:Host_01141633_0716_4ae3_b38b_aa12b2197c4a rdfs:comment "Muhammad Yasir's laptop"@en .
+enrepo:Host_01141633_0716_4ae3_b38b_aa12b2197c4a rdfs:comment "Muhammad Yasir's laptop"@en .
 
-:DatabaseInstance_aef8e43d_a563_4834_bbe1_dbf7e8bb786b rdfs:comment "GraphDB on Alexander Schulze's iMac"@en .
+enrepo:DatabaseInstance_aef8e43d_a563_4834_bbe1_dbf7e8bb786b rdfs:comment "GraphDB on Alexander Schulze's iMac"@en .
 
-:Host_0134bc8c_e40c_4394_b4c7_310a206e10da rdfs:comment "Alexander Schulze's iMac I"@en .
+enrepo:Host_0134bc8c_e40c_4394_b4c7_310a206e10da rdfs:comment "Alexander Schulze's iMac I"@en .
 
-:DatabaseSystem_3e35cc32_378a_40fa_ad11_74ac431b7aa9 rdfs:comment "Apache Jena/Fuseki"@en .
+enrepo:DatabaseSystem_3e35cc32_378a_40fa_ad11_74ac431b7aa9 rdfs:comment "Apache Jena/Fuseki"@en .
 
-:DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f rdfs:comment "GraphDB (Ontotext)"@en .
+enrepo:DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f rdfs:comment "GraphDB (Ontotext)"@en .
 
-:DatabaseSystem_94bad780_3cdd_4942_abc2_a60ca6788745 rdfs:comment "Stardog"@en .
+enrepo:DatabaseSystem_94bad780_3cdd_4942_abc2_a60ca6788745 rdfs:comment "Stardog"@en .
 
-:Environment_14eaf5b6_1704_4f8d_b315_8a8728640b66 rdfs:comment "Martin Künzle's local Environment"@en .
+enrepo:Environment_14eaf5b6_1704_4f8d_b315_8a8728640b66 rdfs:comment "Martin Künzle's local Environment"@en .
 
-:Tenant_e7e124a2_3a7b_4333_8f51_5f70d48f0bfe rdfs:comment "CMS"@en .
+enrepo:Tenant_e7e124a2_3a7b_4333_8f51_5f70d48f0bfe rdfs:comment "CMS"@en .
 
-:Environment_31cf4adb_b552_45f5_9997_98acb07263c4 rdfs:comment "Siva's local Environment"@en .
+enrepo:Environment_31cf4adb_b552_45f5_9997_98acb07263c4 rdfs:comment "Siva's local Environment"@en .
 
-:Tenant_f5a52c9d_1c3e_4fa8_bfb2_587958d4e8c3 rdfs:comment "Iplex"@en .
+enrepo:Tenant_f5a52c9d_1c3e_4fa8_bfb2_587958d4e8c3 rdfs:comment "Iplex"@en .
 
-:Environment_7308c29c_9c98_4d14_80ad_546c498d91ef rdfs:comment "Alexander Schulze's local environment"@en .
+enrepo:Environment_7308c29c_9c98_4d14_80ad_546c498d91ef rdfs:comment "Alexander Schulze's local environment"@en .
 
-:Tenant_0143e7ee_fbdd_45b3_879f_fedc78e42ab4 rdfs:comment "Innotrade GmbH"@en .
+enrepo:Tenant_0143e7ee_fbdd_45b3_879f_fedc78e42ab4 rdfs:comment "Innotrade GmbH"@en .
 
-:Environment_833a44cc_ec58_4202_b44d_27460ae94e2d rdfs:comment "Muhammad Yasir's local environment"@en .
+enrepo:Environment_833a44cc_ec58_4202_b44d_27460ae94e2d rdfs:comment "Muhammad Yasir's local environment"@en .
 
-:Environment_ca8d3c76_0766_47dd_9b87_2e93bf976082 rdfs:comment "Ashesh Goplani's local environment"@en .
+enrepo:Environment_ca8d3c76_0766_47dd_9b87_2e93bf976082 rdfs:comment "Ashesh Goplani's local environment"@en .
 
-:Environment_fcf6327c_58fa_4b18_8fbe_bb3e959a126c rdfs:comment "Fida's local Environment"@en .
+enrepo:Environment_fcf6327c_58fa_4b18_8fbe_bb3e959a126c rdfs:comment "Fida's local Environment"@en .
 
-:Graph_0ea87735_977d_461b_88c5_749d1a5bf909 rdfs:comment "The Graph in Alexander Schulze's MacBookPro II in the EnapsoTest repository."@en .
+enrepo:Graph_0ea87735_977d_461b_88c5_749d1a5bf909 rdfs:comment "The Graph in Alexander Schulze's MacBookPro II in the EnapsoTest repository."@en .
 
-:Repository_63423a53_29c2_43ae_b35a_7be883b4bd40 rdfs:comment "EnapsoTest Repository located in Alexander Schulze MacBook Pro II"@en .
+enrepo:Repository_63423a53_29c2_43ae_b35a_7be883b4bd40 rdfs:comment "EnapsoTest Repository located in Alexander Schulze MacBook Pro II"@en .
 
-:Graph_1242ac41_1811_4625_8664_6a260bfe6d3b rdfs:comment "The Graph in Muhammad Yasir Dell i5 in the EnapsoTest repository."@en .
+enrepo:Graph_1242ac41_1811_4625_8664_6a260bfe6d3b rdfs:comment "The Graph in Muhammad Yasir Dell i5 in the EnapsoTest repository."@en .
 
-:Repository_6159c98a_6c46_4cc3_9efd_6320775ac4ed rdfs:comment "Repository in Muhammad Yasir Laptop"@en .
+enrepo:Repository_6159c98a_6c46_4cc3_9efd_6320775ac4ed rdfs:comment "Repository in Muhammad Yasir Laptop"@en .
 
-:Graph_128100a6_8c71_4fd8_a86a_22f2bb88782f rdfs:comment "The Graph in Ashesh Goplani hp i7 in the EnapsoTest repository."@en .
+enrepo:Graph_128100a6_8c71_4fd8_a86a_22f2bb88782f rdfs:comment "The Graph in Ashesh Goplani hp i7 in the EnapsoTest repository."@en .
 
-:Repository_299e12b7_024a_4ffe_a099_b408fe8858a6 rdfs:comment "EnapsoTest Repository located in Ashesh Goplani hp i7"@en .
+enrepo:Repository_299e12b7_024a_4ffe_a099_b408fe8858a6 rdfs:comment "EnapsoTest Repository located in Ashesh Goplani hp i7"@en .
 
-:Graph_144eb313_94bd_4506_86cc_2f959412b61d rdfs:comment "The Graph in Muhammad Yasir Dell i5 in the EnapsoChecking repository."@en .
+enrepo:Graph_144eb313_94bd_4506_86cc_2f959412b61d rdfs:comment "The Graph in Muhammad Yasir Dell i5 in the EnapsoChecking repository."@en .
 
-:Repository_03b94545_b227_427d_bd7a_3676e61adb9c rdfs:comment "EnapsoChecking Repository located in Muhammad Yasir Dell i5"@en .
+enrepo:Repository_03b94545_b227_427d_bd7a_3676e61adb9c rdfs:comment "EnapsoChecking Repository located in Muhammad Yasir Dell i5"@en .
 
-:Graph_1620132d_9bbc_4bad_846c_349eab25d224 rdfs:comment "The Graph in Alexander Schulze's MacBookPro II in the EnapsoChecking repository."@en .
+enrepo:Graph_1620132d_9bbc_4bad_846c_349eab25d224 rdfs:comment "The Graph in Alexander Schulze's MacBookPro II in the EnapsoChecking repository."@en .
 
-:Graph_174ff230_d7b9_4993_bb35_a2da61215475 rdfs:comment "The Graph in Alexander Schulze's MacBookPro II in the EnapsoDotNetProDemo repository."@en .
+enrepo:Graph_174ff230_d7b9_4993_bb35_a2da61215475 rdfs:comment "The Graph in Alexander Schulze's MacBookPro II in the EnapsoDotNetProDemo repository."@en .
 
-:Repository_27ebbed9_fd22_4e5c_9227_956cf475a4e5 rdfs:comment "EnapsoChecking Repository located in Alexander Schulze MacBook Pro II"@en .
+enrepo:Repository_27ebbed9_fd22_4e5c_9227_956cf475a4e5 rdfs:comment "EnapsoChecking Repository located in Alexander Schulze MacBook Pro II"@en .
 
-:Graph_1d9a32b1_fd00_4565_8d1b_4b9e1bb0f264 rdfs:comment "The Graph in Alexander Schulze's MacBookPro II in the EnapsoDotNetProDemo repository."@en .
+enrepo:Graph_1d9a32b1_fd00_4565_8d1b_4b9e1bb0f264 rdfs:comment "The Graph in Alexander Schulze's MacBookPro II in the EnapsoDotNetProDemo repository."@en .
 
-:Repository_49260c94_b3ac_4dd0_baf7_df762e92179e rdfs:comment "EnapsoDotNetProDemo repository is located a Alexander Schulze's MacBookPro II."@en .
+enrepo:Repository_49260c94_b3ac_4dd0_baf7_df762e92179e rdfs:comment "EnapsoDotNetProDemo repository is located a Alexander Schulze's MacBookPro II."@en .
 
-:Graph_2129eed4_1867_4c09_a75c_f7c9434766e6 rdfs:comment "The Graph in Siva's laptop in the EnapsoChecking repository."@en .
+enrepo:Graph_2129eed4_1867_4c09_a75c_f7c9434766e6 rdfs:comment "The Graph in Siva's laptop in the EnapsoChecking repository."@en .
 
-:Repository_be8010df_5906_43ea_a1b3_fe926eb29fe7 rdfs:comment "EnapsoChecking Repository located in Siva laptop"@en .
+enrepo:Repository_be8010df_5906_43ea_a1b3_fe926eb29fe7 rdfs:comment "EnapsoChecking Repository located in Siva laptop"@en .
 
-:Graph_24a1d382_025d_43f0_a54e_ddbefc1037a7 rdfs:comment "The Graph in Muhammad Yasir Dell i5 in the EnapsoDotNetPrDemo repository."@en .
+enrepo:Graph_24a1d382_025d_43f0_a54e_ddbefc1037a7 rdfs:comment "The Graph in Muhammad Yasir Dell i5 in the EnapsoDotNetPrDemo repository."@en .
 
-:Repository_af8ed397_c907_4353_86c4_56009c84dc29 rdfs:comment "EnapsoDotNetProDemo Repository located in Muhammad Yasir Dell i5"@en .
+enrepo:Repository_af8ed397_c907_4353_86c4_56009c84dc29 rdfs:comment "EnapsoDotNetProDemo Repository located in Muhammad Yasir Dell i5"@en .
 
-:Graph_43c82926_a072_4057_bb2c_c6c5b22cd156 rdfs:comment "The Graph in Muhammad Yasir Dell i5 in the EnapsoTest repository."@en .
+enrepo:Graph_43c82926_a072_4057_bb2c_c6c5b22cd156 rdfs:comment "The Graph in Muhammad Yasir Dell i5 in the EnapsoTest repository."@en .
 
-:Graph_462af229_a60e_4c80_9ffc_aef39d940653 rdfs:comment "The Graph in Ashesh Goplani hp i7 in the EnapsoChecking repository."@en .
+enrepo:Graph_462af229_a60e_4c80_9ffc_aef39d940653 rdfs:comment "The Graph in Ashesh Goplani hp i7 in the EnapsoChecking repository."@en .
 
-:Repository_a4c96d2c_b982_4231_930b_4bc961d8352a rdfs:comment "EnapsoChecking repository is located a Ashesh Goplani hp i7"@en .
+enrepo:Repository_a4c96d2c_b982_4231_930b_4bc961d8352a rdfs:comment "EnapsoChecking repository is located a Ashesh Goplani hp i7"@en .
 
-:Graph_47ceb7c2_09c5_4b6d_a400_4a74ec945e3a rdfs:comment "The Graph in Alexander Schulze's MacBookPro II in the EnapsoTest repository."@en .
+enrepo:Graph_47ceb7c2_09c5_4b6d_a400_4a74ec945e3a rdfs:comment "The Graph in Alexander Schulze's MacBookPro II in the EnapsoTest repository."@en .
 
-:Graph_485aac31_fa8d_4463_86fd_a6845c75ad48 rdfs:comment "The Graph in Ashesh Goplani hp i7 in the EnapsoTest repository."@en .
+enrepo:Graph_485aac31_fa8d_4463_86fd_a6845c75ad48 rdfs:comment "The Graph in Ashesh Goplani hp i7 in the EnapsoTest repository."@en .
 
-:Graph_4bf163c4_b330_402d_994c_230bcf3714fa rdfs:comment "The  Graph in Ashesh Goplani hp i7 in the EnapsoChecking repository.."@en .
+enrepo:Graph_4bf163c4_b330_402d_994c_230bcf3714fa rdfs:comment "The  Graph in Ashesh Goplani hp i7 in the EnapsoChecking repository.."@en .
 
-:Graph_53a1f29f_48c6_4b9a_83c2_85a9d216ecd4 rdfs:comment "The Graph in Muhammad Yasir Dell i5 in the EnapsoChecking repository."@en .
+enrepo:Graph_53a1f29f_48c6_4b9a_83c2_85a9d216ecd4 rdfs:comment "The Graph in Muhammad Yasir Dell i5 in the EnapsoChecking repository."@en .
 
-:Graph_5e3504ce_9441_4f25_a5ee_c8c65fbb9132 rdfs:comment "The Graph in Fida's laptop in the EnapsoChecking repository."@en .
+enrepo:Graph_5e3504ce_9441_4f25_a5ee_c8c65fbb9132 rdfs:comment "The Graph in Fida's laptop in the EnapsoChecking repository."@en .
 
-:Repository_0a2c8421_036d_46ef_8a48_e0fca429ccdc rdfs:comment "EnapsoChecking Repository located in Fida laptop"@en .
+enrepo:Repository_0a2c8421_036d_46ef_8a48_e0fca429ccdc rdfs:comment "EnapsoChecking Repository located in Fida laptop"@en .
 
-:Graph_629b7ea1_5a2b_4ce5_860e_c5ad5996f45f rdfs:comment "The Graph in Alexander Schulze's MacBookPro II in the EnapsoDotNetProDemo repository."@en .
+enrepo:Graph_629b7ea1_5a2b_4ce5_860e_c5ad5996f45f rdfs:comment "The Graph in Alexander Schulze's MacBookPro II in the EnapsoDotNetProDemo repository."@en .
 
-:Graph_679ba549_2894_44e8_a98b_98054e128b53 rdfs:comment "The Graph in Muhammad Yasir Dell i5 in the EnapsoDotNetProDemo repository."@en .
+enrepo:Graph_679ba549_2894_44e8_a98b_98054e128b53 rdfs:comment "The Graph in Muhammad Yasir Dell i5 in the EnapsoDotNetProDemo repository."@en .
 
-:Graph_727832e2_a8da_4402_a99c_7a9259ad6046 rdfs:comment "The Graph in Martin Künzle's laptop in the EnapsoChecking repository."@en .
+enrepo:Graph_727832e2_a8da_4402_a99c_7a9259ad6046 rdfs:comment "The Graph in Martin Künzle's laptop in the EnapsoChecking repository."@en .
 
-:Repository_b49357e0_33bc_4163_8fef_2cad56ac72a5 rdfs:comment "EnapsoChecking Repository located in Martin Künzle laptop"@en .
+enrepo:Repository_b49357e0_33bc_4163_8fef_2cad56ac72a5 rdfs:comment "EnapsoChecking Repository located in Martin Künzle laptop"@en .
 
-:Graph_8ac9f951_b8b8_4f97_b2e2_da2aa344ced6 rdfs:comment "The Graph in Muhammad Yasir Dell i5 in the EnapsoChecking repository."@en .
+enrepo:Graph_8ac9f951_b8b8_4f97_b2e2_da2aa344ced6 rdfs:comment "The Graph in Muhammad Yasir Dell i5 in the EnapsoChecking repository."@en .
 
-:Graph_8dc370d6_4173_4676_bf39_eea210247594 rdfs:comment "The Graph in Ashesh Goplani hp i7 in the EnapsoChecking repository."@en .
+enrepo:Graph_8dc370d6_4173_4676_bf39_eea210247594 rdfs:comment "The Graph in Ashesh Goplani hp i7 in the EnapsoChecking repository."@en .
 
-:Graph_94a4cf76_f7f2_4b60_b4d6_2763dce8f263 rdfs:comment "The Graph in Alexander Schulze's MacBookPro II in the EnapsoChecking repository."@en .
+enrepo:Graph_94a4cf76_f7f2_4b60_b4d6_2763dce8f263 rdfs:comment "The Graph in Alexander Schulze's MacBookPro II in the EnapsoChecking repository."@en .
 
-:Graph_b4fb1107_ed80_4b12_b365_2eaaf219dca0 rdfs:comment "The Graph in Alexander Schulze's MacBookPro II in the EnapsoTest repository."@en .
+enrepo:Graph_b4fb1107_ed80_4b12_b365_2eaaf219dca0 rdfs:comment "The Graph in Alexander Schulze's MacBookPro II in the EnapsoTest repository."@en .
 
-:Graph_b62e1d40_7e61_4363_bb45_6e035fa8d694 rdfs:comment "The Graph in Ashesh Goplani hp i7 in the EnapsoDotNetProDemo repository."@en .
+enrepo:Graph_b62e1d40_7e61_4363_bb45_6e035fa8d694 rdfs:comment "The Graph in Ashesh Goplani hp i7 in the EnapsoDotNetProDemo repository."@en .
 
-:Repository_2a8d3e7c_a584_4623_98f8_901996dabac1 rdfs:comment "EnapsoDotNetProDemo repository is located a Ashesh Goplani hp i7"@en .
+enrepo:Repository_2a8d3e7c_a584_4623_98f8_901996dabac1 rdfs:comment "EnapsoDotNetProDemo repository is located a Ashesh Goplani hp i7"@en .
 
-:Graph_b957cf06_b02c_48e6_a6f3_52b53d5b740c rdfs:comment "The Graph in Muhammad Yasir Dell i5 in the EnapsoDotNetPrDemo repository."@en .
+enrepo:Graph_b957cf06_b02c_48e6_a6f3_52b53d5b740c rdfs:comment "The Graph in Muhammad Yasir Dell i5 in the EnapsoDotNetPrDemo repository."@en .
 
-:Graph_bad12375_698e_4016_84dd_7e49fe5cfbfb rdfs:comment "The Graph in Ashesh Goplani hp i7 in the EnapsoTest repository."@en .
+enrepo:Graph_bad12375_698e_4016_84dd_7e49fe5cfbfb rdfs:comment "The Graph in Ashesh Goplani hp i7 in the EnapsoTest repository."@en .
 
-:Graph_bc252a61_42d2_455e_b720_cb276a4f6b4f rdfs:comment "The Graph in Ashesh Goplani hp i7 in the EnapsoDotNetProDemo repository."@en .
+enrepo:Graph_bc252a61_42d2_455e_b720_cb276a4f6b4f rdfs:comment "The Graph in Ashesh Goplani hp i7 in the EnapsoDotNetProDemo repository."@en .
 
-:Graph_e1d78937_146e_45dc_adeb_faf30b651d76 rdfs:comment "The Graph in Ashesh Goplani hp i7 in the EnapsoDotNetProDemo repository."@en .
+enrepo:Graph_e1d78937_146e_45dc_adeb_faf30b651d76 rdfs:comment "The Graph in Ashesh Goplani hp i7 in the EnapsoDotNetProDemo repository."@en .
 
-:Graph_e41c32cd_9e73_432d_b269_3df775d2a74c rdfs:comment "The Graph in Alexander Schulze's MacBookPro II in the EnapsoDotNetProDemo repository."@en .
+enrepo:Graph_e41c32cd_9e73_432d_b269_3df775d2a74c rdfs:comment "The Graph in Alexander Schulze's MacBookPro II in the EnapsoDotNetProDemo repository."@en .
 
-:Graph_eb7985dc_c13d_476d_b8ef_ea5dd6f72f77 rdfs:comment "The Graph in Muhammad Yasir Dell i5 in the EnapsoTest repository."@en .
+enrepo:Graph_eb7985dc_c13d_476d_b8ef_ea5dd6f72f77 rdfs:comment "The Graph in Muhammad Yasir Dell i5 in the EnapsoTest repository."@en .
 
-:OperatingSystem_e4966c72_e7f2_484c_adb6_cbc2fd531d36 rdfs:comment "Windows"@en .
+enrepo:OperatingSystem_e4966c72_e7f2_484c_adb6_cbc2fd531d36 rdfs:comment "Windows"@en .
 
-:OperatingSystem_b736e30c_4a61_4721_bfcd_57e196b321fe rdfs:comment "MacOS"@en .
+enrepo:OperatingSystem_b736e30c_4a61_4721_bfcd_57e196b321fe rdfs:comment "MacOS"@en .
 
-:Ontology_03249d09_8038_421e_8376_467b4a430e56 rdfs:comment "Enapso JavaScript Abstract Syntax Tree Ontology"@en .
+enrepo:Ontology_03249d09_8038_421e_8376_467b4a430e56 rdfs:comment "Enapso JavaScript Abstract Syntax Tree Ontology"@en .
 
-:Ontology_1efd927f_3b18_4581_8a95_d11af361993c rdfs:comment "Enapso Test Ontology"@en .
+enrepo:Ontology_1efd927f_3b18_4581_8a95_d11af361993c rdfs:comment "Enapso Test Ontology"@en .
 
-:Ontology_3a8e056d_76c7_437b_8718_78a84cae0a31 rdfs:comment "Enapso Generic Software Engineering Ontology"@en .
+enrepo:Ontology_3a8e056d_76c7_437b_8718_78a84cae0a31 rdfs:comment "Enapso Generic Software Engineering Ontology"@en .
 
-:Ontology_7886ca3f_93cf_45c4_bac6_41dc832af2b2 rdfs:comment "Enapso Sencha ExtJS Ontology"@en .
+enrepo:Ontology_7886ca3f_93cf_45c4_bac6_41dc832af2b2 rdfs:comment "Enapso Sencha ExtJS Ontology"@en .
 
-:Ontology_a6ca7dfb_7ffa_4c1e_97b9_e7b91d191c63 rdfs:comment "Enapso DotNetPro Demo Ontology"@en .
+enrepo:Ontology_a6ca7dfb_7ffa_4c1e_97b9_e7b91d191c63 rdfs:comment "Enapso DotNetPro Demo Ontology"@en .
 
-:Ontology_be07652f_b314_4227_8b6b_9d32d238e571 rdfs:comment "Enapso Terms Ontology"@en .
+enrepo:Ontology_be07652f_b314_4227_8b6b_9d32d238e571 rdfs:comment "Enapso Terms Ontology"@en .
 
-:Ontology_c0ee28df_53dd_45b1_a961_2f134c72e12f rdfs:comment "Enapso Foundational Ontology"@en .
+enrepo:Ontology_c0ee28df_53dd_45b1_a961_2f134c72e12f rdfs:comment "Enapso Foundational Ontology"@en .
 
-:Ontology_de3f9fb0_0b4c_4f7d_a77d_08d1adb6f089 rdfs:comment "Enapso Ontology Repository Management Ontology"@en .
+enrepo:Ontology_de3f9fb0_0b4c_4f7d_a77d_08d1adb6f089 rdfs:comment "Enapso Ontology Repository Management Ontology"@en .
 
-:Ontology_fafc443d_cd64_48f1_a09e_98e8725a4042 rdfs:comment "Enapso Ontology API Ontology"@en .
+enrepo:Ontology_fafc443d_cd64_48f1_a09e_98e8725a4042 rdfs:comment "Enapso Ontology API Ontology"@en .
 
-:OperatingSystem_736c6895_7ed9_4b00_a062_7d5eaa19135f rdfs:comment "Linux (RedHat)"@en .
+enrepo:OperatingSystem_736c6895_7ed9_4b00_a062_7d5eaa19135f rdfs:comment "Linux (RedHat)"@en .
 
-:OperatingSystem_8224f055_2d29_4034_98d9_037e175e9edf rdfs:comment "Unix"@en .
+enrepo:OperatingSystem_8224f055_2d29_4034_98d9_037e175e9edf rdfs:comment "Unix"@en .
 
-:OperatingSystem_aef0d524_8308_4082_8a93_8171ee487af5 rdfs:comment "Linux (Ubuntu)"@en .
+enrepo:OperatingSystem_aef0d524_8308_4082_8a93_8171ee487af5 rdfs:comment "Linux (Ubuntu)"@en .
 
-:Platform_6a028729_e0d3_4c0e_be4f_3660130bbf3c rdfs:comment "Stand alone desktop, laptop, pc, workstation."@en .
+enrepo:Platform_6a028729_e0d3_4c0e_be4f_3660130bbf3c rdfs:comment "Stand alone desktop, laptop, pc, workstation."@en .
 
-:Platform_6b4a3d16_e084_47fa_96ba_6dc7cc430077 rdfs:comment "Private Cloud"@en .
+enrepo:Platform_6b4a3d16_e084_47fa_96ba_6dc7cc430077 rdfs:comment "Private Cloud"@en .
 
-:Platform_75eede97_cc40_4364_b19e_84d343afacc1 rdfs:comment "Amazon Web Services"@en .
+enrepo:Platform_75eede97_cc40_4364_b19e_84d343afacc1 rdfs:comment "Amazon Web Services"@en .
 
-:Platform_8b46fda0_3671_42e1_a166_746befe9bb49 rdfs:comment "Microsoft Azure"@en .
+enrepo:Platform_8b46fda0_3671_42e1_a166_746befe9bb49 rdfs:comment "Microsoft Azure"@en .
 
-:Platform_e611adf1_7ef3_493b_97a7_812d847f4ba2 rdfs:comment "Dedicated Server"@en .
+enrepo:Platform_e611adf1_7ef3_493b_97a7_812d847f4ba2 rdfs:comment "Dedicated Server"@en .
 
-:Prefix_06211c8c_4b66_4a9d_a483_a7161734a6f7 rdfs:comment "Enapso JavaScript Abstract Syntax Tree Ontology"@en .
+enrepo:Prefix_06211c8c_4b66_4a9d_a483_a7161734a6f7 rdfs:comment "Enapso JavaScript Abstract Syntax Tree Ontology"@en .
 
-:Prefix_26a400d2_76d8_4522_ab78_eee13d5aa2ad rdfs:comment "Resource Description Framework Schema"@en .
+enrepo:Prefix_26a400d2_76d8_4522_ab78_eee13d5aa2ad rdfs:comment "Resource Description Framework Schema"@en .
 
-:Prefix_45603a34_4569_4914_9ac9_eac8e264a2d7 rdfs:comment "Enapso Test Ontology"@en .
+enrepo:Prefix_45603a34_4569_4914_9ac9_eac8e264a2d7 rdfs:comment "Enapso Test Ontology"@en .
 
-:Prefix_55c5b6d4_9c2e_45f4_aa30_98a15c8ad5b2 rdfs:comment "XML Schema Definition"@en .
+enrepo:Prefix_55c5b6d4_9c2e_45f4_aa30_98a15c8ad5b2 rdfs:comment "XML Schema Definition"@en .
 
-:Prefix_59477cde_2c3a_4b00_83b7_2a377f810849 rdfs:comment "Shapes Constraint Language"@en .
+enrepo:Prefix_59477cde_2c3a_4b00_83b7_2a377f810849 rdfs:comment "Shapes Constraint Language"@en .
 
-:Prefix_65a0558a_6c57_469f_9629_e1a3ce94bd7a rdfs:comment "Resource Description Framework"@en .
+enrepo:Prefix_65a0558a_6c57_469f_9629_e1a3ce94bd7a rdfs:comment "Resource Description Framework"@en .
 
-:Prefix_780bf0c4_39cf_470e_b97f_65238963626e rdfs:comment "Extensible Markup Language"@en .
+enrepo:Prefix_780bf0c4_39cf_470e_b97f_65238963626e rdfs:comment "Extensible Markup Language"@en .
 
-:Prefix_7fe3a9a5_8e7c_40f9_8d26_5697db774da0 rdfs:comment "Enapso Terms Ontology"@en .
+enrepo:Prefix_7fe3a9a5_8e7c_40f9_8d26_5697db774da0 rdfs:comment "Enapso Terms Ontology"@en .
 
-:Prefix_8cf7a1e0_09a4_461b_ae81_039418e69ce0 rdfs:comment "Generic Enapso Software Engineering Ontology"@en .
+enrepo:Prefix_8cf7a1e0_09a4_461b_ae81_039418e69ce0 rdfs:comment "Generic Enapso Software Engineering Ontology"@en .
 
-:Prefix_91941413_4174_4cb0_a0a5_7f7a5c964286 rdfs:comment "Enapso Ontology API Ontology"@en .
+enrepo:Prefix_91941413_4174_4cb0_a0a5_7f7a5c964286 rdfs:comment "Enapso Ontology API Ontology"@en .
 
-:Prefix_9cc12701_6636_4469_99d2_b9ee3fcc713a rdfs:comment "Enapso Sencha ExtJS Ontology"@en .
+enrepo:Prefix_9cc12701_6636_4469_99d2_b9ee3fcc713a rdfs:comment "Enapso Sencha ExtJS Ontology"@en .
 
-:Prefix_c02c7276_e901_4514_aa3c_fa8aef1663b9 rdfs:comment "Working Ontology Language"@en .
+enrepo:Prefix_c02c7276_e901_4514_aa3c_fa8aef1663b9 rdfs:comment "Working Ontology Language"@en .
 
-:Prefix_ce6df350_20ed_43c2_bc62_2c0a06f7b078 rdfs:comment "Enapso DotNetPro Ontology"@en .
+enrepo:Prefix_ce6df350_20ed_43c2_bc62_2c0a06f7b078 rdfs:comment "Enapso DotNetPro Ontology"@en .
 
-:Prefix_d0bbb0bd_cc12_4501_9647_05bceb5f06c9 rdfs:comment "Enapso Ontology Repository Management Ontology"@en .
+enrepo:Prefix_d0bbb0bd_cc12_4501_9647_05bceb5f06c9 rdfs:comment "Enapso Ontology Repository Management Ontology"@en .
 
-:Prefix_d59211cf_09ae_4cdb_a8f9_82d5e85fc450 rdfs:comment "Enapso Foundational Ontology"@en .
+enrepo:Prefix_d59211cf_09ae_4cdb_a8f9_82d5e85fc450 rdfs:comment "Enapso Foundational Ontology"@en .
 
-:hasDatabaseInstance rdfs:label "Database Instance" .
+enrepo:hasDatabaseInstance rdfs:label "Database Instance" .
 
-:hasDatabaseSystem rdfs:label "Database System"@en .
+enrepo:hasDatabaseSystem rdfs:label "Database System"@en .
 
-:DatabaseSystem rdfs:label "Database System"@en .
+enrepo:DatabaseSystem rdfs:label "Database System"@en .
 
-:hasEnvironment rdfs:label "Environment"@en .
+enrepo:hasEnvironment rdfs:label "Environment"@en .
 
-:Environment rdfs:label "Environment"@en .
+enrepo:Environment rdfs:label "Environment"@en .
 
-:hasGraph rdfs:label "Graph"@en .
+enrepo:hasGraph rdfs:label "Graph"@en .
 
-:Graph rdfs:label "Graph"@en .
+enrepo:Graph rdfs:label "Graph"@en .
 
-:hasHost rdfs:label "Host"@en .
+enrepo:hasHost rdfs:label "Host"@en .
 
-:Host rdfs:label "Host"@en .
+enrepo:Host rdfs:label "Host"@en .
 
-:hasOperatingSystem rdfs:label "Operating System"@en .
+enrepo:hasOperatingSystem rdfs:label "Operating System"@en .
 
-:OperatingSystem rdfs:label "Operating System"@en .
+enrepo:OperatingSystem rdfs:label "Operating System"@en .
 
-:hasRepository rdfs:label "Repository"@en .
+enrepo:hasRepository rdfs:label "Repository"@en .
 
-:Repository rdfs:label "Repository"@en .
+enrepo:Repository rdfs:label "Repository"@en .
 
-:hasTenant rdfs:label "Tenant"@en .
+enrepo:hasTenant rdfs:label "Tenant"@en .
 
-:Tenant rdfs:label "Tenant"@en .
+enrepo:Tenant rdfs:label "Tenant"@en .
 
-:importedBy rdfs:label "imported by"@en .
+enrepo:importedBy rdfs:label "imported by"@en .
 
-:imports rdfs:label "imports"@en .
+enrepo:imports rdfs:label "imports"@en .
 
-:databaseSystem rdfs:label "Database System"@en .
+enrepo:databaseSystem rdfs:label "Database System"@en .
 
-:dbVersion rdfs:label "Database Version"@en .
+enrepo:dbVersion rdfs:label "Database Version"@en .
 
-:filename rdfs:label "Dateiname"@de, "Filename"@en .
+enrepo:filename rdfs:label "Dateiname"@de, "Filename"@en .
 
-:graph rdfs:label "Graph"@en .
+enrepo:graph rdfs:label "Graph"@en .
 
-:hostname rdfs:label "Hostname"@en .
+enrepo:hostname rdfs:label "Hostname"@en .
 
-:id rdfs:label "Id"@en .
+enrepo:id rdfs:label "Id"@en .
 
-:ip rdfs:label "IP No"@en .
+enrepo:ip rdfs:label "IP No"@en .
 
-:iri rdfs:label "IRI"@de, "IRI"@en .
+enrepo:iri rdfs:label "IRI"@de, "IRI"@en .
 
-:name rdfs:label "Name"@de, "Name"@en .
+enrepo:name rdfs:label "Name"@de, "Name"@en .
 
-:namespace rdfs:label "Namensraum"@de, "Namespace"@en .
+enrepo:namespace rdfs:label "Namensraum"@de, "Namespace"@en .
 
-:operatingSystem rdfs:label "Operating System"@en .
+enrepo:operatingSystem rdfs:label "Operating System"@en .
 
-:osVersion rdfs:label "Operating System Version"@en .
+enrepo:osVersion rdfs:label "Operating System Version"@en .
 
-:prefix rdfs:label "Prefix"@en, "Präfix"@de .
+enrepo:prefix rdfs:label "Prefix"@en, "Präfix"@de .
 
-:title rdfs:label "Title"@en .
+enrepo:title rdfs:label "Title"@en .
 
-:url rdfs:label "URL"@de, "URL"@en .
+enrepo:url rdfs:label "URL"@de, "URL"@en .
 
-:version rdfs:label "Version"@en .
+enrepo:version rdfs:label "Version"@en .
 
-:DatabaseInstance rdfs:label "Database Instance"@en .
+enrepo:DatabaseInstance rdfs:label "Database Instance"@en .
 
-:Ontology rdfs:label "Ontology"@en .
+enrepo:Ontology rdfs:label "Ontology"@en .
 
-:Platform rdfs:label "Platform"@en .
+enrepo:Platform rdfs:label "Platform"@en .
 
-:Prefix rdfs:label "Prefix"@en .
+enrepo:Prefix rdfs:label "Prefix"@en .
 
 <http://ont.enapso.com/repo> owl:versionIRI <http://ont.enapso.com/repo/1.0.0> .
 
-:Repository_63423a53_29c2_43ae_b35a_7be883b4bd40 :hasDatabaseInstance :DatabaseInstance_41710204_2620_4483_a31d_963e2075767f .
+enrepo:Repository_63423a53_29c2_43ae_b35a_7be883b4bd40 enrepo:hasDatabaseInstance
+    enrepo:DatabaseInstance_41710204_2620_4483_a31d_963e2075767f .
 
-:Repository_6159c98a_6c46_4cc3_9efd_6320775ac4ed :hasDatabaseInstance :DatabaseInstance_8a41da22_e9d8_4396_8440_a3941faeac49 .
+enrepo:Repository_6159c98a_6c46_4cc3_9efd_6320775ac4ed enrepo:hasDatabaseInstance
+    enrepo:DatabaseInstance_8a41da22_e9d8_4396_8440_a3941faeac49 .
 
-:Repository_299e12b7_024a_4ffe_a099_b408fe8858a6 :hasDatabaseInstance :DatabaseInstance_789c7c2b_9928_42cf_b1ec_f079385c23ca .
+enrepo:Repository_299e12b7_024a_4ffe_a099_b408fe8858a6 enrepo:hasDatabaseInstance
+    enrepo:DatabaseInstance_789c7c2b_9928_42cf_b1ec_f079385c23ca .
 
-:Repository_03b94545_b227_427d_bd7a_3676e61adb9c :hasDatabaseInstance :DatabaseInstance_8a41da22_e9d8_4396_8440_a3941faeac49 .
+enrepo:Repository_03b94545_b227_427d_bd7a_3676e61adb9c enrepo:hasDatabaseInstance
+    enrepo:DatabaseInstance_8a41da22_e9d8_4396_8440_a3941faeac49 .
 
-:Repository_27ebbed9_fd22_4e5c_9227_956cf475a4e5 :hasDatabaseInstance :DatabaseInstance_41710204_2620_4483_a31d_963e2075767f .
+enrepo:Repository_27ebbed9_fd22_4e5c_9227_956cf475a4e5 enrepo:hasDatabaseInstance
+    enrepo:DatabaseInstance_41710204_2620_4483_a31d_963e2075767f .
 
-:Repository_49260c94_b3ac_4dd0_baf7_df762e92179e :hasDatabaseInstance :DatabaseInstance_41710204_2620_4483_a31d_963e2075767f .
+enrepo:Repository_49260c94_b3ac_4dd0_baf7_df762e92179e enrepo:hasDatabaseInstance
+    enrepo:DatabaseInstance_41710204_2620_4483_a31d_963e2075767f .
 
-:Repository_be8010df_5906_43ea_a1b3_fe926eb29fe7 :hasDatabaseInstance :DatabaseInstance_665295fd_6ba1_4e2e_bc2e_452168a848e6 .
+enrepo:Repository_be8010df_5906_43ea_a1b3_fe926eb29fe7 enrepo:hasDatabaseInstance
+    enrepo:DatabaseInstance_665295fd_6ba1_4e2e_bc2e_452168a848e6 .
 
-:Repository_af8ed397_c907_4353_86c4_56009c84dc29 :hasDatabaseInstance :DatabaseInstance_8a41da22_e9d8_4396_8440_a3941faeac49 .
+enrepo:Repository_af8ed397_c907_4353_86c4_56009c84dc29 enrepo:hasDatabaseInstance
+    enrepo:DatabaseInstance_8a41da22_e9d8_4396_8440_a3941faeac49 .
 
-:Repository_a4c96d2c_b982_4231_930b_4bc961d8352a :hasDatabaseInstance :DatabaseInstance_aef8e43d_a563_4834_bbe1_dbf7e8bb786b .
+enrepo:Repository_a4c96d2c_b982_4231_930b_4bc961d8352a enrepo:hasDatabaseInstance
+    enrepo:DatabaseInstance_aef8e43d_a563_4834_bbe1_dbf7e8bb786b .
 
-:Repository_0a2c8421_036d_46ef_8a48_e0fca429ccdc :hasDatabaseInstance :DatabaseInstance_1a8b2422_9b1c_48bd_88a1_4794fd09df6e .
+enrepo:Repository_0a2c8421_036d_46ef_8a48_e0fca429ccdc enrepo:hasDatabaseInstance
+    enrepo:DatabaseInstance_1a8b2422_9b1c_48bd_88a1_4794fd09df6e .
 
-:Repository_b49357e0_33bc_4163_8fef_2cad56ac72a5 :hasDatabaseInstance :DatabaseInstance_0cd52b9e_888c_4a33_acde_89effe38ddee .
+enrepo:Repository_b49357e0_33bc_4163_8fef_2cad56ac72a5 enrepo:hasDatabaseInstance
+    enrepo:DatabaseInstance_0cd52b9e_888c_4a33_acde_89effe38ddee .
 
-:Repository_2a8d3e7c_a584_4623_98f8_901996dabac1 :hasDatabaseInstance :DatabaseInstance_789c7c2b_9928_42cf_b1ec_f079385c23ca .
+enrepo:Repository_2a8d3e7c_a584_4623_98f8_901996dabac1 enrepo:hasDatabaseInstance
+    enrepo:DatabaseInstance_789c7c2b_9928_42cf_b1ec_f079385c23ca .
 
-:Host_1fbdddee_d864_4868_9f65_c6b1be32de92 :dbVersion "9.0";
-  :hasDatabaseSystem :DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f;
-  :hasEnvironment :Environment_7308c29c_9c98_4d14_80ad_546c498d91ef;
-  :hasOperatingSystem :OperatingSystem_b736e30c_4a61_4721_bfcd_57e196b321fe .
+enrepo:Host_1fbdddee_d864_4868_9f65_c6b1be32de92 enrepo:hasDatabaseSystem enrepo:DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f;
+  enrepo:hasEnvironment enrepo:Environment_7308c29c_9c98_4d14_80ad_546c498d91ef;
+  enrepo:hasOperatingSystem enrepo:OperatingSystem_b736e30c_4a61_4721_bfcd_57e196b321fe .
 
-:Host_28180341_d1bc_4dbb_aa63_e079001d2513 :hasDatabaseSystem :DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f;
-  :hasEnvironment :Environment_14eaf5b6_1704_4f8d_b315_8a8728640b66;
-  :hasOperatingSystem :OperatingSystem_e4966c72_e7f2_484c_adb6_cbc2fd531d36 .
+enrepo:Host_28180341_d1bc_4dbb_aa63_e079001d2513 enrepo:hasDatabaseSystem enrepo:DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f;
+  enrepo:hasEnvironment enrepo:Environment_14eaf5b6_1704_4f8d_b315_8a8728640b66;
+  enrepo:hasOperatingSystem enrepo:OperatingSystem_e4966c72_e7f2_484c_adb6_cbc2fd531d36 .
 
-:Host_6c307a8d_be16_4550_8794_33492e758f22 :hasDatabaseSystem :DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f;
-  :hasEnvironment :Environment_fcf6327c_58fa_4b18_8fbe_bb3e959a126c;
-  :hasOperatingSystem :OperatingSystem_e4966c72_e7f2_484c_adb6_cbc2fd531d36 .
+enrepo:Host_6c307a8d_be16_4550_8794_33492e758f22 enrepo:hasDatabaseSystem enrepo:DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f;
+  enrepo:hasEnvironment enrepo:Environment_fcf6327c_58fa_4b18_8fbe_bb3e959a126c;
+  enrepo:hasOperatingSystem enrepo:OperatingSystem_e4966c72_e7f2_484c_adb6_cbc2fd531d36 .
 
-:Host_79d4c2c0_857c_4666_beb9_e0c8b2617c6e :dbVersion "9.1";
-  :hasDatabaseSystem :DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f;
-  :hasEnvironment :Environment_7308c29c_9c98_4d14_80ad_546c498d91ef;
-  :hasOperatingSystem :OperatingSystem_b736e30c_4a61_4721_bfcd_57e196b321fe .
+enrepo:Host_79d4c2c0_857c_4666_beb9_e0c8b2617c6e enrepo:hasDatabaseSystem enrepo:DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f;
+  enrepo:hasEnvironment enrepo:Environment_7308c29c_9c98_4d14_80ad_546c498d91ef;
+  enrepo:hasOperatingSystem enrepo:OperatingSystem_b736e30c_4a61_4721_bfcd_57e196b321fe .
 
-:Host_d7ff76c6_cfd5_479f_9c36_d40825259a8d :hasDatabaseSystem :DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f;
-  :hasEnvironment :Environment_31cf4adb_b552_45f5_9997_98acb07263c4;
-  :hasOperatingSystem :OperatingSystem_e4966c72_e7f2_484c_adb6_cbc2fd531d36 .
+enrepo:Host_d7ff76c6_cfd5_479f_9c36_d40825259a8d enrepo:hasDatabaseSystem enrepo:DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f;
+  enrepo:hasEnvironment enrepo:Environment_31cf4adb_b552_45f5_9997_98acb07263c4;
+  enrepo:hasOperatingSystem enrepo:OperatingSystem_e4966c72_e7f2_484c_adb6_cbc2fd531d36 .
 
-:Host_3bc75791_9b65_4b0a_887d_aaabc253c78e :dbVersion "9.1";
-  :hasDatabaseSystem :DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f;
-  :hasEnvironment :Environment_ca8d3c76_0766_47dd_9b87_2e93bf976082;
-  :hasOperatingSystem :OperatingSystem_e4966c72_e7f2_484c_adb6_cbc2fd531d36 .
+enrepo:Host_3bc75791_9b65_4b0a_887d_aaabc253c78e enrepo:hasDatabaseSystem enrepo:DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f;
+  enrepo:hasEnvironment enrepo:Environment_ca8d3c76_0766_47dd_9b87_2e93bf976082;
+  enrepo:hasOperatingSystem enrepo:OperatingSystem_e4966c72_e7f2_484c_adb6_cbc2fd531d36 .
 
-:Host_01141633_0716_4ae3_b38b_aa12b2197c4a :dbVersion "9.1";
-  :hasDatabaseSystem :DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f;
-  :hasEnvironment :Environment_833a44cc_ec58_4202_b44d_27460ae94e2d;
-  :hasOperatingSystem :OperatingSystem_e4966c72_e7f2_484c_adb6_cbc2fd531d36 .
+enrepo:Host_01141633_0716_4ae3_b38b_aa12b2197c4a enrepo:hasDatabaseSystem enrepo:DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f;
+  enrepo:hasEnvironment enrepo:Environment_833a44cc_ec58_4202_b44d_27460ae94e2d;
+  enrepo:hasOperatingSystem enrepo:OperatingSystem_e4966c72_e7f2_484c_adb6_cbc2fd531d36 .
 
-:Host_0134bc8c_e40c_4394_b4c7_310a206e10da :dbVersion "8.9";
-  :hasDatabaseSystem :DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f;
-  :hasEnvironment :Environment_7308c29c_9c98_4d14_80ad_546c498d91ef;
-  :hasOperatingSystem :OperatingSystem_b736e30c_4a61_4721_bfcd_57e196b321fe .
+enrepo:Host_0134bc8c_e40c_4394_b4c7_310a206e10da enrepo:hasDatabaseSystem enrepo:DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f;
+  enrepo:hasEnvironment enrepo:Environment_7308c29c_9c98_4d14_80ad_546c498d91ef;
+  enrepo:hasOperatingSystem enrepo:OperatingSystem_b736e30c_4a61_4721_bfcd_57e196b321fe .
 
-:DatabaseInstance_086a69ed_f3e1_4555_bdb5_2535ac9baea7 :hasHost :Host_1fbdddee_d864_4868_9f65_c6b1be32de92 .
+enrepo:DatabaseInstance_086a69ed_f3e1_4555_bdb5_2535ac9baea7 enrepo:hasHost enrepo:Host_1fbdddee_d864_4868_9f65_c6b1be32de92 .
 
-:DatabaseInstance_0cd52b9e_888c_4a33_acde_89effe38ddee :hasHost :Host_28180341_d1bc_4dbb_aa63_e079001d2513 .
+enrepo:DatabaseInstance_0cd52b9e_888c_4a33_acde_89effe38ddee enrepo:hasHost enrepo:Host_28180341_d1bc_4dbb_aa63_e079001d2513 .
 
-:DatabaseInstance_1a8b2422_9b1c_48bd_88a1_4794fd09df6e :hasHost :Host_6c307a8d_be16_4550_8794_33492e758f22 .
+enrepo:DatabaseInstance_1a8b2422_9b1c_48bd_88a1_4794fd09df6e enrepo:hasHost enrepo:Host_6c307a8d_be16_4550_8794_33492e758f22 .
 
-:DatabaseInstance_41710204_2620_4483_a31d_963e2075767f :hasHost :Host_79d4c2c0_857c_4666_beb9_e0c8b2617c6e .
+enrepo:DatabaseInstance_41710204_2620_4483_a31d_963e2075767f enrepo:hasHost enrepo:Host_79d4c2c0_857c_4666_beb9_e0c8b2617c6e .
 
-:DatabaseInstance_665295fd_6ba1_4e2e_bc2e_452168a848e6 :hasHost :Host_d7ff76c6_cfd5_479f_9c36_d40825259a8d .
+enrepo:DatabaseInstance_665295fd_6ba1_4e2e_bc2e_452168a848e6 enrepo:hasHost enrepo:Host_d7ff76c6_cfd5_479f_9c36_d40825259a8d .
 
-:DatabaseInstance_789c7c2b_9928_42cf_b1ec_f079385c23ca :hasHost :Host_3bc75791_9b65_4b0a_887d_aaabc253c78e .
+enrepo:DatabaseInstance_789c7c2b_9928_42cf_b1ec_f079385c23ca enrepo:hasHost enrepo:Host_3bc75791_9b65_4b0a_887d_aaabc253c78e .
 
-:DatabaseInstance_8a41da22_e9d8_4396_8440_a3941faeac49 :hasHost :Host_01141633_0716_4ae3_b38b_aa12b2197c4a .
+enrepo:DatabaseInstance_8a41da22_e9d8_4396_8440_a3941faeac49 enrepo:hasHost enrepo:Host_01141633_0716_4ae3_b38b_aa12b2197c4a .
 
-:DatabaseInstance_aef8e43d_a563_4834_bbe1_dbf7e8bb786b :hasHost :Host_0134bc8c_e40c_4394_b4c7_310a206e10da .
+enrepo:DatabaseInstance_aef8e43d_a563_4834_bbe1_dbf7e8bb786b enrepo:hasHost enrepo:Host_0134bc8c_e40c_4394_b4c7_310a206e10da .
 
-:Graph_0ea87735_977d_461b_88c5_749d1a5bf909 :graph "http://ont.enapso.com/repo";
-  :hasRepository :Repository_63423a53_29c2_43ae_b35a_7be883b4bd40 .
+enrepo:Graph_0ea87735_977d_461b_88c5_749d1a5bf909 enrepo:hasRepository enrepo:Repository_63423a53_29c2_43ae_b35a_7be883b4bd40 .
 
-:Graph_1242ac41_1811_4625_8664_6a260bfe6d3b :graph "http://ont.enapso.com/terms";
-  :hasRepository :Repository_6159c98a_6c46_4cc3_9efd_6320775ac4ed .
+enrepo:Graph_1242ac41_1811_4625_8664_6a260bfe6d3b enrepo:hasRepository enrepo:Repository_6159c98a_6c46_4cc3_9efd_6320775ac4ed .
 
-:Graph_128100a6_8c71_4fd8_a86a_22f2bb88782f :graph "http://ont.enapso.com/repo";
-  :hasRepository :Repository_299e12b7_024a_4ffe_a099_b408fe8858a6 .
+enrepo:Graph_128100a6_8c71_4fd8_a86a_22f2bb88782f enrepo:hasRepository enrepo:Repository_299e12b7_024a_4ffe_a099_b408fe8858a6 .
 
-:Graph_144eb313_94bd_4506_86cc_2f959412b61d :graph "http://ont.enapso.com/dotnetpro";
-  :hasRepository :Repository_03b94545_b227_427d_bd7a_3676e61adb9c .
+enrepo:Graph_144eb313_94bd_4506_86cc_2f959412b61d enrepo:hasRepository enrepo:Repository_03b94545_b227_427d_bd7a_3676e61adb9c .
 
-:Graph_1620132d_9bbc_4bad_846c_349eab25d224 :graph "http://ont.enapso.com/extjs";
-  :hasRepository :Repository_63423a53_29c2_43ae_b35a_7be883b4bd40 .
+enrepo:Graph_1620132d_9bbc_4bad_846c_349eab25d224 enrepo:hasRepository enrepo:Repository_63423a53_29c2_43ae_b35a_7be883b4bd40 .
 
-:Graph_174ff230_d7b9_4993_bb35_a2da61215475 :graph "http://ont.enapso.com/foundation";
-  :hasRepository :Repository_27ebbed9_fd22_4e5c_9227_956cf475a4e5 .
+enrepo:Graph_174ff230_d7b9_4993_bb35_a2da61215475 enrepo:hasRepository enrepo:Repository_27ebbed9_fd22_4e5c_9227_956cf475a4e5 .
 
-:Graph_1d9a32b1_fd00_4565_8d1b_4b9e1bb0f264 :graph "http://ont.enapso.com/gse";
-  :hasRepository :Repository_49260c94_b3ac_4dd0_baf7_df762e92179e .
+enrepo:Graph_1d9a32b1_fd00_4565_8d1b_4b9e1bb0f264 enrepo:hasRepository enrepo:Repository_49260c94_b3ac_4dd0_baf7_df762e92179e .
 
-:Graph_2129eed4_1867_4c09_a75c_f7c9434766e6 :graph "http://ont.enapso.com/dotnetpro";
-  :hasRepository :Repository_be8010df_5906_43ea_a1b3_fe926eb29fe7 .
+enrepo:Graph_2129eed4_1867_4c09_a75c_f7c9434766e6 enrepo:hasRepository enrepo:Repository_be8010df_5906_43ea_a1b3_fe926eb29fe7 .
 
-:Graph_24a1d382_025d_43f0_a54e_ddbefc1037a7 :graph "http://ont.enapso.com/jsast";
-  :hasRepository :Repository_af8ed397_c907_4353_86c4_56009c84dc29 .
+enrepo:Graph_24a1d382_025d_43f0_a54e_ddbefc1037a7 enrepo:hasRepository enrepo:Repository_af8ed397_c907_4353_86c4_56009c84dc29 .
 
-:Graph_43c82926_a072_4057_bb2c_c6c5b22cd156 :graph "http://ont.enapso.com/repo";
-  :hasRepository :Repository_6159c98a_6c46_4cc3_9efd_6320775ac4ed .
+enrepo:Graph_43c82926_a072_4057_bb2c_c6c5b22cd156 enrepo:hasRepository enrepo:Repository_6159c98a_6c46_4cc3_9efd_6320775ac4ed .
 
-:Graph_462af229_a60e_4c80_9ffc_aef39d940653 :graph "http://ont.enapso.com/dotnetpro";
-  :hasRepository :Repository_a4c96d2c_b982_4231_930b_4bc961d8352a .
+enrepo:Graph_462af229_a60e_4c80_9ffc_aef39d940653 enrepo:hasRepository enrepo:Repository_a4c96d2c_b982_4231_930b_4bc961d8352a .
 
-:Graph_47ceb7c2_09c5_4b6d_a400_4a74ec945e3a :graph "http://ont.enapso.com/test";
-  :hasRepository :Repository_63423a53_29c2_43ae_b35a_7be883b4bd40 .
+enrepo:Graph_47ceb7c2_09c5_4b6d_a400_4a74ec945e3a enrepo:hasRepository enrepo:Repository_63423a53_29c2_43ae_b35a_7be883b4bd40 .
 
-:Graph_485aac31_fa8d_4463_86fd_a6845c75ad48 :graph "http://ont.enapso.com/terms";
-  :hasRepository :Repository_299e12b7_024a_4ffe_a099_b408fe8858a6 .
+enrepo:Graph_485aac31_fa8d_4463_86fd_a6845c75ad48 enrepo:hasRepository enrepo:Repository_299e12b7_024a_4ffe_a099_b408fe8858a6 .
 
-:Graph_4bf163c4_b330_402d_994c_230bcf3714fa :graph "http://ont.enapso.com/extjs";
-  :hasRepository :Repository_a4c96d2c_b982_4231_930b_4bc961d8352a .
+enrepo:Graph_4bf163c4_b330_402d_994c_230bcf3714fa enrepo:hasRepository enrepo:Repository_a4c96d2c_b982_4231_930b_4bc961d8352a .
 
-:Graph_53a1f29f_48c6_4b9a_83c2_85a9d216ecd4 :graph "http://ont.enapso.com/extjs";
-  :hasRepository :Repository_03b94545_b227_427d_bd7a_3676e61adb9c .
+enrepo:Graph_53a1f29f_48c6_4b9a_83c2_85a9d216ecd4 enrepo:hasRepository enrepo:Repository_03b94545_b227_427d_bd7a_3676e61adb9c .
 
-:Graph_5e3504ce_9441_4f25_a5ee_c8c65fbb9132 :graph "http://ont.enapso.com/dotnetpro";
-  :hasRepository :Repository_0a2c8421_036d_46ef_8a48_e0fca429ccdc .
+enrepo:Graph_5e3504ce_9441_4f25_a5ee_c8c65fbb9132 enrepo:hasRepository enrepo:Repository_0a2c8421_036d_46ef_8a48_e0fca429ccdc .
 
-:Graph_629b7ea1_5a2b_4ce5_860e_c5ad5996f45f :graph "http://ont.enapso.com/ontapi";
-  :hasRepository :Repository_49260c94_b3ac_4dd0_baf7_df762e92179e .
+enrepo:Graph_629b7ea1_5a2b_4ce5_860e_c5ad5996f45f enrepo:hasRepository enrepo:Repository_49260c94_b3ac_4dd0_baf7_df762e92179e .
 
-:Graph_679ba549_2894_44e8_a98b_98054e128b53 :graph "http://ont.enapso.com/ontapi";
-  :hasRepository :Repository_af8ed397_c907_4353_86c4_56009c84dc29 .
+enrepo:Graph_679ba549_2894_44e8_a98b_98054e128b53 enrepo:hasRepository enrepo:Repository_af8ed397_c907_4353_86c4_56009c84dc29 .
 
-:Graph_727832e2_a8da_4402_a99c_7a9259ad6046 :graph "http://ont.enapso.com/dotnetpro";
-  :hasRepository :Repository_b49357e0_33bc_4163_8fef_2cad56ac72a5 .
+enrepo:Graph_727832e2_a8da_4402_a99c_7a9259ad6046 enrepo:hasRepository enrepo:Repository_b49357e0_33bc_4163_8fef_2cad56ac72a5 .
 
-:Graph_8ac9f951_b8b8_4f97_b2e2_da2aa344ced6 :graph "http://ont.enapso.com/foundation";
-  :hasRepository :Repository_03b94545_b227_427d_bd7a_3676e61adb9c .
+enrepo:Graph_8ac9f951_b8b8_4f97_b2e2_da2aa344ced6 enrepo:hasRepository enrepo:Repository_03b94545_b227_427d_bd7a_3676e61adb9c .
 
-:Graph_8dc370d6_4173_4676_bf39_eea210247594 :graph "http://ont.enapso.com/foundation";
-  :hasRepository :Repository_a4c96d2c_b982_4231_930b_4bc961d8352a .
+enrepo:Graph_8dc370d6_4173_4676_bf39_eea210247594 enrepo:hasRepository enrepo:Repository_a4c96d2c_b982_4231_930b_4bc961d8352a .
 
-:Graph_94a4cf76_f7f2_4b60_b4d6_2763dce8f263 :graph "http://ont.enapso.com/dotnetpro";
-  :hasRepository :Repository_27ebbed9_fd22_4e5c_9227_956cf475a4e5 .
+enrepo:Graph_94a4cf76_f7f2_4b60_b4d6_2763dce8f263 enrepo:hasRepository enrepo:Repository_27ebbed9_fd22_4e5c_9227_956cf475a4e5 .
 
-:Graph_b4fb1107_ed80_4b12_b365_2eaaf219dca0 :graph "http://ont.enapso.com/terms";
-  :hasRepository :Repository_63423a53_29c2_43ae_b35a_7be883b4bd40 .
+enrepo:Graph_b4fb1107_ed80_4b12_b365_2eaaf219dca0 enrepo:hasRepository enrepo:Repository_63423a53_29c2_43ae_b35a_7be883b4bd40 .
 
-:Graph_b62e1d40_7e61_4363_bb45_6e035fa8d694 :graph "http://ont.enapso.com/ontapi";
-  :hasRepository :Repository_2a8d3e7c_a584_4623_98f8_901996dabac1 .
+enrepo:Graph_b62e1d40_7e61_4363_bb45_6e035fa8d694 enrepo:hasRepository enrepo:Repository_2a8d3e7c_a584_4623_98f8_901996dabac1 .
 
-:Graph_b957cf06_b02c_48e6_a6f3_52b53d5b740c :graph "http://ont.enapso.com/gse";
-  :hasRepository :Repository_af8ed397_c907_4353_86c4_56009c84dc29 .
+enrepo:Graph_b957cf06_b02c_48e6_a6f3_52b53d5b740c enrepo:hasRepository enrepo:Repository_af8ed397_c907_4353_86c4_56009c84dc29 .
 
-:Graph_bad12375_698e_4016_84dd_7e49fe5cfbfb :graph "http://ont.enapso.com/test";
-  :hasRepository :Repository_299e12b7_024a_4ffe_a099_b408fe8858a6 .
+enrepo:Graph_bad12375_698e_4016_84dd_7e49fe5cfbfb enrepo:hasRepository enrepo:Repository_299e12b7_024a_4ffe_a099_b408fe8858a6 .
 
-:Graph_bc252a61_42d2_455e_b720_cb276a4f6b4f :graph "http://ont.enapso.com/jsast";
-  :hasRepository :Repository_2a8d3e7c_a584_4623_98f8_901996dabac1 .
+enrepo:Graph_bc252a61_42d2_455e_b720_cb276a4f6b4f enrepo:hasRepository enrepo:Repository_2a8d3e7c_a584_4623_98f8_901996dabac1 .
 
-:Graph_e1d78937_146e_45dc_adeb_faf30b651d76 :graph "http://ont.enapso.com/gse";
-  :hasRepository :Repository_2a8d3e7c_a584_4623_98f8_901996dabac1 .
+enrepo:Graph_e1d78937_146e_45dc_adeb_faf30b651d76 enrepo:hasRepository enrepo:Repository_2a8d3e7c_a584_4623_98f8_901996dabac1 .
 
-:Graph_e41c32cd_9e73_432d_b269_3df775d2a74c :graph "http://ont.enapso.com/jsast";
-  :hasRepository :Repository_49260c94_b3ac_4dd0_baf7_df762e92179e .
+enrepo:Graph_e41c32cd_9e73_432d_b269_3df775d2a74c enrepo:hasRepository enrepo:Repository_49260c94_b3ac_4dd0_baf7_df762e92179e .
 
-:Graph_eb7985dc_c13d_476d_b8ef_ea5dd6f72f77 :graph "http://ont.enapso.com/test";
-  :hasRepository :Repository_6159c98a_6c46_4cc3_9efd_6320775ac4ed .
+enrepo:Graph_eb7985dc_c13d_476d_b8ef_ea5dd6f72f77 enrepo:hasRepository enrepo:Repository_6159c98a_6c46_4cc3_9efd_6320775ac4ed .
 
-:Environment_14eaf5b6_1704_4f8d_b315_8a8728640b66 :hasTenant :Tenant_e7e124a2_3a7b_4333_8f51_5f70d48f0bfe;
-  :name "Martin Künzle's local Environment" .
+enrepo:Environment_14eaf5b6_1704_4f8d_b315_8a8728640b66 enrepo:hasTenant enrepo:Tenant_e7e124a2_3a7b_4333_8f51_5f70d48f0bfe .
 
-:Environment_31cf4adb_b552_45f5_9997_98acb07263c4 :hasTenant :Tenant_f5a52c9d_1c3e_4fa8_bfb2_587958d4e8c3;
-  :name "Siva's local Environment" .
+enrepo:Environment_31cf4adb_b552_45f5_9997_98acb07263c4 enrepo:hasTenant enrepo:Tenant_f5a52c9d_1c3e_4fa8_bfb2_587958d4e8c3 .
 
-:Environment_7308c29c_9c98_4d14_80ad_546c498d91ef :hasTenant :Tenant_0143e7ee_fbdd_45b3_879f_fedc78e42ab4;
-  :name "Alexander Schulze's local environment" .
+enrepo:Environment_7308c29c_9c98_4d14_80ad_546c498d91ef enrepo:hasTenant enrepo:Tenant_0143e7ee_fbdd_45b3_879f_fedc78e42ab4 .
 
-:Environment_833a44cc_ec58_4202_b44d_27460ae94e2d :hasTenant :Tenant_0143e7ee_fbdd_45b3_879f_fedc78e42ab4;
-  :name "Muhammad Yasir's local environment" .
+enrepo:Environment_833a44cc_ec58_4202_b44d_27460ae94e2d enrepo:hasTenant enrepo:Tenant_0143e7ee_fbdd_45b3_879f_fedc78e42ab4 .
 
-:Environment_ca8d3c76_0766_47dd_9b87_2e93bf976082 :hasTenant :Tenant_0143e7ee_fbdd_45b3_879f_fedc78e42ab4;
-  :name "Ashesh Goplani's local environment" .
+enrepo:Environment_ca8d3c76_0766_47dd_9b87_2e93bf976082 enrepo:hasTenant enrepo:Tenant_0143e7ee_fbdd_45b3_879f_fedc78e42ab4 .
 
-:Environment_fcf6327c_58fa_4b18_8fbe_bb3e959a126c :hasTenant :Tenant_f5a52c9d_1c3e_4fa8_bfb2_587958d4e8c3;
-  :name "Fida's local Environment" .
+enrepo:Environment_fcf6327c_58fa_4b18_8fbe_bb3e959a126c enrepo:hasTenant enrepo:Tenant_f5a52c9d_1c3e_4fa8_bfb2_587958d4e8c3 .
 
-:Repository_63423a53_29c2_43ae_b35a_7be883b4bd40 :id "EnapsoTest";
-  :name "EnapsoTest Repository located in Alexander Schulze MacBook Pro II" .
+enrepo:Host_1fbdddee_d864_4868_9f65_c6b1be32de92 enrepo:dbVersion "9.0" .
 
-:Repository_6159c98a_6c46_4cc3_9efd_6320775ac4ed :id "EnapsoTest";
-  :name "Repository in Muhammad Yasir Laptop" .
+enrepo:Host_79d4c2c0_857c_4666_beb9_e0c8b2617c6e enrepo:dbVersion "9.1" .
 
-:Repository_299e12b7_024a_4ffe_a099_b408fe8858a6 :id "EnapsoTest";
-  :name "EnapsoTest Repository located in Ashesh Goplani hp i7" .
+enrepo:Host_3bc75791_9b65_4b0a_887d_aaabc253c78e enrepo:dbVersion "9.1" .
 
-:Repository_03b94545_b227_427d_bd7a_3676e61adb9c :id "EnapsoChecking";
-  :name "EnapsoChecking Repository located in Muhammad Yasir Dell i5" .
+enrepo:Host_01141633_0716_4ae3_b38b_aa12b2197c4a enrepo:dbVersion "9.1" .
 
-:Repository_27ebbed9_fd22_4e5c_9227_956cf475a4e5 :id "EnapsoChecking";
-  :name "EnapsoChecking Repository located in Alexander Schulze MacBook Pro II" .
+enrepo:Host_0134bc8c_e40c_4394_b4c7_310a206e10da enrepo:dbVersion "8.9" .
 
-:Repository_49260c94_b3ac_4dd0_baf7_df762e92179e :id "EnapsoDotNetProDemo";
-  :name "EnapsoDotNetProDemo repository is located a Alexander Schulze's MacBookPro II." .
+enrepo:Graph_0ea87735_977d_461b_88c5_749d1a5bf909 enrepo:graph "http://ont.enapso.com/repo" .
 
-:Repository_be8010df_5906_43ea_a1b3_fe926eb29fe7 :id "EnapsoChecking";
-  :name "EnapsoChecking Repository located in Siva laptop" .
+enrepo:Graph_1242ac41_1811_4625_8664_6a260bfe6d3b enrepo:graph "http://ont.enapso.com/terms" .
 
-:Repository_af8ed397_c907_4353_86c4_56009c84dc29 :id "EnapsoDotNetProDemo";
-  :name "EnapsoDotNetProDemo Repository located in Muhammad Yasir Dell i5" .
+enrepo:Graph_128100a6_8c71_4fd8_a86a_22f2bb88782f enrepo:graph "http://ont.enapso.com/repo" .
 
-:Repository_a4c96d2c_b982_4231_930b_4bc961d8352a :id "EnapsoChecking";
-  :name "EnapsoChecking repository is located a Ashesh Goplani hp i7" .
+enrepo:Graph_144eb313_94bd_4506_86cc_2f959412b61d enrepo:graph "http://ont.enapso.com/dotnetpro" .
 
-:Repository_0a2c8421_036d_46ef_8a48_e0fca429ccdc :id "EnapsoChecking";
-  :name "EnapsoChecking Repository located in Fida laptop" .
+enrepo:Graph_1620132d_9bbc_4bad_846c_349eab25d224 enrepo:graph "http://ont.enapso.com/extjs" .
 
-:Repository_b49357e0_33bc_4163_8fef_2cad56ac72a5 :id "EnapsoChecking";
-  :name "EnapsoChecking Repository located in Martin Künzle laptop" .
+enrepo:Graph_174ff230_d7b9_4993_bb35_a2da61215475 enrepo:graph "http://ont.enapso.com/foundation" .
 
-:Repository_2a8d3e7c_a584_4623_98f8_901996dabac1 :id "EnapsoDotNetProDemo";
-  :name "EnapsoDotNetProDemo repository is located a Ashesh Goplani hp i7" .
+enrepo:Graph_1d9a32b1_fd00_4565_8d1b_4b9e1bb0f264 enrepo:graph "http://ont.enapso.com/gse" .
 
-:DatabaseInstance_086a69ed_f3e1_4555_bdb5_2535ac9baea7 :name "GraphDB on Alexander Schulze's Macbook Pro I" .
+enrepo:Graph_2129eed4_1867_4c09_a75c_f7c9434766e6 enrepo:graph "http://ont.enapso.com/dotnetpro" .
 
-:Host_1fbdddee_d864_4868_9f65_c6b1be32de92 :name "Alexander Schulze's MacBook Pro I" .
+enrepo:Graph_24a1d382_025d_43f0_a54e_ddbefc1037a7 enrepo:graph "http://ont.enapso.com/jsast" .
 
-:DatabaseInstance_0cd52b9e_888c_4a33_acde_89effe38ddee :name "GraphDB on Martin Künzle's laptop" .
+enrepo:Graph_43c82926_a072_4057_bb2c_c6c5b22cd156 enrepo:graph "http://ont.enapso.com/repo" .
 
-:Host_28180341_d1bc_4dbb_aa63_e079001d2513 :name "Martin Künzle's laptop" .
+enrepo:Graph_462af229_a60e_4c80_9ffc_aef39d940653 enrepo:graph "http://ont.enapso.com/dotnetpro" .
 
-:DatabaseInstance_1a8b2422_9b1c_48bd_88a1_4794fd09df6e :name "GraphDB on Fida's laptop" .
+enrepo:Graph_47ceb7c2_09c5_4b6d_a400_4a74ec945e3a enrepo:graph "http://ont.enapso.com/test" .
 
-:Host_6c307a8d_be16_4550_8794_33492e758f22 :name "Fida's laptop" .
+enrepo:Graph_485aac31_fa8d_4463_86fd_a6845c75ad48 enrepo:graph "http://ont.enapso.com/terms" .
 
-:DatabaseInstance_41710204_2620_4483_a31d_963e2075767f :name "GraphDB on Alexander Schulze's Macbook Pro II" .
+enrepo:Graph_4bf163c4_b330_402d_994c_230bcf3714fa enrepo:graph "http://ont.enapso.com/extjs" .
 
-:Host_79d4c2c0_857c_4666_beb9_e0c8b2617c6e :name "Alexander Schulze's MacBook Pro II" .
+enrepo:Graph_53a1f29f_48c6_4b9a_83c2_85a9d216ecd4 enrepo:graph "http://ont.enapso.com/extjs" .
 
-:DatabaseInstance_665295fd_6ba1_4e2e_bc2e_452168a848e6 :name "GraphDB on Siva's laptop" .
+enrepo:Graph_5e3504ce_9441_4f25_a5ee_c8c65fbb9132 enrepo:graph "http://ont.enapso.com/dotnetpro" .
 
-:Host_d7ff76c6_cfd5_479f_9c36_d40825259a8d :name "Siva's laptop" .
+enrepo:Graph_629b7ea1_5a2b_4ce5_860e_c5ad5996f45f enrepo:graph "http://ont.enapso.com/ontapi" .
 
-:DatabaseInstance_789c7c2b_9928_42cf_b1ec_f079385c23ca :name "GraphDB on Ashesh Goplani hp i7" .
+enrepo:Graph_679ba549_2894_44e8_a98b_98054e128b53 enrepo:graph "http://ont.enapso.com/ontapi" .
 
-:Host_3bc75791_9b65_4b0a_887d_aaabc253c78e :name "Ashesh Goplani's laptop" .
+enrepo:Graph_727832e2_a8da_4402_a99c_7a9259ad6046 enrepo:graph "http://ont.enapso.com/dotnetpro" .
 
-:DatabaseInstance_8a41da22_e9d8_4396_8440_a3941faeac49 :name "GraphDB on Muhammad Yasir Dell i5" .
+enrepo:Graph_8ac9f951_b8b8_4f97_b2e2_da2aa344ced6 enrepo:graph "http://ont.enapso.com/foundation" .
 
-:Host_01141633_0716_4ae3_b38b_aa12b2197c4a :name "Muhammad Yasir's laptop" .
+enrepo:Graph_8dc370d6_4173_4676_bf39_eea210247594 enrepo:graph "http://ont.enapso.com/foundation" .
 
-:DatabaseInstance_aef8e43d_a563_4834_bbe1_dbf7e8bb786b :name "GraphDB on Alexander Schulze's iMac" .
+enrepo:Graph_94a4cf76_f7f2_4b60_b4d6_2763dce8f263 enrepo:graph "http://ont.enapso.com/dotnetpro" .
 
-:Host_0134bc8c_e40c_4394_b4c7_310a206e10da :name "Alexander Schulze's iMac I" .
+enrepo:Graph_b4fb1107_ed80_4b12_b365_2eaaf219dca0 enrepo:graph "http://ont.enapso.com/terms" .
 
-:DatabaseSystem_3e35cc32_378a_40fa_ad11_74ac431b7aa9 :name "Apache Jena/Fuseki" .
+enrepo:Graph_b62e1d40_7e61_4363_bb45_6e035fa8d694 enrepo:graph "http://ont.enapso.com/ontapi" .
 
-:DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f :name "GraphDB (Ontotext)" .
+enrepo:Graph_b957cf06_b02c_48e6_a6f3_52b53d5b740c enrepo:graph "http://ont.enapso.com/gse" .
 
-:DatabaseSystem_94bad780_3cdd_4942_abc2_a60ca6788745 :name "Stardog" .
+enrepo:Graph_bad12375_698e_4016_84dd_7e49fe5cfbfb enrepo:graph "http://ont.enapso.com/test" .
 
-:Tenant_e7e124a2_3a7b_4333_8f51_5f70d48f0bfe :name "CMS" .
+enrepo:Graph_bc252a61_42d2_455e_b720_cb276a4f6b4f enrepo:graph "http://ont.enapso.com/jsast" .
 
-:Tenant_f5a52c9d_1c3e_4fa8_bfb2_587958d4e8c3 :name "Iplex" .
+enrepo:Graph_e1d78937_146e_45dc_adeb_faf30b651d76 enrepo:graph "http://ont.enapso.com/gse" .
 
-:Tenant_0143e7ee_fbdd_45b3_879f_fedc78e42ab4 :name "Innotrade GmbH" .
+enrepo:Graph_e41c32cd_9e73_432d_b269_3df775d2a74c enrepo:graph "http://ont.enapso.com/jsast" .
 
-:Graph_0ea87735_977d_461b_88c5_749d1a5bf909 :name "The Graph in Alexander Schulze's MacBookPro II in the EnapsoTest repository." .
+enrepo:Graph_eb7985dc_c13d_476d_b8ef_ea5dd6f72f77 enrepo:graph "http://ont.enapso.com/test" .
 
-:Graph_1242ac41_1811_4625_8664_6a260bfe6d3b :name "The Graph in Muhammad Yasir Dell i5 in the EnapsoTest repository." .
+enrepo:Repository_63423a53_29c2_43ae_b35a_7be883b4bd40 enrepo:id "EnapsoTest" .
 
-:Graph_128100a6_8c71_4fd8_a86a_22f2bb88782f :name "The Graph in Ashesh Goplani hp i7 in the EnapsoTest repository." .
+enrepo:Repository_6159c98a_6c46_4cc3_9efd_6320775ac4ed enrepo:id "EnapsoTest" .
 
-:Graph_144eb313_94bd_4506_86cc_2f959412b61d :name "The Graph in Muhammad Yasir Dell i5 in the EnapsoChecking repository." .
+enrepo:Repository_299e12b7_024a_4ffe_a099_b408fe8858a6 enrepo:id "EnapsoTest" .
 
-:Graph_1620132d_9bbc_4bad_846c_349eab25d224 :name "The Graph in Alexander Schulze's MacBookPro II in the EnapsoChecking repository." .
+enrepo:Repository_03b94545_b227_427d_bd7a_3676e61adb9c enrepo:id "EnapsoChecking" .
 
-:Graph_174ff230_d7b9_4993_bb35_a2da61215475 :name "The Graph in Alexander Schulze's MacBookPro II in the EnapsoDotNetProDemo repository." .
+enrepo:Repository_27ebbed9_fd22_4e5c_9227_956cf475a4e5 enrepo:id "EnapsoChecking" .
 
-:Graph_1d9a32b1_fd00_4565_8d1b_4b9e1bb0f264 :name "The Graph in Alexander Schulze's MacBookPro II in the EnapsoDotNetProDemo repository." .
+enrepo:Repository_49260c94_b3ac_4dd0_baf7_df762e92179e enrepo:id "EnapsoDotNetProDemo" .
 
-:Graph_2129eed4_1867_4c09_a75c_f7c9434766e6 :name "The Graph in Siva's laptop in the EnapsoChecking repository." .
+enrepo:Repository_be8010df_5906_43ea_a1b3_fe926eb29fe7 enrepo:id "EnapsoChecking" .
 
-:Graph_24a1d382_025d_43f0_a54e_ddbefc1037a7 :name "The Graph in Muhammad Yasir Dell i5 in the EnapsoDotNetPrDemo repository." .
+enrepo:Repository_af8ed397_c907_4353_86c4_56009c84dc29 enrepo:id "EnapsoDotNetProDemo" .
 
-:Graph_43c82926_a072_4057_bb2c_c6c5b22cd156 :name "The Graph in Muhammad Yasir Dell i5 in the EnapsoTest repository." .
+enrepo:Repository_a4c96d2c_b982_4231_930b_4bc961d8352a enrepo:id "EnapsoChecking" .
 
-:Graph_462af229_a60e_4c80_9ffc_aef39d940653 :name "The Graph in Ashesh Goplani hp i7 in the EnapsoChecking repository." .
+enrepo:Repository_0a2c8421_036d_46ef_8a48_e0fca429ccdc enrepo:id "EnapsoChecking" .
 
-:Graph_47ceb7c2_09c5_4b6d_a400_4a74ec945e3a :name "The Graph in Alexander Schulze's MacBookPro II in the EnapsoTest repository." .
+enrepo:Repository_b49357e0_33bc_4163_8fef_2cad56ac72a5 enrepo:id "EnapsoChecking" .
 
-:Graph_485aac31_fa8d_4463_86fd_a6845c75ad48 :name "The Graph in Alexander Schulze's MacBookPro II in the EnapsoTest repository." .
+enrepo:Repository_2a8d3e7c_a584_4623_98f8_901996dabac1 enrepo:id "EnapsoDotNetProDemo" .
 
-:Graph_4bf163c4_b330_402d_994c_230bcf3714fa :name "The  Graph in Ashesh Goplani hp i7 in the EnapsoChecking repository.." .
+enrepo:DatabaseInstance_086a69ed_f3e1_4555_bdb5_2535ac9baea7 enrepo:name "GraphDB on Alexander Schulze's Macbook Pro I" .
 
-:Graph_53a1f29f_48c6_4b9a_83c2_85a9d216ecd4 :name "The Graph in Muhammad Yasir Dell i5 in the EnapsoChecking repository." .
+enrepo:Host_1fbdddee_d864_4868_9f65_c6b1be32de92 enrepo:name "Alexander Schulze's MacBook Pro I" .
 
-:Graph_5e3504ce_9441_4f25_a5ee_c8c65fbb9132 :name "The Graph in Fida's laptop in the EnapsoChecking repository." .
+enrepo:DatabaseInstance_0cd52b9e_888c_4a33_acde_89effe38ddee enrepo:name "GraphDB on Martin Künzle's laptop" .
 
-:Graph_629b7ea1_5a2b_4ce5_860e_c5ad5996f45f :name "The Graph in Alexander Schulze's MacBookPro II in the EnapsoDotNetProDemo repository." .
+enrepo:Host_28180341_d1bc_4dbb_aa63_e079001d2513 enrepo:name "Martin Künzle's laptop" .
 
-:Graph_679ba549_2894_44e8_a98b_98054e128b53 :name "The Graph in Muhammad Yasir Dell i5 in the EnapsoDotNetProDemo repository." .
+enrepo:DatabaseInstance_1a8b2422_9b1c_48bd_88a1_4794fd09df6e enrepo:name "GraphDB on Fida's laptop" .
 
-:Graph_727832e2_a8da_4402_a99c_7a9259ad6046 :name "The Graph in Martin Künzle's laptop in the EnapsoChecking repository." .
+enrepo:Host_6c307a8d_be16_4550_8794_33492e758f22 enrepo:name "Fida's laptop" .
 
-:Graph_8ac9f951_b8b8_4f97_b2e2_da2aa344ced6 :name "The Graph in Muhammad Yasir Dell i5 in the EnapsoChecking repository." .
+enrepo:DatabaseInstance_41710204_2620_4483_a31d_963e2075767f enrepo:name "GraphDB on Alexander Schulze's Macbook Pro II" .
 
-:Graph_8dc370d6_4173_4676_bf39_eea210247594 :name "The Graph in Ashesh Goplani hp i7 in the EnapsoChecking repository." .
+enrepo:Host_79d4c2c0_857c_4666_beb9_e0c8b2617c6e enrepo:name "Alexander Schulze's MacBook Pro II" .
 
-:Graph_94a4cf76_f7f2_4b60_b4d6_2763dce8f263 :name "The Graph in Alexander Schulze's MacBookPro II in the EnapsoChecking repository." .
+enrepo:DatabaseInstance_665295fd_6ba1_4e2e_bc2e_452168a848e6 enrepo:name "GraphDB on Siva's laptop" .
 
-:Graph_b4fb1107_ed80_4b12_b365_2eaaf219dca0 :name "The Graph in Alexander Schulze's MacBookPro II in the EnapsoTest repository." .
+enrepo:Host_d7ff76c6_cfd5_479f_9c36_d40825259a8d enrepo:name "Siva's laptop" .
 
-:Graph_b62e1d40_7e61_4363_bb45_6e035fa8d694 :name "The Graph in Ashesh Goplani hp i7 in the EnapsoDotNetProDemo repository." .
+enrepo:DatabaseInstance_789c7c2b_9928_42cf_b1ec_f079385c23ca enrepo:name "GraphDB on Ashesh Goplani hp i7" .
 
-:Graph_b957cf06_b02c_48e6_a6f3_52b53d5b740c :name "The Graph in Muhammad Yasir Dell i5 in the EnapsoDotNetPrDemo repository." .
+enrepo:Host_3bc75791_9b65_4b0a_887d_aaabc253c78e enrepo:name "Ashesh Goplani's laptop" .
 
-:Graph_bad12375_698e_4016_84dd_7e49fe5cfbfb :name "The Graph in Ashesh Goplani hp i7 in the EnapsoTest repository." .
+enrepo:DatabaseInstance_8a41da22_e9d8_4396_8440_a3941faeac49 enrepo:name "GraphDB on Muhammad Yasir Dell i5" .
 
-:Graph_bc252a61_42d2_455e_b720_cb276a4f6b4f :name "The Graph in Ashesh Goplani hp i7 in the EnapsoDotNetProDemo repository." .
+enrepo:Host_01141633_0716_4ae3_b38b_aa12b2197c4a enrepo:name "Muhammad Yasir's laptop" .
 
-:Graph_e1d78937_146e_45dc_adeb_faf30b651d76 :name "The Graph in Ashesh Goplani hp i7 in the EnapsoDotNetProDemo repository." .
+enrepo:DatabaseInstance_aef8e43d_a563_4834_bbe1_dbf7e8bb786b enrepo:name "GraphDB on Alexander Schulze's iMac" .
 
-:Graph_e41c32cd_9e73_432d_b269_3df775d2a74c :name "The Graph in Alexander Schulze's MacBookPro II in the EnapsoDotNetProDemo repository." .
+enrepo:Host_0134bc8c_e40c_4394_b4c7_310a206e10da enrepo:name "Alexander Schulze's iMac I" .
 
-:Graph_eb7985dc_c13d_476d_b8ef_ea5dd6f72f77 :name "The Graph in Muhammad Yasir Dell i5 in the EnapsoTest repository." .
+enrepo:DatabaseSystem_3e35cc32_378a_40fa_ad11_74ac431b7aa9 enrepo:name "Apache Jena/Fuseki" .
 
-:OperatingSystem_e4966c72_e7f2_484c_adb6_cbc2fd531d36 :name "Windows" .
+enrepo:DatabaseSystem_5920b359_3180_478e_8679_ec0717a9195f enrepo:name "GraphDB (Ontotext)" .
 
-:OperatingSystem_b736e30c_4a61_4721_bfcd_57e196b321fe :name "MacOS" .
+enrepo:DatabaseSystem_94bad780_3cdd_4942_abc2_a60ca6788745 enrepo:name "Stardog" .
 
-:Ontology_03249d09_8038_421e_8376_467b4a430e56 :name "Enapso JavaScript Abstract Syntax Tree Ontology";
-  :url "EnapsoJSAST.owl" .
+enrepo:Environment_14eaf5b6_1704_4f8d_b315_8a8728640b66 enrepo:name "Martin Künzle's local Environment" .
 
-:Ontology_1efd927f_3b18_4581_8a95_d11af361993c :name "Enapso Test Ontology";
-  :url "EnapsoTest.owl" .
+enrepo:Tenant_e7e124a2_3a7b_4333_8f51_5f70d48f0bfe enrepo:name "CMS" .
 
-:Ontology_3a8e056d_76c7_437b_8718_78a84cae0a31 :name "Enapso Generic Software Engineering Ontology";
-  :url "EnapsoGenericSoftwareEngineering.owl" .
+enrepo:Environment_31cf4adb_b552_45f5_9997_98acb07263c4 enrepo:name "Siva's local Environment" .
 
-:Ontology_7886ca3f_93cf_45c4_bac6_41dc832af2b2 :name "Enapso Sencha ExtJS Ontology";
-  :url "EnapsoExtJS.owl" .
+enrepo:Tenant_f5a52c9d_1c3e_4fa8_bfb2_587958d4e8c3 enrepo:name "Iplex" .
 
-:Ontology_a6ca7dfb_7ffa_4c1e_97b9_e7b91d191c63 :name "Enapso DotNetPro Demo Ontology";
-  :url "/demo/dotnetpro_demo_ontology_2.owl" .
+enrepo:Environment_7308c29c_9c98_4d14_80ad_546c498d91ef enrepo:name "Alexander Schulze's local environment" .
 
-:Ontology_be07652f_b314_4227_8b6b_9d32d238e571 :name "Enapso Terms Ontology";
-  :url "EnapsoTerms.owl" .
+enrepo:Tenant_0143e7ee_fbdd_45b3_879f_fedc78e42ab4 enrepo:name "Innotrade GmbH" .
 
-:Ontology_c0ee28df_53dd_45b1_a961_2f134c72e12f :name "Enapso Foundational Ontology";
-  :url "EnapsoFoundation.owl" .
+enrepo:Environment_833a44cc_ec58_4202_b44d_27460ae94e2d enrepo:name "Muhammad Yasir's local environment" .
 
-:Ontology_de3f9fb0_0b4c_4f7d_a77d_08d1adb6f089 :name "Enapso Ontology Repository Management Ontology";
-  :url "EnapsoOntologyRepository.owl" .
+enrepo:Environment_ca8d3c76_0766_47dd_9b87_2e93bf976082 enrepo:name "Ashesh Goplani's local environment" .
 
-:Ontology_fafc443d_cd64_48f1_a09e_98e8725a4042 :name "Enapso Ontology API Ontology";
-  :url "EnapsoOntologyApi.owl" .
+enrepo:Environment_fcf6327c_58fa_4b18_8fbe_bb3e959a126c enrepo:name "Fida's local Environment" .
 
-:OperatingSystem_736c6895_7ed9_4b00_a062_7d5eaa19135f :name "Linux (RedHat)" .
+enrepo:Graph_0ea87735_977d_461b_88c5_749d1a5bf909 enrepo:name "The Graph in Alexander Schulze's MacBookPro II in the EnapsoTest repository." .
 
-:OperatingSystem_8224f055_2d29_4034_98d9_037e175e9edf :name "Unix" .
+enrepo:Repository_63423a53_29c2_43ae_b35a_7be883b4bd40 enrepo:name "EnapsoTest Repository located in Alexander Schulze MacBook Pro II" .
 
-:OperatingSystem_aef0d524_8308_4082_8a93_8171ee487af5 :name "Ubuntu" .
+enrepo:Graph_1242ac41_1811_4625_8664_6a260bfe6d3b enrepo:name "The Graph in Muhammad Yasir Dell i5 in the EnapsoTest repository." .
 
-:Platform_6a028729_e0d3_4c0e_be4f_3660130bbf3c :name "Stand alone desktop, laptop, pc, workstation." .
+enrepo:Repository_6159c98a_6c46_4cc3_9efd_6320775ac4ed enrepo:name "Repository in Muhammad Yasir Laptop" .
 
-:Platform_6b4a3d16_e084_47fa_96ba_6dc7cc430077 :name "Private Cloud" .
+enrepo:Graph_128100a6_8c71_4fd8_a86a_22f2bb88782f enrepo:name "The Graph in Ashesh Goplani hp i7 in the EnapsoTest repository." .
 
-:Platform_75eede97_cc40_4364_b19e_84d343afacc1 :name "Amazon Web Services" .
+enrepo:Repository_299e12b7_024a_4ffe_a099_b408fe8858a6 enrepo:name "EnapsoTest Repository located in Ashesh Goplani hp i7" .
 
-:Platform_8b46fda0_3671_42e1_a166_746befe9bb49 :name "Microsoft Azure" .
+enrepo:Graph_144eb313_94bd_4506_86cc_2f959412b61d enrepo:name "The Graph in Muhammad Yasir Dell i5 in the EnapsoChecking repository." .
 
-:Platform_e611adf1_7ef3_493b_97a7_812d847f4ba2 :name "Dedicated Server" .
+enrepo:Repository_03b94545_b227_427d_bd7a_3676e61adb9c enrepo:name "EnapsoChecking Repository located in Muhammad Yasir Dell i5" .
 
-:Prefix_06211c8c_4b66_4a9d_a483_a7161734a6f7 :name "Enapso JavaScript Abstract Syntax Tree Ontology";
-  :namespace "http://ont.enapso.com/jsast#";
-  :prefix "enjsast" .
+enrepo:Graph_1620132d_9bbc_4bad_846c_349eab25d224 enrepo:name "The Graph in Alexander Schulze's MacBookPro II in the EnapsoChecking repository." .
 
-:Prefix_26a400d2_76d8_4522_ab78_eee13d5aa2ad :name "Resource Description Framework Schema";
-  :namespace "http://www.w3.org/2000/01/rdf-schema#";
-  :prefix "rdfs" .
+enrepo:Graph_174ff230_d7b9_4993_bb35_a2da61215475 enrepo:name "The Graph in Alexander Schulze's MacBookPro II in the EnapsoDotNetProDemo repository." .
 
-:Prefix_45603a34_4569_4914_9ac9_eac8e264a2d7 :name "Enapso Test Ontology";
-  :namespace "http://ont.enapso.com/test#";
-  :prefix "entest" .
+enrepo:Repository_27ebbed9_fd22_4e5c_9227_956cf475a4e5 enrepo:name "EnapsoChecking Repository located in Alexander Schulze MacBook Pro II" .
 
-:Prefix_55c5b6d4_9c2e_45f4_aa30_98a15c8ad5b2 :name "XML Schema Definition";
-  :namespace "http://www.w3.org/2001/XMLSchema#";
-  :prefix "xsd" .
+enrepo:Graph_1d9a32b1_fd00_4565_8d1b_4b9e1bb0f264 enrepo:name "The Graph in Alexander Schulze's MacBookPro II in the EnapsoDotNetProDemo repository." .
 
-:Prefix_59477cde_2c3a_4b00_83b7_2a377f810849 :name "Shapes Constraint Language";
-  :namespace "http://www.w3.org/ns/shacl#";
-  :prefix "sh" .
+enrepo:Repository_49260c94_b3ac_4dd0_baf7_df762e92179e enrepo:name "EnapsoDotNetProDemo repository is located a Alexander Schulze's MacBookPro II." .
 
-:Prefix_65a0558a_6c57_469f_9629_e1a3ce94bd7a :name "Resource Description Framework";
-  :namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
-  :prefix "rdf" .
+enrepo:Graph_2129eed4_1867_4c09_a75c_f7c9434766e6 enrepo:name "The Graph in Siva's laptop in the EnapsoChecking repository." .
 
-:Prefix_780bf0c4_39cf_470e_b97f_65238963626e :name "Extensible Markup Language";
-  :namespace "http://www.w3.org/XML/1998/namespace/";
-  :prefix "xml" .
+enrepo:Repository_be8010df_5906_43ea_a1b3_fe926eb29fe7 enrepo:name "EnapsoChecking Repository located in Siva laptop" .
 
-:Prefix_7fe3a9a5_8e7c_40f9_8d26_5697db774da0 :name "Enapso Terms Ontology";
-  :namespace "http://ont.enapso.com/terms#";
-  :prefix "enterms" .
+enrepo:Graph_24a1d382_025d_43f0_a54e_ddbefc1037a7 enrepo:name "The Graph in Muhammad Yasir Dell i5 in the EnapsoDotNetPrDemo repository." .
 
-:Prefix_8cf7a1e0_09a4_461b_ae81_039418e69ce0 :name "Generic Enapso Software Engineering Ontology";
-  :namespace "http://ont.enapso.com/gse#";
-  :prefix "engse" .
+enrepo:Repository_af8ed397_c907_4353_86c4_56009c84dc29 enrepo:name "EnapsoDotNetProDemo Repository located in Muhammad Yasir Dell i5" .
 
-:Prefix_91941413_4174_4cb0_a0a5_7f7a5c964286 :name "Enapso Ontology API Ontology";
-  :namespace "http://ont.enapso.com/ontapi#";
-  :prefix "enontapi" .
+enrepo:Graph_43c82926_a072_4057_bb2c_c6c5b22cd156 enrepo:name "The Graph in Muhammad Yasir Dell i5 in the EnapsoTest repository." .
 
-:Prefix_9cc12701_6636_4469_99d2_b9ee3fcc713a :name "Enapso Sencha ExtJS Ontology";
-  :namespace "http://ont.enapso.com/extjs#";
-  :prefix "enextjs" .
+enrepo:Graph_462af229_a60e_4c80_9ffc_aef39d940653 enrepo:name "The Graph in Ashesh Goplani hp i7 in the EnapsoChecking repository." .
 
-:Prefix_c02c7276_e901_4514_aa3c_fa8aef1663b9 :name "Working Ontology Language";
-  :namespace "http://www.w3.org/2002/07/owl#";
-  :prefix "owl" .
+enrepo:Repository_a4c96d2c_b982_4231_930b_4bc961d8352a enrepo:name "EnapsoChecking repository is located a Ashesh Goplani hp i7" .
 
-:Prefix_ce6df350_20ed_43c2_bc62_2c0a06f7b078 :name "Enapso DotNetPro Ontology";
-  :namespace "http://ont.enapso.com/dotnetpro#";
-  :prefix "dnp" .
+enrepo:Graph_47ceb7c2_09c5_4b6d_a400_4a74ec945e3a enrepo:name "The Graph in Alexander Schulze's MacBookPro II in the EnapsoTest repository." .
 
-:Prefix_d0bbb0bd_cc12_4501_9647_05bceb5f06c9 :name "Enapso Ontology Repository Management Ontology";
-  :prefix "enrepo";
-  :url "http://ont.enapso.com/repo#" .
+enrepo:Graph_485aac31_fa8d_4463_86fd_a6845c75ad48 enrepo:name "The Graph in Alexander Schulze's MacBookPro II in the EnapsoTest repository." .
 
-:Prefix_d59211cf_09ae_4cdb_a8f9_82d5e85fc450 :name "Enapso Foundational Ontology";
-  :namespace "http://ont.enapso.com/foundation#";
-  :prefix "enf" .
+enrepo:Graph_4bf163c4_b330_402d_994c_230bcf3714fa enrepo:name "The  Graph in Ashesh Goplani hp i7 in the EnapsoChecking repository.." .
 
-:Host_1fbdddee_d864_4868_9f65_c6b1be32de92 :osVersion "10.15.3" .
+enrepo:Graph_53a1f29f_48c6_4b9a_83c2_85a9d216ecd4 enrepo:name "The Graph in Muhammad Yasir Dell i5 in the EnapsoChecking repository." .
 
-:Host_28180341_d1bc_4dbb_aa63_e079001d2513 :osVersion "8.1";
-  :version "9.2" .
+enrepo:Graph_5e3504ce_9441_4f25_a5ee_c8c65fbb9132 enrepo:name "The Graph in Fida's laptop in the EnapsoChecking repository." .
 
-:Host_6c307a8d_be16_4550_8794_33492e758f22 :osVersion "10";
-  :version "9.0" .
+enrepo:Repository_0a2c8421_036d_46ef_8a48_e0fca429ccdc enrepo:name "EnapsoChecking Repository located in Fida laptop" .
 
-:Host_79d4c2c0_857c_4666_beb9_e0c8b2617c6e :osVersion "10.15.3" .
+enrepo:Graph_629b7ea1_5a2b_4ce5_860e_c5ad5996f45f enrepo:name "The Graph in Alexander Schulze's MacBookPro II in the EnapsoDotNetProDemo repository." .
 
-:Host_d7ff76c6_cfd5_479f_9c36_d40825259a8d :osVersion "7";
-  :version "9.1" .
+enrepo:Graph_679ba549_2894_44e8_a98b_98054e128b53 enrepo:name "The Graph in Muhammad Yasir Dell i5 in the EnapsoDotNetProDemo repository." .
 
-:Host_3bc75791_9b65_4b0a_887d_aaabc253c78e :osVersion "10" .
+enrepo:Graph_727832e2_a8da_4402_a99c_7a9259ad6046 enrepo:name "The Graph in Martin Künzle's laptop in the EnapsoChecking repository." .
 
-:Host_01141633_0716_4ae3_b38b_aa12b2197c4a :osVersion "10" .
+enrepo:Repository_b49357e0_33bc_4163_8fef_2cad56ac72a5 enrepo:name "EnapsoChecking Repository located in Martin Künzle laptop" .
 
-:Host_0134bc8c_e40c_4394_b4c7_310a206e10da :osVersion "7" .
+enrepo:Graph_8ac9f951_b8b8_4f97_b2e2_da2aa344ced6 enrepo:name "The Graph in Muhammad Yasir Dell i5 in the EnapsoChecking repository." .
 
-:DatabaseInstance_086a69ed_f3e1_4555_bdb5_2535ac9baea7 :version "7" .
+enrepo:Graph_8dc370d6_4173_4676_bf39_eea210247594 enrepo:name "The Graph in Ashesh Goplani hp i7 in the EnapsoChecking repository." .
 
-:DatabaseInstance_0cd52b9e_888c_4a33_acde_89effe38ddee :version "9.2" .
+enrepo:Graph_94a4cf76_f7f2_4b60_b4d6_2763dce8f263 enrepo:name "The Graph in Alexander Schulze's MacBookPro II in the EnapsoChecking repository." .
 
-:DatabaseInstance_1a8b2422_9b1c_48bd_88a1_4794fd09df6e :version "9.1" .
+enrepo:Graph_b4fb1107_ed80_4b12_b365_2eaaf219dca0 enrepo:name "The Graph in Alexander Schulze's MacBookPro II in the EnapsoTest repository." .
 
-:DatabaseInstance_41710204_2620_4483_a31d_963e2075767f :version "9.1" .
+enrepo:Graph_b62e1d40_7e61_4363_bb45_6e035fa8d694 enrepo:name "The Graph in Ashesh Goplani hp i7 in the EnapsoDotNetProDemo repository." .
 
-:DatabaseInstance_665295fd_6ba1_4e2e_bc2e_452168a848e6 :version "9.0" .
+enrepo:Repository_2a8d3e7c_a584_4623_98f8_901996dabac1 enrepo:name "EnapsoDotNetProDemo repository is located a Ashesh Goplani hp i7" .
 
-:DatabaseInstance_789c7c2b_9928_42cf_b1ec_f079385c23ca :version "9.1" .
+enrepo:Graph_b957cf06_b02c_48e6_a6f3_52b53d5b740c enrepo:name "The Graph in Muhammad Yasir Dell i5 in the EnapsoDotNetPrDemo repository." .
 
-:DatabaseInstance_8a41da22_e9d8_4396_8440_a3941faeac49 :version "9.1" .
+enrepo:Graph_bad12375_698e_4016_84dd_7e49fe5cfbfb enrepo:name "The Graph in Ashesh Goplani hp i7 in the EnapsoTest repository." .
 
-:DatabaseInstance_aef8e43d_a563_4834_bbe1_dbf7e8bb786b :version "4" .
+enrepo:Graph_bc252a61_42d2_455e_b720_cb276a4f6b4f enrepo:name "The Graph in Ashesh Goplani hp i7 in the EnapsoDotNetProDemo repository." .
 
-:DatabaseSystem_3e35cc32_378a_40fa_ad11_74ac431b7aa9 :version "9.1" .
+enrepo:Graph_e1d78937_146e_45dc_adeb_faf30b651d76 enrepo:name "The Graph in Ashesh Goplani hp i7 in the EnapsoDotNetProDemo repository." .
 
-_:node1463 a owl:Restriction;
+enrepo:Graph_e41c32cd_9e73_432d_b269_3df775d2a74c enrepo:name "The Graph in Alexander Schulze's MacBookPro II in the EnapsoDotNetProDemo repository." .
+
+enrepo:Graph_eb7985dc_c13d_476d_b8ef_ea5dd6f72f77 enrepo:name "The Graph in Muhammad Yasir Dell i5 in the EnapsoTest repository." .
+
+enrepo:OperatingSystem_e4966c72_e7f2_484c_adb6_cbc2fd531d36 enrepo:name "Windows" .
+
+enrepo:OperatingSystem_b736e30c_4a61_4721_bfcd_57e196b321fe enrepo:name "MacOS" .
+
+enrepo:Ontology_03249d09_8038_421e_8376_467b4a430e56 enrepo:name "Enapso JavaScript Abstract Syntax Tree Ontology" .
+
+enrepo:Ontology_1efd927f_3b18_4581_8a95_d11af361993c enrepo:name "Enapso Test Ontology" .
+
+enrepo:Ontology_3a8e056d_76c7_437b_8718_78a84cae0a31 enrepo:name "Enapso Generic Software Engineering Ontology" .
+
+enrepo:Ontology_7886ca3f_93cf_45c4_bac6_41dc832af2b2 enrepo:name "Enapso Sencha ExtJS Ontology" .
+
+enrepo:Ontology_a6ca7dfb_7ffa_4c1e_97b9_e7b91d191c63 enrepo:name "Enapso DotNetPro Demo Ontology" .
+
+enrepo:Ontology_be07652f_b314_4227_8b6b_9d32d238e571 enrepo:name "Enapso Terms Ontology" .
+
+enrepo:Ontology_c0ee28df_53dd_45b1_a961_2f134c72e12f enrepo:name "Enapso Foundational Ontology" .
+
+enrepo:Ontology_de3f9fb0_0b4c_4f7d_a77d_08d1adb6f089 enrepo:name "Enapso Ontology Repository Management Ontology" .
+
+enrepo:Ontology_fafc443d_cd64_48f1_a09e_98e8725a4042 enrepo:name "Enapso Ontology API Ontology" .
+
+enrepo:OperatingSystem_736c6895_7ed9_4b00_a062_7d5eaa19135f enrepo:name "Linux (RedHat)" .
+
+enrepo:OperatingSystem_8224f055_2d29_4034_98d9_037e175e9edf enrepo:name "Unix" .
+
+enrepo:OperatingSystem_aef0d524_8308_4082_8a93_8171ee487af5 enrepo:name "Ubuntu" .
+
+enrepo:Platform_6a028729_e0d3_4c0e_be4f_3660130bbf3c enrepo:name "Stand alone desktop, laptop, pc, workstation." .
+
+enrepo:Platform_6b4a3d16_e084_47fa_96ba_6dc7cc430077 enrepo:name "Private Cloud" .
+
+enrepo:Platform_75eede97_cc40_4364_b19e_84d343afacc1 enrepo:name "Amazon Web Services" .
+
+enrepo:Platform_8b46fda0_3671_42e1_a166_746befe9bb49 enrepo:name "Microsoft Azure" .
+
+enrepo:Platform_e611adf1_7ef3_493b_97a7_812d847f4ba2 enrepo:name "Dedicated Server" .
+
+enrepo:Prefix_06211c8c_4b66_4a9d_a483_a7161734a6f7 enrepo:name "Enapso JavaScript Abstract Syntax Tree Ontology";
+  enrepo:namespace "http://ont.enapso.com/jsast#" .
+
+enrepo:Prefix_26a400d2_76d8_4522_ab78_eee13d5aa2ad enrepo:name "Resource Description Framework Schema";
+  enrepo:namespace "http://www.w3.org/2000/01/rdf-schema#" .
+
+enrepo:Prefix_45603a34_4569_4914_9ac9_eac8e264a2d7 enrepo:name "Enapso Test Ontology";
+  enrepo:namespace "http://ont.enapso.com/test#" .
+
+enrepo:Prefix_55c5b6d4_9c2e_45f4_aa30_98a15c8ad5b2 enrepo:name "XML Schema Definition";
+  enrepo:namespace "http://www.w3.org/2001/XMLSchema#" .
+
+enrepo:Prefix_59477cde_2c3a_4b00_83b7_2a377f810849 enrepo:name "Shapes Constraint Language";
+  enrepo:namespace "http://www.w3.org/ns/shacl#" .
+
+enrepo:Prefix_65a0558a_6c57_469f_9629_e1a3ce94bd7a enrepo:name "Resource Description Framework";
+  enrepo:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#" .
+
+enrepo:Prefix_780bf0c4_39cf_470e_b97f_65238963626e enrepo:name "Extensible Markup Language";
+  enrepo:namespace "http://www.w3.org/XML/1998/namespace/" .
+
+enrepo:Prefix_7fe3a9a5_8e7c_40f9_8d26_5697db774da0 enrepo:name "Enapso Terms Ontology";
+  enrepo:namespace "http://ont.enapso.com/terms#" .
+
+enrepo:Prefix_8cf7a1e0_09a4_461b_ae81_039418e69ce0 enrepo:name "Generic Enapso Software Engineering Ontology";
+  enrepo:namespace "http://ont.enapso.com/gse#" .
+
+enrepo:Prefix_91941413_4174_4cb0_a0a5_7f7a5c964286 enrepo:name "Enapso Ontology API Ontology";
+  enrepo:namespace "http://ont.enapso.com/ontapi#" .
+
+enrepo:Prefix_9cc12701_6636_4469_99d2_b9ee3fcc713a enrepo:name "Enapso Sencha ExtJS Ontology";
+  enrepo:namespace "http://ont.enapso.com/extjs#" .
+
+enrepo:Prefix_c02c7276_e901_4514_aa3c_fa8aef1663b9 enrepo:name "Working Ontology Language";
+  enrepo:namespace "http://www.w3.org/2002/07/owl#" .
+
+enrepo:Prefix_ce6df350_20ed_43c2_bc62_2c0a06f7b078 enrepo:name "Enapso DotNetPro Ontology";
+  enrepo:namespace "http://ont.enapso.com/dotnetpro#" .
+
+enrepo:Prefix_d0bbb0bd_cc12_4501_9647_05bceb5f06c9 enrepo:name "Enapso Ontology Repository Management Ontology" .
+
+enrepo:Prefix_d59211cf_09ae_4cdb_a8f9_82d5e85fc450 enrepo:name "Enapso Foundational Ontology";
+  enrepo:namespace "http://ont.enapso.com/foundation#";
+  enrepo:prefix "enf" .
+
+enrepo:Host_1fbdddee_d864_4868_9f65_c6b1be32de92 enrepo:osVersion "10.15.3" .
+
+enrepo:Host_28180341_d1bc_4dbb_aa63_e079001d2513 enrepo:osVersion "8.1" .
+
+enrepo:Host_6c307a8d_be16_4550_8794_33492e758f22 enrepo:osVersion "10" .
+
+enrepo:Host_79d4c2c0_857c_4666_beb9_e0c8b2617c6e enrepo:osVersion "10.15.3" .
+
+enrepo:Host_d7ff76c6_cfd5_479f_9c36_d40825259a8d enrepo:osVersion "7" .
+
+enrepo:Host_3bc75791_9b65_4b0a_887d_aaabc253c78e enrepo:osVersion "10" .
+
+enrepo:Host_01141633_0716_4ae3_b38b_aa12b2197c4a enrepo:osVersion "10" .
+
+enrepo:Host_0134bc8c_e40c_4394_b4c7_310a206e10da enrepo:osVersion "7" .
+
+enrepo:Prefix_06211c8c_4b66_4a9d_a483_a7161734a6f7 enrepo:prefix "enjsast" .
+
+enrepo:Prefix_26a400d2_76d8_4522_ab78_eee13d5aa2ad enrepo:prefix "rdfs" .
+
+enrepo:Prefix_45603a34_4569_4914_9ac9_eac8e264a2d7 enrepo:prefix "entest" .
+
+enrepo:Prefix_55c5b6d4_9c2e_45f4_aa30_98a15c8ad5b2 enrepo:prefix "xsd" .
+
+enrepo:Prefix_59477cde_2c3a_4b00_83b7_2a377f810849 enrepo:prefix "sh" .
+
+enrepo:Prefix_65a0558a_6c57_469f_9629_e1a3ce94bd7a enrepo:prefix "rdf" .
+
+enrepo:Prefix_780bf0c4_39cf_470e_b97f_65238963626e enrepo:prefix "xml" .
+
+enrepo:Prefix_7fe3a9a5_8e7c_40f9_8d26_5697db774da0 enrepo:prefix "enterms" .
+
+enrepo:Prefix_8cf7a1e0_09a4_461b_ae81_039418e69ce0 enrepo:prefix "engse" .
+
+enrepo:Prefix_91941413_4174_4cb0_a0a5_7f7a5c964286 enrepo:prefix "enontapi" .
+
+enrepo:Prefix_9cc12701_6636_4469_99d2_b9ee3fcc713a enrepo:prefix "enextjs" .
+
+enrepo:Prefix_c02c7276_e901_4514_aa3c_fa8aef1663b9 enrepo:prefix "owl" .
+
+enrepo:Prefix_ce6df350_20ed_43c2_bc62_2c0a06f7b078 enrepo:prefix "dnp" .
+
+enrepo:Prefix_d0bbb0bd_cc12_4501_9647_05bceb5f06c9 enrepo:prefix "enrepo";
+  enrepo:url "http://ont.enapso.com/repo#" .
+
+enrepo:Ontology_03249d09_8038_421e_8376_467b4a430e56 enrepo:url "EnapsoJSAST.owl" .
+
+enrepo:Ontology_1efd927f_3b18_4581_8a95_d11af361993c enrepo:url "EnapsoTest.owl" .
+
+enrepo:Ontology_3a8e056d_76c7_437b_8718_78a84cae0a31 enrepo:url "EnapsoGenericSoftwareEngineering.owl" .
+
+enrepo:Ontology_7886ca3f_93cf_45c4_bac6_41dc832af2b2 enrepo:url "EnapsoExtJS.owl" .
+
+enrepo:Ontology_a6ca7dfb_7ffa_4c1e_97b9_e7b91d191c63 enrepo:url "/demo/dotnetpro_demo_ontology_2.owl" .
+
+enrepo:Ontology_be07652f_b314_4227_8b6b_9d32d238e571 enrepo:url "EnapsoTerms.owl" .
+
+enrepo:Ontology_c0ee28df_53dd_45b1_a961_2f134c72e12f enrepo:url "EnapsoFoundation.owl" .
+
+enrepo:Ontology_de3f9fb0_0b4c_4f7d_a77d_08d1adb6f089 enrepo:url "EnapsoOntologyRepository.owl" .
+
+enrepo:Ontology_fafc443d_cd64_48f1_a09e_98e8725a4042 enrepo:url "EnapsoOntologyApi.owl" .
+
+enrepo:DatabaseInstance_086a69ed_f3e1_4555_bdb5_2535ac9baea7 enrepo:version "7" .
+
+enrepo:DatabaseInstance_0cd52b9e_888c_4a33_acde_89effe38ddee enrepo:version "9.2" .
+
+enrepo:Host_28180341_d1bc_4dbb_aa63_e079001d2513 enrepo:version "9.2" .
+
+enrepo:DatabaseInstance_1a8b2422_9b1c_48bd_88a1_4794fd09df6e enrepo:version "9.1" .
+
+enrepo:Host_6c307a8d_be16_4550_8794_33492e758f22 enrepo:version "9.0" .
+
+enrepo:DatabaseInstance_41710204_2620_4483_a31d_963e2075767f enrepo:version "9.1" .
+
+enrepo:DatabaseInstance_665295fd_6ba1_4e2e_bc2e_452168a848e6 enrepo:version "9.0" .
+
+enrepo:Host_d7ff76c6_cfd5_479f_9c36_d40825259a8d enrepo:version "9.1" .
+
+enrepo:DatabaseInstance_789c7c2b_9928_42cf_b1ec_f079385c23ca enrepo:version "9.1" .
+
+enrepo:DatabaseInstance_8a41da22_e9d8_4396_8440_a3941faeac49 enrepo:version "9.1" .
+
+enrepo:DatabaseInstance_aef8e43d_a563_4834_bbe1_dbf7e8bb786b enrepo:version "4" .
+
+enrepo:DatabaseSystem_3e35cc32_378a_40fa_ad11_74ac431b7aa9 enrepo:version "9.1" .
+
+_:node104 a owl:Restriction;
   owl:hasValue "Apache Jena/Fuseki";
-  owl:onProperty :name .
+  owl:onProperty enrepo:name .
 
-_:node1465 a owl:Restriction;
+_:node106 a owl:Restriction;
   owl:hasValue "GraphDB";
-  owl:onProperty :name .
+  owl:onProperty enrepo:name .
 
-_:node1467 a owl:Restriction;
+_:node108 a owl:Restriction;
   owl:hasValue "Stardog";
-  owl:onProperty :name .
+  owl:onProperty enrepo:name .
 
-_:node1484 a owl:Restriction;
+_:node125 a owl:Restriction;
   owl:hasValue "Linux";
-  owl:onProperty :name .
+  owl:onProperty enrepo:name .
 
-_:node1486 a owl:Restriction;
+_:node127 a owl:Restriction;
   owl:hasValue "MacOS";
-  owl:onProperty :name .
+  owl:onProperty enrepo:name .
 
-_:node1488 a owl:Restriction;
+_:node129 a owl:Restriction;
   owl:hasValue "Windows";
-  owl:onProperty :name .
+  owl:onProperty enrepo:name .
 
-_:node1464 rdf:first _:node1463;
-  rdf:rest _:node1466 .
+_:node105 rdf:first _:node104;
+  rdf:rest _:node107 .
 
-_:node1466 rdf:first _:node1465;
-  rdf:rest _:node1468 .
+_:node107 rdf:first _:node106;
+  rdf:rest _:node109 .
 
-_:node1468 rdf:first _:node1467;
+_:node109 rdf:first _:node108;
   rdf:rest rdf:nil .
 
-_:node1485 rdf:first _:node1484;
-  rdf:rest _:node1487 .
+_:node126 rdf:first _:node125;
+  rdf:rest _:node128 .
 
-_:node1487 rdf:first _:node1486;
-  rdf:rest _:node1489 .
+_:node128 rdf:first _:node127;
+  rdf:rest _:node130 .
 
-_:node1489 rdf:first _:node1488;
+_:node130 rdf:first _:node129;
   rdf:rest rdf:nil .
 
-_:node1460 owl:onDataRange xsd:string;
+_:node136 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass enrepo:DatabaseInstance .
+
+_:node101 owl:onDataRange xsd:string;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:node1461 owl:onDataRange xsd:string;
+_:node102 owl:onDataRange xsd:string;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:node1469 owl:onDataRange xsd:string;
+_:node110 owl:onDataRange xsd:string;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:node1470 owl:onClass :Tenant;
+_:node112 owl:onDataRange xsd:string;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:node1471 owl:onDataRange xsd:string;
+_:node114 owl:onDataRange xsd:string;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:node1473 owl:onDataRange xsd:string;
+_:node115 owl:onDataRange xsd:string;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:node1474 owl:onDataRange xsd:string;
+_:node119 owl:onDataRange xsd:string;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:node1475 owl:onClass :DatabaseSystem;
+_:node120 owl:onDataRange xsd:string;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:node1476 owl:onClass :Environment;
+_:node121 owl:onDataRange xsd:string;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:node1477 owl:onClass :OperatingSystem;
+_:node122 owl:onDataRange xsd:string;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:node1478 owl:onDataRange xsd:string;
+_:node123 owl:onDataRange xsd:string;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:node1479 owl:onDataRange xsd:string;
+_:node131 owl:onDataRange xsd:string;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:node1480 owl:onDataRange xsd:string;
+_:node132 owl:onDataRange xsd:string;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:node1481 owl:onDataRange xsd:string;
+_:node133 owl:onDataRange xsd:string;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:node1482 owl:onDataRange xsd:string;
+_:node134 owl:onDataRange xsd:string;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:node1490 owl:onDataRange xsd:string;
+_:node135 owl:onDataRange xsd:string;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:node1491 owl:onDataRange xsd:string;
+_:node137 owl:onDataRange xsd:string;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:node1492 owl:onDataRange xsd:string;
+_:node138 owl:onDataRange xsd:string;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:node1493 owl:onDataRange xsd:string;
+_:node139 owl:onDataRange xsd:string;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:node1494 owl:onDataRange xsd:string;
+_:node111 owl:onClass enrepo:Tenant;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:node1496 owl:onDataRange xsd:string;
+_:node116 owl:onClass enrepo:DatabaseSystem;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:node1497 owl:onDataRange xsd:string;
+_:node117 owl:onClass enrepo:Environment;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:node1498 owl:onDataRange xsd:string;
+_:node118 owl:onClass enrepo:OperatingSystem;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:node1462 owl:unionOf _:node1464 .
+_:node103 owl:unionOf _:node105 .
 
-_:node1483 owl:unionOf _:node1485 .
-
-_:node1495 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
-  owl:onClass :DatabaseInstance .
+_:node124 owl:unionOf _:node126 .

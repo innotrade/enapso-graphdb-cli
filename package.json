@@ -1,6 +1,6 @@
 {
     "name": "@innotrade/enapso-graphdb-cli",
-    "version": "1.2.5",
+    "version": "1.2.6",
     "description": "ENAPSO GraphDB Command Line Interface",
     "main": "index.js",
     "bin": {
@@ -33,8 +33,10 @@
     },
     "homepage": "https://github.com/innotrade/enapso-graphdb-cli#readme",
     "dependencies": {
+        "@innotrade/enapso-file-watcher": "^1.0.0",
         "@innotrade/enapso-graphdb-admin": "^1.3.1",
         "@innotrade/enapso-graphdb-client": "^1.8.1",
+        "@innotrade/enapso-ontology-uploader": "^1.0.0",
         "command-line-args": "^5.1.1"
     },
     "devDependencies": {

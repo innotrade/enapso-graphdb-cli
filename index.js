@@ -12,7 +12,10 @@ const packageJson = require('./package.json');
 const commandLineArgs = require('command-line-args');
 const { EnapsoGraphDBClient } = require('@innotrade/enapso-graphdb-client');
 const { EnapsoGraphDBAdmin } = require('@innotrade/enapso-graphdb-admin');
-const { EnapsoOntologyUploader } = require('enapso-ontology-uploader');
+const {
+    EnapsoOntologyUploader
+} = require('@innotrade/enapso-ontology-uploader');
+
 // the default prefixes for all SPARQL queries
 const GRAPHDB_DEFAULT_PREFIXES = [
     EnapsoGraphDBClient.PREFIX_OWL,
@@ -21,7 +24,7 @@ const GRAPHDB_DEFAULT_PREFIXES = [
 ];
 
 const PROGRAM_TITLE =
-    'enapso Ontotext GraphDB Command Line Interface (CLI) v' +
+    'ENAPSO Ontotext GraphDB Command Line Interface (CLI) v' +
     packageJson.version;
 const COPYRIGHT =
     '(C) 2019-2020 Innotrade GmbH, Herzogenrath, NRW, Germany, https://www.innotrade.com';
