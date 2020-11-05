@@ -108,7 +108,8 @@ const EnapsoGraphDBCLI = {
                 return -1;
             }
         } catch (err) {
-            console.log(err);
+            console.log(err.statusMessage);
+            return err.statusCode;
         }
     },
 
@@ -132,7 +133,8 @@ const EnapsoGraphDBCLI = {
                 return -1;
             }
         } catch (err) {
-            console.log(err);
+            console.log(err.statusMessage);
+            return err.statusCode;
         }
     },
 
@@ -159,7 +161,8 @@ const EnapsoGraphDBCLI = {
                 return -1;
             }
         } catch (err) {
-            console.log(err);
+            console.log(err.statusMessage);
+            return err.statusCode;
         }
     },
 
@@ -190,7 +193,8 @@ const EnapsoGraphDBCLI = {
                 return 400;
             }
         } catch (err) {
-            console.log(err);
+            console.log(err.statusMessage);
+            return err.statusCode;
         }
     },
 
@@ -221,7 +225,8 @@ const EnapsoGraphDBCLI = {
                 return 400;
             }
         } catch (err) {
-            console.log(err);
+            console.log(err.statusMessage);
+            return err.statusCode;
         }
     },
 
@@ -244,7 +249,8 @@ const EnapsoGraphDBCLI = {
                 return 400;
             }
         } catch (err) {
-            console.log(err);
+            console.log(err.statusMessage);
+            return err.statusCode;
         }
     },
 
@@ -265,7 +271,8 @@ const EnapsoGraphDBCLI = {
                 return -1;
             }
         } catch (err) {
-            console.log(err);
+            console.log(err.statusMessage);
+            return err.statusCode;
         }
     },
 
@@ -284,7 +291,8 @@ const EnapsoGraphDBCLI = {
                 return -1;
             }
         } catch (err) {
-            console.log(err);
+            console.log(err.statusMessage);
+            return err.statusCode;
         }
     },
 
@@ -324,7 +332,8 @@ const EnapsoGraphDBCLI = {
                 return -1;
             }
         } catch (err) {
-            console.log(err);
+            console.log(err.statusMessage);
+            return err.statusCode;
         }
     },
 
@@ -352,7 +361,8 @@ const EnapsoGraphDBCLI = {
                 return -1;
             }
         } catch (err) {
-            console.log(err);
+            console.log(err.statusMessage);
+            return err.statusCode;
         }
     },
 
@@ -374,7 +384,8 @@ const EnapsoGraphDBCLI = {
                 }
             });
         } catch (err) {
-            console.log(err);
+            console.log(err.statusMessage);
+            return err.statusCode;
         }
     },
     // perfom garbage collection
@@ -389,29 +400,40 @@ const EnapsoGraphDBCLI = {
                 return -1;
             }
         } catch (err) {
-            console.log(err);
+            console.log(err.statusMessage);
+            return err.statusCode;
         }
     },
 
     transform: async function (aOptions) {
-        var lSourceData = fs.readFileSync(aOptions.sourcefile);
-        var lBindings = JSON.parse(lSourceData);
-        var lDestData = EnapsoGraphDBClient.transformBindingsToResultSet(
-            lBindings,
-            {
-                dropPrefixes: false
-            }
-        );
-        fs.writeFileSync(
-            aOptions.targetfile,
-            JSON.stringify(lDestData, null, 2)
-        );
+        try {
+            var lSourceData = fs.readFileSync(aOptions.sourcefile);
+            var lBindings = JSON.parse(lSourceData);
+            var lDestData = EnapsoGraphDBClient.transformBindingsToResultSet(
+                lBindings,
+                {
+                    dropPrefixes: false
+                }
+            );
+            fs.writeFileSync(
+                aOptions.targetfile,
+                JSON.stringify(lDestData, null, 2)
+            );
+        } catch (err) {
+            console.log(err.statusMessage);
+            return err.statusCode;
+        }
     },
 
     readPrefixes: async function (prefixFile) {
-        let prefixData = fs.readFileSync(prefixFile, 'utf8');
-        let prefixes = EnapsoGraphDBClient.parsePrefixes(prefixData);
-        return prefixes;
+        try {
+            let prefixData = fs.readFileSync(prefixFile, 'utf8');
+            let prefixes = EnapsoGraphDBClient.parsePrefixes(prefixData);
+            return prefixes;
+        } catch (err) {
+            console.log(err.statusMessage);
+            return err.statusCode;
+        }
     },
 
     exec: async function () {
