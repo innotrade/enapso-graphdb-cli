@@ -6,7 +6,7 @@
 // for details regarding the options see:
 // https://github.com/75lb/command-line-args/blob/master/doc/API.md
 // https://github.com/75lb/command-line-args/blob/master/doc/option-definition.md
-
+require('@innotrade/enapso-config');
 const fs = require('fs');
 const packageJson = require('./package.json');
 const commandLineArgs = require('command-line-args');
