@@ -437,83 +437,91 @@ const EnapsoGraphDBCLI = {
     },
 
     exec: async function () {
-        console.log(PROGRAM_TITLE);
-        console.log(COPYRIGHT);
+        try {
+            console.log(PROGRAM_TITLE);
+            console.log(COPYRIGHT);
 
-        let lOptions = commandLineArgs(this.mOptionDefinitions);
-        // console.log(JSON.stringify(lOptions, null, 2));
-        if (lOptions.command != `autoUpload`) {
-            if (!lOptions.dburl) {
-                process.exit(logErrorMsg(ERROR_NO_DB_URL));
+            let lOptions = commandLineArgs(this.mOptionDefinitions);
+            // console.log(JSON.stringify(lOptions, null, 2));
+            if (lOptions.command != `autoUpload`) {
+                if (!lOptions.dburl) {
+                    process.exit(logErrorMsg(ERROR_NO_DB_URL));
+                }
             }
-        }
-        let prefixes = GRAPHDB_DEFAULT_PREFIXES;
-        if (lOptions.prefixfile) {
-            prefixes = await this.readPrefixes(lOptions.prefixfile);
-        }
-
-        //	check if a database URL is passed
-
-        this.endpoint = new EnapsoGraphDBClient.Endpoint({
-            baseURL: lOptions.dburl,
-            repository: lOptions.repository,
-            prefixes: prefixes
-        });
-
-        if (lOptions.username && lOptions.password) {
-            this.authentication = await this.endpoint.login(
-                lOptions.username,
-                lOptions.password
-            );
-            if (!this.authentication.success) {
-                process.exit(logErrorMsg(ERROR_AUTHENTICATION_FAILED));
+            let prefixes = GRAPHDB_DEFAULT_PREFIXES;
+            if (lOptions.prefixfile) {
+                prefixes = await this.readPrefixes(lOptions.prefixfile);
             }
-        }
 
-        let retCode = -1;
-        if ('export' === lOptions.command || 'download' === lOptions.command) {
-            retCode = await this.export(lOptions);
-        } else if (
-            'import' === lOptions.command ||
-            'upload' === lOptions.command
-        ) {
-            retCode = await this.import(lOptions);
-        } else if ('transform' === lOptions.command) {
-            retCode = await this.transform(lOptions);
-        } else if ('query' === lOptions.command) {
-            retCode = await this.query(lOptions);
-        } else if ('clearRepository' === lOptions.command) {
-            retCode = await this.clearRepository(lOptions);
-        } else if ('createRepository' === lOptions.command) {
-            retCode = await this.createRepository(lOptions);
-        } else if ('deleteRepository' === lOptions.command) {
-            retCode = await this.deleteRepo(lOptions);
-        } else if (
-            'clearContext' === lOptions.command ||
-            'clearGraph' === lOptions.command
-        ) {
-            retCode = await this.clearContext(lOptions);
-        } else if ('createUser' === lOptions.command) {
-            retCode = await this.createUser(lOptions);
-        } else if ('updateUser' === lOptions.command) {
-            retCode = await this.updateUser(lOptions);
-        } else if ('deleteUser' === lOptions.command) {
-            retCode = await this.deleteUser(lOptions);
-        } else if (
-            'gc' === lOptions.command ||
-            'garbageCollection' === lOptions.command
-        ) {
-            retCode = await this.performGarbageCollection(lOptions);
-        } else if (
-            'au' === lOptions.command ||
-            'autoUpload' === lOptions.command
-        ) {
-            retCode = await this.autoUpload(lOptions);
-        } else {
-            retCode = logErrorMsg(ERROR_NO_OR_INVALID_COMMAND);
-        }
-        if (lOptions.command != `autoUpload`) {
-            process.exit(retCode);
+            //	check if a database URL is passed
+
+            this.endpoint = new EnapsoGraphDBClient.Endpoint({
+                baseURL: lOptions.dburl,
+                repository: lOptions.repository,
+                prefixes: prefixes
+            });
+
+            if (lOptions.username && lOptions.password) {
+                this.authentication = await this.endpoint.login(
+                    lOptions.username,
+                    lOptions.password
+                );
+                if (!this.authentication.success) {
+                    process.exit(logErrorMsg(ERROR_AUTHENTICATION_FAILED));
+                }
+            }
+
+            let retCode = -1;
+            if (
+                'export' === lOptions.command ||
+                'download' === lOptions.command
+            ) {
+                retCode = await this.export(lOptions);
+            } else if (
+                'import' === lOptions.command ||
+                'upload' === lOptions.command
+            ) {
+                retCode = await this.import(lOptions);
+            } else if ('transform' === lOptions.command) {
+                retCode = await this.transform(lOptions);
+            } else if ('query' === lOptions.command) {
+                retCode = await this.query(lOptions);
+            } else if ('clearRepository' === lOptions.command) {
+                retCode = await this.clearRepository(lOptions);
+            } else if ('createRepository' === lOptions.command) {
+                retCode = await this.createRepository(lOptions);
+            } else if ('deleteRepository' === lOptions.command) {
+                retCode = await this.deleteRepo(lOptions);
+            } else if (
+                'clearContext' === lOptions.command ||
+                'clearGraph' === lOptions.command
+            ) {
+                retCode = await this.clearContext(lOptions);
+            } else if ('createUser' === lOptions.command) {
+                retCode = await this.createUser(lOptions);
+            } else if ('updateUser' === lOptions.command) {
+                retCode = await this.updateUser(lOptions);
+            } else if ('deleteUser' === lOptions.command) {
+                retCode = await this.deleteUser(lOptions);
+            } else if (
+                'gc' === lOptions.command ||
+                'garbageCollection' === lOptions.command
+            ) {
+                retCode = await this.performGarbageCollection(lOptions);
+            } else if (
+                'au' === lOptions.command ||
+                'autoUpload' === lOptions.command
+            ) {
+                retCode = await this.autoUpload(lOptions);
+            } else {
+                retCode = logErrorMsg(ERROR_NO_OR_INVALID_COMMAND);
+            }
+            if (lOptions.command != `autoUpload`) {
+                process.exit(retCode);
+            }
+        } catch (err) {
+            console.log(err.message);
+            process.exit(err.statusCode);
         }
     }
 };
