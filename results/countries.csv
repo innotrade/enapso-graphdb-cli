@@ -1,28 +1,13 @@
-class
-http://ont.enapso.com/dotnetpro#Address
-http://ont.enapso.com/dotnetpro#ImmaterialProduct
-http://ont.enapso.com/dotnetpro#MaterialProduct
-http://ont.enapso.com/dotnetpro#Architect
-http://ont.enapso.com/dotnetpro#Role
-http://ont.enapso.com/dotnetpro#BusinessRelation
-http://ont.enapso.com/dotnetpro#Company
-http://ont.enapso.com/dotnetpro#ContactData
-http://ont.enapso.com/dotnetpro#Customer
-http://ont.enapso.com/dotnetpro#Developer
-http://ont.enapso.com/dotnetpro#Document
-http://ont.enapso.com/dotnetpro#DocumentItem
-http://ont.enapso.com/dotnetpro#Product
-http://ont.enapso.com/dotnetpro#Employee
-http://ont.enapso.com/dotnetpro#Staff
-http://ont.enapso.com/dotnetpro#Freelancer
-http://ont.enapso.com/dotnetpro#Invoice
-http://ont.enapso.com/dotnetpro#Manager
-http://ont.enapso.com/dotnetpro#MediaPartner
-http://ont.enapso.com/dotnetpro#Person
-http://ont.enapso.com/dotnetpro#Sales
-http://ont.enapso.com/dotnetpro#ShoppingBasket
-http://ont.enapso.com/dotnetpro#Supplier
-http://ont.enapso.com/dotnetpro#TestClass
-http://ont.enapso.com/dotnetpro#Tester
-node9248
-node9252
+ontologyTitle,className,guideline,guidelineResult
+ ,MyEvenMoreSpecificTechnicalAssetThisTimeFromWizard,Label for the CLASS_NAME in English  - Mandatory to have this defined,pass
+ ,MyEvenMoreSpecificTechnicalAssetThisTimeFromWizard,Definition for the CLASS_NAME in English  - Mandatory to have this defined,fail
+ ,MyEvenMoreSpecificTechnicalAssetThisTimeFromWizard,UPPER_CLASS_NAME: Class name defined in the Upper Ontology,pass
+ ,MySpecificRole,Label for the CLASS_NAME in English  - Mandatory to have this defined,pass
+ ,MySpecificRole,Definition for the CLASS_NAME in English  - Mandatory to have this defined,fail
+ ,MySpecificRole,UPPER_CLASS_NAME: Class name defined in the Upper Ontology,pass
+ ,MySpecificTechnicalAsset1,Label for the CLASS_NAME in English  - Mandatory to have this defined,pass
+ ,MySpecificTechnicalAsset1,Definition for the CLASS_NAME in English  - Mandatory to have this defined,fail
+ ,MySpecificTechnicalAsset1,UPPER_CLASS_NAME: Class name defined in the Upper Ontology,pass
+ ,MyWizardTestProperty,Definition for the CLASS_NAME in English  - Mandatory to have this defined,pass
+ ,MyWizardTestProperty,Label for the CLASS_NAME in English  - Mandatory to have this defined,pass
+ ,MyWizardTestProperty,UPPER_CLASS_NAME: Class name defined in the Upper Ontology,pass

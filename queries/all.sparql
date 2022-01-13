@@ -1,6 +1,74 @@
-select *
-# from <http://ont.enapso.com/dotnetpro>
+select distinct ?ontologyTitle ?className ?guideline ?guidelineResult
 where {
-  ?class rdf:type owl:Class . 
-  bind( "info" as ?info )
-}
+    ?class a owl:Class.
+    bind(strafter(str(?class),"Test_ontology_for_OWL_and_SHACL_Pattern_conversion/") as ?className).
+    bind(strbefore(str(?class),"Test_ontology_for_OWL_and_SHACL_Pattern_conversion/") as ?prefix).
+    bind(IRI(?prefix) as ?ontologyIRI)
+    optional { ?ontologyIRI <http://purl.org/dc/terms/title> ?ontologyTitle} 
+    BIND(CONCAT(UCASE(SUBSTR(?className, 1, 1)), SUBSTR(?className, 2)) as ?capitalClassName)  # converting the first letter to capital 
+    {
+        ?class rdfs:label ?label.
+        bind ("Label for the CLASS_NAME in English  - Mandatory to have this defined" as ?guideline)
+        bind ("pass" as ?guidelineResult)
+        FILTER(LANGMATCHES(LANG(?label), "en"))
+    }
+    union
+    {
+        ?class skos:definition ?definition.
+        bind ("Definition for the CLASS_NAME in English  - Mandatory to have this defined" as ?guideline)
+        bind ("pass" as ?guidelineResult)
+        FILTER(LANGMATCHES(LANG(?definition), "en"))
+    }
+    union
+    {
+        bind ("UPPER_CLASS_NAME: Class name defined in the Upper Ontology" as ?guideline)
+        bind ("pass" as ?guidelineResult)
+        FILTER(?className=?capitalClassName)
+    }
+    union
+    {
+        bind ("UPPER_CLASS_NAME: Class name defined in the Upper Ontology" as ?guideline)
+        bind ("fail" as ?guidelineResult)
+        FILTER(?className!=?capitalClassName)
+    }
+    union
+    {
+        bind ("Definition for the CLASS_NAME in English  - Mandatory to have this defined" as ?guideline)
+        bind ("fail" as ?guidelineResult)
+        filter not exists{
+            ?class skos:definition ?definition.
+        }
+    }
+    union
+    {
+        bind ("Label for the CLASS_NAME in English  - Mandatory to have this defined" as ?guideline)
+        bind ("fail" as ?guidelineResult)
+        filter not exists{
+            ?class rdfs:label ?label.
+        }
+    }
+    union
+    {
+        bind ("Label for the CLASS_NAME in English  - Mandatory to have this defined" as ?guideline)
+        bind ("fail" as ?guidelineResult)
+        filter exists{
+            ?class rdfs:label ?label.
+        }
+        filter not exists{
+            ?class rdfs:label ?label.
+            FILTER(LANGMATCHES(LANG(?label), "en"))
+        }
+    }
+    union
+    {
+        bind ("Definition for the CLASS_NAME in English  - Mandatory to have this defined" as ?guideline)
+        bind ("fail" as ?guidelineResult)
+        filter exists{
+            ?class skos:definition ?definition.
+        }
+        filter not exists{
+            ?class skos:definition ?definition.
+            filter(LANGMATCHES(LANG(?definition), "en"))
+        }
+    }
+} order by ?className
