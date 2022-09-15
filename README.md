@@ -4,7 +4,7 @@ Enapso Ontotext GraphDB 8.x/9.x Command Line Interface (CLI) for Node.js
 
 Enapso Command Line Interface for GraphDB to easily perform numerous operations on GraphDB repositories and named graphs. This tool will be continously extended by further scriptable convenience operations.
 
-**The following demos require a running GraphDB 8.x/9.x instance on localhost at port 7200. The demos as well as the automated tests require a fully working Ontotext GraphDB repository "Test" and a user "admin" with the password "root" being set up, which has an administrator in GraphDB.** For certain operations the user needs to have the Repository Manager or Administrator role in GraphDB.
+**The following demos require a running GraphDB 8.x/9.x/10.x instance on localhost at port 7200. The demos as well as the automated tests require a fully working Ontotext GraphDB repository "Test" and a user "admin" with the password "root" being set up, which has an administrator in GraphDB.** For certain operations the user needs to have the Repository Manager or Administrator role in GraphDB.
 Get the latest version of GraphDB for free at https://www.ontotext.com/products/graphdb/.
 
 **This project is actively developed and maintained.**
@@ -38,6 +38,7 @@ autoUpload         Auto Upload the Ontology file in GraphDB if any change occur 
 ```
 --dburl        -d   base url of GraphDB instance, e.g. http://localhost:7200
 --repository   -r   repository to use for the command
+--version(optional)     version of GraphDB by default it is 10.x
 --context      -c   context to be used for the command, of not passed usually the entire repository is used
 --username     -u   the user to be authenticated
 --password     -p   the password to be used for authentication

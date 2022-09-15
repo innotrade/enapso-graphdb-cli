@@ -75,6 +75,7 @@ const EnapsoGraphDBCLI = {
         { name: 'username', alias: 'u', type: String },
         { name: 'password', alias: 'p', type: String },
         { name: 'dburl', alias: 'd', type: String },
+        { name: 'version', type: Number },
         { name: 'baseiri', alias: 'i', type: String },
         { name: 'baseurl', alias: 'b', type: String },
         { name: 'verbose', alias: 'v', type: Boolean },
@@ -104,12 +105,12 @@ const EnapsoGraphDBCLI = {
                 console.log('Export file successfully downloaded.');
                 return 0;
             } else {
-                console.log(res.statusMessage);
+                console.log(res.message);
                 return -1;
             }
         } catch (err) {
-            console.log(err.statusMessage);
-            return err.statusCode;
+            console.log(err.message);
+            return err.status;
         }
     },
 
@@ -129,12 +130,12 @@ const EnapsoGraphDBCLI = {
                 );
                 return 0;
             } else {
-                console.log(res.statusMessage);
+                console.log(res.message);
                 return -1;
             }
         } catch (err) {
-            console.log(err.statusMessage);
-            return err.statusCode;
+            console.log(err.message);
+            return err.status;
         }
     },
 
@@ -157,12 +158,12 @@ const EnapsoGraphDBCLI = {
                 );
                 return 0;
             } else {
-                console.log(res.statusMessage);
+                console.log(res.message);
                 return -1;
             }
         } catch (err) {
-            console.log(err.statusMessage);
-            return err.statusCode;
+            console.log(err.message);
+            return err.status;
         }
     },
 
@@ -189,12 +190,12 @@ const EnapsoGraphDBCLI = {
                 );
                 return 0;
             } else {
-                console.log(res.statusMessage);
+                console.log(res.message);
                 return 400;
             }
         } catch (err) {
-            console.log(err.statusMessage);
-            return err.statusCode;
+            console.log(err.message);
+            return err.status;
         }
     },
 
@@ -221,12 +222,12 @@ const EnapsoGraphDBCLI = {
                 );
                 return 0;
             } else {
-                console.log(res.statusMessage);
+                console.log(res.message);
                 return 400;
             }
         } catch (err) {
-            console.log(err.statusMessage);
-            return err.statusCode;
+            console.log(err.message);
+            return err.status;
         }
     },
 
@@ -245,12 +246,12 @@ const EnapsoGraphDBCLI = {
                 );
                 return 0;
             } else {
-                console.log(res.statusMessage);
+                console.log(res.message);
                 return 400;
             }
         } catch (err) {
-            console.log(err.statusMessage);
-            return err.statusCode;
+            console.log(err.message);
+            return err.status;
         }
     },
 
@@ -267,12 +268,12 @@ const EnapsoGraphDBCLI = {
                 );
                 return 0;
             } else {
-                console.log(res.statusMessage);
+                console.log(res.message);
                 return -1;
             }
         } catch (err) {
-            console.log(err.statusMessage);
-            return err.statusCode;
+            console.log(err.message);
+            return err.status;
         }
     },
 
@@ -287,12 +288,12 @@ const EnapsoGraphDBCLI = {
                 );
                 return 0;
             } else {
-                console.log(res.statusMessage);
+                console.log(res.message);
                 return -1;
             }
         } catch (err) {
-            console.log(err.statusMessage);
-            return err.statusCode;
+            console.log(err.message);
+            return err.status;
         }
     },
 
@@ -332,8 +333,8 @@ const EnapsoGraphDBCLI = {
                 return -1;
             }
         } catch (err) {
-            console.log(err.statusMessage);
-            return err.statusCode;
+            console.log(err.message);
+            return err.status;
         }
     },
 
@@ -346,7 +347,7 @@ const EnapsoGraphDBCLI = {
                 return logErrorMsg(ERROR_NOREPOSITORY);
             }
             var lRes = await this.endpoint.clearRepository(lRepository, {});
-            if (lRes && lRes.statusCode === 200) {
+            if (lRes && lRes.status === 200) {
                 console.log(
                     'Repository "' + lRepository + '" cleared successfully.'
                 );
@@ -361,8 +362,8 @@ const EnapsoGraphDBCLI = {
                 return -1;
             }
         } catch (err) {
-            console.log(err.statusMessage);
-            return err.statusCode;
+            console.log(err.message);
+            return err.status;
         }
     },
 
@@ -384,15 +385,15 @@ const EnapsoGraphDBCLI = {
                 }
             });
         } catch (err) {
-            console.log(err.statusMessage);
-            return err.statusCode;
+            console.log(err.message);
+            return err.status;
         }
     },
     // perfom garbage collection
     performGarbageCollection: async function () {
         try {
             var lRes = await this.endpoint.performGarbageCollection();
-            if (lRes && lRes.statusCode === 200) {
+            if (lRes && lRes.status === 200) {
                 console.log('Garbage collected successfully.');
                 return 0;
             } else {
@@ -400,8 +401,8 @@ const EnapsoGraphDBCLI = {
                 return -1;
             }
         } catch (err) {
-            console.log(err.statusMessage);
-            return err.statusCode;
+            console.log(err.message);
+            return err.status;
         }
     },
 
@@ -419,9 +420,10 @@ const EnapsoGraphDBCLI = {
                 aOptions.targetfile,
                 JSON.stringify(lDestData, null, 2)
             );
+            console.log('Transform Performed successfully');
         } catch (err) {
-            console.log(err.statusMessage);
-            return err.statusCode;
+            console.log(err.message);
+            return err.status;
         }
     },
 
@@ -431,8 +433,8 @@ const EnapsoGraphDBCLI = {
             let prefixes = EnapsoGraphDBClient.parsePrefixes(prefixData);
             return prefixes;
         } catch (err) {
-            console.log(err.statusMessage);
-            return err.statusCode;
+            console.log(err.message);
+            return err.status;
         }
     },
 
@@ -458,7 +460,8 @@ const EnapsoGraphDBCLI = {
             this.endpoint = new EnapsoGraphDBClient.Endpoint({
                 baseURL: lOptions.dburl,
                 repository: lOptions.repository,
-                prefixes: prefixes
+                prefixes: prefixes,
+                version: lOptions.version
             });
 
             if (lOptions.username && lOptions.password) {
@@ -521,7 +524,7 @@ const EnapsoGraphDBCLI = {
             }
         } catch (err) {
             console.log(err.message);
-            process.exit(err.statusCode);
+            process.exit(err.status);
         }
     }
 };

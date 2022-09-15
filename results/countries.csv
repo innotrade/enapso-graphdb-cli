@@ -1,13 +1,4 @@
 ontologyTitle,className,guideline,guidelineResult
- ,MyEvenMoreSpecificTechnicalAssetThisTimeFromWizard,Label for the CLASS_NAME in English  - Mandatory to have this defined,pass
- ,MyEvenMoreSpecificTechnicalAssetThisTimeFromWizard,Definition for the CLASS_NAME in English  - Mandatory to have this defined,fail
- ,MyEvenMoreSpecificTechnicalAssetThisTimeFromWizard,UPPER_CLASS_NAME: Class name defined in the Upper Ontology,pass
- ,MySpecificRole,Label for the CLASS_NAME in English  - Mandatory to have this defined,pass
- ,MySpecificRole,Definition for the CLASS_NAME in English  - Mandatory to have this defined,fail
- ,MySpecificRole,UPPER_CLASS_NAME: Class name defined in the Upper Ontology,pass
- ,MySpecificTechnicalAsset1,Label for the CLASS_NAME in English  - Mandatory to have this defined,pass
- ,MySpecificTechnicalAsset1,Definition for the CLASS_NAME in English  - Mandatory to have this defined,fail
- ,MySpecificTechnicalAsset1,UPPER_CLASS_NAME: Class name defined in the Upper Ontology,pass
- ,MyWizardTestProperty,Definition for the CLASS_NAME in English  - Mandatory to have this defined,pass
- ,MyWizardTestProperty,Label for the CLASS_NAME in English  - Mandatory to have this defined,pass
- ,MyWizardTestProperty,UPPER_CLASS_NAME: Class name defined in the Upper Ontology,pass
+ ,,Definition for the CLASS_NAME in English  - Mandatory to have this defined,fail
+ ,,Label for the CLASS_NAME in English  - Mandatory to have this defined,fail
+ ,,UPPER_CLASS_NAME: Class name defined in the Upper Ontology,fail
