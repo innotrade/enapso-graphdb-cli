@@ -39,6 +39,7 @@ autoUpload         Auto Upload the Ontology file in GraphDB if any change occur 
 --dburl        -d   base url of GraphDB instance, e.g. http://localhost:7200
 --repository   -r   repository to use for the command
 --version(optional)     version of GraphDB by default it is 10.x
+--apiType(optional)     api type of GraphDB (workbench or RDF4J) by default it used workbench apis.
 --context      -c   context to be used for the command, of not passed usually the entire repository is used
 --username     -u   the user to be authenticated
 --password     -p   the password to be used for authentication
@@ -64,12 +65,20 @@ enapsogdb export --dburl "http://localhost:7200" --repository "Test" --context "
 
 ```
 
-## Import (upload) a repository or named graph
+## Import (upload) a repository or named graph via workbench API
 
 Upload from a file to GraphDB:
 
 ```
 enapsogdb import --dburl "http://localhost:7200" --repository "Test" --context "http://ont.enapso.com/test" --baseiri "http://ont.enapso.com/test#" --sourcefile "imports/dotnetpro_demo_ontology_2.owl" --username "admin" --password "root" --format "application/rdf+xml"
+```
+
+## Import (upload) a repository or named graph via RDF4J API
+
+Upload from a file to GraphDB using RDF4J API:
+
+```
+enapsogdb import --dburl "http://localhost:7200" --apiType "RDF4J" --repository "Test" --context "http://ont.enapso.com/test" --baseiri "http://ont.enapso.com/test#" --sourcefile "imports/dotnetpro_demo_ontology_2.owl" --username "admin" --password "root" --format "application/rdf+xml"
 ```
 
 ## Clearing entire repository

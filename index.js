@@ -89,7 +89,7 @@ const EnapsoGraphDBCLI = {
         { name: 'authorities', alias: 'a', type: String, multiple: true },
         { name: 'newusername', type: String },
         { name: 'newpassword', type: String },
-
+        { name: 'apiType', type: String },
         { name: 'isShacl', type: Boolean }
     ],
 
@@ -461,7 +461,8 @@ const EnapsoGraphDBCLI = {
                 baseURL: lOptions.dburl,
                 repository: lOptions.repository,
                 prefixes: prefixes,
-                version: lOptions.version
+                version: lOptions.version,
+                apiType: lOptions.apiType
             });
 
             if (lOptions.username && lOptions.password) {
