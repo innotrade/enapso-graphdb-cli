@@ -104,6 +104,23 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Update (SPARQL File)",
+            "program": "${workspaceFolder}/index.js",
+            "args": [
+                "update",
+                "--dburl",
+                "http://localhost:7200",
+                "--repository",
+                "Test",
+                "--queryfile",
+                "queries/createClass.sparql",
+                "--prefixfile",
+                "queries/prefixes.prf"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Clear Repository (LocalDB Test)",
             "program": "${workspaceFolder}/index.js",
             "args": [

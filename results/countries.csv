@@ -1,4 +1,1 @@
 ontologyTitle,className,guideline,guidelineResult
- ,,Definition for the CLASS_NAME in English  - Mandatory to have this defined,fail
- ,,Label for the CLASS_NAME in English  - Mandatory to have this defined,fail
- ,,UPPER_CLASS_NAME: Class name defined in the Upper Ontology,fail

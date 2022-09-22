@@ -10,6 +10,10 @@ Get the latest version of GraphDB for free at https://www.ontotext.com/products/
 **This project is actively developed and maintained.**
 To discuss questions and suggestions with the Enapso and GraphDB community, we'll be happy to meet you in our forum at https://www.innotrade.com/forum/.
 
+## Test Suite
+
+To run the test suite against GraphDB run the following command `npm test`. Following file (`test/config.js`) need to configure before running the test suite.
+
 ## Installation
 
 ```
@@ -26,6 +30,8 @@ import            imports (upload) a repository or context from a file to a Grap
 clearRepository    clearRepository clear the repository of GraphDB.
 createRepository   createRepository create a new repository in GraphDB.
 deleteRepository   deleteRepository delete the repository of GraphDB.
+query              Run read query against GraphDB.
+update             Run update query against GraphDB.
 createUser         createUser create a new user and assign authorities to that user.
 updateUser         updateUser update the already exist user of GraphDB.
 deleteUser         deleteUser delete the user of GraphDB.
@@ -89,6 +95,14 @@ Clear entire repository. Caution! Use this command with care! The operation cann
 enapsogdb clearRepository --dburl "http://localhost:7200" --repository "Test" --username "admin" --password "root"
 ```
 
+## Clearing specific named graph from repository
+
+Clear specific named graph from graphdb repository. Caution! Use this command with care! The operation cannot be undone!
+
+```
+enapsogdb clearContext --dburl "http://localhost:7200" --repository "Test" --context "http://ont.enapso.com/test"  --username "admin" --password "root"
+```
+
 ## Perform Garbage Collection
 
 Perform the garbage collection of the Ontotext GraphDB.
@@ -147,6 +161,15 @@ Read the data from GraphDB
 
 ```
 enapsogdb query --dburl "http://localhost:7200" --repository "Test" --username "admin" --password "root" --queryfile "queries/all.sparql" --prefixfile "queries/prefixes.prf" --targetfile "results/countries.csv"
+
+```
+
+## Update Method of GraphDB
+
+Update the data of GraphDB
+
+```
+enapsogdb update --dburl "http://localhost:7200" --repository "Test" --username "admin" --password "root" --queryfile "queries/createClass.sparql" --prefixfile "queries/prefixes.prf"
 
 ```
 

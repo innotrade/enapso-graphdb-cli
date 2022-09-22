@@ -338,6 +338,23 @@ const EnapsoGraphDBCLI = {
         }
     },
 
+    update: async function (aOptions) {
+        try {
+            var lQuery;
+            try {
+                lQuery = fs.readFileSync(aOptions.queryfile).toString();
+            } catch (err) {
+                console.log('File ' + aOptions.queryfile + ' cannot be read');
+                return -1;
+            }
+            await this.endpoint.update(lQuery);
+            console.log('Update Operation performed cleared successfully.');
+        } catch (err) {
+            console.log(err.message);
+            return err.status;
+        }
+    },
+
     // clearing the entire repository
     clearRepository: async function (aOptions) {
         try {
@@ -490,6 +507,8 @@ const EnapsoGraphDBCLI = {
                 retCode = await this.transform(lOptions);
             } else if ('query' === lOptions.command) {
                 retCode = await this.query(lOptions);
+            } else if ('update' === lOptions.command) {
+                retCode = await this.update(lOptions);
             } else if ('clearRepository' === lOptions.command) {
                 retCode = await this.clearRepository(lOptions);
             } else if ('createRepository' === lOptions.command) {

@@ -1,0 +1,7 @@
+insert {
+		?class rdf:type owl:Class
+}
+where
+{
+	bind(entest:TestClass as ?class)
+}
