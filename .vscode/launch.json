@@ -195,17 +195,19 @@
             "args": [
                 "createUser",
                 "-d",
-                "http://localhost:7200",
+                "http://localhost:5820",
                 "-u",
                 "admin",
                 "-p",
-                "root",
+                "admin",
                 "--newusername",
                 "MyTestUser",
                 "--newpassword",
                 "MyTestUser",
+                "--triplestore",
+                "stardog",
                 "-a",
-                "ROLE_USER WRITE_REPO_Test READ_REPO_Test READ_REPO_EnapsoDotNetProDemo"
+                "[{\"action\":\"CREATE\",\"resource_type\":\"db\",\"resource\":[\"Test\"]}]"
             ]
         },
         {

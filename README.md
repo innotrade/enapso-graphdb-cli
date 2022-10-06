@@ -4,15 +4,40 @@ Enapso Ontotext GraphDB 8.x/9.x Command Line Interface (CLI) for Node.js
 
 Enapso Command Line Interface for GraphDB to easily perform numerous operations on GraphDB repositories and named graphs. This tool will be continously extended by further scriptable convenience operations.
 
-**The following demos require a running GraphDB 8.x/9.x/10.x instance on localhost at port 7200. The demos as well as the automated tests require a fully working Ontotext GraphDB repository "Test" and a user "admin" with the password "root" being set up, which has an administrator in GraphDB.** For certain operations the user needs to have the Repository Manager or Administrator role in GraphDB.
+### Configuration for Ontotext GraphDB
+
+**GraphDB 8.x/9.x/10.x instance running on localhost at port 7200. A fully working Ontotext GraphDB repository "Test".**
+
+```
+npm run test:ontotext-graphDB
+
+```
+
 Get the latest version of GraphDB for free at https://www.ontotext.com/products/graphdb/.
 
+### Configuration for Apache Jena Fuseki
+
+**Fuseki instance running on localhost at port 3030. A fully working Fuseki Dataset "Test"**
+
+```
+npm run test:fuseki
+
+```
+
+Get the latest version of Apache jena Fuseki for free at https://jena.apache.org/download/index.cgi.
+
+### Configuration for Stardog
+
+**Stardog instance running on localhost at port 5820. A fully working Database "Test".**
+
+```
+npm run test:stardog
+
+```
+
+Get the latest version of stardog free at https://www.stardog.com/.
 **This project is actively developed and maintained.**
 To discuss questions and suggestions with the Enapso and GraphDB community, we'll be happy to meet you in our forum at https://www.innotrade.com/forum/.
-
-## Test Suite
-
-To run the test suite against GraphDB run the following command `npm test`. Following file (`test/config.js`) need to configure before running the test suite.
 
 ## Installation
 
@@ -34,6 +59,8 @@ query              Run read query against GraphDB.
 update             Run update query against GraphDB.
 createUser         createUser create a new user and assign authorities to that user.
 updateUser         updateUser update the already exist user of GraphDB.
+assignRoles         Assign new roles to the user of stardog.
+removeRoles         Remove existing roles of the user of stardog.
 deleteUser         deleteUser delete the user of GraphDB.
 gc                 Garbage Collection of a repository in GraphDB.
 autoUpload         Auto Upload the Ontology file in GraphDB if any change occur in Ontology file if it is in watcher.
@@ -48,6 +75,7 @@ autoUpload         Auto Upload the Ontology file in GraphDB if any change occur 
 --apiType(optional)     api type of GraphDB (workbench or RDF4J) by default it used workbench apis.
 --context      -c   context to be used for the command, of not passed usually the entire repository is used
 --username     -u   the user to be authenticated
+--user       the user need to delete or update.
 --password     -p   the password to be used for authentication
                     (should not be stored in scripts, better use env variables)
 --baseiri      -i   base iri of graph e.g. http://ont.enapso.com/
@@ -142,16 +170,36 @@ enapsogdb createUser --dburl "http://localhost:7200" --repository "Test" --usern
 Update exisiting user of Ontotext GraphDB.
 
 ```
-enapsogdb updateUser --dburl "http://localhost:7200" --repository "Test" --username "admin" --password "root" --newusername "TestUser" --newpassword "TestUser" -a "ROLE_USER WRITE_REPO_Test READ_REPO_Test WRITE_REPO_EnapsoDotNetProDemo READ_REPO_EnapsoDotNetProDemo"
+enapsogdb updateUser --dburl "http://localhost:7200" --repository "Test" --username "admin" --password "root" --user "TestUser" --newpassword "TestUser" -a "ROLE_USER WRITE_REPO_Test READ_REPO_Test WRITE_REPO_EnapsoDotNetProDemo READ_REPO_EnapsoDotNetProDemo"
+
+```
+
+## Assign Role
+
+Assign role to exisiting user of GraphDB.
+
+```
+enapsogdb assignRoles --dburl "http://localhost:5820" --repository "Test" --username "admin" --password "admin" --user "TestUser" --newpassword "TestUser" -a '[{"action":"READ","resource_type":"db","resource":["Test"]},{"action":"WRITE","resource_type":"db","resource":["Test"]}]' --triplestore "stardog"
+
+
+```
+
+## Remove Role
+
+Remove roles of exisiting user of GraphDB.
+
+```
+enapsogdb removeRoles --dburl "http://localhost:5820" --repository "Test" --username "admin" --password "admin" --user "TestUser" --newpassword "TestUser" -a '[{"action":"READ","resource_type":"db","resource":["Test"]},{"action":"WRITE","resource_type":"db","resource":["Test"]}]' --triplestore "stardog"
+
 
 ```
 
 ## Delete User
 
-Delete exisiting user of Ontotext GraphDB.
+Delete exisiting user of GraphDB.
 
 ```
-enapsogdb deleteUser --dburl "http://localhost:7200" --repository "Test" --username "admin" --password "root" --newusername "TestUser"
+enapsogdb deleteUser --dburl "http://localhost:7200" --repository "Test" --username "admin" --password "root" --user "TestUser"
 
 ```
 

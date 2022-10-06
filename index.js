@@ -24,10 +24,9 @@ const GRAPHDB_DEFAULT_PREFIXES = [
 ];
 
 const PROGRAM_TITLE =
-    'ENAPSO Ontotext GraphDB Command Line Interface (CLI) v' +
-    packageJson.version;
+    'ENAPSO GraphDB Command Line Interface (CLI) v' + packageJson.version;
 const COPYRIGHT =
-    '(C) 2019-2020 Innotrade GmbH, Herzogenrath, NRW, Germany, https://www.innotrade.com';
+    '(C) 2021-2022 Innotrade GmbH, Herzogenrath, NRW, Germany, https://www.innotrade.com';
 
 const ERROR_NO_OR_INVALID_COMMAND = 1,
     ERROR_NO_DB_URL = 2,
@@ -76,6 +75,7 @@ const EnapsoGraphDBCLI = {
         { name: 'password', alias: 'p', type: String },
         { name: 'dburl', alias: 'd', type: String },
         { name: 'version', type: Number },
+        { name: 'triplestore', type: String },
         { name: 'baseiri', alias: 'i', type: String },
         { name: 'baseurl', alias: 'b', type: String },
         { name: 'verbose', alias: 'v', type: Boolean },
@@ -88,6 +88,7 @@ const EnapsoGraphDBCLI = {
         { name: 'repotitle', type: String },
         { name: 'authorities', alias: 'a', type: String, multiple: true },
         { name: 'newusername', type: String },
+        { name: 'user', type: String },
         { name: 'newpassword', type: String },
         { name: 'apiType', type: String },
         { name: 'isShacl', type: Boolean }
@@ -166,18 +167,61 @@ const EnapsoGraphDBCLI = {
             return err.status;
         }
     },
-
+    assignRoles: async function (aOptions) {
+        try {
+            let authorities = [];
+            authorities = JSON.parse(aOptions.authorities[0]);
+            let res = await this.endpoint.assignRoles({
+                authorities: authorities,
+                username: aOptions.user // Username for the new user
+            });
+            if (res.success) {
+                console.log('Role assign to user  successfully.');
+                return 0;
+            } else {
+                console.log(res.message);
+                return 400;
+            }
+        } catch (err) {
+            console.log(err.message);
+            return err.status;
+        }
+    },
+    removeRoles: async function (aOptions) {
+        try {
+            let authorities = [];
+            authorities = JSON.parse(aOptions.authorities[0]);
+            let res = await this.endpoint.removeRoles({
+                authorities: authorities,
+                username: aOptions.user // Username for the new user
+            });
+            if (res.success) {
+                console.log('Roles of user removed successfully.');
+                return 0;
+            } else {
+                console.log(res.message);
+                return 400;
+            }
+        } catch (err) {
+            console.log(err.message);
+            return err.status;
+        }
+    },
     createUser: async function (aOptions) {
         try {
-            let optAuth = aOptions.authorities
-                ? Array.isArray(aOptions.authorities)
-                    ? aOptions.authorities.join(' ')
-                    : aOptions.authorities
-                : 'ROLE_USER';
-            optAuth = optAuth.split(' ');
             let authorities = [];
-            for (let auth of optAuth) {
-                authorities.push(auth.trim());
+            if (aOptions.triplestore == 'stardog') {
+                authorities = JSON.parse(aOptions.authorities[0]);
+            } else {
+                let optAuth = aOptions.authorities
+                    ? Array.isArray(aOptions.authorities)
+                        ? aOptions.authorities.join(' ')
+                        : aOptions.authorities
+                    : 'ROLE_USER';
+                optAuth = optAuth.split(' ');
+                for (let auth of optAuth) {
+                    authorities.push(auth.trim());
+                }
             }
             let res = await this.endpoint.createUser({
                 authorities: authorities, // e.g. [ "WRITE_REPO_Test", "READ_REPO_Test", "READ_REPO_EnapsoDotNetProDemo", "ROLE_USER" ],
@@ -238,12 +282,10 @@ const EnapsoGraphDBCLI = {
                 aOptions.password
             );
             let res = await this.endpoint.deleteUser({
-                user: aOptions.newusername // username which you want to delete
+                user: aOptions.user // username which you want to delete
             });
             if (res.success) {
-                console.log(
-                    'User ' + aOptions.newusername + ' deleted successfully.'
-                );
+                console.log('User ' + aOptions.user + ' deleted successfully.');
                 return 0;
             } else {
                 console.log(res.message);
@@ -279,9 +321,7 @@ const EnapsoGraphDBCLI = {
 
     clearContext: async function (aOptions) {
         try {
-            var res = await this.endpoint.clearContext({
-                context: aOptions.context
-            });
+            var res = await this.endpoint.clearContext(aOptions.context);
             if (res.success) {
                 console.log(
                     'Context ' + aOptions.context + ' cleared successfully.'
@@ -479,10 +519,15 @@ const EnapsoGraphDBCLI = {
                 repository: lOptions.repository,
                 prefixes: prefixes,
                 version: lOptions.version,
+                triplestore: lOptions.triplestore,
                 apiType: lOptions.apiType
             });
 
-            if (lOptions.username && lOptions.password) {
+            if (
+                lOptions.username &&
+                lOptions.password &&
+                lOptions.triplestore != 'fuseki'
+            ) {
                 this.authentication = await this.endpoint.login(
                     lOptions.username,
                     lOptions.password
@@ -531,6 +576,10 @@ const EnapsoGraphDBCLI = {
                 'garbageCollection' === lOptions.command
             ) {
                 retCode = await this.performGarbageCollection(lOptions);
+            } else if ('removeRoles' === lOptions.command) {
+                retCode = await this.removeRoles(lOptions);
+            } else if ('assignRoles' === lOptions.command) {
+                retCode = await this.assignRoles(lOptions);
             } else if (
                 'au' === lOptions.command ||
                 'autoUpload' === lOptions.command

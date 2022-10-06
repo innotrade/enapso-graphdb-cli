@@ -11,11 +11,14 @@ const cmd = require('node-cmd');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
-
+var baseURL = process.argv[5].replace(/'/g, '"');
+var triplestore = process.argv[7].replace(/'/g, '"');
+var username = process.argv[9].replace(/'/g, '"');
+var password = process.argv[11].replace(/'/g, '"');
 describe('ENAPSO GraphDB CLI Automated Test Suite', async () => {
     it('Create repository in GraphDB', async (done) => {
         exec(
-            `node index.js createRepository --dburl "${testConfig.baseURL}" --repository "${testConfig.newRepo}" --repotitle "${testConfig.newRepoTitle}"   --username "${testConfig.username}" --password "${testConfig.password}" --version "${testConfig.version}"`,
+            `node index.js createRepository --dburl ${baseURL} --repository "${testConfig.newRepo}" --repotitle "${testConfig.newRepoTitle}"   --username ${username} --password ${password} --version "${testConfig.version}" --triplestore ${triplestore}`,
             (error, stdout, stderr) => {
                 if (error !== null) {
                     console.log(`create repostiory : ${stdout}`);
@@ -25,62 +28,117 @@ describe('ENAPSO GraphDB CLI Automated Test Suite', async () => {
         );
         done();
     });
-
     it('Delete repository of GraphDB', async (done) => {
         exec(
-            `node index.js deleteRepository --dburl "${testConfig.baseURL}" --repository "${testConfig.newRepo}" --username "${testConfig.username}" --password "${testConfig.password}" --version "${testConfig.version}"`,
+            `node index.js deleteRepository --dburl ${baseURL} --repository "${testConfig.newRepo}" --username ${username} --password ${password} --version "${testConfig.version}" --triplestore ${triplestore}`,
             (error, stdout, stderr) => {
                 if (error !== null) {
                     console.log(`delete repostiory : ${stdout}`);
                 }
-                expect(stdout).to.include('successfully');
+                expect(stdout).to.include('closed');
             }
         );
         done();
     });
-
-    it('Create new user of GraphDB', async (done) => {
-        exec(
-            `node index.js createUser --dburl "${testConfig.baseURL}" --repository "${testConfig.repository}" --username "${testConfig.username}" --password "${testConfig.password}" --newusername "${testConfig.newuser}" --newpassword "${testConfig.newpassword}" -a "${testConfig.userRole}" --version "${testConfig.version}"`,
-            (error, stdout, stderr) => {
-                if (error !== null) {
-                    console.log(`create user : ${stdout}`);
+    it('Create new user of GraphDB', (done) => {
+        let compare = triplestore.replace(/"/g, '');
+        if (compare === 'stardog' || compare === 'ontotext-graphDB') {
+            let role;
+            if (compare == 'ontotext-graphDB') {
+                role = testConfig.userRole;
+            } else if (compare == 'stardog') {
+                role = JSON.stringify(testConfig.stardogUserRole);
+            }
+            exec(
+                `node index.js createUser --dburl ${baseURL} --repository "${testConfig.repository}" --username ${username} --password ${password} --newusername "${testConfig.newuser}" --newpassword "${testConfig.newpassword}" -a ${role} --version "${testConfig.version}" --triplestore ${triplestore}`,
+                (error, stdout, stderr) => {
+                    console.log(error, stdout, stderr);
+                    if (error !== null) {
+                        console.log(`create user : ${stdout}`);
+                    }
+                    expect(stdout).to.include('successfully');
                 }
-                expect(stdout).to.include('successfully');
-            }
-        );
-        done();
+            );
+            done();
+        } else {
+            done();
+        }
     });
-
+    it('Assign Roles to existing user of GraphDB', async (done) => {
+        let compare = triplestore.replace(/"/g, '');
+        if (compare == 'stardog') {
+            let role = testConfig.updateStardogRoles;
+            exec(
+                `node index.js assignRoles --dburl ${baseURL} --repository "${testConfig.repository}" --username ${username} --password ${password} --user "${testConfig.newuser}" -a ${role} --version "${testConfig.version}" --triplestore ${triplestore}`,
+                (error, stdout, stderr) => {
+                    console.log(error, stdout, stderr);
+                    if (error !== null) {
+                        console.log(`Assign roles to user : ${stdout}`);
+                    }
+                    expect(stdout).to.include('successfully');
+                }
+            );
+            done();
+        } else {
+            done();
+        }
+    });
+    it('Remove Roles from existing user of GraphDB', async (done) => {
+        let compare = triplestore.replace(/"/g, '');
+        if (compare == 'stardog') {
+            let role = testConfig.updateStardogRoles;
+            exec(
+                `node index.js removeRoles --dburl ${baseURL} --repository "${testConfig.repository}" --username ${username} --password ${password} --user "${testConfig.newuser}" -a ${role} --version "${testConfig.version}" --triplestore ${triplestore}`,
+                (error, stdout, stderr) => {
+                    console.log(error, stdout, stderr);
+                    if (error !== null) {
+                        console.log(`Remove roles of user : ${stdout}`);
+                    }
+                    expect(stdout).to.include('successfully');
+                }
+            );
+            done();
+        } else {
+            done();
+        }
+    });
     it('Update existing user of GraphDB', async (done) => {
-        exec(
-            `node index.js updateUser --dburl "${testConfig.baseURL}" --repository "${testConfig.repository}" --username "${testConfig.username}" --password "${testConfig.password}" --newusername "${testConfig.newuser}" --newpassword "${testConfig.newpassword}" -a "${testConfig.updatedRole}" --version "${testConfig.version}"`,
-            (error, stdout, stderr) => {
-                if (error !== null) {
-                    console.log(`update user : ${stdout}`);
+        let compare = triplestore.replace(/"/g, '');
+        if (compare == 'ontotext-graphDB') {
+            exec(
+                `node index.js updateUser --dburl ${baseURL} --repository "${testConfig.repository}" --username ${username} --password ${password} --newusername "${testConfig.newuser}" --newpassword "${testConfig.newpassword}" -a "${testConfig.updatedRole}" --version "${testConfig.version}" --triplestore ${triplestore}`,
+                (error, stdout, stderr) => {
+                    if (error !== null) {
+                        console.log(`update user : ${stdout}`);
+                    }
+                    expect(stdout).to.include('successfully');
                 }
-                expect(stdout).to.include('successfully');
-            }
-        );
-        done();
+            );
+            done();
+        } else {
+            done();
+        }
     });
-
     it('Delete existing user of GraphDB', async (done) => {
-        exec(
-            `node index.js deleteUser --dburl "${testConfig.baseURL}" --repository "${testConfig.repository}" --username "${testConfig.username}" --password "${testConfig.password}" --newusername "${testConfig.newuser}" --version "${testConfig.version}"`,
-            (error, stdout, stderr) => {
-                if (error !== null) {
-                    console.log(`delete user : ${stdout}`);
+        let compare = triplestore.replace(/"/g, '');
+        if (compare != 'fuseki') {
+            exec(
+                `node index.js deleteUser --dburl ${baseURL} --repository "${testConfig.repository}" --username ${username} --password ${password} --user "${testConfig.newuser}" --version "${testConfig.version}" --triplestore ${triplestore}`,
+                (error, stdout, stderr) => {
+                    if (error !== null) {
+                        console.log(`delete user : ${stdout}`);
+                    }
+                    expect(stdout).to.include('successfully');
                 }
-                expect(stdout).to.include('successfully');
-            }
-        );
-        done();
+            );
+            done();
+        } else {
+            done();
+        }
     });
-
     it('Import Ontology into GraphDB', async (done) => {
         exec(
-            `node index.js import --dburl "${testConfig.baseURL}" --repository "${testConfig.repository}" --context "${testConfig.importContext}" --baseiri "${testConfig.importBaseIRI}" --sourcefile "${testConfig.importSourceFile}" --username "${testConfig.username}" --password "${testConfig.password}" --format "${testConfig.importFormat}" --version "${testConfig.version}"`,
+            `node index.js import --dburl ${baseURL} --repository "${testConfig.repository}" --context "${testConfig.importContext}" --baseiri "${testConfig.importBaseIRI}" --sourcefile "${testConfig.importSourceFile}" --username ${username} --password ${password} --format "${testConfig.importFormat}" --version "${testConfig.version}" --triplestore ${triplestore}`,
             (error, stdout, stderr) => {
                 if (error !== null) {
                     console.log(`import ontology : ${stdout}`);
@@ -90,10 +148,9 @@ describe('ENAPSO GraphDB CLI Automated Test Suite', async () => {
         );
         done();
     });
-
     it('Download Ontology from GraphDB', async (done) => {
         exec(
-            `node index.js export --dburl "${testConfig.baseURL}" --repository "${testConfig.repository}" --context "${testConfig.exportContext}" --targetfile "${testConfig.exportTargetFile}"  --username "${testConfig.username}" --password "${testConfig.password}" --format "${testConfig.exportFormat}" --version "${testConfig.version}"`,
+            `node index.js export --dburl ${baseURL} --repository "${testConfig.repository}" --context "${testConfig.exportContext}" --targetfile "${testConfig.exportTargetFile}"  --username ${username} --password ${password} --format "${testConfig.exportFormat}" --version "${testConfig.version}" --triplestore ${triplestore}`,
             (error, stdout, stderr) => {
                 if (error !== null) {
                     console.log(`download ontology : ${stdout}`);
@@ -103,10 +160,9 @@ describe('ENAPSO GraphDB CLI Automated Test Suite', async () => {
         );
         done();
     });
-
     it('Clear Specific named graph from GraphDB', async (done) => {
         exec(
-            `node index.js clearContext --dburl "${testConfig.baseURL}" --repository "${testConfig.repository}" --context "${testConfig.exportContext}"  --username "${testConfig.username}" --password "${testConfig.password}" --version "${testConfig.version}"`,
+            `node index.js clearContext --dburl ${baseURL} --repository "${testConfig.repository}" --context "${testConfig.importContext}"  --username ${username} --password ${password} --version "${testConfig.version}" --triplestore ${triplestore}`,
             (error, stdout, stderr) => {
                 if (error !== null) {
                     console.log(`Clear specific named graph : ${stdout}`);
@@ -116,10 +172,9 @@ describe('ENAPSO GraphDB CLI Automated Test Suite', async () => {
         );
         done();
     });
-
     it('Clear Repository of GraphDB', async (done) => {
         exec(
-            `node index.js clearRepository --dburl "${testConfig.baseURL}" --repository "${testConfig.repository}" --username "${testConfig.username}" --password "${testConfig.password}" --version "${testConfig.version}"`,
+            `node index.js clearRepository --dburl ${baseURL} --repository "${testConfig.repository}" --username ${username} --password ${password} --version "${testConfig.version}" --triplestore ${triplestore}`,
             (error, stdout, stderr) => {
                 if (error !== null) {
                     console.log(`Clear repository : ${stdout}`);
@@ -129,25 +184,28 @@ describe('ENAPSO GraphDB CLI Automated Test Suite', async () => {
         );
         done();
     });
-
     it('Garbage Collection from GraphDB', async (done) => {
-        exec(
-            `node index.js gc --dburl "${testConfig.baseURL}" --username "${testConfig.username}" --password "${testConfig.password}" --version "${testConfig.version}"`,
-            (error, stdout, stderr) => {
-                if (error !== null) {
-                    console.log(
-                        `Garbage Collection from graphdb repository: ${stdout}`
-                    );
+        let compare = triplestore.replace(/"/g, '');
+        if (compare == 'ontotext-graphDB') {
+            exec(
+                `node index.js gc --dburl ${baseURL} --username ${username} --password ${password} --version "${testConfig.version}" --triplestore ${triplestore}`,
+                (error, stdout, stderr) => {
+                    if (error !== null) {
+                        console.log(
+                            `Garbage Collection from graphdb repository: ${stdout}`
+                        );
+                    }
+                    expect(stdout).to.include('successfully');
                 }
-                expect(stdout).to.include('successfully');
-            }
-        );
-        done();
+            );
+            done();
+        } else {
+            done();
+        }
     });
-
     it('Run Query in GraphDB', async (done) => {
         exec(
-            `node index.js query --dburl "${testConfig.baseURL}" --repository "${testConfig.repository}" --username "${testConfig.username}" --password "${testConfig.password}" --queryfile "${testConfig.queryFile}" --prefixfile "${testConfig.prefixFile}" --targetfile "${testConfig.resultFile}" --version "${testConfig.version}"`,
+            `node index.js query --dburl ${baseURL} --repository "${testConfig.repository}" --username ${username} --password ${password} --queryfile "${testConfig.queryFile}" --prefixfile "${testConfig.prefixFile}" --targetfile "${testConfig.resultFile}" --version "${testConfig.version}" --triplestore ${triplestore}`,
             (error, stdout, stderr) => {
                 if (error !== null) {
                     console.log(`Run Query : ${stdout}`);
@@ -157,10 +215,9 @@ describe('ENAPSO GraphDB CLI Automated Test Suite', async () => {
         );
         done();
     });
-
     it('Run Update Query in GraphDB', async (done) => {
         exec(
-            `node index.js update --dburl "${testConfig.baseURL}" --repository "${testConfig.repository}" --username "${testConfig.username}" --password "${testConfig.password}" --queryfile "${testConfig.updateQueryFile}" --prefixfile "${testConfig.prefixFile}"--version "${testConfig.version}"`,
+            `node index.js update --dburl ${baseURL} --repository "${testConfig.repository}" --username ${username} --password ${password} --queryfile "${testConfig.updateQueryFile}" --prefixfile "${testConfig.prefixFile}"--version "${testConfig.version}" --triplestore ${triplestore}`,
             (error, stdout, stderr) => {
                 if (error !== null) {
                     console.log(`Run update Query : ${stdout}`);

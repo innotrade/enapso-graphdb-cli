@@ -7,16 +7,17 @@
 require('@innotrade/enapso-config');
 
 module.exports = Object.freeze({
-    baseURL: 'http://localhost:7200',
     repository: 'Test',
-    username: 'admin',
-    password: 'root',
     newuser: 'TestUser',
     newpassword: 'TestUser',
     userRole: 'ROLE_USER WRITE_REPO_Test READ_REPO_Test',
+    updateStardogRoles:
+        '[{"action":"READ","resource_type":"db","resource":["Test"]},{"action":"WRITE","resource_type":"db","resource":["Test"]}]',
+    stardogUserRole:
+        '[{"action":"CREATE","resource_type":"db","resource":["Test"]}]',
     updatedRole:
         'ROLE_USER WRITE_REPO_Test READ_REPO_Test WRITE_REPO_EnapsoDotNetProDemo READ_REPO_EnapsoDotNetProDemo',
-    version: 9,
+    // version: 9,
     newRepo: 'TestesRepository',
     importFormat: 'application/rdf+xml',
     importContext: 'http://ont.enapso.com/repo',
