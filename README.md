@@ -1,8 +1,32 @@
-# enapso-graphdb-cli
+![ENAPSO](https://i.ibb.co/6b3rXrB/enapso-client.png)
 
-Enapso Ontotext GraphDB 8.x/9.x Command Line Interface (CLI) for Node.js
+<div align="center">
+  <h1><span style="font-weight:bold; color: #4299E1;">ENAPSO</span> Graph Database CLI</h1>
+  <a href="https://www.npmjs.com/package/@innotrade/enapso-graphdb-client"><img src="https://img.shields.io/npm/v/@innotrade/enapso-graphdb-client" /></a>
+  <a href="https://github.com/prisma/prisma/blob/main/CONTRIBUTING.md"><img src="https://img.shields.io/badge/connect-Community-brightgreen" /></a>
+  <a href="https://github.com/innotrade/enapso-graphdb-cli/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-Apache%202-blue" /></a>
+  <a href="https://github.com/innotrade/enapso-graphdb-cli/blob/main/CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/code-Conduct-orange" /></a>
+  <br />
+  <br />
+  <a href="https://www.innotrade.com/">Website</a>
+  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <a href="https://github.com/innotrade/enapso-graphdb-cli/wiki">Documentation</a>
+  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <a href="https://github.com/innotrade/enapso-graphdb-cli/discussions">Discussion</a>
+  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <a href="#">Facebook</a>
+  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <a href="#">Twitter</a>
+  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <a href="#">LinkedIn</a>
+  <br />
+  <hr />
+</div>
 
-Enapso Command Line Interface for GraphDB to easily perform numerous operations on GraphDB repositories and named graphs. This tool will be continously extended by further scriptable convenience operations.
+
+ENAPSO Graph Databases Command Line Interface (CLI) for Node.js
+
+Enapso Command Line Interface for GraphDB to easily perform numerous operations on Graph databases. This tool will be continously extended by further scriptable convenience operations.
 
 ### Configuration for Ontotext GraphDB
 
