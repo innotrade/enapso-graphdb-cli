@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-console, func-names, no-undef */
-// Innotrade Enapso GraphDB CLI - Automated Test Suite
+// Innotrade ENAPSO Graph Database CLI - Automated Test Suite
 // (C) Copyright 2021-2021 Innotrade GmbH, Herzogenrath, NRW, Germany
 // Author: Alexander Schulze and Muhammad Yasir
 const { expect } = require('chai');
@@ -15,8 +15,8 @@ var baseURL = process.argv[5].replace(/'/g, '"');
 var triplestore = process.argv[7].replace(/'/g, '"');
 var username = process.argv[9].replace(/'/g, '"');
 var password = process.argv[11].replace(/'/g, '"');
-describe('ENAPSO GraphDB CLI Automated Test Suite', async () => {
-    it('Create repository in GraphDB', async (done) => {
+describe('ENAPSO Graph Databases CLI Automated Test Suite', async () => {
+    it('Create repository in Graph Database', async (done) => {
         exec(
             `node index.js createRepository --dburl ${baseURL} --repository "${testConfig.newRepo}" --repotitle "${testConfig.newRepoTitle}"   --username ${username} --password ${password} --version "${testConfig.version}" --triplestore ${triplestore}`,
             (error, stdout, stderr) => {
@@ -28,7 +28,7 @@ describe('ENAPSO GraphDB CLI Automated Test Suite', async () => {
         );
         done();
     });
-    it('Delete repository of GraphDB', async (done) => {
+    it('Delete repository of Graph Database', async (done) => {
         exec(
             `node index.js deleteRepository --dburl ${baseURL} --repository "${testConfig.newRepo}" --username ${username} --password ${password} --version "${testConfig.version}" --triplestore ${triplestore}`,
             (error, stdout, stderr) => {
@@ -40,7 +40,7 @@ describe('ENAPSO GraphDB CLI Automated Test Suite', async () => {
         );
         done();
     });
-    it('Create new user of GraphDB', (done) => {
+    it('Create new user in Graph Databases', (done) => {
         let compare = triplestore.replace(/"/g, '');
         if (compare === 'stardog' || compare === 'ontotext-graphDB') {
             let role;
@@ -64,7 +64,7 @@ describe('ENAPSO GraphDB CLI Automated Test Suite', async () => {
             done();
         }
     });
-    it('Assign Roles to existing user of GraphDB', async (done) => {
+    it('Assign Roles to existing user of Graph Database', async (done) => {
         let compare = triplestore.replace(/"/g, '');
         if (compare == 'stardog') {
             let role = testConfig.updateStardogRoles;
@@ -83,7 +83,7 @@ describe('ENAPSO GraphDB CLI Automated Test Suite', async () => {
             done();
         }
     });
-    it('Remove Roles from existing user of GraphDB', async (done) => {
+    it('Remove Roles from existing user of Graph Database', async (done) => {
         let compare = triplestore.replace(/"/g, '');
         if (compare == 'stardog') {
             let role = testConfig.updateStardogRoles;
@@ -102,7 +102,7 @@ describe('ENAPSO GraphDB CLI Automated Test Suite', async () => {
             done();
         }
     });
-    it('Update existing user of GraphDB', async (done) => {
+    it('Update existing user of Graph Database', async (done) => {
         let compare = triplestore.replace(/"/g, '');
         if (compare == 'ontotext-graphDB') {
             exec(
@@ -119,7 +119,7 @@ describe('ENAPSO GraphDB CLI Automated Test Suite', async () => {
             done();
         }
     });
-    it('Delete existing user of GraphDB', async (done) => {
+    it('Delete existing user of Graph Database', async (done) => {
         let compare = triplestore.replace(/"/g, '');
         if (compare != 'fuseki') {
             exec(
@@ -136,7 +136,7 @@ describe('ENAPSO GraphDB CLI Automated Test Suite', async () => {
             done();
         }
     });
-    it('Import Ontology into GraphDB', async (done) => {
+    it('Import Ontology into Graph Database', async (done) => {
         exec(
             `node index.js import --dburl ${baseURL} --repository "${testConfig.repository}" --context "${testConfig.importContext}" --baseiri "${testConfig.importBaseIRI}" --sourcefile "${testConfig.importSourceFile}" --username ${username} --password ${password} --format "${testConfig.importFormat}" --version "${testConfig.version}" --triplestore ${triplestore}`,
             (error, stdout, stderr) => {
@@ -148,7 +148,7 @@ describe('ENAPSO GraphDB CLI Automated Test Suite', async () => {
         );
         done();
     });
-    it('Download Ontology from GraphDB', async (done) => {
+    it('Download Ontology from Graph Database', async (done) => {
         exec(
             `node index.js export --dburl ${baseURL} --repository "${testConfig.repository}" --context "${testConfig.exportContext}" --targetfile "${testConfig.exportTargetFile}"  --username ${username} --password ${password} --format "${testConfig.exportFormat}" --version "${testConfig.version}" --triplestore ${triplestore}`,
             (error, stdout, stderr) => {
@@ -160,7 +160,7 @@ describe('ENAPSO GraphDB CLI Automated Test Suite', async () => {
         );
         done();
     });
-    it('Clear Specific named graph from GraphDB', async (done) => {
+    it('Clear Specific named graph from Graph Database', async (done) => {
         exec(
             `node index.js clearContext --dburl ${baseURL} --repository "${testConfig.repository}" --context "${testConfig.importContext}"  --username ${username} --password ${password} --version "${testConfig.version}" --triplestore ${triplestore}`,
             (error, stdout, stderr) => {
@@ -172,7 +172,7 @@ describe('ENAPSO GraphDB CLI Automated Test Suite', async () => {
         );
         done();
     });
-    it('Clear Repository of GraphDB', async (done) => {
+    it('Clear Repository of the Graph Database', async (done) => {
         exec(
             `node index.js clearRepository --dburl ${baseURL} --repository "${testConfig.repository}" --username ${username} --password ${password} --version "${testConfig.version}" --triplestore ${triplestore}`,
             (error, stdout, stderr) => {
@@ -184,7 +184,7 @@ describe('ENAPSO GraphDB CLI Automated Test Suite', async () => {
         );
         done();
     });
-    it('Garbage Collection from GraphDB', async (done) => {
+    it('Garbage Collection from the Graph Database', async (done) => {
         let compare = triplestore.replace(/"/g, '');
         if (compare == 'ontotext-graphDB') {
             exec(
@@ -192,7 +192,7 @@ describe('ENAPSO GraphDB CLI Automated Test Suite', async () => {
                 (error, stdout, stderr) => {
                     if (error !== null) {
                         console.log(
-                            `Garbage Collection from graphdb repository: ${stdout}`
+                            `Garbage Collection from graph database repository: ${stdout}`
                         );
                     }
                     expect(stdout).to.include('successfully');
@@ -203,7 +203,7 @@ describe('ENAPSO GraphDB CLI Automated Test Suite', async () => {
             done();
         }
     });
-    it('Run Query in GraphDB', async (done) => {
+    it('Run Query in the Graph Database', async (done) => {
         exec(
             `node index.js query --dburl ${baseURL} --repository "${testConfig.repository}" --username ${username} --password ${password} --queryfile "${testConfig.queryFile}" --prefixfile "${testConfig.prefixFile}" --targetfile "${testConfig.resultFile}" --version "${testConfig.version}" --triplestore ${triplestore}`,
             (error, stdout, stderr) => {
@@ -215,7 +215,7 @@ describe('ENAPSO GraphDB CLI Automated Test Suite', async () => {
         );
         done();
     });
-    it('Run Update Query in GraphDB', async (done) => {
+    it('Run Update Query in the Graph Database', async (done) => {
         exec(
             `node index.js update --dburl ${baseURL} --repository "${testConfig.repository}" --username ${username} --password ${password} --queryfile "${testConfig.updateQueryFile}" --prefixfile "${testConfig.prefixFile}"--version "${testConfig.version}" --triplestore ${triplestore}`,
             (error, stdout, stderr) => {

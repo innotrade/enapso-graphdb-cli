@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// Innotrade Enapso GraphDB Command Line Interface (CLI)
+// Innotrade ENAPSO Graph Database Command Line Interface (CLI)
 // (C) Copyright 2019-2020 Innotrade GmbH, Herzogenrath, NRW, Germany
 // Author(s): Alexander Schulze and Muhammad Yasir
 // for details regarding the options see:
@@ -24,7 +24,8 @@ const GRAPHDB_DEFAULT_PREFIXES = [
 ];
 
 const PROGRAM_TITLE =
-    'ENAPSO GraphDB Command Line Interface (CLI) v' + packageJson.version;
+    'ENAPSO Graph Databases Command Line Interface (CLI) v' +
+    packageJson.version;
 const COPYRIGHT =
     '(C) 2021-2022 Innotrade GmbH, Herzogenrath, NRW, Germany, https://www.innotrade.com';
 

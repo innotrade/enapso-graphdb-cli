@@ -1,5 +1,5 @@
 {
-    // Innotrade Enapso GraphDB Command Line Interface (CLI)
+    // Innotrade ENAPSO Graph Databases Command Line Interface (CLI)
     // (C) Copyright 2019-2020 Innotrade GmbH, Herzogenrath, NRW, Germany
     // Author(s): Alexander Schulze and Muhammad Yasir
     // Use IntelliSense to learn about possible attributes.
@@ -10,7 +10,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Export (Download from GraphDB)",
+            "name": "Export (Download from Graph Database)",
             "program": "${workspaceFolder}/index.js",
             "args": [
                 "export",
@@ -33,7 +33,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Import (Upload to GraphDB)",
+            "name": "Import (Upload to Graph Database)",
             "program": "${workspaceFolder}/index.js",
             "args": [
                 "import",
