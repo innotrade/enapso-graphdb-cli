@@ -25,9 +25,9 @@
 
 ENAPSO Graph Databases Command Line Interface (CLI) for Node.js
 
-ENAPSO Command Line Interface to easily perform numerous operations on Graph databases. This tool will be continously extended by further scriptable convenience operations.
+ENAPSO Command Line Interface to easily perform numerous operations on the graph databases. This tool will be continuously extended by further scriptable convenience operations.
 
-As of now we support the connection with three major graph databases
+As of now, we support the connection with three major graph databases
 
 -   [Ontotext GraphDB](https://www.ontotext.com/products/graphdb/)
 -   [Apache Jena fuseki](https://jena.apache.org/)
@@ -40,104 +40,132 @@ You may also find these tools useful
 -   [**ENAPSO Graph Database Client**](https://github.com/innotrade/enapso-graphdb-admin): To perform SPARQL queries and update statements against your knowledge graphs or ontologies stored in your graph database.
 -   [**ENAPSO Graph Database Admin**](https://github.com/innotrade/enapso-graphdb-admin): To perform administrative and monitoring operations against your graph databases, such as importing and exporting ontologies/knowledge graphs and utilizing the graph database's special features.
 
-[**Tutorial for Test Suite**](https://github.com/innotrade/enapso-graphdb-client/wiki/Tutorial-for-Graph-Databases-Test-Suite): To run the Test suites against the graph database.
-
-# Installation
+# 🛠️&nbsp;Installation
 
 ```
 npm i -g @innotrade/enapso-graphdb-cli
 ```
 
-## List of Features
+## 📋&nbsp;Features
 
 | Command                                                            | Description                                                                                                 | Ontotext GraphDB | Apache Jena Fuseki | Stardog |
 | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- | ---------------- | ------------------ | ------- |
-| [export](#export-download-a-repository-or-a-specific-named-graph)  | Exports (download) the triples from a specific context or a repository of Graph Database to the local file. | ✔                | ✔                  | ✔       |
-| [import](#import-upload-a-repository-or-named-graph-via-rdf4j-api) | Imports (upload) ontology in aspecific context or default graph of Graph Database repository.               | ✔                | ✔                  | ✔       |
-| [clearRepository](#clearing-entire-repository)                     | Remove all triples from the repository of Graph Database.                                                   | ✔                | ✔                  | ✔       |
-| [createRepository](#create-repository)                             | Create a new repository in Graph Database.                                                                  | ✔                | ✔                  | ✔       |
-| [deleteRepository](#delete-repository)                             | Delete the repository from Graph Database.                                                                  | ✔                | ✔                  | ✔       |
-| [createUser](#create-user)                                         | Create a new user and assign roles in the Graph Database.                                                   | ✔                | ✘                  | ✔       |
-| [updateUser](#update-user)                                         | Update the existing user roles in Graph Database.                                                           | ✔                | ✘                  | ✘       |
-| [assignRoles](#assign-role)                                        | Assign new roles to the existing user of Graph Database.                                                    | ✘                | ✘                  | ✔       |
-| [removeRoles](#remove-role)                                        | Remove existing roles of the user in Graph Database.                                                        | ✘                | ✘                  | ✔       |
-| [deleteUser](#delete-user)                                         | Delete the user of the Graph Database.                                                                      | ✔                | ✘                  | ✔       |
-| [garbageCollection](#perform-garbage-collection)                   | Perform garbage collection in the repository of Graph Database.                                             | ✔                | ✘                  | ✘       |
-| [query](#query-method-of-the-graph-database)                       | Perform read query against ontology imported in the repository of Graph Database.                           | ✔                | ✔                  | ✔       |
-| [update](#update-method-of-the-graph-database)                     | Perform update query against ontology imported in the repository of Graph Database.                         | ✔                | ✔                  | ✔       |
+| [export](#export)  | Exports (download) the triples from a specific context or a repository of graph database to the local file. | ✔                | ✔                  | ✔       |
+| [import](#import) | Imports (upload) ontology in a specific context or default graph of graph database repository.               | ✔                | ✔                  | ✔       |
+| [clearRepository](#clearrepository)                     | Remove all triples from the repository of graph database.                                                   | ✔                | ✔                  | ✔       |
+| [createRepository](#createrepository)                             | Create a new repository in the graph database.                                                                  | ✔                | ✔                  | ✔       |
+| [deleteRepository](#deleterepository)                             | Delete the repository from graph database.                                                                  | ✔                | ✔                  | ✔       |
+| [createUser](#createuser)                                         | Create a new user and assign roles in the graph database.                                                   | ✔                | ✘                  | ✔       |
+| [updateUser](#updateuser)                                         | Update the existing user roles in graph database.                                                           | ✔                | ✘                  | ✘       |
+| [assignRoles](#assignroles)                                        | Assign new roles to the existing user of the graph database.                                                    | ✘                | ✘                  | ✔       |
+| [removeRoles](#removeroles)                                        | Remove existing roles of the user in graph database.                                                        | ✘                | ✘                  | ✔       |
+| [deleteUser](#deleteuser)                                         | Delete the user of the graph database.                                                                      | ✔                | ✘                  | ✔       |
+| [garbageCollection](#garbagecollection)                   | Perform garbage collection in the repository of graph database.                                             | ✔                | ✘                  | ✘       |
+| [query](#query)                       | Perform read query against ontology imported in the repository of a graph database.                           | ✔                | ✔                  | ✔       |
+| [update](#update)                     | Perform update query against ontology imported in the repository of graph database.                         | ✔                | ✔                  | ✔       |
 
-## List of Parameters
+### Parameters
 
 | Parameter                              | Abbreviation | Parameter Description                                                                               |
 | -------------------------------------- | ------------ | --------------------------------------------------------------------------------------------------- |
-| dburl                                  | d            | Base url in which Graph Database is running.                                                        |
-| repository                             | r            | Name of the repository of Graph Database with which you want to create connection                   |
-| version                                |              | Version of Graph Database by default it works with latest version.                                  |
-| apiType                                |              | Api type of Graph Database (workbench or RDF4J) to use for import by default it used workbench api. |
+| dburl                                  | d            | Base url in which graph database is running.                                                        |
+| repository                             | r            | Name of the repository of the graph database with which you want to create a connection                   |
+| version                                |              | Version of the graph database, by default works with the latest version.                                  |
+| apiType                                |              | Api type of graph database (workbench or RDF4J) to use for import by default it used workbench API. |
 | context                                | c            | To pass the context                                                                                 |
-| username                               | u            | To pass the name of user against you want to authenticate yourself in Graph Database.               |
-| user                                   |              | To pass the name of user which you want to delete or update in Graph Database.                      |
-| password                               | p            | Password to be used for authentication in Graph Database.                                           |
+| username                               | u            | To pass the name of the user against you want to authenticate yourself in a graph database.               |
+| user                                   |              | To pass the name of the user which you want to delete or update in the graph database.                      |
+| password                               | p            | Password to be used for authentication in the graph database.                                           |
 | baseiri                                | i            | Base iri of the graph e.g. http://ont.enapso.com/ .                                                 |
 | targetfile                             | t            | File path for exports to file                                                                       |
 | sourcefile                             | s            | File path of import from file.                                                                      |
 | queryfile                              | q            | File path of the query file (SPARQL).                                                               |
 | [format](#file-types-and-data-formats) | f            | Specify format of the ontology file.                                                                |
-| authorities                            | f            | Pass the user roles of the Graph Database                                                           |
+| authorities                            | f            | Pass the user roles of the graph database                                                           |
 
-# Examples
+<details open>
+<summary>
+  
+## export
+</summary>
 
-## Export (download) a repository or a specific named graph
-
-Download from Graph Database to a file:
+Download  a repository or a specific named graph from graph database to a file:
 
 ```
 
 enapsogdb export --dburl "http://localhost:7200" --repository "Test" --context "http://ont.enapso.com/test" --targetfile "exports/export.ttl" --username "admin" --password "root" --format "text/turtle"
 
 ```
+</details>
 
-## Import (upload) a repository or named graph via workbench API
+<details open>
+<summary>
+  
+## import
+</summary>
 
-Upload from a file to Graph Database:
+Upload from a file to the repository of graph database:
 
 ```
 
 enapsogdb import --dburl "http://localhost:7200" --repository "Test" --context "http://ont.enapso.com/test" --baseiri "http://ont.enapso.com/test#" --sourcefile "imports/dotnetpro_demo_ontology_2.owl" --username "admin" --password "root" --format "application/rdf+xml"
 
 ```
+</details>
 
-## Import (upload) a repository or named graph via RDF4J API
 
-Upload from a file to Graph Database using RDF4J API:
+<details open>
+<summary>
+  
+## import via RDF4J
+</summary>
+
+
+Upload from a file to the repository of graph database using RDF4J API:
 
 ```
 
 enapsogdb import --dburl "http://localhost:7200" --apiType "RDF4J" --repository "Test" --context "http://ont.enapso.com/test" --baseiri "http://ont.enapso.com/test#" --sourcefile "imports/dotnetpro_demo_ontology_2.owl" --username "admin" --password "root" --format "application/rdf+xml"
 
 ```
+</details>
 
-## Clearing entire repository
 
-Clear entire repository. Caution! Use this command with care! The operation cannot be undone!
+<details open>
+<summary>
+  
+## clearRepository
+</summary>
+
+Clear the entire repository. Caution! Use this command with care! The operation cannot be undone!
 
 ```
 
 enapsogdb clearRepository --dburl "http://localhost:7200" --repository "Test" --username "admin" --password "root"
 
 ```
+</details>
 
-## Clearing specific named graph from repository
+<details open>
+<summary>
+  
+## clearContext
+</summary>
 
-Clear specific named graph from graph database repository. Caution! Use this command with care! The operation cannot be undone!
+Clear specific named graphs from a graph database repository. Caution! Use this command with care! The operation cannot be undone!
 
 ```
 
 enapsogdb clearContext --dburl "http://localhost:7200" --repository "Test" --context "http://ont.enapso.com/test" --username "admin" --password "root"
 
 ```
+</details>
 
-## Perform Garbage Collection
+<details open>
+<summary>
+  
+## garbageCollection
+</summary>
 
 Perform the garbage collection of the Ontotext Graph Database.
 
@@ -146,8 +174,13 @@ Perform the garbage collection of the Ontotext Graph Database.
 enapsogdb gc --dburl "http://localhost:7200" --username "admin" --password "root"
 
 ```
+</details>
 
-## Create Repository
+<details open>
+<summary>
+  
+## createRepository
+</summary>
 
 Create New Repository in the Graph Database.
 
@@ -156,8 +189,13 @@ Create New Repository in the Graph Database.
 enapsogdb createRepository --dburl "http://localhost:7200" --repository "TestRepository" --repotitle "Test Repository" --username "admin" --password "root"
 
 ```
+</details>
 
-## Delete Repository
+<details open>
+<summary>
+  
+## deleteRepository
+</summary>
 
 Delete Repository of Graph Database.
 
@@ -166,78 +204,118 @@ Delete Repository of Graph Database.
 enapsogdb deleteRepository --dburl "http://localhost:7200" --repository "TestRepository" --username "admin" --password "root"
 
 ```
+</details>
 
-## Create User
+<details open>
+<summary>
+  
+## createUser
+</summary>
 
-Create new user in the Graph Database.
+Create a new user in the Graph Database.
 
 ```
 
 enapsogdb createUser --dburl "http://localhost:7200" --repository "Test" --username "admin" --password "root" --newusername "TestUser" --newpassword "TestUser" -a "ROLE_USER WRITE_REPO_Test READ_REPO_Test READ_REPO_EnapsoDotNetProDemo"
 
 ```
+</details>
 
-## Update User
+<details open>
+<summary>
+  
+## updateUser
+</summary>
 
-Update existing user of the Graph Database.
+Update existing users of the Graph Database.
 
 ```
 
 enapsogdb updateUser --dburl "http://localhost:7200" --repository "Test" --username "admin" --password "root" --user "TestUser" --newpassword "TestUser" -a "ROLE_USER WRITE_REPO_Test READ_REPO_Test WRITE_REPO_EnapsoDotNetProDemo READ_REPO_EnapsoDotNetProDemo"
 
 ```
+</details>
 
-## Assign Role
+<details open>
+<summary>
+  
+## assignRoles
+</summary>
 
-Assign role to existing user of the Graph Database.
+Assign a role to an existing user of the Graph Database.
 
 ```
 
 enapsogdb assignRoles --dburl "http://localhost:5820" --repository "Test" --username "admin" --password "admin" --user "TestUser" --newpassword "TestUser" -a '[{"action":"READ","resource_type":"db","resource":["Test"]},{"action":"WRITE","resource_type":"db","resource":["Test"]}]' --triplestore "stardog"
 
 ```
+</details>
 
-## Remove Role
+<details open>
+<summary>
+  
+## removeRoles
+</summary>
 
-Remove roles of existing user of Graph Database .
+Remove roles of the existing user of graph database.
 
 ```
 
 enapsogdb removeRoles --dburl "http://localhost:5820" --repository "Test" --username "admin" --password "admin" --user "TestUser" --newpassword "TestUser" -a '[{"action":"READ","resource_type":"db","resource":["Test"]},{"action":"WRITE","resource_type":"db","resource":["Test"]}]' --triplestore "stardog"
 
 ```
+</details>
 
-## Delete User
+<details open>
+<summary>
+  
+## deleteUser
+</summary>
 
-Delete existing user of the Graph Database.
+Delete existing users of the graph database.
 
 ```
 
 enapsogdb deleteUser --dburl "http://localhost:7200" --repository "Test" --username "admin" --password "root" --user "TestUser"
 
 ```
+</details>
 
-## Query Method of the Graph Database
+<details open>
+<summary>
+  
+## query
+</summary>
 
-Read the data from Graph Database
+Read the data from graph database
 
 ```
 
 enapsogdb query --dburl "http://localhost:7200" --repository "Test" --username "admin" --password "root" --queryfile "queries/all.sparql" --prefixfile "queries/prefixes.prf" --targetfile "results/countries.csv"
 
 ```
+</details>
 
-## Update Method of the Graph Database
+<details open>
+<summary>
+  
+## update
+</summary>
 
-Update the data of Graph Database
+Update the data of the graph database
 
 ```
 
 enapsogdb update --dburl "http://localhost:7200" --repository "Test" --username "admin" --password "root" --queryfile "queries/createClass.sparql" --prefixfile "queries/prefixes.prf"
 
 ```
+</details>
 
+<details>
+<summary>
+  
 ## File Types and Data Formats
+</summary> 
 
 The following file types are supported:
 
@@ -282,16 +360,47 @@ extension: ".trig"
 name: "Binary RDF",
 type: "application/x-binary-rdf",
 extension: ".brf"
-
-
 ```
+</details>
 
-## Contribution
 
-If you have a bug to report, do not hesitate to contact us or file an issue.
+# 🧪&nbsp;Testing
 
-If you are willing to fix an issue or propose a [feature](https://www.innotrade.com/forum/); all PRs with clear explanations are welcome and encouraged.
+[Tutorial](https://github.com/innotrade/enapso-graphdb-client/wiki/Tutorial-for-Graph-Databases-Test-Suite) to run the Test suite against the graph database.
 
-## License
+<div>  
+  &nbsp; 
+</div>
 
-[Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0)
+# 😎&nbsp;Contributing
+
+Contributing is more than just coding. You can help the project in many ways, and we will be very
+happy to accept your contribution to our project.
+
+Details of how you can help the project are described in the [CONTRIBUTING.md](./CONTRIBUTING.md)
+document.
+
+## 🧑‍🏫&nbsp;Contributors
+
+<a href = "https://github.com/Tanu-N-Prabhu/Python/graphs/contributors">
+  <img src = "https://contrib.rocks/image?repo=innotrade/enapso-graphdb-cli" width="200"/>
+</a>
+
+<div>  
+  &nbsp; 
+</div>
+
+# 💬&nbsp; Bugs and Feature Requests
+
+Do you have a bug report or a feature request? 
+
+Please feel free to add a [new
+issue](https://github.com/innotrade/enapso-graphdb-cli/issues/new) or write to us in [discussion](https://github.com/innotrade/enapso-graphdb-cli/discussions): Any questions and suggestions are welcome.
+
+<div>  
+  &nbsp; 
+</div>
+
+# 🧾&nbsp;License
+This project is licensed under the Apache 2.0 License. See the [LICENSE](./LICENSE) file for more
+details.
