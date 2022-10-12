@@ -390,7 +390,7 @@ document.
   &nbsp; 
 </div>
 
-# 💬&nbsp; Bugs and Feature Requests
+# 💬&nbsp;Bugs and Feature Requests
 
 Do you have a bug report or a feature request? 
 
