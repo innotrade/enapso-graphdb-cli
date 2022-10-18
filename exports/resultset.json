@@ -8,9 +8,9 @@
       "lastName": "Schulze"
     },
     {
-      "iri": "http://ont.enapso.com/test#Person_OsvaldoAguilarLauzurique",
-      "firstName": "Osvaldo",
-      "lastName": "Aguilar Lauzurique"
+      "iri": "http://ont.enapso.com/test#Person_JohnDoe",
+      "firstName": "John",
+      "lastName": "Doe"
     }
   ]
 }
