@@ -42,9 +42,9 @@ describe('ENAPSO Graph Databases CLI Automated Test Suite', async () => {
     });
     it('Create new user in Graph Databases', (done) => {
         let compare = triplestore.replace(/"/g, '');
-        if (compare === 'stardog' || compare === 'ontotext-graphDB') {
+        if (compare === 'stardog' || compare === 'graphdb') {
             let role;
-            if (compare == 'ontotext-graphDB') {
+            if (compare == 'graphdb') {
                 role = testConfig.userRole;
             } else if (compare == 'stardog') {
                 role = JSON.stringify(testConfig.stardogUserRole);
@@ -104,7 +104,7 @@ describe('ENAPSO Graph Databases CLI Automated Test Suite', async () => {
     });
     it('Update existing user of Graph Database', async (done) => {
         let compare = triplestore.replace(/"/g, '');
-        if (compare == 'ontotext-graphDB') {
+        if (compare == 'graphdb') {
             exec(
                 `node index.js updateUser --dburl ${baseURL} --repository "${testConfig.repository}" --username ${username} --password ${password} --newusername "${testConfig.newuser}" --newpassword "${testConfig.newpassword}" -a "${testConfig.updatedRole}" --version "${testConfig.version}" --triplestore ${triplestore}`,
                 (error, stdout, stderr) => {
@@ -186,7 +186,7 @@ describe('ENAPSO Graph Databases CLI Automated Test Suite', async () => {
     });
     it('Garbage Collection from the Graph Database', async (done) => {
         let compare = triplestore.replace(/"/g, '');
-        if (compare == 'ontotext-graphDB') {
+        if (compare == 'graphdb') {
             exec(
                 `node index.js gc --dburl ${baseURL} --username ${username} --password ${password} --version "${testConfig.version}" --triplestore ${triplestore}`,
                 (error, stdout, stderr) => {
