@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 // Innotrade ENAPSO Graph Database Command Line Interface (CLI)
-// (C) Copyright 2019-2020 Innotrade GmbH, Herzogenrath, NRW, Germany
+// (C) Copyright 2021-2022 Innotrade GmbH, Herzogenrath, NRW, Germany
 // Author(s): Alexander Schulze and Muhammad Yasir
 // for details regarding the options see:
 // https://github.com/75lb/command-line-args/blob/master/doc/API.md

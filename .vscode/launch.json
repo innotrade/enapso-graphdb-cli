@@ -1,6 +1,6 @@
 {
     // Innotrade ENAPSO Graph Databases Command Line Interface (CLI)
-    // (C) Copyright 2019-2020 Innotrade GmbH, Herzogenrath, NRW, Germany
+    // (C) Copyright 2021-2022 Innotrade GmbH, Herzogenrath, NRW, Germany
     // Author(s): Alexander Schulze and Muhammad Yasir
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
@@ -166,7 +166,7 @@
                 "-r",
                 "Test",
                 "--repotitle",
-                "Enapso Automated Test Repo",
+                "ENAPSO Automated Test Repo",
                 "--isShacl"
             ]
         },
