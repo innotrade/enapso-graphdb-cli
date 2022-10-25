@@ -464,6 +464,39 @@ const EnapsoGraphDBCLI = {
         }
     },
 
+    // perfom garbage collection
+    getResources: async function () {
+        try {
+            var lRes = await this.endpoint.getResources();
+            if (lRes && lRes.status === 200) {
+                console.log('Get resources successfully');
+                console.log(
+                    'HeapMemory Usage = ' +
+                        JSON.stringify(lRes.data.heapMemoryUsage) +
+                        '\n' +
+                        'Non HeapMemory Usage = ' +
+                        JSON.stringify(lRes.data.nonHeapMemoryUsage) +
+                        '\n' +
+                        'Thread Count = ' +
+                        lRes.data.threadCount +
+                        '\n' +
+                        'CPU Load = ' +
+                        lRes.data.cpuLoad +
+                        '\n' +
+                        'Class Count = ' +
+                        lRes.data.classCount
+                );
+                return 0;
+            } else {
+                console.log('Error on garbage collection: ' + lRes.message);
+                return -1;
+            }
+        } catch (err) {
+            console.log(err.message);
+            return err.status;
+        }
+    },
+
     transform: async function (aOptions) {
         try {
             var lSourceData = fs.readFileSync(aOptions.sourcefile);
@@ -577,6 +610,8 @@ const EnapsoGraphDBCLI = {
                 'garbageCollection' === lOptions.command
             ) {
                 retCode = await this.performGarbageCollection(lOptions);
+            } else if ('getResources' === lOptions.command) {
+                retCode = await this.getResources(lOptions);
             } else if ('removeRoles' === lOptions.command) {
                 retCode = await this.removeRoles(lOptions);
             } else if ('assignRoles' === lOptions.command) {

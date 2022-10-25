@@ -203,6 +203,25 @@ describe('ENAPSO Graph Databases CLI Automated Test Suite', async () => {
             done();
         }
     });
+    it('Get Resources of Graph Database', async (done) => {
+        let compare = triplestore.replace(/"/g, '');
+        if (compare == 'graphdb') {
+            exec(
+                `node index.js getResources --dburl ${baseURL} --username ${username} --password ${password} --version "${testConfig.version}" --triplestore ${triplestore}`,
+                (error, stdout, stderr) => {
+                    if (error !== null) {
+                        console.log(
+                            `Get Resources of graph database: ${stdout}`
+                        );
+                    }
+                    expect(stdout).to.include('successfully');
+                }
+            );
+            done();
+        } else {
+            done();
+        }
+    });
     it('Run Query in the Graph Database', async (done) => {
         exec(
             `node index.js query --dburl ${baseURL} --repository "${testConfig.repository}" --username ${username} --password ${password} --queryfile "${testConfig.queryFile}" --prefixfile "${testConfig.prefixFile}" --targetfile "${testConfig.resultFile}" --version "${testConfig.version}" --triplestore ${triplestore}`,

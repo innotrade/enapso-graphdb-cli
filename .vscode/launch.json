@@ -153,6 +153,21 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Get Resources",
+            "program": "${workspaceFolder}/index.js",
+            "args": [
+                "getResources",
+                "--dburl",
+                "http://localhost:7200",
+                "--username",
+                "Test",
+                "--password",
+                "Test"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Create Repository",
             "program": "${workspaceFolder}/index.js",
             "args": [
