@@ -12,9 +12,9 @@ const packageJson = require('./package.json');
 const commandLineArgs = require('command-line-args');
 const { EnapsoGraphDBClient } = require('@innotrade/enapso-graphdb-client');
 const { EnapsoGraphDBAdmin } = require('@innotrade/enapso-graphdb-admin');
-const {
-    EnapsoOntologyUploader
-} = require('@innotrade/enapso-ontology-uploader');
+// const {
+//     EnapsoOntologyUploader
+// } = require('@innotrade/enapso-ontology-uploader');
 
 // the default prefixes for all SPARQL queries
 const GRAPHDB_DEFAULT_PREFIXES = [
@@ -405,7 +405,7 @@ const EnapsoGraphDBCLI = {
                 return logErrorMsg(ERROR_NOREPOSITORY);
             }
             var lRes = await this.endpoint.clearRepository(lRepository, {});
-            if (lRes && lRes.status === 200) {
+            if (lRes && (lRes.status === 200 || lRes.status === 204)) {
                 console.log(
                     'Repository "' + lRepository + '" cleared successfully.'
                 );
@@ -425,28 +425,28 @@ const EnapsoGraphDBCLI = {
         }
     },
 
-    autoUpload: async function (aOptions) {
-        try {
-            let rawData = fs.readFileSync(aOptions.configfile);
-            let jsonData = JSON.parse(rawData);
-            try {
-                let res = await EnapsoOntologyUploader.add(jsonData);
-                console.log(res);
-            } catch (e) {
-                console.log(e);
-            }
-            EnapsoOntologyUploader.watch(function (error, result) {
-                if (error) {
-                    console.log(error);
-                } else {
-                    console.log(result);
-                }
-            });
-        } catch (err) {
-            console.log(err.message);
-            return err.status;
-        }
-    },
+    // autoUpload: async function (aOptions) {
+    //     try {
+    //         let rawData = fs.readFileSync(aOptions.configfile);
+    //         let jsonData = JSON.parse(rawData);
+    //         try {
+    //             let res = await EnapsoOntologyUploader.add(jsonData);
+    //             console.log(res);
+    //         } catch (e) {
+    //             console.log(e);
+    //         }
+    //         EnapsoOntologyUploader.watch(function (error, result) {
+    //             if (error) {
+    //                 console.log(error);
+    //             } else {
+    //                 console.log(result);
+    //             }
+    //         });
+    //     } catch (err) {
+    //         console.log(err.message);
+    //         return err.status;
+    //     }
+    // },
     // perfom garbage collection
     performGarbageCollection: async function () {
         try {

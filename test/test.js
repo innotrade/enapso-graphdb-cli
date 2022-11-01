@@ -7,7 +7,6 @@
 const { expect } = require('chai');
 const testConfig = require('./config');
 const exec = require('child_process').execSync;
-const cmd = require('node-cmd');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);

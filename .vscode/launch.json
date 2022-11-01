@@ -130,9 +130,9 @@
                 "--repository",
                 "Test",
                 "--username",
-                "Test",
+                "admin",
                 "--password",
-                "Test"
+                "root"
             ]
         },
         {
