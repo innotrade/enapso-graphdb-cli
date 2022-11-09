@@ -1,6 +1,6 @@
 {
     "name": "@innotrade/enapso-graphdb-cli",
-    "version": "1.3.9",
+    "version": "1.3.10",
     "description": "ENAPSO Graph Databases Command Line Interface",
     "main": "index.js",
     "bin": {
@@ -40,15 +40,15 @@
     "homepage": "https://github.com/innotrade/enapso-graphdb-cli#readme",
     "dependencies": {
         "@innotrade/enapso-config": "^1.3.3",
-        "@innotrade/enapso-graphdb-admin": "^1.4.15",
-        "@innotrade/enapso-graphdb-client": "^1.8.18",
-        "chai": "^4.3.6",
+        "@innotrade/enapso-graphdb-admin": "^1.4.16",
+        "@innotrade/enapso-graphdb-client": "^1.8.19",
+        "chai": "^4.3.7",
         "child_process": "^1.0.2",
         "command-line-args": "^5.2.1",
         "mocha": "^10.1.0"
     },
     "devDependencies": {
-        "eslint": "^8.26.0",
+        "eslint": "^8.27.0",
         "eslint-config-airbnb": "^19.0.4",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-import": "^2.26.0",
