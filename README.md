@@ -61,7 +61,7 @@ npm i -g @innotrade/enapso-graphdb-cli
 | [removeRoles](#removeroles)             | Remove existing roles of the user in graph database.                                                        | ✘                | ✘                  | ✔       |
 | [deleteUser](#deleteuser)               | Delete the user of the graph database.                                                                      | ✔                | ✘                  | ✔       |
 | [garbageCollection](#garbagecollection) | Perform garbage collection in the repository of graph database.                                             | ✔                | ✘                  | ✘       |
-| [getResources](#getResources)           | Perform garbage collection in the repository of graph database.                                             | ✔                | ✘                  | ✘       |
+| [getResources](#getresources)           | Get resources used by the repository of graph database.                                             | ✔                | ✘                  | ✘       |
 | [query](#query)                         | Perform read query against ontology imported in the repository of a graph database.                         | ✔                | ✔                  | ✔       |
 | [update](#update)                       | Perform update query against ontology imported in the repository of graph database.                         | ✔                | ✔                  | ✔       |
 
@@ -337,6 +337,30 @@ Update the data of the graph database
 enapsogdb update --dburl "http://localhost:7200" --repository "Test" --username "admin" --password "root" --queryfile "queries/createClass.sparql" --prefixfile "queries/prefixes.prf"
 
 ```
+
+</details>
+
+<details open>
+<summary>
+  
+## Auto Perform Garbage Collection
+</summary>
+
+enapso-graphdb-cli project contain the shell script, which check the memory used by graph database if it is more than 4 GB then it perform the garbage collection.
+
+## Prerequisites
+
+1. Install and run GraphDB 10.x (https://graphdb.ontotext.com/)
+2. Set the following variables in shell script file (`../shell-script/auto-perform-garbage-collection.sh`)
+	1. `repo` name of the repository of Graph database by default, it's value is "Test".
+	2. `baseURL` URL on which graph database is running by default, it' value is "http://localhost:7200".
+	3. `user` name of the user of the graph database by default, it' value is "admin".
+	4. `password` password of the user of the graph database by default, it' value is "root".
+	5. `reprtFile` path of result output by default, it's value is "../Report/resource-report.txt".
+
+## How to run shell script
+
+To run the shell script available at `../shell-scripts/auto-perform-garbage-collection.sh` access permission needs to be granted to the shell script and enapso-graphdb-cli executable (`../enapso-graphdb-cli-exe/`) which is corresponding to your operating system to run it successfully.
 
 </details>
 
