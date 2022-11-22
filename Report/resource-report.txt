@@ -1,0 +1,9 @@
+ENAPSO Graph Databases Command Line Interface (CLI) v1.3.10
+(C) 2021-2022 Innotrade GmbH, Herzogenrath, NRW, Germany, https://www.innotrade.com
+Get resources successfully
+HeapMemory Usage = {"max":2090860544,"committed":1073741824,"init":1073741824,"used":138958752}
+Non HeapMemory Usage = {"max":-1,"committed":180224000,"init":7667712,"used":175846776}
+Thread Count = 44
+CPU Load = 0.022980869209571052
+Class Count = 20241
+Memory Usage is not more than 4 GB
