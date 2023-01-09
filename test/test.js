@@ -8,8 +8,6 @@ const { expect } = require('chai');
 const testConfig = require('./config');
 const exec = require('child_process').execSync;
 const chai = require('chai');
-const chaiHttp = require('chai-http');
-chai.use(chaiHttp);
 var baseURL = process.argv[5].replace(/'/g, '"');
 var triplestore = process.argv[7].replace(/'/g, '"');
 var username = process.argv[9].replace(/'/g, '"');
