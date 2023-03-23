@@ -14,11 +14,11 @@
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
   <a href="https://github.com/innotrade/enapso-graphdb-cli/discussions">Discussion</a>
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-  <a href="#">Facebook</a>
+  <a href="https://www.facebook.com/InnotradeGmbH/">Facebook</a>
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-  <a href="#">Twitter</a>
+  <a href="https://twitter.com/innotrade?lang=en">Twitter</a>
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-  <a href="#">LinkedIn</a>
+  <a href="https://de.linkedin.com/company/innotrade-gmbh">LinkedIn</a>
   <br />
   <hr />
 </div>
@@ -37,7 +37,7 @@ There will be more graph databases added to this list in the future.
 
 You may also find these tools useful
 
--   [**ENAPSO Graph Database Client**](https://github.com/innotrade/enapso-graphdb-admin): To perform SPARQL queries and update statements against your knowledge graphs or ontologies stored in your graph database.
+-   [**ENAPSO Graph Database Client**](https://github.com/innotrade/enapso-graphdb-client): To perform SPARQL queries and update statements against your knowledge graphs or ontologies stored in your graph database.
 -   [**ENAPSO Graph Database Admin**](https://github.com/innotrade/enapso-graphdb-admin): To perform administrative and monitoring operations against your graph databases, such as importing and exporting ontologies/knowledge graphs and utilizing the graph database's special features.
 
 # 🛠️&nbsp;Installation
