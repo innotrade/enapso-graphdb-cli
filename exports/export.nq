@@ -1,0 +1,10 @@
+<http://ont.telekom.de/cia/model#MobileTariff83b549fe-7684-45ed-82be-97ea59757c38> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ont.telekom.de/cia/model#MobileTariff> .
+<http://ont.telekom.de/cia/model#MobileTariff83b549fe-7684-45ed-82be-97ea59757c38> <http://ont.telekom.de/cia/model#name> "Magenta Mobile XXL" .
+<http://ont.telekom.de/cia/model#MobileTariff83b549fe-7684-45ed-82be-97ea59757c38> <http://ont.telekom.de/cia/model#hasMobileCommunicationStandard> <http://ont.telekom.de/cia/data#MobileCommunicationStandard_6984bb96_235b_41c1_8b91_608f5a041a6e> .
+<http://ont.telekom.de/cia/model#DataVolume_3ac0420b-60bc-4dbf-ad43-f19bd56dc549> <http://qudt.org/schema/qudt/hasUnit> <http://qudt.org/vocab/unit/GigaBYTE> .
+<http://ont.telekom.de/cia/model#DataVolume_3ac0420b-60bc-4dbf-ad43-f19bd56dc549> <http://ont.telekom.de/cia/model#value> "90"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://ont.telekom.de/cia/model#Duration_a3a67404-417b-4a5b-b01f-fac4347e9c7d> <http://qudt.org/schema/qudt/hasUnit> <http://qudt.org/vocab/unit/WK> .
+<http://ont.telekom.de/cia/model#Duration_a3a67404-417b-4a5b-b01f-fac4347e9c7d> <http://ont.telekom.de/cia/model#value> "8"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://ont.telekom.de/cia/model#Price_009a4103-bf64-4361-bdad-7f10cd8a55c6> <http://qudt.org/schema/qudt/hasUnit> <http://qudt.org/vocab/unit/Euro> .
+<http://ont.telekom.de/cia/model#Price_009a4103-bf64-4361-bdad-7f10cd8a55c6> <http://ont.telekom.de/cia/model#value> "199.95"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<http://ont.telekom.de/cia/recommendation/data#CriteriaSpecification_593d011e_ce03_4463_9069_61ae9745e953> <http://ont.enapso.com/recommendation#hasContext> <http://ont.telekom.de/cia/recommendation/data#Tariff_a5a2139e_1450_47ab_b600_f1990d36f80d> .
