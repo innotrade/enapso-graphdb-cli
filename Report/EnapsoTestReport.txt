@@ -1,0 +1,3 @@
+ENAPSO Graph Databases Command Line Interface (CLI) v1.3.13
+(C) 2021-2022 Innotrade GmbH, Herzogenrath, NRW, Germany, https://www.innotrade.com
+Export file successfully downloaded.

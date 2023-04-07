@@ -18,14 +18,12 @@
                 "http://localhost:7200",
                 "--repository",
                 "Test",
-                "--context",
-                "http://ont.enapso.com/test",
                 "--targetfile",
                 "exports/export.ttl",
                 "--username",
-                "Test",
+                "admin",
                 "--password",
-                "Test",
+                "root",
                 "--format",
                 "text/turtle"
             ]
@@ -163,6 +161,21 @@
                 "Test",
                 "--password",
                 "Test"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Get Repositories",
+            "program": "${workspaceFolder}/index.js",
+            "args": [
+                "getRepositories",
+                "--dburl",
+                "http://localhost:7200",
+                "--username",
+                "admin",
+                "--password",
+                "root"
             ]
         },
         {

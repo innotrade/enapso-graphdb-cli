@@ -496,6 +496,26 @@ const EnapsoGraphDBCLI = {
             return err.status;
         }
     },
+    getRepositories: async function () {
+        try {
+            var lRes = await this.endpoint.getRepositories();
+            let repo = [];
+            if (lRes && lRes.status === 200) {
+                console.log('Getting repositories successfully');
+                for (const item of lRes.data) {
+                    repo.push(item.id);
+                }
+                console.log('repositories: ' + repo);
+                return 0;
+            } else {
+                console.log('Error on Getting repositories: ' + lRes.message);
+                return -1;
+            }
+        } catch (err) {
+            console.log(err.message);
+            return err.status;
+        }
+    },
 
     transform: async function (aOptions) {
         try {
@@ -612,6 +632,8 @@ const EnapsoGraphDBCLI = {
                 retCode = await this.performGarbageCollection(lOptions);
             } else if ('getResources' === lOptions.command) {
                 retCode = await this.getResources(lOptions);
+            } else if ('getRepositories' === lOptions.command) {
+                retCode = await this.getRepositories(lOptions);
             } else if ('removeRoles' === lOptions.command) {
                 retCode = await this.removeRoles(lOptions);
             } else if ('assignRoles' === lOptions.command) {
