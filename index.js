@@ -150,7 +150,7 @@ const EnapsoGraphDBCLI = {
             });
             if (res.success) {
                 console.log(
-                    'File ' + aOptions.sourcefile + ' successfully imported.'
+                    'File ' + aOptions.filename + ' successfully imported.'
                 );
                 return 0;
             } else {
