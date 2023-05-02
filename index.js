@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 // Innotrade ENAPSO Graph Database Command Line Interface (CLI)
-// (C) Copyright 2021-2022 Innotrade GmbH, Herzogenrath, NRW, Germany
+// (C) Copyright 2022-2023 Innotrade GmbH, Herzogenrath, NRW, Germany
 // Author(s): Alexander Schulze and Muhammad Yasir
 // for details regarding the options see:
 // https://github.com/75lb/command-line-args/blob/master/doc/API.md
@@ -27,7 +27,7 @@ const PROGRAM_TITLE =
     'ENAPSO Graph Databases Command Line Interface (CLI) v' +
     packageJson.version;
 const COPYRIGHT =
-    '(C) 2021-2022 Innotrade GmbH, Herzogenrath, NRW, Germany, https://www.innotrade.com';
+    '(C) 2022-2023 Innotrade GmbH, Herzogenrath, NRW, Germany, https://www.innotrade.com';
 
 const ERROR_NO_OR_INVALID_COMMAND = 1,
     ERROR_NO_DB_URL = 2,
@@ -82,6 +82,7 @@ const EnapsoGraphDBCLI = {
         { name: 'verbose', alias: 'v', type: Boolean },
         { name: 'targetfile', alias: 't', type: String },
         { name: 'sourcefile', alias: 's', type: String },
+        { name: 'filename', type: String },
         { name: 'format', alias: 'f', type: String },
         { name: 'queryfile', alias: 'q', type: String },
         { name: 'prefixfile', alias: 'x', type: String },
@@ -140,7 +141,27 @@ const EnapsoGraphDBCLI = {
             return err.status;
         }
     },
-
+    importServerFile: async function (aOptions) {
+        try {
+            var res = await this.endpoint.importServerFile({
+                filename: aOptions.filename,
+                baseIRI: aOptions.baseiri,
+                context: aOptions.context
+            });
+            if (res.success) {
+                console.log(
+                    'File ' + aOptions.sourcefile + ' successfully imported.'
+                );
+                return 0;
+            } else {
+                console.log(res);
+                return -1;
+            }
+        } catch (err) {
+            console.log(err);
+            return err.status;
+        }
+    },
     createRepository: async function (aOptions) {
         try {
             var res = await this.endpoint.createRepository({
@@ -602,6 +623,8 @@ const EnapsoGraphDBCLI = {
                 'upload' === lOptions.command
             ) {
                 retCode = await this.import(lOptions);
+            } else if ('importServerFile' === lOptions.command) {
+                retCode = await this.importServerFile(lOptions);
             } else if ('transform' === lOptions.command) {
                 retCode = await this.transform(lOptions);
             } else if ('query' === lOptions.command) {

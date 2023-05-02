@@ -61,9 +61,10 @@ npm i -g @innotrade/enapso-graphdb-cli
 | [removeRoles](#removeroles)             | Remove existing roles of the user in graph database.                                                        | ✘                | ✘                  | ✔       |
 | [deleteUser](#deleteuser)               | Delete the user of the graph database.                                                                      | ✔                | ✘                  | ✔       |
 | [garbageCollection](#garbagecollection) | Perform garbage collection in the repository of graph database.                                             | ✔                | ✘                  | ✘       |
-| [getResources](#getresources)           | Get resources used by the repository of graph database.                                             | ✔                | ✘                  | ✘       |
+| [getResources](#getresources)           | Get resources used by the repository of graph database.                                                     | ✔                | ✘                  | ✘       |
 | [query](#query)                         | Perform read query against ontology imported in the repository of a graph database.                         | ✔                | ✔                  | ✔       |
 | [update](#update)                       | Perform update query against ontology imported in the repository of graph database.                         | ✔                | ✔                  | ✔       |
+| [importServerFile](#importServerFile)   | Import the file which are available on the graphdb server.                                                  | ✔                | ✔                  | ✔       |
 
 ### Parameters
 
@@ -127,6 +128,21 @@ Upload from a file to the repository of graph database using RDF4J API:
 ```
 
 enapsogdb import --dburl "http://localhost:7200" --apiType "RDF4J" --repository "Test" --context "http://ont.enapso.com/test" --baseiri "http://ont.enapso.com/test#" --sourcefile "imports/dotnetpro_demo_ontology_2.owl" --username "admin" --password "root" --format "application/rdf+xml"
+
+```
+
+</details>
+
+<summary>
+  
+## import Server File
+</summary>
+
+Import file which are available on the server
+
+```
+
+enapsogdb importServerFile --dburl "http://localhost:7200" --repository "Test" --context "http://ont.enapso.com/test" --baseiri "http://ont.enapso.com/test#" --filename "dotnetpro_demo_ontology_2.owl" --username "admin" --password "root"
 
 ```
 
@@ -352,11 +368,11 @@ enapso-graphdb-cli project contain the shell script, which check the memory used
 
 1. Install and run GraphDB 10.x (https://graphdb.ontotext.com/)
 2. Set the following variables in shell script file (`../shell-script/auto-perform-garbage-collection.sh`)
-	1. `repo` name of the repository of Graph database by default, it's value is "Test".
-	2. `baseURL` URL on which graph database is running by default, it' value is "http://localhost:7200".
-	3. `user` name of the user of the graph database by default, it' value is "admin".
-	4. `password` password of the user of the graph database by default, it' value is "root".
-	5. `reprtFile` path of result output by default, it's value is "../Report/resource-report.txt".
+    1. `repo` name of the repository of Graph database by default, it's value is "Test".
+    2. `baseURL` URL on which graph database is running by default, it' value is "http://localhost:7200".
+    3. `user` name of the user of the graph database by default, it' value is "admin".
+    4. `password` password of the user of the graph database by default, it' value is "root".
+    5. `reprtFile` path of result output by default, it's value is "../Report/resource-report.txt".
 
 ## How to run shell script
 

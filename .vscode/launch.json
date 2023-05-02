@@ -1,6 +1,6 @@
 {
     // Innotrade ENAPSO Graph Databases Command Line Interface (CLI)
-    // (C) Copyright 2021-2022 Innotrade GmbH, Herzogenrath, NRW, Germany
+    // (C) Copyright 2022-2023 Innotrade GmbH, Herzogenrath, NRW, Germany
     // Author(s): Alexander Schulze and Muhammad Yasir
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
@@ -53,6 +53,29 @@
                 "Test",
                 "--format",
                 "application/rdf+xml"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Import Server File (Upload to Graph Database)",
+            "program": "${workspaceFolder}/index.js",
+            "args": [
+                "importServerFile",
+                "--dburl",
+                "http://localhost:7200",
+                "--repository",
+                "Test",
+                "--context",
+                "http://ont.enapso.com/test",
+                "--baseiri",
+                "http://ont.enapso.com/test#",
+                "--filename",
+                "JSONo.n3",
+                "--username",
+                "admin",
+                "--password",
+                "root"
             ]
         },
         {
