@@ -17,7 +17,7 @@ module.exports = Object.freeze({
         '[{"action":"CREATE","resource_type":"db","resource":["Test"]}]',
     updatedRole:
         'ROLE_USER WRITE_REPO_Test READ_REPO_Test WRITE_REPO_EnapsoDotNetProDemo READ_REPO_EnapsoDotNetProDemo',
-    // version: 9,
+    version: 10.2,
     newRepo: 'TestesRepository',
     importFormat: 'application/rdf+xml',
     importContext: 'http://ont.enapso.com/repo',
