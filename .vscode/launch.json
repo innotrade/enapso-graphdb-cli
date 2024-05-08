@@ -15,7 +15,7 @@
             "args": [
                 "export",
                 "--dburl",
-                "http://localhost:7200",
+                "http://localhost:3030",
                 "--repository",
                 "Test",
                 "--targetfile",
@@ -25,7 +25,9 @@
                 "--password",
                 "root",
                 "--format",
-                "text/turtle"
+                "text/turtle",
+                "--triplestore",
+                "fuseki"
             ]
         },
         {

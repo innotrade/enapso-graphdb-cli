@@ -149,6 +149,7 @@ describe('ENAPSO Graph Databases CLI Automated Test Suite', async () => {
         exec(
             `node index.js export --dburl ${baseURL} --repository "${testConfig.repository}" --context "${testConfig.exportContext}" --targetfile "${testConfig.exportTargetFile}"  --username ${username} --password ${password} --format "${testConfig.exportFormat}" --version "${testConfig.version}" --triplestore ${triplestore}`,
             (error, stdout, stderr) => {
+                console.log(error, stdout, stderr)
                 if (error !== null) {
                     console.log(`download ontology : ${stdout}`);
                 }
