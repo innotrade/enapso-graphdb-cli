@@ -15,7 +15,7 @@
             "args": [
                 "export",
                 "--dburl",
-                "http://localhost:3030",
+                "http://localhost/fuseki",
                 "--repository",
                 "Test",
                 "--targetfile",
@@ -38,7 +38,7 @@
             "args": [
                 "import",
                 "--dburl",
-                "http://localhost:7200",
+                "http://localhost/fuseki",
                 "--repository",
                 "Test",
                 "--apiType",
@@ -48,13 +48,15 @@
                 "--baseiri",
                 "http://ont.enapso.com/test#",
                 "--sourcefile",
-                "imports/test.owl",
+                "exports/export.trig",
                 "--username",
                 "Test",
                 "--password",
                 "Test",
                 "--format",
-                "application/rdf+xml"
+                "application/x-trig",
+                "--triplestore",
+                "fuseki"
             ]
         },
         {

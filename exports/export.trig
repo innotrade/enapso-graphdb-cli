@@ -116,12 +116,73 @@
                               <http://www.w3.org/2001/XMLSchema#string>;
                       <http://www.w3.org/2002/07/owl#onProperty>
                               <http://ont.enapso.com/views#preJSScript>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#allValuesFrom>
+                              <http://ont.enapso.com/views#TemplateVariable>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/views#hasTemplateVariables>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#maxQualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>;
+                      <http://www.w3.org/2002/07/owl#onClass>
+                              <http://ont.enapso.com/views#Role>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/views#hasRoles>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/views#name>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/views#template>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#maxQualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/views#postJSScript>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#maxQualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/views#preJSScript>
                     ] .
     
     <http://ont.enapso.com/views#Role>
             a       <http://www.w3.org/2002/07/owl#Class>;
             <http://www.w3.org/2000/01/rdf-schema#label>
                     "Role"@en;
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/views#name>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
             <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                     [ a       <http://www.w3.org/2002/07/owl#Restriction>;
                       <http://www.w3.org/2002/07/owl#onDataRange>
@@ -138,6 +199,56 @@
                     "SPARQL Template"@en;
             <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                     <http://ont.enapso.com/views#Template>;
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#allValuesFrom>
+                              <http://ont.enapso.com/views#Role>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/views#hasRoles>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#allValuesFrom>
+                              <http://ont.enapso.com/views#TemplateVariable>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/views#hasTemplateVariables>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/views#name>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/views#template>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#maxQualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/views#postJSScript>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#maxQualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/views#preJSScript>
+                    ];
             <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                     [ a       <http://www.w3.org/2002/07/owl#Restriction>;
                       <http://www.w3.org/2002/07/owl#allValuesFrom>
@@ -210,6 +321,24 @@
                               <http://ont.enapso.com/views#name>;
                       <http://www.w3.org/2002/07/owl#qualifiedCardinality>
                               "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#maxQualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>;
+                      <http://www.w3.org/2002/07/owl#onClass>
+                              <http://ont.enapso.com/datatypes#DataType>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/views#hasDataType>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/views#name>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
                     ] .
     
     <http://ont.enapso.com/views#SPARQLTemplate_e8c57258_4f1c_477f_ba3e_29db40fc10c1>
@@ -252,6 +381,33 @@
             a       <http://www.w3.org/2002/07/owl#Class>;
             <http://www.w3.org/2000/01/rdf-schema#label>
                     "Address"@en , "Anschrift"@de;
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#city>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#street>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#zipcode>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
             <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                     [ a       <http://www.w3.org/2002/07/owl#Restriction>;
                       <http://www.w3.org/2002/07/owl#onDataRange>
@@ -505,6 +661,26 @@
                                         ]
                               ]
                     ];
+            <http://www.w3.org/2000/01/rdf-schema#range>
+                    [ a       <http://www.w3.org/2000/01/rdf-schema#Datatype>;
+                      <http://www.w3.org/2002/07/owl#oneOf>
+                              [ a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#List>;
+                                <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                        "0.0"^^<http://www.w3.org/2001/XMLSchema#float>;
+                                <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                        [ a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#List>;
+                                          <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                                  "19.0"^^<http://www.w3.org/2001/XMLSchema#float>;
+                                          <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                                  [ a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#List>;
+                                                    <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                                            "7.0"^^<http://www.w3.org/2001/XMLSchema#float>;
+                                                    <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                                            ()
+                                                  ]
+                                        ]
+                              ]
+                    ];
             <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
                     <http://www.w3.org/2002/07/owl#topDataProperty> .
     
@@ -581,12 +757,70 @@
                               <http://ont.enapso.com/dotnetpro#companyName>;
                       <http://www.w3.org/2002/07/owl#qualifiedCardinality>
                               "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#hasAddress>;
+                      <http://www.w3.org/2002/07/owl#someValuesFrom>
+                              <http://ont.enapso.com/dotnetpro#Address>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#companyName>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
                     ] .
     
     <http://ont.enapso.com/dotnetpro#ContactData>
             a       <http://www.w3.org/2002/07/owl#Class>;
             <http://www.w3.org/2000/01/rdf-schema#label>
                     "Contact Data"@en , "Kontaktdaten"@de;
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#allValuesFrom>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#faxNumber>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#allValuesFrom>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#mobilePhoneNumber>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#allValuesFrom>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#privateEmail>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#allValuesFrom>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#privatePhoneNumber>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#allValuesFrom>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#workEmail>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#allValuesFrom>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#workPhoneNumber>
+                    ];
             <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                     [ a       <http://www.w3.org/2002/07/owl#Restriction>;
                       <http://www.w3.org/2002/07/owl#allValuesFrom>
@@ -651,6 +885,22 @@
                               <http://ont.enapso.com/dotnetpro#hasInvoiceAddress>;
                       <http://www.w3.org/2002/07/owl#qualifiedCardinality>
                               "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#allValuesFrom>
+                              <http://ont.enapso.com/dotnetpro#Address>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#hasDeliveryAddress>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onClass>
+                              <http://ont.enapso.com/dotnetpro#Address>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#hasInvoiceAddress>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
                     ] .
     
     <http://ont.enapso.com/dotnetpro#Developer>
@@ -669,6 +919,42 @@
             a       <http://www.w3.org/2002/07/owl#Class>;
             <http://www.w3.org/2000/01/rdf-schema#label>
                     "Position"@de , "Document Item"@en;
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onClass>
+                              <http://ont.enapso.com/dotnetpro#Product>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#hasProduct>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#float>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#Description>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#float>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#amount>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#float>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#price>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
             <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                     [ a       <http://www.w3.org/2002/07/owl#Restriction>;
                       <http://www.w3.org/2002/07/owl#onClass>
@@ -772,6 +1058,69 @@
                               <http://ont.enapso.com/dotnetpro#vatRate>;
                       <http://www.w3.org/2002/07/owl#qualifiedCardinality>
                               "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#artno>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#longDescription>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#name>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#float>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#purchasePrice>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#float>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#salesPrice>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#shortDescription>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#float>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#vatRate>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
                     ] .
     
     <http://ont.enapso.com/dotnetpro#Employee>
@@ -799,6 +1148,13 @@
                     "Invoice"@en , "Rechnung"@de;
             <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                     <http://ont.enapso.com/dotnetpro#Document>;
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#hasDocumentItem>;
+                      <http://www.w3.org/2002/07/owl#someValuesFrom>
+                              <http://ont.enapso.com/dotnetpro#DocumentItem>
+                    ];
             <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                     [ a       <http://www.w3.org/2002/07/owl#Restriction>;
                       <http://www.w3.org/2002/07/owl#onProperty>
@@ -858,6 +1214,42 @@
                               <http://ont.enapso.com/dotnetpro#surname>;
                       <http://www.w3.org/2002/07/owl#qualifiedCardinality>
                               "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onClass>
+                              <http://ont.enapso.com/dotnetpro#Address>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#hasAddress>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#gender>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#givenname>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#surname>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
                     ] .
     
     <http://ont.enapso.com/dotnetpro#Sales>
@@ -877,6 +1269,13 @@
                               <http://ont.enapso.com/dotnetpro#Product>;
                       <http://www.w3.org/2002/07/owl#onProperty>
                               <http://ont.enapso.com/dotnetpro#hasProduct>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#allValuesFrom>
+                              <http://ont.enapso.com/dotnetpro#Product>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#hasProduct>
                     ] .
     
     <http://ont.enapso.com/dotnetpro#Supplier>
@@ -890,6 +1289,47 @@
             a       <http://www.w3.org/2002/07/owl#Class>;
             <http://www.w3.org/2000/01/rdf-schema#label>
                     "Test Class"@en , "Test-Klasse"@de;
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#testDataProp>;
+                      <http://www.w3.org/2002/07/owl#someValuesFrom>
+                              <http://www.w3.org/2001/XMLSchema#string>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#allValuesFrom>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#testDataProp>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#minQualifiedCardinality>
+                              "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#testDataProp>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#testDataProp>;
+                      <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                              "3"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                    ];
+            <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                    [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                      <http://www.w3.org/2002/07/owl#maxQualifiedCardinality>
+                              "2"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>;
+                      <http://www.w3.org/2002/07/owl#onDataRange>
+                              <http://www.w3.org/2001/XMLSchema#string>;
+                      <http://www.w3.org/2002/07/owl#onProperty>
+                              <http://ont.enapso.com/dotnetpro#testDataProp>
+                    ];
             <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                     [ a       <http://www.w3.org/2002/07/owl#Restriction>;
                       <http://www.w3.org/2002/07/owl#onProperty>
@@ -1336,48 +1776,32 @@
                 ]
               )
     ] .
-}
-
-<http://ont.enapso.de/person> {
-    <http://enapso.de.master._prs_001>
-            a       <http://www.enapso.de/metadata/ontologies/human#Person>;
-            <http://www.enapso.de/metadata/ontologies/human#familyName>
-                    "Bertele";
-            <http://www.enapso.de/metadata/ontologies/human#givenName>
-                    "Brigitte Maria" .
     
-    <http://enapso.de.master._prs_002>
-            a       <http://www.enapso.de/metadata/ontologies/human#Person>;
-            <http://www.enapso.de/metadata/ontologies/human#familyName>
-                    "Bitter";
-            <http://www.enapso.de/metadata/ontologies/human#givenName>
-                    "Lisa" .
+    [ a       <http://www.w3.org/2002/07/owl#Class>;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://ont.enapso.com/dotnetpro#ImmaterialProduct>;
+      <http://www.w3.org/2002/07/owl#intersectionOf>
+              ( <http://ont.enapso.com/dotnetpro#Product>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ont.enapso.com/dotnetpro#url>;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.w3.org/2001/XMLSchema#string>
+                ]
+              )
+    ] .
     
-    <http://enapso.de.master._prs_003>
-            a       <http://www.enapso.de/metadata/ontologies/human#Person>;
-            <http://www.enapso.de/metadata/ontologies/human#familyName>
-                    "Bohn";
-            <http://www.enapso.de/metadata/ontologies/human#givenName>
-                    "Thomas" .
-    
-    <http://enapso.de.master._prs_004>
-            a       <http://www.enapso.de/metadata/ontologies/human#Person>;
-            <http://www.enapso.de/metadata/ontologies/human#familyName>
-                    "Bonny";
-            <http://www.enapso.de/metadata/ontologies/human#givenName>
-                    "Jan" .
-    
-    <http://enapso.de.master._prs_005>
-            a       <http://www.enapso.de/metadata/ontologies/human#Person>;
-            <http://www.enapso.de/metadata/ontologies/human#familyName>
-                    "Büscher";
-            <http://www.enapso.de/metadata/ontologies/human#givenName>
-                    "Holger" .
-    
-    <http://enapso.de.master._prs_006>
-            a       <http://www.enapso.de/metadata/ontologies/human#Person>;
-            <http://www.enapso.de/metadata/ontologies/human#familyName>
-                    "Carle";
-            <http://www.enapso.de/metadata/ontologies/human#givenName>
-                    "Jürgen" .
+    [ a       <http://www.w3.org/2002/07/owl#Class>;
+      <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+              <http://ont.enapso.com/dotnetpro#MaterialProduct>;
+      <http://www.w3.org/2002/07/owl#intersectionOf>
+              ( <http://ont.enapso.com/dotnetpro#Product>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction>;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ont.enapso.com/dotnetpro#weight>;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.w3.org/2001/XMLSchema#float>
+                ]
+              )
+    ] .
 }
