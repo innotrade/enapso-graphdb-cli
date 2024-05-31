@@ -19,7 +19,7 @@
                 "--repository",
                 "Test",
                 "--targetfile",
-                "exports",
+                "exports.trig",
                 "--username",
                 "admin",
                 "--password",
@@ -29,7 +29,7 @@
                 "--triplestore",
                 "fuseki",
                 "--context",
-                "[\"http://ont.enapso.com/views\"]"
+                "[\"http://ont.enapso.com/views\",\"http://ont.enapso.com/dotnetpro\"]"
             ]
         },
         {
