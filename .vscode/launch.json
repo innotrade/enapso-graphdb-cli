@@ -15,11 +15,11 @@
             "args": [
                 "export",
                 "--dburl",
-                "http://localhost/fuseki",
+                "http://localhost:3030",
                 "--repository",
                 "Test",
                 "--targetfile",
-                "exports/export.ttl",
+                "exports",
                 "--username",
                 "admin",
                 "--password",
@@ -27,7 +27,9 @@
                 "--format",
                 "text/turtle",
                 "--triplestore",
-                "fuseki"
+                "fuseki",
+                "--context",
+                "[\"http://ont.enapso.com/views\"]"
             ]
         },
         {

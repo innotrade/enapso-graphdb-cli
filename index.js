@@ -98,6 +98,7 @@ const EnapsoGraphDBCLI = {
 
     export: async function (aOptions) {
         try {
+            aOptions.context=this.parseIfJsonArray(aOptions.context);
             var res = await this.endpoint.downloadToFile({
                 repository: aOptions.repository,
                 format: aOptions.format,
@@ -567,6 +568,19 @@ const EnapsoGraphDBCLI = {
         } catch (err) {
             console.log(err.message);
             return err.status;
+        }
+    },
+
+    parseIfJsonArray(inputString) {
+        if (inputString && inputString.startsWith('[') && inputString.endsWith(']')) {
+            try {
+                return JSON.parse(inputString);
+            } catch (error) {
+                console.error('Invalid JSON array:', error);
+                return null;
+            }
+        } else {
+           return inputString;
         }
     },
 
