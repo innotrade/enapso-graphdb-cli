@@ -4,15 +4,20 @@
 // Innotrade ENAPSO Graph Database CLI - Automated Test Suite
 // (C) Copyright 2021-2021 Innotrade GmbH, Herzogenrath, NRW, Germany
 // Author: Alexander Schulze and Muhammad Yasir
-const { expect } = require('chai');
 const testConfig = require('./config');
 const exec = require('child_process').execSync;
-const chai = require('chai');
 var baseURL = process.argv[5].replace(/'/g, '"');
 var triplestore = process.argv[7].replace(/'/g, '"');
 var username = process.argv[9].replace(/'/g, '"');
 var password = process.argv[11].replace(/'/g, '"');
 describe('ENAPSO Graph Databases CLI Automated Test Suite', async () => {
+    let chai, expect;
+
+    // Setup - load chai using dynamic import before tests run
+    before(async function () {
+        chai = await import('chai');
+        expect = chai.expect;
+    });
     it('Create repository in Graph Database', async (done) => {
         exec(
             `node index.js createRepository --dburl ${baseURL} --repository "${testConfig.newRepo}" --repotitle "${testConfig.newRepoTitle}"   --username ${username} --password ${password} --version "${testConfig.version}" --triplestore ${triplestore}`,
