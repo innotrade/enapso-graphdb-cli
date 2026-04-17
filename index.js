@@ -364,7 +364,7 @@ const EnapsoGraphDBCLI = {
         try {
             var lQuery;
             try {
-                lQuery = fs.readFileSync(aOptions.queryfile);
+                lQuery = fs.readFileSync(aOptions.queryfile).toString();
             } catch (err) {
                 console.log('File ' + aOptions.queryfile + ' cannot be read');
                 return -1;

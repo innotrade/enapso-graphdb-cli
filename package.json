@@ -1,6 +1,6 @@
 {
     "name": "@innotrade/enapso-graphdb-cli",
-    "version": "1.3.26",
+    "version": "1.4.0",
     "description": "ENAPSO Graph Databases Command Line Interface",
     "main": "index.js",
     "bin": {
@@ -40,18 +40,23 @@
     "homepage": "https://github.com/innotrade/enapso-graphdb-cli#readme",
     "dependencies": {
         "@innotrade/enapso-config": "^1.3.3",
-        "@innotrade/enapso-graphdb-admin": "^1.5.12",
+        "@innotrade/enapso-graphdb-admin": "^1.6.0",
         "@innotrade/enapso-graphdb-cli": "file:",
-        "@innotrade/enapso-graphdb-client": "^1.9.8",
-        "axios": "1.9.0",
-        "chai": "^5.2.0",
+        "@innotrade/enapso-graphdb-client": "^1.10.0",
+        "axios": "^1.15.0",
         "child_process": "^1.0.2",
         "command-line-args": "^6.0.1",
-        "mocha": "^11.5.0",
         "stream": "^0.0.3"
     },
     "devDependencies": {
+        "chai": "^5.2.0",
+        "mocha": "^11.5.0",
         "prettier": "^3.5.3"
+    },
+    "overrides": {
+        "diff": "^9.0.0",
+        "serialize-javascript": "^7.0.5",
+        "glob": "^13.0.0"
     },
     "pkg": {
         "assets": [
